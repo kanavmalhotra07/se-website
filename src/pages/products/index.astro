@@ -1,0 +1,925 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const nwRegularShades = [
+  { src: '/images/catalogue/nw-light-grey.jpg',   name: 'Light Grey'   },
+  { src: '/images/catalogue/nw-light-camel.jpg',  name: 'Light Camel'  },
+  { src: '/images/catalogue/nw-camel.jpg',         name: 'Camel'        },
+  { src: '/images/catalogue/nw-light-brown.jpg',  name: 'Light Brown'  },
+  { src: '/images/catalogue/nw-dark-brown.jpg',   name: 'Dark Brown'   },
+  { src: '/images/catalogue/nw-dark-grey.jpg',    name: 'Dark Grey'    },
+  { src: '/images/catalogue/nw-black.jpg',         name: 'Black'        },
+  { src: '/images/catalogue/nw-blue-black.jpg',   name: 'Blue Black'   },
+  { src: '/images/catalogue/nw-green-black.jpg',  name: 'Green Black'  },
+  { src: '/images/catalogue/nw-plain-green.jpg',  name: 'Plain Green'  },
+  { src: '/images/catalogue/nw-red.jpg',           name: 'Red'          },
+  { src: '/images/catalogue/nw-red-black.jpg',    name: 'Red Black'    },
+  { src: '/images/catalogue/nw-magenta.jpg',       name: 'Magenta'      },
+  { src: '/images/catalogue/nw-blue.jpg',          name: 'Plain Blue'   },
+];
+
+const nwPremiumShades = [
+  { src: '/images/catalogue/nw-p-orange.jpg',        name: 'Orange'       },
+  { src: '/images/catalogue/nw-p-safron.jpg',        name: 'Saffron'      },
+  { src: '/images/catalogue/nw-p-yellow.jpg',        name: 'Yellow'       },
+  { src: '/images/catalogue/nw-p-yellow-green.jpg',  name: 'Yellow Green' },
+  { src: '/images/catalogue/nw-p-cactus-green.jpg',  name: 'Cactus Green' },
+  { src: '/images/catalogue/nw-p-aqua-green.jpg',    name: 'Aqua Green'   },
+  { src: '/images/catalogue/nw-p-firozi-blue.jpg',   name: 'Firozi Blue'  },
+  { src: '/images/catalogue/nw-p-oasis-blue.jpg',    name: 'Oasis Blue'   },
+  { src: '/images/catalogue/nw-p-turkish-blue.jpg',  name: 'Turkish Blue' },
+  { src: '/images/catalogue/nw-p-violet.jpg',        name: 'Violet'       },
+  { src: '/images/catalogue/nw-p-purple.jpg',        name: 'Purple'       },
+  { src: '/images/catalogue/nw-p-dark-purple.jpg',   name: 'Dark Purple'  },
+  { src: '/images/catalogue/nw-p-pink.jpg',           name: 'Pink'         },
+  { src: '/images/catalogue/nw-p-golden.jpg',         name: 'Golden'       },
+  { src: '/images/catalogue/nw-p-silver-grey.jpg',   name: 'Silver Grey'  },
+];
+
+const velourShades = [
+  { src: '/images/catalogue/velour-silver-grey.jpg', name: 'Silver Grey'  },
+  { src: '/images/catalogue/velour-camel.jpg',        name: 'Camel'        },
+  { src: '/images/catalogue/velour-dark-grey.jpg',    name: 'Dark Grey'    },
+  { src: '/images/catalogue/velour-black.jpg',        name: 'Black'        },
+  { src: '/images/catalogue/velour-powder-blue.jpg',  name: 'Powder Blue'  },
+  { src: '/images/catalogue/velour-pastel-green.jpg', name: 'Pastel Green' },
+  { src: '/images/catalogue/velour-medium-grey.jpg',  name: 'Medium Grey'  },
+  { src: '/images/catalogue/velour-dark-brown.jpg',   name: 'Dark Brown'   },
+  { src: '/images/catalogue/velour-pink.jpg',          name: 'Pink'         },
+  { src: '/images/catalogue/velour-red.jpg',           name: 'Red'          },
+  { src: '/images/catalogue/velour-red-black.jpg',    name: 'Red Black'    },
+];
+
+const ribbedShades = [
+  { src: '/images/catalogue/ribbed-medium-grey.jpg', name: 'Medium Grey' },
+  { src: '/images/catalogue/ribbed-dark-grey.jpg',   name: 'Dark Grey'   },
+  { src: '/images/catalogue/ribbed-black.jpg',        name: 'Black'       },
+  { src: '/images/catalogue/ribbed-grey.jpg',         name: 'Grey'        },
+  { src: '/images/catalogue/ribbed-powder-blue.jpg',  name: 'Powder Blue' },
+  { src: '/images/catalogue/ribbed-red.jpg',          name: 'Red'         },
+  { src: '/images/catalogue/ribbed-dark-brown.jpg',   name: 'Dark Brown'  },
+];
+
+const loopPileShades = [
+  { src: '/images/catalogue/lp-beige.jpg',         name: 'Beige'    },
+  { src: '/images/catalogue/lp-blue.jpg',          name: 'Blue'     },
+  { src: '/images/catalogue/lp-brown.jpg',         name: 'Brown'    },
+  { src: '/images/catalogue/lp-charcoal.jpg',      name: 'Charcoal' },
+  { src: '/images/catalogue/loop-pile-grey.jpg',   name: 'Grey'     },
+  { src: '/images/catalogue/loop-pile-maroon.jpg', name: 'Maroon'   },
+];
+---
+
+<Layout
+  title="Exhibition Carpet Products — Sanchi Enterprises"
+  description="Non Woven, Ribbed, Velour, Designer, Loop Pile, and Caution Carpet for trade fairs, expos, and conventions. Bulk supply, custom design, and on-site installation across India."
+>
+  <Navbar />
+  <main>
+
+    <!-- ── HERO ────────────────────────────────────────────── -->
+    <section class="pi-hero" aria-label="Products overview">
+      <div class="pi-hero__bg" aria-hidden="true">
+        <img src="/images/hero/hero.jpg" alt="" loading="eager" decoding="async" width="1920" height="1080" />
+      </div>
+      <div class="pi-hero__overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="pi-hero__inner" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Product Range</span>
+          <h1 class="pi-hero__title">Flooring that<br />defines the space.</h1>
+          <p class="pi-hero__sub">
+            Six specialist carpet categories. Thousands of square metres installed across
+            India's leading trade fairs, expos, and branded exhibitions every year.
+          </p>
+          <div class="pi-hero__cats" aria-hidden="true">
+            <span>Non Woven</span><span class="pi-hero__cats-dot">·</span>
+            <span>Ribbed</span><span class="pi-hero__cats-dot">·</span>
+            <span>Velour</span><span class="pi-hero__cats-dot">·</span>
+            <span>Designer</span><span class="pi-hero__cats-dot">·</span>
+            <span>Loop Pile</span><span class="pi-hero__cats-dot">·</span>
+            <span>Caution</span>
+          </div>
+        </div>
+      </div>
+      <div class="pi-hero__scroll" aria-hidden="true">
+        <div class="pi-hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── 01 NON WOVEN — dark, image right ─────────────────── -->
+    <section class="pi-prod pi-prod--dark pi-prod--flip" id="non-woven" aria-labelledby="nonwoven-heading">
+      <div class="pi-prod__visual" data-animate="image">
+        <img
+          src="/images/about/gartex-2.jpg"
+          alt="Magenta non-woven carpet covering the full Gartex exhibition hall — wide perspective showing carpet-defined floor at scale"
+          class="pi-prod__img"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 42%"
+          width="1200"
+          height="900"
+        />
+      </div>
+      <div class="pi-prod__content">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number" aria-hidden="true">01</span>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Non Woven Carpet</span>
+          <h2 class="pi-prod__name" id="nonwoven-heading">
+            The Exhibition<br />Standard
+          </h2>
+          <p class="pi-prod__body">
+            India's most widely deployed exhibition carpet. Full-hall coverage, flat installation,
+            clean matte finish. Two grades — Regular and Premium — 29 shades held in stock
+            year-round. Supplied cut to size, bulk quantity, pan-India delivery.
+          </p>
+          <div class="pi-prod__specs">
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label">Weight</span>
+              <span class="pi-prod__spec-value">600 gsm standard</span>
+            </div>
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label">Grades</span>
+              <span class="pi-prod__spec-value">Regular · Premium</span>
+            </div>
+          </div>
+          <a href="/products/non-woven-carpet" class="pi-prod__link">
+            View Non Woven Range
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NW COLOUR WALL — full-width shade display ─────────── -->
+    <div class="pi-nw-wall" aria-label="Non Woven colour range">
+      <div class="container">
+        <div class="pi-nw-wall-group" data-animate>
+          <span class="pi-nw-wall-label">Regular Shade <em>— 14 colours</em></span>
+          <div class="pi-nw-wall-track">
+            {nwRegularShades.map((s) => (
+              <div class="pi-nw-wall-card">
+                <div class="pi-nw-wall-card__img">
+                  <img src={s.src} alt={`Non Woven — ${s.name}`} loading="lazy" decoding="async" width="80" height="80" />
+                </div>
+                <span class="pi-nw-wall-card__name">{s.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="pi-nw-wall-group" data-animate data-delay="1">
+          <span class="pi-nw-wall-label">Premium Shade <em>— 15 colours</em></span>
+          <div class="pi-nw-wall-track">
+            {nwPremiumShades.map((s) => (
+              <div class="pi-nw-wall-card">
+                <div class="pi-nw-wall-card__img">
+                  <img src={s.src} alt={`Non Woven Premium — ${s.name}`} loading="lazy" decoding="async" width="80" height="80" />
+                </div>
+                <span class="pi-nw-wall-card__name">{s.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p class="pi-nw-wall-note" data-animate data-delay="2">Physical samples available on request</p>
+      </div>
+    </div>
+
+    <!-- ── 02 RIBBED — stone, texture macro left ─────────────── -->
+    <section class="pi-prod pi-prod--stone" id="ribbed" aria-labelledby="ribbed-heading">
+      <div class="pi-prod__visual" data-animate="image">
+        <img
+          src="/images/catalogue/ribbed-black.jpg"
+          alt="Ribbed Black carpet — dense loop-pile surface texture at macro scale"
+          class="pi-prod__img"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center center"
+          width="400"
+          height="533"
+        />
+      </div>
+      <div class="pi-prod__content pi-prod__content--light">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">02</span>
+          <span class="eyebrow eyebrow--line">Ribbed Carpet</span>
+          <h2 class="pi-prod__name pi-prod__name--dark" id="ribbed-heading">
+            Built for<br />High Footfall
+          </h2>
+          <p class="pi-prod__body pi-prod__body--dark">
+            The ribbed surface structure adds rigidity underfoot — the preferred choice for busy
+            exhibition aisles, entrance corridors, and open show floors where durability
+            matters as much as appearance. 7 shades in stock.
+          </p>
+          <div class="pi-shade-mini-grid" aria-label="Ribbed shades">
+            {ribbedShades.map((s) => (
+              <div class="pi-shade-mini">
+                <div class="pi-shade-mini__img">
+                  <img src={s.src} alt={s.name} loading="lazy" decoding="async" width="120" height="120" />
+                </div>
+                <span class="pi-shade-mini__name">{s.name}</span>
+              </div>
+            ))}
+          </div>
+          <a href="/products/ribbed-carpet" class="pi-prod__link pi-prod__link--navy">
+            View Ribbed Range
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 VELOUR — cinematic full-bleed ──────────────────── -->
+    <section class="pi-velour" id="velour" aria-labelledby="velour-heading">
+      <div class="pi-velour__bg" aria-hidden="true">
+        <img
+          src="/images/aesthetic/DSC03565.jpg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="1456"
+          height="816"
+        />
+      </div>
+      <div class="pi-velour__overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="pi-velour__layout">
+          <div class="pi-velour__content" data-animate>
+            <span class="pi-prod__number" aria-hidden="true">03</span>
+            <span class="eyebrow eyebrow--inverse eyebrow--line">Velour Carpet</span>
+            <h2 class="pi-velour__title" id="velour-heading">
+              The Premium<br />Surface
+            </h2>
+            <p class="pi-velour__body">
+              Velour's soft cut-pile is the hallmark of premium exhibition environments.
+              Art fairs, luxury brand pavilions, high-end product launches — spaces where
+              the surface quality sets the tone. 11 shades in stock.
+            </p>
+            <div class="pi-prod__specs">
+              <div class="pi-prod__spec">
+                <span class="pi-prod__spec-label">Pile</span>
+                <span class="pi-prod__spec-value">Soft cut-pile, dense</span>
+              </div>
+              <div class="pi-prod__spec">
+                <span class="pi-prod__spec-label">Best for</span>
+                <span class="pi-prod__spec-value">Art fairs · Brand pavilions · Luxury events</span>
+              </div>
+            </div>
+            <a href="/products/velour-carpet" class="pi-prod__link">
+              View Velour Range
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+                <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="pi-velour__shades" data-animate data-delay="1">
+            {velourShades.map((s) => (
+              <div class="pi-velour__swatch">
+                <img src={s.src} alt={s.name} loading="lazy" decoding="async" width="200" height="250" />
+                <span class="pi-velour__swatch-name">{s.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 DESIGNER — dominant + supporting ──────────────── -->
+    <section class="pi-dmos-section" id="designer" aria-labelledby="designer-heading">
+      <div class="pi-dmos" data-animate="image">
+        <!-- Left — dominant main panel with text overlay -->
+        <div class="pi-dmos__cell pi-dmos__cell--main">
+          <img
+            src="/images/designer-carpet/electronica-tech-hall.jpg"
+            alt="Electronica India — wide exhibition hall entrance with custom blue electronics-icon printed carpet covering the entire open floor at architectural scale"
+            loading="lazy"
+            decoding="async"
+            style="object-position: center 60%"
+            width="5712"
+            height="4284"
+          />
+          <div class="pi-dmos__text">
+            <div class="pi-dmos__text-inner">
+              <span class="pi-prod__number" aria-hidden="true">04</span>
+              <span class="eyebrow eyebrow--inverse eyebrow--line">Designer Carpet</span>
+              <h2 class="pi-dmos__title" id="designer-heading">
+                Your Brand,<br />Underfoot
+              </h2>
+              <p class="pi-dmos__body">
+                Fully custom-printed exhibition carpet designed to your brief.
+                Logos, brand colour fields, event themes, directional graphics —
+                produced and delivered to your exhibition timeline.
+              </p>
+              <div class="pi-prod__tags">
+                <span class="pi-prod__tag pi-prod__tag--inv">Custom Artwork</span>
+                <span class="pi-prod__tag pi-prod__tag--inv">Brand Identity</span>
+                <span class="pi-prod__tag pi-prod__tag--inv">Event Themes</span>
+                <span class="pi-prod__tag pi-prod__tag--inv">Directional Graphics</span>
+              </div>
+              <a href="/products/designer-carpet" class="pi-prod__link">
+                View Designer Range
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+                  <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Right — single supporting detail panel -->
+        <div class="pi-dmos__cell pi-dmos__cell--side">
+          <img
+            src="/images/designer-carpet/iitf-triangles.jpg"
+            alt="Wide exhibition hall floor covered end-to-end in a bold pink and magenta triangular geometric printed carpet at full architectural scale"
+            loading="lazy"
+            decoding="async"
+            style="object-position: center 65%"
+            width="5712"
+            height="4284"
+          />
+        </div>
+      </div>
+
+      <!-- Pattern type strip — About-page hover interaction -->
+      <div class="pi-designer__strip" aria-label="Design pattern examples">
+        <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Icon pattern — Light + LED India">
+          <img src="/images/designer-carpet/light-led-icon-foyer.jpg" alt="Wide venue foyer covered in navy blue printed carpet with white tech icon pattern at Light + LED India" loading="lazy" decoding="async" style="object-position: center 55%" />
+        </a>
+        <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Terracotta Swirl — Anuga Select">
+          <img src="/images/designer-carpet/anuga-select-swirl.jpg" alt="Rich terracotta and red swirl-pattern printed carpet covering the entrance lobby at Anuga Select" loading="lazy" decoding="async" style="object-position: center 55%" />
+        </a>
+        <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Diamond pattern — Smart Home Expo">
+          <img src="/images/designer-carpet/smart-home-diamond.jpg" alt="Grand convention centre foyer with bold black and white diamond-grid printed carpet at Smart Home Expo Mumbai" loading="lazy" decoding="async" style="object-position: center 60%" />
+        </a>
+        <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Floral pattern — DJGF">
+          <img src="/images/designer-carpet/djgf-floral.jpg" alt="Colourful floral petal-pattern designer carpet" loading="lazy" decoding="async" style="object-position: center 45%" />
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 05 CAUTION — dark, utility aesthetic ──────────────── -->
+    <section class="pi-prod pi-prod--dark pi-prod--flip pi-caution" id="caution" aria-labelledby="caution-heading">
+      <div class="pi-prod__visual" data-animate="image">
+        <img
+          src="/images/catalogue/caution-in-use-2.jpg"
+          alt="Yellow and black caution carpet marking a cable tray threshold at a live exhibition event"
+          class="pi-prod__img"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 55%"
+          width="900"
+          height="1200"
+        />
+      </div>
+      <div class="pi-prod__content pi-caution__content">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number" aria-hidden="true">05</span>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Caution Carpet</span>
+          <h2 class="pi-prod__name" id="caution-heading">
+            Safety by<br />Design
+          </h2>
+          <p class="pi-prod__body">
+            High-visibility stripe carpet for cable tray management, access ramps,
+            and pedestrian movement zones during live events. Keeps exhibitors,
+            crew, and visitors safe without interrupting the show.
+          </p>
+          <div class="pi-prod__specs">
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label">Application</span>
+              <span class="pi-prod__spec-value">Cable trays · Access ramps · Safety zones</span>
+            </div>
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label">Marking</span>
+              <span class="pi-prod__spec-value">High-visibility stripe</span>
+            </div>
+          </div>
+          <a href="/products/caution-carpet" class="pi-prod__link">
+            View Caution Carpet
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 06 LOOP PILE — stone, texture-forward ─────────────── -->
+    <section class="pi-prod pi-prod--stone pi-loop" id="loop-pile" aria-labelledby="looppile-heading">
+      <div class="pi-prod__visual pi-loop__visual" data-animate="image">
+        <img
+          src="/images/catalogue/lp-charcoal.jpg"
+          alt="Loop Pile Charcoal carpet — editorial close-up showing dense loop-pile construction and surface texture"
+          class="pi-prod__img pi-loop__img"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 42%"
+          width="1456"
+          height="816"
+        />
+        <div class="pi-loop__vignette" aria-hidden="true"></div>
+      </div>
+      <div class="pi-prod__content pi-prod__content--light">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">06</span>
+          <span class="eyebrow eyebrow--line">Loop Pile Carpet</span>
+          <h2 class="pi-prod__name pi-prod__name--dark" id="looppile-heading">
+            The Refined<br />Texture
+          </h2>
+          <p class="pi-prod__body pi-prod__body--dark">
+            Loop pile construction creates a structured, dense surface — harder-wearing than
+            velour, quieter underfoot than ribbed. The preferred choice for pavilion interiors,
+            branded zones, and premium event environments. 6 shades in stock.
+          </p>
+          <div class="pi-shade-mini-grid pi-shade-mini-grid--3col" aria-label="Loop pile shades available">
+            {loopPileShades.map((s) => (
+              <div class="pi-shade-mini">
+                <div class="pi-shade-mini__img">
+                  <img src={s.src} alt={s.name} loading="lazy" decoding="async" width="120" height="120" />
+                </div>
+                <span class="pi-shade-mini__name">{s.name}</span>
+              </div>
+            ))}
+          </div>
+          <div class="pi-prod__specs pi-prod__specs--light">
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label pi-prod__spec-label--muted">Construction</span>
+              <span class="pi-prod__spec-value pi-prod__spec-value--dark">Loop pile, medium density</span>
+            </div>
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label pi-prod__spec-label--muted">Best for</span>
+              <span class="pi-prod__spec-value pi-prod__spec-value--dark">Pavilion interiors · Branded environments</span>
+            </div>
+          </div>
+          <a href="/products/loop-pile-carpet" class="pi-prod__link pi-prod__link--navy">
+            View Loop Pile Carpet
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VENUE STRIP ────────────────────────────────────────── -->
+    <section class="pi-venues" aria-label="Exhibitions served">
+      <div class="pi-venues__label-row">
+        <span class="pi-venues__label">Installed at India's premier exhibitions</span>
+      </div>
+      <div class="pi-venues__track-wrap" aria-hidden="true">
+        <div class="pi-venues__track">
+          <span class="pi-venues__item">India International Trade Fair</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">IFAT India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Electronica &amp; Productronica India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Anuga FoodTec India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Gartex &amp; Denim Show</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Design</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Art Fair</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Light + LED India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Maritime Week</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Media Expo</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India AI Impact Summit</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">ACMA Auto Mechanika</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India International Trade Fair</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">IFAT India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Electronica &amp; Productronica India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Anuga FoodTec India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Gartex &amp; Denim Show</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Design</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Art Fair</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Light + LED India</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India Maritime Week</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">Media Expo</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">India AI Impact Summit</span><span class="pi-venues__sep">◆</span>
+          <span class="pi-venues__item">ACMA Auto Mechanika</span><span class="pi-venues__sep">◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <div class="prod-cta">
+      <div class="container">
+        <div class="prod-cta__inner">
+          <div class="prod-cta__text" data-animate>
+            <div class="prod-cta__title">Looking for a specific carpet or shade?</div>
+            <p class="prod-cta__sub">Tell us your product type, quantity, and delivery date — we respond within 24 hours.</p>
+          </div>
+          <div class="prod-cta__actions" data-animate data-delay="1">
+            <a href="/contact" class="btn btn--ghost-light">Send Enquiry</a>
+            <a href="https://wa.me/919958132189" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const piHeroBg = document.querySelector<HTMLElement>('.pi-hero__bg img');
+  if (piHeroBg) {
+    piHeroBg.style.willChange = 'transform';
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          piHeroBg.style.transform = `translate3d(0, ${window.scrollY * 0.14}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  /* ─── Hero ─────────────────────────────────────────────────── */
+  .pi-hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-bottom: var(--sp-8);
+    background-color: var(--color-navy-dark);
+  }
+  .pi-hero__bg { position: absolute; inset: 0; overflow: hidden; }
+  .pi-hero__bg img { width: 100%; height: 110%; object-fit: cover; object-position: center; }
+  .pi-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,12,36,0.96) 0%, rgba(8,12,36,0.62) 38%, rgba(8,12,36,0.22) 100%);
+  }
+  .pi-hero__inner { position: relative; z-index: 2; max-width: 700px; }
+  .pi-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 6.5vw, 82px);
+    font-weight: 700; line-height: 1.03; letter-spacing: -0.032em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+  }
+  .pi-hero__sub {
+    font-family: var(--font-body); font-size: clamp(14px, 1.4vw, 17px);
+    color: rgba(247,246,243,0.65); line-height: 1.72; max-width: 490px; margin-bottom: var(--sp-5);
+  }
+  .pi-hero__cats { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+  .pi-hero__cats span {
+    font-family: var(--font-body); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.10em; text-transform: uppercase; color: rgba(247,246,243,0.38);
+  }
+  .pi-hero__cats-dot { color: rgba(184,150,58,0.50) !important; letter-spacing: 0 !important; font-size: 14px !important; }
+  .pi-hero__scroll { position: absolute; bottom: 40px; right: 48px; z-index: 2; }
+  .pi-hero__scroll-line {
+    width: 1px; height: 70px;
+    background: linear-gradient(to bottom, transparent, rgba(247,246,243,0.45));
+    animation: pi-scroll 2.8s ease-in-out infinite; transform-origin: top;
+  }
+  @keyframes pi-scroll {
+    0%, 100% { opacity: 0.35; transform: scaleY(0.55); }
+    55% { opacity: 0.90; transform: scaleY(1); }
+  }
+
+  /* ─── Split sections ────────────────────────────────────────── */
+  .pi-prod { display: flex; min-height: 600px; overflow: hidden; }
+  .pi-prod--dark  { background-color: var(--color-navy-dark); }
+  .pi-prod--stone { background-color: var(--color-stone); }
+  .pi-prod--flip .pi-prod__content { order: -1; }
+  .pi-prod__visual { flex: 0 0 54%; position: relative; overflow: hidden; }
+  .pi-prod__img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-prod:hover .pi-prod__img { transform: scale(1.025); }
+  .pi-prod__content { flex: 0 0 46%; display: flex; align-items: center; padding: var(--sp-8) var(--sp-6); }
+  .pi-prod__content-inner { width: 100%; max-width: 420px; }
+  .pi-prod__number {
+    display: block; font-family: var(--font-display); font-size: 80px; font-weight: 800;
+    line-height: 1; letter-spacing: -0.04em; color: rgba(247,246,243,0.055);
+    margin-bottom: -18px; margin-left: -5px; user-select: none; pointer-events: none;
+  }
+  .pi-prod__number--dim { color: rgba(17,17,17,0.046); }
+  .pi-prod__name {
+    font-family: var(--font-display); font-size: clamp(30px, 3.6vw, 50px);
+    font-weight: 700; line-height: 1.07; letter-spacing: -0.026em;
+    color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+  }
+  .pi-prod__name--dark { color: var(--color-text-primary); }
+  .pi-prod__body { font-family: var(--font-body); font-size: 15px; line-height: 1.82; color: rgba(247,246,243,0.68); margin-bottom: var(--sp-4); }
+  .pi-prod__body--dark { color: var(--color-text-secondary); }
+  .pi-prod__specs {
+    display: flex; flex-direction: column; gap: 13px;
+    padding: var(--sp-3) 0; border-top: 1px solid rgba(255,255,255,0.09);
+    border-bottom: 1px solid rgba(255,255,255,0.09); margin-bottom: var(--sp-4);
+  }
+  .pi-prod__specs--light { border-color: var(--color-border-light); }
+  .pi-prod__spec { display: flex; align-items: baseline; gap: 18px; }
+  .pi-prod__spec-label {
+    font-family: var(--font-body); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,246,243,0.38);
+    min-width: 90px; flex-shrink: 0;
+  }
+  .pi-prod__spec-label--muted { color: var(--color-text-muted); }
+  .pi-prod__spec-value { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: rgba(247,246,243,0.90); letter-spacing: -0.01em; line-height: 1.4; }
+  .pi-prod__spec-value--dark { color: var(--color-text-primary); }
+  .pi-prod__tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: var(--sp-4); }
+  .pi-prod__tag {
+    font-family: var(--font-body); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-text-secondary); border: 1px solid var(--color-border-medium);
+    padding: 5px 11px; border-radius: 1px;
+  }
+  .pi-prod__tag--inv { color: rgba(247,246,243,0.55); border-color: rgba(255,255,255,0.13); }
+  .pi-prod__link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-display); font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--color-gold); border-bottom: 1px solid rgba(184,150,58,0.32); padding-bottom: 3px;
+    transition: border-color 0.30s ease, gap 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-prod__link:hover { border-color: var(--color-gold); gap: 16px; }
+  .pi-prod__link--navy { color: var(--color-navy); border-bottom-color: rgba(27,42,107,0.22); }
+  .pi-prod__link--navy:hover { border-color: var(--color-navy); }
+
+  /* ─── NW Colour Wall ────────────────────────────────────────── */
+  .pi-nw-wall {
+    background: var(--color-navy-dark);
+    padding: 0 0 var(--sp-8);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .pi-nw-wall-group { padding-top: var(--sp-5); }
+  .pi-nw-wall-group + .pi-nw-wall-group { padding-top: var(--sp-4); }
+  .pi-nw-wall-label {
+    display: block; font-family: var(--font-body); font-size: 9.5px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,246,243,0.32);
+    margin-bottom: var(--sp-3);
+  }
+  .pi-nw-wall-label em { font-style: normal; color: rgba(247,246,243,0.18); }
+  .pi-nw-wall-track {
+    display: flex; gap: 6px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; -ms-overflow-style: none;
+    padding-bottom: 4px;
+  }
+  .pi-nw-wall-track::-webkit-scrollbar { display: none; }
+  .pi-nw-wall-card { flex: 0 0 72px; }
+  .pi-nw-wall-card__img {
+    width: 72px; height: 72px; border-radius: 2px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.50s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-nw-wall-card:hover .pi-nw-wall-card__img { transform: scale(1.06); }
+  .pi-nw-wall-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pi-nw-wall-card__name {
+    display: block; font-family: var(--font-body); font-size: 8px; font-weight: 500;
+    letter-spacing: 0.05em; color: rgba(247,246,243,0.32);
+    margin-top: 5px; text-align: center;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .pi-nw-wall-note {
+    font-family: var(--font-body); font-size: 11px; color: rgba(247,246,243,0.22);
+    letter-spacing: 0.04em; margin-top: var(--sp-4);
+  }
+
+  /* ─── Compact shade grid (Ribbed + Loop Pile) ───────────────── */
+  .pi-shade-mini-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-bottom: var(--sp-4);
+  }
+  .pi-shade-mini-grid--3col { grid-template-columns: repeat(3, 1fr); }
+  .pi-shade-mini { display: flex; flex-direction: column; gap: 4px; }
+  .pi-shade-mini__img {
+    aspect-ratio: 1; border-radius: 2px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: transform 0.50s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-shade-mini:hover .pi-shade-mini__img { transform: scale(1.05); }
+  .pi-shade-mini__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pi-shade-mini__name {
+    font-family: var(--font-body); font-size: 8.5px; font-weight: 500;
+    letter-spacing: 0.05em; color: var(--color-text-secondary);
+    text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* ─── Velour cinematic ──────────────────────────────────────── */
+  .pi-velour {
+    position: relative; overflow: hidden;
+    background-color: var(--color-navy-dark);
+    padding: var(--sp-9) 0;
+  }
+  .pi-velour__bg { position: absolute; inset: 0; }
+  .pi-velour__bg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+    filter: blur(20px) brightness(0.28) saturate(1.5);
+    transform: scale(1.08);
+  }
+  .pi-velour__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(130deg, rgba(12,18,48,0.80) 0%, rgba(12,18,48,0.50) 100%);
+  }
+  .pi-velour__layout {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); align-items: center;
+  }
+  .pi-velour__content { max-width: 500px; }
+  .pi-velour__title {
+    font-family: var(--font-display); font-size: clamp(34px, 4.2vw, 58px);
+    font-weight: 700; line-height: 1.05; letter-spacing: -0.028em;
+    color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+  }
+  .pi-velour__body {
+    font-family: var(--font-body); font-size: 15px; line-height: 1.82;
+    color: rgba(247,246,243,0.68); margin-bottom: var(--sp-4);
+  }
+  .pi-velour__shades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .pi-velour__swatch { overflow: hidden; border-radius: 2px; }
+  .pi-velour__swatch img {
+    width: 100%; aspect-ratio: 1 / 1.25; object-fit: cover; display: block;
+    transition: transform 0.70s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-velour__swatch:hover img { transform: scale(1.05); }
+  .pi-velour__swatch-name {
+    display: block; font-family: var(--font-body); font-size: 9px; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase; color: rgba(247,246,243,0.42);
+    padding: 5px 1px 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* ─── Designer — dominant + supporting ──────────────────────── */
+  .pi-dmos-section { background-color: var(--color-navy-dark); overflow: hidden; }
+  .pi-dmos { display: grid; grid-template-columns: 64% 36%; min-height: 700px; }
+  .pi-dmos__cell { position: relative; overflow: hidden; }
+  .pi-dmos__cell img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transition: transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pi-dmos__cell:hover img { transform: scale(1.025); }
+  .pi-dmos__text {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
+    background: linear-gradient(to top, rgba(8,12,36,0.94) 0%, rgba(8,12,36,0.60) 38%, rgba(8,12,36,0.12) 68%, transparent 100%);
+    z-index: 1;
+  }
+  .pi-dmos__text-inner { padding: var(--sp-7) var(--sp-7) var(--sp-7); max-width: 480px; }
+  .pi-dmos__title {
+    font-family: var(--font-display); font-size: clamp(28px, 3.8vw, 52px);
+    font-weight: 700; line-height: 1.06; letter-spacing: -0.028em;
+    color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+  }
+  .pi-dmos__body {
+    font-family: var(--font-body); font-size: 15px; line-height: 1.78;
+    color: rgba(247,246,243,0.70); margin-bottom: var(--sp-4); max-width: 400px;
+  }
+  .pi-dmos__side-caption {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+    padding: 40px var(--sp-4) var(--sp-4);
+    font-family: var(--font-body); font-size: 9px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,246,243,0.45);
+    background: linear-gradient(to top, rgba(8,12,36,0.72) 0%, transparent 100%);
+  }
+
+  /* Pattern strip — About-page hover interaction */
+  .pi-designer__strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .pi-designer__thumb {
+    position: relative; overflow: hidden; display: block;
+  }
+  .pi-designer__thumb:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.06); }
+  .pi-designer__thumb img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+    filter: brightness(0.52) saturate(0.65);
+    transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1), filter 0.50s ease;
+  }
+  .pi-designer__thumb:hover img {
+    transform: scale(1.04);
+    filter: brightness(1.0) saturate(1.05);
+  }
+  .pi-designer__strip:hover .pi-designer__thumb:not(:hover) img {
+    filter: brightness(0.22) saturate(0.28);
+    transition: filter 0.32s ease;
+  }
+  .pi-designer__thumb-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 14px 11px;
+    font-family: var(--font-body); font-size: 9px; font-weight: 500;
+    letter-spacing: 0.11em; text-transform: uppercase; color: rgba(247,246,243,0.50);
+    background: linear-gradient(to top, rgba(8,12,36,0.78) 0%, transparent 100%);
+    transition: color 0.35s ease, opacity 0.35s ease;
+  }
+  .pi-designer__thumb:hover .pi-designer__thumb-label { color: rgba(247,246,243,0.95); }
+  .pi-designer__strip:hover .pi-designer__thumb:not(:hover) .pi-designer__thumb-label {
+    opacity: 0.35;
+    transition: opacity 0.32s ease, color 0.32s ease;
+  }
+
+  /* ─── Caution diagonal stripe motif ────────────────────────── */
+  .pi-caution__content {
+    background: repeating-linear-gradient(
+      -52deg,
+      transparent, transparent 22px,
+      rgba(220,170,0,0.03) 22px, rgba(220,170,0,0.03) 24px
+    );
+  }
+
+  /* ─── Loop Pile texture treatment ──────────────────────────── */
+  .pi-loop__visual { position: relative; }
+  .pi-loop__img { transform: scale(1.18); }
+  .pi-loop:hover .pi-loop__img { transform: scale(1.22); }
+  .pi-loop__vignette {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 48%, rgba(12,18,48,0.40) 100%);
+    z-index: 1;
+  }
+
+  /* ─── Venue marquee ─────────────────────────────────────────── */
+  @keyframes pi-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .pi-venues {
+    background-color: var(--color-navy); padding-top: var(--sp-4); padding-bottom: var(--sp-5);
+    border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .pi-venues__label-row { text-align: center; margin-bottom: 18px; }
+  .pi-venues__label {
+    font-family: var(--font-body); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,246,243,0.30);
+  }
+  .pi-venues__track-wrap {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .pi-venues__track {
+    display: flex; align-items: center; width: max-content;
+    animation: pi-marquee 38s linear infinite; gap: 0;
+  }
+  .pi-venues__track:hover { animation-play-state: paused; }
+  .pi-venues__item {
+    font-family: var(--font-display); font-size: clamp(13px, 1.1vw, 16px); font-weight: 600;
+    letter-spacing: -0.01em; color: rgba(247,246,243,0.68); white-space: nowrap; padding: 0 6px;
+    transition: color 0.2s ease;
+  }
+  .pi-venues__track:hover .pi-venues__item { color: rgba(247,246,243,0.82); }
+  .pi-venues__sep { font-size: 6px; color: rgba(184,150,58,0.5); padding: 0 18px; flex-shrink: 0; }
+
+  /* ─── Responsive ────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .pi-prod__content { padding: var(--sp-7) var(--sp-5); }
+    .pi-nw-wall-card { flex: 0 0 68px; }
+    .pi-nw-wall-card__img { width: 68px; height: 68px; }
+  }
+
+  @media (max-width: 860px) {
+    .pi-prod { flex-direction: column; min-height: auto; }
+    .pi-prod--flip .pi-prod__content { order: unset; }
+    .pi-prod__visual { flex: none; height: 340px; }
+    .pi-prod__content { flex: none; padding: var(--sp-6) var(--sp-4); }
+    .pi-prod__content-inner { max-width: 100%; }
+    .pi-prod__number { font-size: 56px; }
+    .pi-velour__layout { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .pi-velour__shades { grid-template-columns: repeat(4, 1fr); }
+    .pi-velour__content { max-width: 100%; }
+    .pi-dmos { grid-template-columns: 1fr; min-height: auto; }
+    .pi-dmos__cell--main { min-height: 520px; }
+    .pi-dmos__cell--side { height: 260px; }
+    .pi-loop__img { transform: scale(1.10); }
+    .pi-loop:hover .pi-loop__img { transform: scale(1.14); }
+  }
+
+  @media (max-width: 600px) {
+    .pi-hero { min-height: 92svh; padding-bottom: var(--sp-7); }
+    .pi-hero__scroll { display: none; }
+    .pi-prod__visual { height: 260px; }
+    .pi-prod__number { font-size: 44px; margin-bottom: -12px; }
+    .pi-velour { padding: var(--sp-7) 0; }
+    .pi-velour__shades { gap: 5px; }
+    .pi-velour__swatch-name { font-size: 8px; }
+    .pi-designer__strip { grid-template-columns: repeat(2, 1fr); }
+    .pi-designer__strip .pi-designer__thumb:nth-child(2) { border-right: none; }
+    .pi-designer__strip .pi-designer__thumb:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+    .pi-dmos__cell--side { height: 200px; }
+    .pi-shade-mini-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    .pi-shade-mini-grid--3col { grid-template-columns: repeat(3, 1fr); }
+    .pi-nw-wall-card { flex: 0 0 60px; }
+    .pi-nw-wall-card__img { width: 60px; height: 60px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pi-hero__scroll-line { animation: none; }
+    .pi-prod__img, .pi-dmos__cell img, .pi-velour__swatch img,
+    .pi-designer__thumb img, .pi-loop__img { transition: none; }
+    .pi-venues__track { animation: none; }
+  }
+</style>

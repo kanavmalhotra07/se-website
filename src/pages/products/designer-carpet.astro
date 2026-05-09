@@ -1,0 +1,597 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const primaryCaps = [
+  { num: '01', title: 'Custom Artwork',         body: 'Original artwork, event photography, and custom illustration integrated directly into the carpet surface.' },
+  { num: '02', title: 'Brand Colour Matching',  body: 'Colours produced to your specification — Pantone, RAL, or supplied swatches matched to your identity.' },
+  { num: '03', title: 'Logo & Identity Flooring', body: 'Logos and wordmarks printed at exhibition scale, precisely positioned within your floor plan.' },
+  { num: '04', title: 'Event Theme Graphics',   body: 'Thematic visual concepts designed around your event — from product launches to industry conferences.' },
+];
+
+const extraCaps = [
+  'Directional Graphics',
+  'Wayfinding Systems',
+  'Printed Patterns',
+  'Spatial Zone Design',
+  'Bespoke Concepts',
+  'Full-floor Installation',
+];
+
+const steps = [
+  { num: '01', label: 'Submit Your Brief',        desc: 'Share brand guidelines, artwork files, event themes, or even rough concepts. We translate them into production-ready exhibition flooring layouts.' },
+  { num: '02', label: 'Design & Approval',         desc: 'We create scaled visual proofs for review, revisions, and final approval before print production begins.' },
+  { num: '03', label: 'Production & Installation', desc: 'Carpets are printed, finished, delivered, and installed on-site with live exhibition support if required.' },
+];
+---
+
+<Layout
+  title="Designer Carpet — Sanchi Enterprises"
+  description="Fully custom exhibition carpet designed to your brief. Logos, brand colours, event themes, directional graphics, and bespoke artwork — produced and installed for trade fairs across India."
+>
+  <Navbar />
+  <main>
+
+    <!-- ─── HERO — full-viewport, video-backed ───────────────── -->
+    <section class="dc-hero" aria-labelledby="dc-heading">
+      <div class="dc-hero__media" aria-hidden="true">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="/images/designer-carpet/electronica-green-aisle.jpg"
+          class="dc-hero__video"
+        >
+          <source src="/videos/designer/designer-light-led.mp4" type="video/mp4" />
+          <img
+            src="/images/designer-carpet/electronica-green-aisle.jpg"
+            alt=""
+            width="1600"
+            height="900"
+          />
+        </video>
+      </div>
+      <div class="dc-hero__overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="dc-hero__content">
+          <a href="/products" class="dc-hero__back" data-animate>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M11 4H1M5 1L1 4l4 3" stroke="currentColor" stroke-width="1.3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            All Products
+          </a>
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate data-delay="1">Designer Carpet</span>
+          <h1 class="dc-hero__title" id="dc-heading" data-animate data-delay="2">
+            Your Design.<br />Your Identity.<br />Your Floor.
+          </h1>
+          <p class="dc-hero__sub" data-animate data-delay="3">
+            Fully custom exhibition carpet designed to your specification —
+            not selected from a catalogue.
+          </p>
+        </div>
+      </div>
+
+      <div class="dc-hero__scroll" aria-hidden="true">
+        <div class="dc-hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ─── STATEMENT — restrained, typographic ──────────────── -->
+    <div class="dc-statement" aria-label="Positioning statement">
+      <div class="container">
+        <div class="dc-statement__inner" data-animate>
+          <p class="dc-statement__text">
+            Not template-based. Not from a fixed catalogue.<br />
+            <span class="dc-statement__em">Every carpet starts with your brief.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── PORTFOLIO GALLERY — editorial hierarchy ─── -->
+    <div class="dc-portfolio" aria-label="Designer carpet installations">
+      <div class="container">
+        <div class="dc-portfolio__label" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Selected Installations</span>
+        </div>
+      </div>
+      <div class="dc-pf-grid">
+
+        <!-- Featured: blue wave grid — earns the full left column -->
+        <div class="dc-pf-cell dc-pf-cell--featured">
+          <div class="dc-pf-cell__img-wrap">
+            <img
+              src="/images/designer-carpet/anuga-blue-wave.jpg"
+              alt="Full exhibition hall floor covered end-to-end in a bold blue and white wave-grid printed carpet — pattern fills the entire open floor at Anuga Food Tech"
+              loading="lazy"
+              decoding="async"
+              width="4032"
+              height="3024"
+            />
+          </div>
+          <div class="dc-pf-cell__info">
+            <span class="dc-pf-cell__num" aria-hidden="true">01</span>
+            <div class="dc-pf-cell__name">Wave Grid System</div>
+            <p class="dc-pf-cell__desc">Interlocking wave geometry printed across a full exhibition hall — carpet as spatial identity.</p>
+          </div>
+        </div>
+
+        <!-- Secondary A: diamond mono — high-contrast monochrome pattern -->
+        <div class="dc-pf-cell dc-pf-cell--secondary">
+          <div class="dc-pf-cell__img-wrap">
+            <img
+              src="/images/designer-carpet/diamond-mono.jpg"
+              alt="Exhibition refreshment lounge — bold black and white diamond harlequin printed carpet covering the full hospitality zone floor"
+              loading="lazy"
+              decoding="async"
+              width="4032"
+              height="3024"
+            />
+          </div>
+          <div class="dc-pf-cell__cap">
+            <span aria-hidden="true">02</span>Diamond Grid · Monochrome
+          </div>
+        </div>
+
+        <!-- Secondary B: Light+LED icon carpet — wide hall, unique tech pattern -->
+        <div class="dc-pf-cell dc-pf-cell--secondary">
+          <div class="dc-pf-cell__img-wrap">
+            <img
+              src="/images/designer-carpet/light-led-icon-hall.jpg"
+              alt="Light + LED India exhibition hall — full floor covered in navy blue printed carpet with white electronics icon pattern"
+              loading="lazy"
+              decoding="async"
+              width="4032"
+              height="3024"
+            />
+          </div>
+          <div class="dc-pf-cell__cap">
+            <span aria-hidden="true">03</span>Icon Grid
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── CAPABILITIES — technical ──────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="caps-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Capabilities</span>
+          <h2 class="prod-section__title" id="caps-heading">What We Can Produce</h2>
+        </div>
+        <div class="dc-caps-grid">
+          {primaryCaps.map((cap, i) => (
+            <div class="dc-cap-block" data-animate data-delay={String((i % 2) + 1)}>
+              <div class="dc-cap-block__num" aria-hidden="true">{cap.num}</div>
+              <div class="dc-cap-block__title">{cap.title}</div>
+              <div class="dc-cap-block__body">{cap.body}</div>
+            </div>
+          ))}
+        </div>
+        <div class="dc-caps-extra" data-animate data-delay="2">
+          {extraCaps.map((cap) => (
+            <span class="dc-caps-extra__item">{cap}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── PROCESS — dark, atmospheric ──────────────────────── -->
+    <div class="dc-process" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">How It Works</span>
+          <h2 class="dc-process__title" id="process-heading">From Brief to Floor.</h2>
+        </div>
+        <div class="dc-process__steps" data-animate data-delay="1">
+          {steps.map((step) => (
+            <div class="dc-process__step">
+              <div class="dc-process__num" aria-hidden="true">{step.num}</div>
+              <div class="dc-process__label">{step.label}</div>
+              <div class="dc-process__desc">{step.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <div class="prod-cta">
+      <div class="container">
+        <div class="prod-cta__inner">
+          <div class="prod-cta__text" data-animate>
+            <div class="prod-cta__title">Start Your Design Brief</div>
+            <p class="prod-cta__sub">
+              Share your brand guidelines, artwork files, or event concept —
+              we'll outline the production scope and timeline within 24 hours.
+            </p>
+          </div>
+          <div class="prod-cta__actions" data-animate data-delay="1">
+            <a href="/contact" class="btn btn--ghost-light">Send Design Brief</a>
+            <a
+              href="https://wa.me/919958132189"
+              class="btn btn--whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Portfolio hover: entering the grid dims all panels; individual hover restores that panel
+  const pfGrid = document.querySelector<HTMLElement>('.dc-pf-grid');
+  if (pfGrid) {
+    pfGrid.addEventListener('mouseenter', () => {
+      pfGrid.querySelectorAll<HTMLElement>('.dc-pf-cell__img-wrap img').forEach((img) => {
+        img.style.filter = 'brightness(0.28) saturate(0.35)';
+      });
+    });
+    pfGrid.addEventListener('mouseleave', () => {
+      pfGrid.querySelectorAll<HTMLElement>('.dc-pf-cell__img-wrap img').forEach((img) => {
+        img.style.filter = '';
+      });
+    });
+    pfGrid.querySelectorAll<HTMLElement>('.dc-pf-cell').forEach((cell) => {
+      cell.addEventListener('mouseenter', () => {
+        const img = cell.querySelector<HTMLElement>('.dc-pf-cell__img-wrap img');
+        if (img) img.style.filter = 'brightness(1.0) saturate(1.05)';
+      });
+    });
+  }
+</script>
+
+<style>
+  /* ─── Hero ─────────────────────────────────────────────────── */
+  .dc-hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-bottom: var(--sp-8);
+    background-color: var(--color-navy-dark);
+  }
+
+  .dc-hero__media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .dc-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .dc-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8, 12, 36, 0.97) 0%,
+      rgba(8, 12, 36, 0.68) 36%,
+      rgba(8, 12, 36, 0.28) 72%,
+      rgba(8, 12, 36, 0.16) 100%
+    );
+  }
+
+  .dc-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding-top: 140px;
+  }
+
+  .dc-hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.40);
+    margin-bottom: var(--sp-5);
+    transition: color 0.22s ease;
+  }
+  .dc-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
+
+  .dc-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.034em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+
+  .dc-hero__sub {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: rgba(247, 246, 243, 0.58);
+    max-width: 420px;
+  }
+
+  .dc-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    z-index: 2;
+  }
+  .dc-hero__scroll-line {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, transparent, rgba(247, 246, 243, 0.40));
+    animation: dc-scroll 2.8s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes dc-scroll {
+    0%, 100% { opacity: 0.30; transform: scaleY(0.5); }
+    55% { opacity: 0.85; transform: scaleY(1); }
+  }
+
+  /* ─── Statement band ────────────────────────────────────────── */
+  .dc-statement {
+    background: var(--color-warm-white);
+    padding: var(--sp-9) 0;
+  }
+  .dc-statement__inner {
+    max-width: 820px;
+  }
+  .dc-statement__text {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.8vw, 34px);
+    font-weight: 600;
+    line-height: 1.38;
+    letter-spacing: -0.016em;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .dc-statement__em {
+    color: var(--color-navy-dark);
+    font-weight: 700;
+  }
+
+  /* ─── Portfolio gallery — editorial hierarchy ──────────────── */
+  .dc-portfolio {
+    background: var(--color-navy-dark);
+    padding-top: var(--sp-8);
+  }
+
+  .dc-portfolio__label {
+    padding-bottom: var(--sp-6);
+  }
+
+  .dc-pf-grid {
+    display: grid;
+    grid-template-columns: 58% 42%;
+    grid-template-rows: 1fr 1fr;
+    min-height: 820px;
+    gap: 3px;
+  }
+
+  .dc-pf-cell {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dc-pf-cell--featured {
+    grid-row: 1 / 3;
+    grid-column: 1;
+  }
+
+  .dc-pf-cell--secondary {
+    grid-column: 2;
+  }
+
+  .dc-pf-cell__img-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .dc-pf-cell__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.72);
+    transition: transform 1.0s cubic-bezier(0.4, 0, 0.2, 1), filter 0.55s ease;
+  }
+
+  .dc-pf-cell:hover .dc-pf-cell__img-wrap img {
+    transform: scale(1.03);
+    filter: brightness(1.0) saturate(1.04);
+  }
+
+  /* Featured: editorial info block at bottom */
+  .dc-pf-cell__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 100px var(--sp-6) var(--sp-6);
+    background: linear-gradient(
+      to top,
+      rgba(8, 12, 36, 0.92) 0%,
+      rgba(8, 12, 36, 0.50) 44%,
+      transparent 100%
+    );
+  }
+
+  .dc-pf-cell__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.042em;
+    color: rgba(184, 150, 58, 0.22);
+    margin-bottom: 12px;
+    user-select: none;
+  }
+
+  .dc-pf-cell__name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    color: var(--color-text-inverse);
+    margin-bottom: 10px;
+  }
+
+  .dc-pf-cell__desc {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.70;
+    color: rgba(247, 246, 243, 0.52);
+    max-width: 320px;
+    margin: 0;
+  }
+
+  /* Secondary panel captions */
+  .dc-pf-cell__cap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 56px var(--sp-5) var(--sp-4);
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.36);
+    background: linear-gradient(to top, rgba(8, 12, 36, 0.88) 0%, transparent 100%);
+    transition: color 0.38s ease;
+  }
+
+  .dc-pf-cell__cap span {
+    color: rgba(184, 150, 58, 0.55);
+    margin-right: 10px;
+  }
+
+  .dc-pf-cell:hover .dc-pf-cell__cap {
+    color: rgba(247, 246, 243, 0.88);
+  }
+
+  /* ─── Process (dark, atmospheric) ──────────────────────────── */
+  .dc-process {
+    background: var(--color-navy-dark);
+    padding: var(--sp-9) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .dc-process .prod-section__header { margin-bottom: var(--sp-7); }
+
+  .dc-process__title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.024em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+
+  .dc-process__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: var(--sp-6);
+  }
+
+  .dc-process__step {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .dc-process__num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(184, 150, 58, 0.20);
+    margin-bottom: var(--sp-3);
+    user-select: none;
+  }
+
+  .dc-process__label {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--sp-2);
+    line-height: 1.25;
+  }
+
+  .dc-process__desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(247, 246, 243, 0.52);
+    margin: 0;
+  }
+
+  /* ─── Responsive ────────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .dc-pf-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      min-height: auto;
+    }
+    .dc-pf-cell--featured {
+      grid-row: 1;
+      grid-column: 1 / -1;
+    }
+    .dc-pf-cell--featured .dc-pf-cell__img-wrap img { aspect-ratio: 16 / 7; height: auto; }
+    .dc-pf-cell--secondary { grid-column: auto; }
+    .dc-pf-cell--secondary .dc-pf-cell__img-wrap img { aspect-ratio: 4 / 3; height: auto; }
+    .dc-process__steps { grid-template-columns: 1fr; gap: var(--sp-5); }
+  }
+
+  @media (max-width: 640px) {
+    .dc-hero { min-height: 92svh; padding-bottom: var(--sp-7); }
+    .dc-hero__scroll { display: none; }
+    .dc-hero__title { font-size: 42px; }
+    .dc-statement { padding: var(--sp-7) 0; }
+    .dc-pf-grid { grid-template-columns: 1fr; }
+    .dc-pf-cell--featured { grid-column: 1; }
+    .dc-pf-cell--featured .dc-pf-cell__img-wrap img { aspect-ratio: 4 / 3; }
+    .dc-pf-cell--secondary .dc-pf-cell__img-wrap img { aspect-ratio: 4 / 3; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dc-hero__video { display: none; }
+    .dc-hero__scroll-line { animation: none; }
+    .dc-pf-cell__img-wrap img { transition: none; }
+  }
+</style>

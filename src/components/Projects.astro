@@ -1,0 +1,71 @@
+---
+const featured = [
+  {
+    name:     'India Art Fair 2026',
+    location: 'New Delhi',
+    img:      '/images/projects/india-art-fair-2.jpg',
+    imgPos:   'center 60%',
+  },
+  {
+    name:     'AI Summit 2026',
+    location: 'New Delhi',
+    img:      '/images/projects/ai-summit.jpg',
+    imgPos:   'center 46%',
+  },
+  {
+    name:     'India Design 2026',
+    location: 'New Delhi',
+    img:      '/images/projects/india-design.jpg',
+    imgPos:   'center 56%',
+  },
+];
+---
+
+<section class="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="projects__header" data-animate>
+      <div>
+        <span class="eyebrow eyebrow--line">Recent Installations</span>
+        <h2 class="section-title" id="projects-heading">
+          Events We've Covered.
+        </h2>
+      </div>
+      <a href="/projects" class="categories__link-all">
+        All Projects
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+          <path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="projects__grid">
+      {featured.map((event, i) => (
+        <article
+          class="project-card"
+          data-animate
+          data-delay={String(i + 1)}
+        >
+          <div class="project-card__img-wrap">
+            <img
+              src={event.img}
+              alt={event.name}
+              class="project-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="480"
+              style={`object-position: ${event.imgPos}`}
+            />
+            <div class="project-card__info">
+              <div class="project-card__name">{event.name}</div>
+              {event.location && (
+                <div class="project-card__meta">{event.location}</div>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

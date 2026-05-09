@@ -1,0 +1,25 @@
+---
+const steps = [
+  { num: '01', label: 'Inquiry & Brief',     desc: 'Share your event details and floor plan' },
+  { num: '02', label: 'Material Selection',  desc: 'Choose carpet type, shade, and quantity' },
+  { num: '03', label: 'Delivery to Site',    desc: 'On-time dispatch to your venue, anywhere in India' },
+  { num: '04', label: 'Installation & Support', desc: 'On-site laying, edge finishing, and on-ground support through live show days' },
+];
+---
+
+<div class="process" aria-label="How we work">
+  <div class="container">
+    <div class="process__header" data-animate>
+      <span class="eyebrow eyebrow--line">How We Work</span>
+    </div>
+    <div class="process__inner">
+      {steps.map((step, i) => (
+        <div class="process__step" data-animate data-delay={String(i + 1)}>
+          <div class="process__num" aria-hidden="true">{step.num}</div>
+          <div class="process__label">{step.label}</div>
+          <div class="process__desc">{step.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

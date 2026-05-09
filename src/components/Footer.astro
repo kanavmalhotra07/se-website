@@ -1,0 +1,63 @@
+---
+const navLinks = [
+  { href: '/',         label: 'Home'     },
+  { href: '/products', label: 'Products' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about',    label: 'About'    },
+  { href: '/contact',  label: 'Contact'  },
+];
+---
+
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <img src="/logo.png" alt="Sanchi Enterprises" width="110" height="34" />
+        <p class="footer__tagline">
+          Exhibition Flooring &amp; Carpet Solutions<br />
+          Est. 1995 · India
+        </p>
+        <p class="footer__statement">India's most trusted<br/>exhibition flooring partner.</p>
+      </div>
+
+      <nav aria-label="Footer navigation">
+        <div class="footer__col-title">Navigation</div>
+        <ul class="footer__links" role="list">
+          {navLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <a href="tel:+919958132189" class="footer__contact-item">
+          +91 99581 32189
+        </a>
+        <a href="mailto:sanchienterprises@yahoo.com" class="footer__contact-item">
+          sanchienterprises@yahoo.com
+        </a>
+        <a href="mailto:kanav@sanchienterprises.com" class="footer__contact-item">
+          kanav@sanchienterprises.com
+        </a>
+        <a
+          href="https://wa.me/919958132189"
+          class="footer__contact-item footer__whatsapp-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span class="footer__copy">
+        © 2026 Sanchi Enterprises. All rights reserved.
+      </span>
+      <span class="footer__location">India</span>
+    </div>
+  </div>
+</footer>

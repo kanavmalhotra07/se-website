@@ -1,0 +1,25 @@
+---
+const stats = [
+  { display: '10M+', countTo: 10,  suffix: 'M+', label: 'Sq. Metres Installed' },
+  { display: '500+', countTo: 500, suffix: '+',  label: 'Events Supplied'       },
+  { display: '30+',  countTo: 30,  suffix: '+',  label: 'Years in the Industry' },
+  { display: '7+',   countTo: 7,   suffix: '+',  label: 'Cities Delivered'      },
+];
+---
+
+<div class="trust-bar" aria-label="Key statistics">
+  <div class="container">
+    <div class="trust-bar__grid" data-animate>
+      {stats.map((stat, i) => (
+        <div class="trust-bar__item" data-delay={String(i + 1)}>
+          <span
+            class="trust-bar__number"
+            data-count-to={String(stat.countTo)}
+            data-count-suffix={stat.suffix}
+          >{stat.display}</span>
+          <span class="trust-bar__label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

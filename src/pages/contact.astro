@@ -1,0 +1,495 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const whyItems = [
+  {
+    num:   '01',
+    title: 'Pan India Delivery',
+    desc:  'We supply and install exhibition carpets at trade fairs and conventions across all major Indian cities — Delhi NCR, Mumbai, Bangalore, Chennai, Hyderabad, and beyond.',
+    icon:  'map',
+  },
+  {
+    num:   '02',
+    title: 'Exhibition Expertise',
+    desc:  'Over 30 years working exclusively in the Indian exhibition industry. We understand show deadlines, venue logistics, and what organisers need on the floor.',
+    icon:  'star',
+  },
+  {
+    num:   '03',
+    title: 'On-Site Installation',
+    desc:  'Complete carpet laying, edge finishing, and live-day on-ground support — all managed by our experienced installation team from delivery to post-show removal.',
+    icon:  'tool',
+  },
+  {
+    num:   '04',
+    title: '24-Hour Response',
+    desc:  'Short-notice orders handled. We respond to all enquiries within 24 hours and can turn around urgent requirements on tight event timelines.',
+    icon:  'clock',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What types of exhibition carpets do you supply?',
+    a: 'We supply Non Woven carpet (Regular and Premium grades), Ribbed carpet (7 shades), Velour carpet (11 shades), Caution carpet for cable tray and safety applications, and fully custom Designer carpet. All products are available for bulk supply and can be cut to specification.',
+  },
+  {
+    q: 'Do you provide on-site installation?',
+    a: 'Yes. Sanchi Enterprises provides complete on-site installation including carpet laying, edge finishing, and live-day flooring support. Our installation team remains available throughout the event duration for any on-ground requirements.',
+  },
+  {
+    q: 'How quickly can you fulfill an order?',
+    a: 'We maintain large stock of all standard carpet types year-round and can fulfill most orders on short lead times. Share your event dates and floor requirements and we will confirm availability and turnaround within 24 hours.',
+  },
+  {
+    q: 'Can you produce custom branded or designer carpet?',
+    a: 'Yes. Our Designer Carpet service produces fully custom exhibition carpet from your brief — logos, brand colours, event themes, directional graphics, and bespoke artwork at exhibition scale. Production starts from your brand guidelines, artwork files, or concept sketch.',
+  },
+  {
+    q: 'Do you supply across India?',
+    a: 'Yes. We supply and install exhibition carpets at trade fairs, expos, and conventions across India — including Delhi NCR, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, and all major exhibition venues.',
+  },
+  {
+    q: 'What is the minimum order quantity?',
+    a: 'Minimum order quantities vary by product type. Non Woven and Ribbed carpet are available in smaller quantities. For Designer carpet and large-format custom projects, share your floor plan and requirements and we will provide a tailored quote with lead time.',
+  },
+];
+---
+
+<Layout
+  title="Contact Us — Sanchi Enterprises"
+  description="Get in touch with Sanchi Enterprises for exhibition carpet supply, installation, and custom flooring solutions across India. Request a quote or speak to our team directly."
+>
+  <Navbar />
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────────────────────── -->
+    <section class="contact-hero" aria-labelledby="contact-heading">
+      <div class="contact-hero__bg" aria-hidden="true">
+        <img
+          src="/images/contact/hero.jpg"
+          alt=""
+          width="2200"
+          height="1467"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <div class="contact-hero__overlay" aria-hidden="true"></div>
+      <div class="contact-hero__vignette" aria-hidden="true"></div>
+
+      <div class="contact-hero__content">
+        <div class="contact-hero__inner">
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate>Contact</span>
+          <h1 class="contact-hero__title" id="contact-heading" data-animate data-delay="1">
+            Let's Plan Your<br />Exhibition Flooring
+          </h1>
+          <p class="contact-hero__sub" data-animate data-delay="2">
+            Connect with our team for exhibition carpets, custom flooring
+            solutions, and on-site installation across India.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FORM + SIDEBAR ────────────────────────────────────────────────── -->
+    <section class="contact-section" aria-labelledby="form-heading" id="form">
+      <div class="container">
+        <div class="contact-section__grid">
+
+          <!-- Form Column -->
+          <div class="contact-form-col">
+            <div class="contact-form-heading" data-animate>
+              <span class="eyebrow eyebrow--line">Send an Enquiry</span>
+              <h2 class="prod-section__title" id="form-heading">
+                Get Flooring Quote
+              </h2>
+            </div>
+
+            <form
+              id="contactForm"
+              class="contact-form"
+              novalidate
+              aria-label="Exhibition flooring enquiry form"
+              data-animate
+              data-delay="1"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">Full Name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Your full name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="company" class="form-label">Company Name</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    class="form-input"
+                    placeholder="Organisation or company"
+                    autocomplete="organization"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone" class="form-label">Phone Number <span aria-hidden="true">*</span></label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-input"
+                    placeholder="+91 XXXXX XXXXX"
+                    required
+                    autocomplete="tel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="your@email.com"
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="event_name" class="form-label">Event / Show Name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="event_name"
+                    name="event_name"
+                    class="form-input"
+                    placeholder="e.g. India Auto Show 2026"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="event_location" class="form-label">Event Location</label>
+                  <input
+                    type="text"
+                    id="event_location"
+                    name="event_location"
+                    class="form-input"
+                    placeholder="City or venue name"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="requirements" class="form-label">Requirement Details <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="requirements"
+                  name="requirements"
+                  class="form-textarea"
+                  placeholder="Carpet type, approximate area, event dates, installation needs, or any other details..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn btn--dark">
+                  Get Flooring Quote
+                  <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                    <path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <span class="form-footer__or">or</span>
+                <a href="tel:+919958132189" class="form-footer__call">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .14h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.14-1.14a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Call +91 99581 32189
+                </a>
+              </div>
+
+              <div class="contact-form__success" id="formSuccess" role="alert" aria-live="polite">
+                <div class="contact-form__success-title">Opening WhatsApp…</div>
+                <div class="contact-form__success-text">
+                  Your enquiry has been formatted as a WhatsApp message. Complete the send in WhatsApp and our team will respond within 24 hours.
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="contact-sidebar" data-animate data-delay="2" aria-label="Direct contact information">
+            <div class="contact-sidebar__header">
+              <span class="eyebrow eyebrow--line">Direct Contact</span>
+              <h2 class="contact-sidebar__title">Reach Our Team</h2>
+              <p class="contact-sidebar__intro">
+                Prefer to reach us directly? Call, email, or message on WhatsApp — we're available during business hours and for urgent show-day requirements.
+              </p>
+            </div>
+
+            <div class="contact-detail-list">
+              <div class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .14h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.14-1.14a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-detail-item__label">Phone</div>
+                  <a href="tel:+919958132189" class="contact-detail-item__value">
+                    +91 99581 32189
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-detail-item__label">Email</div>
+                  <a href="mailto:sanchienterprises@yahoo.com" class="contact-detail-item__value">
+                    sanchienterprises@yahoo.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-detail-item__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-detail-item__label">Location</div>
+                  <span class="contact-detail-item__value">New Delhi &amp; Mumbai, India</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="contact-sidebar__promise">
+              <strong>We respond to all enquiries within 24 hours.</strong> For urgent show-day requirements, WhatsApp is the fastest way to reach us.
+            </p>
+
+            <a
+              href="https://wa.me/919958132189"
+              class="btn btn--whatsapp-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us — +91 99581 32189
+            </a>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WHY WORK WITH US ───────────────────────────────────────────────── -->
+    <section class="contact-why" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Why Sanchi</span>
+          <h2 class="prod-section__title" id="why-heading">
+            Why Exhibition Organisers Choose Us
+          </h2>
+        </div>
+        <div class="contact-why__grid">
+          {whyItems.map((item, i) => (
+            <div class="contact-why__item" data-animate data-delay={String(i + 1)}>
+              <span class="contact-why__num">{item.num}</span>
+              <div class="contact-why__title">{item.title}</div>
+              <p class="contact-why__desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ───────────────────────────────────────────────────────────── -->
+    <section class="contact-faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="faq-heading">
+            Common Questions
+          </h2>
+        </div>
+        <ul class="faq-list" data-animate data-delay="1" role="list">
+          {faqs.map((faq, i) => (
+            <li class="faq-item" id={`faq-${i}`}>
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls={`faq-answer-${i}`}
+                type="button"
+              >
+                <span class="faq-question__text">{faq.q}</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="faq-answer"
+                id={`faq-answer-${i}`}
+                role="region"
+              >
+                <div class="faq-answer__inner">{faq.a}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────────────────────────────── -->
+    <section class="contact-final-cta" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <div class="contact-final-cta__inner">
+          <span class="eyebrow eyebrow--inverse eyebrow--line" style="display:inline-block;margin-bottom:var(--sp-3);" data-animate>
+            Ready to Begin
+          </span>
+          <h2 class="contact-final-cta__title" id="final-cta-heading" data-animate data-delay="1">
+            Need Exhibition Carpeting<br />for Your Next Event?
+          </h2>
+          <p class="contact-final-cta__sub" data-animate data-delay="2">
+            Share your event brief and we'll respond within 24 hours with product recommendations, availability, and pricing.
+          </p>
+          <div class="contact-final-cta__actions" data-animate data-delay="3">
+            <a
+              href="https://wa.me/919958132189"
+              class="btn btn--whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Talk to Our Team
+            </a>
+            <a href="/products" class="btn btn--ghost-light">View Products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // ─── FAQ Accordion — smooth height-driven animation ────────────────────────
+  function openFaqItem(item: HTMLElement) {
+    const answer = item.querySelector<HTMLElement>('.faq-answer');
+    const inner  = item.querySelector<HTMLElement>('.faq-answer__inner');
+    const btn    = item.querySelector<HTMLButtonElement>('.faq-question');
+    if (!answer || !inner) return;
+    answer.style.height = inner.offsetHeight + 'px';
+    item.classList.add('is-open');
+    btn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeFaqItem(item: HTMLElement) {
+    const answer = item.querySelector<HTMLElement>('.faq-answer');
+    const btn    = item.querySelector<HTMLButtonElement>('.faq-question');
+    if (!answer) return;
+    answer.style.height = '0';
+    item.classList.remove('is-open');
+    btn?.setAttribute('aria-expanded', 'false');
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest<HTMLElement>('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('is-open');
+
+      // Close all open items
+      document.querySelectorAll<HTMLElement>('.faq-item.is-open').forEach(closeFaqItem);
+
+      // Open clicked item if it was closed
+      if (!isOpen) openFaqItem(item);
+    });
+  });
+
+  // Open first FAQ item by default
+  const firstFaqItem = document.querySelector<HTMLElement>('.faq-item');
+  if (firstFaqItem) openFaqItem(firstFaqItem);
+
+  // ─── Contact Form → WhatsApp ────────────────────────────────────────────────
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const successEl = document.getElementById('formSuccess');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Basic client-side validation
+    const required = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
+    let valid = true;
+    required.forEach((field) => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#b04040';
+        field.focus();
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+
+    const data = new FormData(form);
+    const get = (key: string) => (data.get(key) as string)?.trim() || '—';
+
+    const lines = [
+      '*Exhibition Flooring Enquiry — Sanchi Enterprises*',
+      '',
+      `*Name:* ${get('name')}`,
+      `*Company:* ${get('company')}`,
+      `*Phone:* ${get('phone')}`,
+      `*Email:* ${get('email')}`,
+      `*Event:* ${get('event_name')}`,
+      `*Location:* ${get('event_location')}`,
+      '',
+      `*Requirements:*`,
+      get('requirements'),
+    ];
+
+    const msg = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/919958132189?text=${msg}`, '_blank');
+
+    if (successEl) {
+      successEl.classList.add('is-visible');
+    }
+    form.reset();
+  });
+
+  // Clear red borders on input
+  form?.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach((field) => {
+    field.addEventListener('input', () => {
+      field.style.borderColor = '';
+    });
+  });
+</script>

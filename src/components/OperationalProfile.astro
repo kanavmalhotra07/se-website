@@ -1,0 +1,83 @@
+---
+const strengths = [
+  {
+    label: 'Bulk inventory, always available',
+    desc: 'Large stock of all carpet types maintained year-round. No waiting.',
+  },
+  {
+    label: 'Supply through installation',
+    desc: 'Carpet delivery, on-site laying, edge finishing, and on-ground support — all through a single point of contact.',
+  },
+  {
+    label: 'Large-format event experience',
+    desc: 'From small pavilions to full convention hall installations — we understand exhibition scale.',
+  },
+  {
+    label: 'On-ground through show days',
+    desc: 'Short-notice orders handled. Our team stays available through live event operations and post-show removal.',
+  },
+];
+
+const industries = [
+  'Trade Fairs',
+  'Expo Pavilions',
+  'Corporate Summits',
+  'Art Fairs',
+  'Convention Centres',
+  'Brand Activations',
+  'Government Events',
+  'Retail Pop-ups',
+  'Fashion Shows',
+  'Industrial Expos',
+];
+---
+
+<section class="ops" aria-labelledby="ops-heading">
+  <span class="ops__deco" aria-hidden="true">30</span>
+  <div class="container">
+    <div class="ops__grid">
+      <div>
+        <span class="eyebrow eyebrow--inverse" data-animate>Operational Profile</span>
+        <h2
+          class="section-title section-title--inverse"
+          id="ops-heading"
+          style="margin-bottom:var(--sp-6);"
+          data-animate
+          data-delay="1"
+        >
+          Why Organizers<br />Choose Sanchi.
+        </h2>
+        <div class="ops__strengths">
+          {strengths.map((s, i) => (
+            <div class="ops__item" data-animate data-delay={String(i + 2)}>
+              <span class="ops__num">0{i + 1}</span>
+              <div>
+                <div class="ops__strength">{s.label}</div>
+                <div class="ops__strength-sub">{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="ops__right" data-animate data-delay="2">
+        <span class="eyebrow eyebrow--inverse" style="margin-bottom:var(--sp-3)">
+          Industries Served
+        </span>
+        <p class="ops__industries-intro">
+          Sanchi works across every major category of the Indian
+          exhibition industry.
+        </p>
+        <div class="ops__tags">
+          {industries.map((tag) => (
+            <span class="ops__tag">{tag}</span>
+          ))}
+        </div>
+        <p class="ops__statement">
+          "The floor is the first thing visitors<br />
+          walk on. We make sure it's right."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

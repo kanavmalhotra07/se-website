@@ -1,0 +1,139 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Sanchi Enterprises — Exhibition Flooring & Carpet Solutions, India',
+  description = 'Premium exhibition carpets and flooring solutions for trade fairs, expos, and conventions across India. Non-woven, ribbed, and velour carpets supplied in bulk.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0C1230" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <slot />
+
+  <script>
+    // ─── Navbar: transparent → glass blur on scroll ─────────────────────────
+    const navbar = document.querySelector<HTMLElement>('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar?.classList.toggle('is-scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── Hero parallax — rAF-throttled, both pages ──────────────────────────
+    const parallaxTargets: Array<{ el: HTMLElement; rate: number }> = [];
+    const aboutHeroBg  = document.querySelector<HTMLElement>('.about-pg-hero__bg img');
+    const contactHeroBg = document.querySelector<HTMLElement>('.contact-hero__bg img');
+
+    if (aboutHeroBg)   parallaxTargets.push({ el: aboutHeroBg,   rate: 0.16 });
+    if (contactHeroBg) parallaxTargets.push({ el: contactHeroBg, rate: 0.12 });
+
+    if (parallaxTargets.length) {
+      // Prime GPU layer for each parallax target
+      parallaxTargets.forEach(({ el }) => { el.style.willChange = 'transform'; });
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const y = window.scrollY;
+            parallaxTargets.forEach(({ el, rate }) => {
+              el.style.transform = `translate3d(0, ${y * rate}px, 0)`;
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
+    // ─── Scroll reveal — with will-change management ─────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          el.style.willChange = 'opacity, transform';
+          el.classList.add('is-visible');
+          el.addEventListener('transitionend', () => {
+            el.style.willChange = 'auto';
+          }, { once: true });
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -52px 0px' });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+    // ─── Mobile menu ────────────────────────────────────────────────────────
+    const hamburger  = document.querySelector('.navbar__hamburger');
+    const mobileMenu = document.querySelector('.navbar__mobile');
+    const mobileClose = document.querySelector('.mobile-menu__close');
+
+    hamburger?.addEventListener('click', () => {
+      mobileMenu?.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeMobileMenu = () => {
+      mobileMenu?.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    mobileClose?.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-menu__link, .mobile-menu__sub-link').forEach((link) => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // ─── Animated number counters ────────────────────────────────────────────
+    function runCounter(el: HTMLElement) {
+      const target = parseInt(el.dataset.countTo || '0', 10);
+      const suffix = el.dataset.countSuffix || '';
+      const duration = 1600;
+      const startTime = performance.now();
+      function tick(now: number) {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counterEls = document.querySelectorAll<HTMLElement>('[data-count-to]');
+    if (counterEls.length) {
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting && !el.dataset.counted) {
+            el.dataset.counted = '1';
+            runCounter(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      counterEls.forEach((el) => counterObs.observe(el));
+    }
+  </script>
+</body>
+</html>
