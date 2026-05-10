@@ -1753,18 +1753,18 @@ button {
 .footer__social {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .footer__social-link {
   display: flex;
   align-items: center;
-  color: rgba(247, 246, 243, 0.36);
+  color: rgba(247, 246, 243, 0.52);
   transition: color var(--dur-fast) ease;
 }
 
 .footer__social-link:hover {
-  color: rgba(247, 246, 243, 0.72);
+  color: rgba(247, 246, 243, 0.88);
 }
 
 /* Footer closing statement — gives the brand column an authoritative final note */
