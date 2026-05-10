@@ -359,10 +359,10 @@ button {
   left: 0;
   right: 0;
   z-index: 1000;
+  /* Intentionally not transitioning backdrop-filter — animating blur is
+     compositor-heavy. Background + box-shadow transition is sufficient. */
   transition:
     background 320ms ease,
-    backdrop-filter 320ms ease,
-    -webkit-backdrop-filter 320ms ease,
     box-shadow 320ms ease;
 }
 
@@ -569,6 +569,8 @@ button {
     transform 0.32s var(--ease-out),
     visibility 0s 0.32s;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .navbar__mobile.is-open {
@@ -663,6 +665,7 @@ button {
   min-height: 640px;
   overflow: hidden;
   background-color: var(--color-navy-dark);
+  contain: paint;
 }
 
 .hero__bg {
@@ -864,6 +867,7 @@ button {
   min-height: 180px;
   max-height: 420px;
   overflow: hidden;
+  contain: paint;
 }
 
 /* Video layer — blooms in from dark background on scroll */
@@ -1216,6 +1220,8 @@ button {
 .projects {
   padding: var(--sp-8) 0 var(--sp-9);
   background-color: var(--color-warm-white);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 680px;
 }
 
 .projects__header {
@@ -1642,6 +1648,8 @@ button {
   padding: var(--sp-6) 0 var(--sp-4);
   position: relative;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 420px;
 }
 
 .footer__grid {
@@ -5117,9 +5125,11 @@ a.contact-detail-item__value:hover {
 @media (prefers-reduced-motion: reduce) {
   [data-animate],
   [data-animate="image"],
-  [data-animate="from-left"] {
+  [data-animate="from-left"],
+  [data-animate="reveal-up"] {
     opacity: 1;
     transform: none;
+    clip-path: none;
     transition: none;
   }
 
@@ -5141,5 +5151,22 @@ a.contact-detail-item__value:hover {
 
   .about-pg-quality__visual-img {
     transition: none;
+  }
+
+  /* Stop perpetual animations for users who prefer reduced motion */
+  .home-bridge__video,
+  .about-pg-marquee__track {
+    animation: none;
+  }
+
+  .about-pg-hero__scan-line {
+    animation: none;
+    opacity: 0;
+  }
+
+  .hero__scroll-line {
+    animation: none;
+    opacity: 0.4;
+    transform: scaleY(1);
   }
 }

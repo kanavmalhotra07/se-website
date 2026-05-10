@@ -44,6 +44,8 @@ const {
   <slot />
 
   <script>
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // ─── Navbar: transparent → glass blur on scroll ─────────────────────────
     const navbar = document.querySelector<HTMLElement>('.navbar');
     window.addEventListener('scroll', () => {
@@ -51,30 +53,31 @@ const {
     }, { passive: true });
 
     // ─── Hero parallax — rAF-throttled, both pages ──────────────────────────
-    const parallaxTargets: Array<{ el: HTMLElement; rate: number }> = [];
-    const aboutHeroBg  = document.querySelector<HTMLElement>('.about-pg-hero__bg img');
-    const contactHeroBg = document.querySelector<HTMLElement>('.contact-hero__bg img');
+    if (!reducedMotion) {
+      const parallaxTargets: Array<{ el: HTMLElement; rate: number }> = [];
+      const aboutHeroBg   = document.querySelector<HTMLElement>('.about-pg-hero__bg img');
+      const contactHeroBg = document.querySelector<HTMLElement>('.contact-hero__bg img');
 
-    if (aboutHeroBg)   parallaxTargets.push({ el: aboutHeroBg,   rate: 0.16 });
-    if (contactHeroBg) parallaxTargets.push({ el: contactHeroBg, rate: 0.12 });
+      if (aboutHeroBg)   parallaxTargets.push({ el: aboutHeroBg,   rate: 0.16 });
+      if (contactHeroBg) parallaxTargets.push({ el: contactHeroBg, rate: 0.12 });
 
-    if (parallaxTargets.length) {
-      // Prime GPU layer for each parallax target
-      parallaxTargets.forEach(({ el }) => { el.style.willChange = 'transform'; });
+      if (parallaxTargets.length) {
+        parallaxTargets.forEach(({ el }) => { el.style.willChange = 'transform'; });
 
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            const y = window.scrollY;
-            parallaxTargets.forEach(({ el, rate }) => {
-              el.style.transform = `translate3d(0, ${y * rate}px, 0)`;
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              const y = window.scrollY;
+              parallaxTargets.forEach(({ el, rate }) => {
+                el.style.transform = `translate3d(0, ${y * rate}px, 0)`;
+              });
+              ticking = false;
             });
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
     }
 
     // ─── Scroll reveal — with will-change management ─────────────────────────
@@ -82,7 +85,7 @@ const {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const el = entry.target as HTMLElement;
-          el.style.willChange = 'opacity, transform';
+          if (!reducedMotion) el.style.willChange = 'opacity, transform';
           el.classList.add('is-visible');
           el.addEventListener('transitionend', () => {
             el.style.willChange = 'auto';
@@ -114,11 +117,21 @@ const {
       link.addEventListener('click', closeMobileMenu);
     });
 
-    // ─── Ensure all muted autoplay videos are playing ────────────────────────
-    // Browsers may pause autoplay videos on low-power mode or slow connections.
-    // This nudges any paused background video to resume without user gesture.
+    // ─── Background video lifecycle — pause when offscreen, play on entry ────
+    // 160px pre-load margin so video is already playing before it enters view.
+    const videoObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: '160px 0px' });
+
     document.querySelectorAll<HTMLVideoElement>('video[autoplay][muted]').forEach((video) => {
-      if (video.paused) video.play().catch(() => {});
+      videoObs.observe(video);
     });
 
     // ─── Animated number counters ────────────────────────────────────────────
