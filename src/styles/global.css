@@ -1750,6 +1750,23 @@ button {
   color: rgba(247, 246, 243, 0.44);
 }
 
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  color: rgba(247, 246, 243, 0.36);
+  transition: color var(--dur-fast) ease;
+}
+
+.footer__social-link:hover {
+  color: rgba(247, 246, 243, 0.72);
+}
+
 /* Footer closing statement — gives the brand column an authoritative final note */
 .footer__statement {
   font-family: var(--font-display);
