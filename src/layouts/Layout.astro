@@ -105,6 +105,13 @@ const {
       link.addEventListener('click', closeMobileMenu);
     });
 
+    // ─── Ensure all muted autoplay videos are playing ────────────────────────
+    // Browsers may pause autoplay videos on low-power mode or slow connections.
+    // This nudges any paused background video to resume without user gesture.
+    document.querySelectorAll<HTMLVideoElement>('video[autoplay][muted]').forEach((video) => {
+      if (video.paused) video.play().catch(() => {});
+    });
+
     // ─── Animated number counters ────────────────────────────────────────────
     function runCounter(el: HTMLElement) {
       const target = parseInt(el.dataset.countTo || '0', 10);

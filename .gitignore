@@ -26,6 +26,6 @@ dist/
 # Logs
 npm-debug.log*
 
-# Work-in-progress video assets (not ready for production)
-public/videos/wip/
-public/videos/designer/
+# Unused raw source archives (not referenced by any page)
+public/videos/wip/wip-installation-2.mp4
+public/videos/wip/wip-installation-3.mp4
