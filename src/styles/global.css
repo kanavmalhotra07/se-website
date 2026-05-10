@@ -1754,6 +1754,7 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 20px;
 }
 
 .footer__social-link {
