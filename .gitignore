@@ -26,6 +26,11 @@ dist/
 # Logs
 npm-debug.log*
 
+# AI assistant configuration and skill caches (never commit)
+.claude/
+.agents/
+skills-lock.json
+
 # Unused raw source archives (not referenced by any page)
 public/videos/wip/wip-installation-2.mp4
 public/videos/wip/wip-installation-3.mp4
