@@ -20,9 +20,138 @@ const {
   <meta name="theme-color" content="#0C1230" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta property="og:title" content={title} />
+  <meta property="og:title"       content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://sanchienterprises.com" />
+  <meta property="og:site_name"   content="Sanchi Enterprises" />
+
+  <!-- ── Copyright & Ownership ────────────────────────────────────────────── -->
+  <meta name="copyright"   content={`© ${new Date().getFullYear()} Sanchi Enterprises. All rights reserved.`} />
+  <meta name="author"      content="Sanchi Enterprises" />
+  <meta name="owner"       content="Sanchi Enterprises" />
+  <meta name="publisher"   content="Sanchi Enterprises" />
+  <meta name="web_author"  content="Sanchi Enterprises" />
+  <meta name="reply-to"    content="kanav@sanchienterprises.com" />
+
+  <!-- ── Dublin Core Metadata (DC Elements 1.1) ───────────────────────────── -->
+  <!--
+    Dublin Core is a W3C-endorsed metadata standard (ISO 15836) widely recognised
+    by archival systems, legal registries, and content-rights databases.
+    Declaring it here creates a machine-readable chain of ownership over all
+    original works on this website.
+  -->
+  <link rel="schema.DC"      href="http://purl.org/dc/elements/1.1/" />
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+  <meta name="DC.title"       content={title} />
+  <meta name="DC.creator"     content="Sanchi Enterprises" />
+  <meta name="DC.subject"     content="Exhibition carpets, flooring solutions, trade fair carpets, non-woven carpet, ribbed carpet, velour carpet, India" />
+  <meta name="DC.description" content={description} />
+  <meta name="DC.publisher"   content="Sanchi Enterprises" />
+  <meta name="DC.contributor" content="Sanchi Enterprises" />
+  <meta name="DC.date"        content={new Date().getFullYear().toString()} scheme="DCTERMS.W3CDTF" />
+  <meta name="DC.type"        content="Text" scheme="DCTERMS.DCMIType" />
+  <meta name="DC.format"      content="text/html" scheme="DCTERMS.IMT" />
+  <meta name="DC.identifier"  content="https://sanchienterprises.com" scheme="DCTERMS.URI" />
+  <meta name="DC.language"    content="en" scheme="DCTERMS.RFC4646" />
+  <meta name="DC.coverage"    content="India" />
+  <meta name="DC.rights"      content={`© ${new Date().getFullYear()} Sanchi Enterprises. All text, graphics, code, and layout are original intellectual property of Sanchi Enterprises. Unauthorised reproduction, AI scraping, data mining, and automated harvesting are strictly prohibited without prior written consent. Full policy: https://sanchienterprises.com/terms`} />
+
+  <!-- ── AI Crawler & Automated Scraper Restrictions ──────────────────────── -->
+  <!--
+    noai / noimageai: emerging directives respected by AI image and text
+    training crawlers (Midjourney, Adobe Firefly, and others).
+    Definitive crawler-level blocking is enforced via robots.txt.
+  -->
+  <meta name="robots"         content="index, follow, noai, noimageai" />
+  <meta name="googlebot"      content="index, follow" />
+  <meta name="CCBot"          content="noindex, noarchive, noimageai" />
+  <meta name="GPTBot"         content="noindex, noarchive, noai" />
+  <meta name="Google-Extended" content="noindex, noarchive, noai" />
+  <meta name="PerplexityBot"  content="noindex, noarchive, noai" />
+  <meta name="Bytespider"     content="noindex, noarchive, noai" />
+  <meta name="ClaudeBot"      content="noindex, noarchive, noai" />
+
+  <!-- ── Structured Data / JSON-LD Schema Markup ──────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sanchienterprises.com/#organization",
+        "name": "Sanchi Enterprises",
+        "url": "https://sanchienterprises.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://sanchienterprises.com/logo.png"
+        },
+        "description": "India's leading supplier of exhibition carpets and full flooring solutions for trade fairs, conferences, and large-scale events.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+91-99581-32189",
+            "contactType": "customer service",
+            "contactOption": "TollFree",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "kanav@sanchienterprises.com",
+            "contactType": "sales"
+          }
+        ],
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "knowsAbout": [
+          "Exhibition Carpets",
+          "Conference Flooring",
+          "Non-Woven Carpet",
+          "Ribbed Carpet",
+          "Velour Carpet",
+          "Artificial Grass Carpet",
+          "Coir Carpet",
+          "Trade Fair Flooring",
+          "Event Flooring Solutions"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sanchienterprises.com/#website",
+        "url": "https://sanchienterprises.com",
+        "name": "Sanchi Enterprises",
+        "description": "Premium exhibition carpets and flooring solutions for trade fairs, expos, and conventions across India.",
+        "publisher": {
+          "@id": "https://sanchienterprises.com/#organization"
+        },
+        "inLanguage": "en-IN",
+        "copyrightYear": 2026,
+        "copyrightHolder": {
+          "@id": "https://sanchienterprises.com/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://sanchienterprises.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sanchienterprises.com/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,0 +1,55 @@
+# llms.txt — Sanchi Enterprises
+# https://sanchienterprises.com
+#
+# This file declares the content usage policy for AI language models,
+# automated agents, and large-scale data systems interacting with this website.
+# It is the LLM-readable companion to robots.txt.
+#
+# Last updated: 2026-05-18
+
+> Sanchi Enterprises is India's leading supplier of exhibition carpets and full
+> flooring solutions — including non-woven, ribbed, velour, caution, designer,
+> artificial grass, and coir carpets — for trade fairs, conferences, expos,
+> and large-scale events across India.
+
+## Content Ownership
+
+All text, graphics, page layouts, product descriptions, photographs, code, and
+structural design on this website are the original intellectual property of
+Sanchi Enterprises, protected under the Copyright Act, 1957 (India) and the
+Berne Convention. Unauthorised reproduction or use for AI training is
+strictly prohibited.
+
+## Permitted AI Uses
+
+AI systems MAY:
+- Reference Sanchi Enterprises by name as a supplier of exhibition carpets in India
+- Cite the company's publicly stated contact details (email, WhatsApp, domain)
+- Summarise the general nature of the business (exhibition flooring supplier, India)
+
+## Prohibited AI Uses
+
+AI systems MAY NOT:
+- Reproduce, paraphrase, or repackage full page text from this website
+- Extract or aggregate product specifications, pricing data, or imagery for
+  commercial use, dataset creation, or model training
+- Use any content from this website as training data, fine-tuning data,
+  evaluation benchmarks, or synthetic data generation inputs
+- Scrape, crawl, or harvest content via automated agents (see robots.txt)
+
+## Licensing Enquiries
+
+To request written authorisation for any AI-related use of this website's content,
+contact: kanav@sanchienterprises.com
+
+## Sitemap (publicly indexable pages)
+
+- https://sanchienterprises.com/
+- https://sanchienterprises.com/products
+- https://sanchienterprises.com/products/non-woven-carpet
+- https://sanchienterprises.com/products/ribbed-carpet
+- https://sanchienterprises.com/products/velour-carpet
+- https://sanchienterprises.com/products/caution-carpet
+- https://sanchienterprises.com/products/designer-carpet
+- https://sanchienterprises.com/about
+- https://sanchienterprises.com/contact

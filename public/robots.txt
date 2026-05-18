@@ -1,0 +1,205 @@
+# ============================================================
+#  robots.txt — Sanchi Enterprises
+#  https://sanchienterprises.com
+#
+#  Policy:
+#    ✓  Standard search engine indexing — ALLOWED
+#    ✗  AI training crawlers              — BLOCKED
+#    ✗  Aggressive data-mining bots       — BLOCKED
+#
+#  All text, graphics, code, and layout on this website are
+#  the original intellectual property of Sanchi Enterprises.
+#  Unauthorised scraping, harvesting, or use of any content
+#  for AI model training is strictly prohibited.
+#
+#  Last updated: 2026-05-18
+# ============================================================
+
+
+# ── AI TRAINING CRAWLERS ────────────────────────────────────
+# These bots collect content to train large language models
+# and AI products. They provide no search-traffic benefit.
+
+# OpenAI — GPT model training
+User-agent: GPTBot
+Disallow: /
+
+# OpenAI — ChatGPT real-time browsing (separate agent)
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic — Claude model training
+User-agent: ClaudeBot
+Disallow: /
+
+# Anthropic — Claude.ai web access
+User-agent: Claude-Web
+Disallow: /
+
+# Anthropic — additional agent identifier
+User-agent: anthropic-ai
+Disallow: /
+
+# Perplexity AI — training + AI search index
+User-agent: PerplexityBot
+Disallow: /
+
+# ByteDance / TikTok — model training
+User-agent: Bytespider
+Disallow: /
+
+# Google — Gemini AI training ONLY (does NOT affect Google Search)
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl — open dataset used to train many AI models
+User-agent: CCBot
+Disallow: /
+
+# Apple — AI/Siri features training (separate from Apple Search)
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta / Facebook — AI research and training
+User-agent: FacebookBot
+Disallow: /
+
+# Amazon — Alexa and AWS AI training
+User-agent: Amazonbot
+Disallow: /
+
+# Cohere — AI language model training
+User-agent: cohere-ai
+Disallow: /
+
+# Omgili — bulk content aggregation for AI datasets
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+# Diffbot — AI-powered structured data extraction
+User-agent: Diffbot
+Disallow: /
+
+# AI2 / Allen Institute — research dataset crawler
+User-agent: AI2Bot
+Disallow: /
+
+# iArchive / Internet Archive AI — AI training dataset
+User-agent: ia_archiver
+Disallow: /
+
+
+# ── AGGRESSIVE SEO / DATA-MINING SCRAPERS ───────────────────
+# These bots scrape content for commercial competitor tools.
+# They do not drive traffic to this site.
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: SemrushBot-SI
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Rogerbot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: SEOkicks
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+
+# ── STANDARD SEARCH ENGINES ─────────────────────────────────
+# Fully allowed. These drive real organic search traffic.
+
+# Google Search (all agents)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Microsoft Bing
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+# Yahoo (powered by Bing)
+User-agent: Slurp
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Apple Search (legitimate search, not AI training)
+User-agent: Applebot
+Allow: /
+
+
+# ── ALL OTHER BOTS ───────────────────────────────────────────
+# Unknown crawlers are allowed at a conservative crawl delay.
+# Legitimate services will identify themselves correctly.
+
+User-agent: *
+Allow: /
+Crawl-delay: 10
+
+
+# ── SITEMAP ──────────────────────────────────────────────────
+Sitemap: https://sanchienterprises.com/sitemap.xml
