@@ -197,6 +197,7 @@ Allow: /
 # Legitimate services will identify themselves correctly.
 
 User-agent: *
+Disallow: /api/
 Allow: /
 Crawl-delay: 10
 
