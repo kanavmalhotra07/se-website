@@ -1,12 +1,13 @@
 ---
 const categories = [
   {
-    href:        '/products/non-woven-carpet',
-    name:        'Non Woven Carpet',
-    sub:         'Regular Shade · Premium Shade',
-    img:         '/images/catalogue/nw-red.jpg',
-    placeholder: false,
-    imgPos:      '62% 32%',
+    href:          '/products/non-woven-carpet',
+    name:          'Non Woven Carpet',
+    sub:           'Regular Shade · Premium Shade',
+    img:           '/images/catalogue/nw-red.jpg',
+    placeholder:   false,
+    imgPos:        '62% 32%',
+    mobileImgPos:  'center 55%',
   },
   {
     href:        '/products/ribbed-carpet',
@@ -51,6 +52,19 @@ const categories = [
 ];
 ---
 
+<style>
+  /* object-position driven by per-element CSS vars set in the style attribute.
+     Fallback chain: mobile var → desktop var → center (global.css default). */
+  .cat-card__img {
+    object-position: var(--obj-pos, center);
+  }
+  @media (max-width: 768px) {
+    .cat-card__img {
+      object-position: var(--obj-pos-mobile, var(--obj-pos, center));
+    }
+  }
+</style>
+
 <section class="categories" aria-labelledby="categories-heading">
   <div class="container">
     <div class="categories__header" data-animate>
@@ -88,7 +102,7 @@ const categories = [
                 decoding="async"
                 width="600"
                 height="750"
-                style={`object-position:${cat.imgPos}`}
+                style={`--obj-pos:${cat.imgPos};${cat.mobileImgPos ? `--obj-pos-mobile:${cat.mobileImgPos}` : ''}`}
               />
             )}
           </div>
