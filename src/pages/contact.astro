@@ -56,12 +56,18 @@ const faqs = [
     a: 'Minimum order quantities vary by product type. Non Woven and Ribbed carpet are available in smaller quantities. For Designer carpet and large-format custom projects, share your floor plan and requirements and we will provide a tailored quote with lead time.',
   },
 ];
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
 <Layout
   title="Contact Us — Sanchi Enterprises"
   description="Get in touch with Sanchi Enterprises for exhibition carpet supply, installation, and custom flooring solutions across India. Request a quote or speak to our team directly."
 >
+  <Fragment slot="head">
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -227,6 +233,19 @@ const faqs = [
                   Your enquiry has been formatted as a WhatsApp message. Complete the send in WhatsApp and our team will respond within 24 hours.
                 </div>
               </div>
+
+              <div class="contact-form__error" id="formError" role="alert" aria-live="polite">
+                <div class="contact-form__error-title">Verification Failed</div>
+                <div class="contact-form__error-text">Security check failed. Please try again.</div>
+              </div>
+
+              <!-- Cloudflare Turnstile invisible widget — rendered by JS below -->
+              <div
+                id="turnstile-widget"
+                data-sitekey={turnstileSiteKey}
+                aria-hidden="true"
+                style="display:none;"
+              ></div>
             </form>
           </div>
 
@@ -400,8 +419,41 @@ const faqs = [
   <Footer />
 </Layout>
 
+<style>
+  .contact-form__error {
+    display: none;
+    margin-top: var(--sp-4);
+    padding: var(--sp-4);
+    background: #fff3f3;
+    border-left: 3px solid #b04040;
+    border-radius: 2px;
+  }
+  .contact-form__error.is-visible { display: block; }
+  .contact-form__error-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a2020;
+    margin-bottom: 4px;
+  }
+  .contact-form__error-text {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: #7a2020;
+    line-height: 1.6;
+  }
+</style>
+
 <script>
-  // ─── FAQ Accordion — smooth height-driven animation ────────────────────────
+  // ── Turnstile global type ─────────────────────────────────────────────────
+  type TurnstileAPI = {
+    render(el: HTMLElement, opts: Record<string, unknown>): string;
+    execute(id: string): void;
+    reset(id: string): void;
+  };
+  const w = window as Window & { turnstile?: TurnstileAPI };
+
+  // ── FAQ Accordion ─────────────────────────────────────────────────────────
   function openFaqItem(item: HTMLElement) {
     const answer = item.querySelector<HTMLElement>('.faq-answer');
     const inner  = item.querySelector<HTMLElement>('.faq-answer__inner');
@@ -411,7 +463,6 @@ const faqs = [
     item.classList.add('is-open');
     btn?.setAttribute('aria-expanded', 'true');
   }
-
   function closeFaqItem(item: HTMLElement) {
     const answer = item.querySelector<HTMLElement>('.faq-answer');
     const btn    = item.querySelector<HTMLButtonElement>('.faq-question');
@@ -420,39 +471,116 @@ const faqs = [
     item.classList.remove('is-open');
     btn?.setAttribute('aria-expanded', 'false');
   }
-
   document.querySelectorAll<HTMLButtonElement>('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest<HTMLElement>('.faq-item');
       if (!item) return;
       const isOpen = item.classList.contains('is-open');
-
-      // Close all open items
       document.querySelectorAll<HTMLElement>('.faq-item.is-open').forEach(closeFaqItem);
-
-      // Open clicked item if it was closed
       if (!isOpen) openFaqItem(item);
     });
   });
+  const firstFaq = document.querySelector<HTMLElement>('.faq-item');
+  if (firstFaq) openFaqItem(firstFaq);
 
-  // Open first FAQ item by default
-  const firstFaqItem = document.querySelector<HTMLElement>('.faq-item');
-  if (firstFaqItem) openFaqItem(firstFaqItem);
+  // ── Turnstile invisible widget ────────────────────────────────────────────
+  const widgetEl = document.getElementById('turnstile-widget') as HTMLElement | null;
+  const siteKey  = widgetEl?.dataset.sitekey ?? '';
 
-  // ─── Contact Form → WhatsApp ────────────────────────────────────────────────
-  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  let widgetId: string | null = null;
+  let pendingResolve: ((token: string) => void) | null = null;
+  let pendingReject:  ((err: Error)   => void) | null = null;
+
+  function initTurnstile() {
+    if (!widgetEl || !w.turnstile || !siteKey) return;
+    widgetId = w.turnstile.render(widgetEl, {
+      sitekey: siteKey,
+      size: 'invisible',
+      callback: (token: unknown) => {
+        pendingResolve?.(token as string);
+        pendingResolve = null;
+        pendingReject  = null;
+      },
+      'error-callback': () => {
+        pendingReject?.(new Error('Turnstile error'));
+        pendingResolve = null;
+        pendingReject  = null;
+      },
+      'expired-callback': () => {
+        if (widgetId) w.turnstile?.reset(widgetId);
+      },
+    });
+  }
+
+  // Load Turnstile only on this page, not globally via Layout
+  const tsScript = document.createElement('script');
+  tsScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  tsScript.defer = true;
+  tsScript.addEventListener('load', initTurnstile);
+  document.head.appendChild(tsScript);
+
+  function getToken(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!widgetId || !w.turnstile) {
+        reject(new Error('not-ready'));
+        return;
+      }
+      let settled = false;
+      const timer = setTimeout(() => {
+        if (settled) return;
+        settled = true;
+        pendingResolve = null;
+        pendingReject  = null;
+        reject(new Error('timeout'));
+      }, 30_000);
+
+      pendingResolve = (token) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        resolve(token);
+      };
+      pendingReject = (err) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        reject(err);
+      };
+      w.turnstile.execute(widgetId);
+    });
+  }
+
+  // ── Contact Form → Turnstile → server verify → WhatsApp ──────────────────
+  const form      = document.getElementById('contactForm') as HTMLFormElement | null;
   const successEl = document.getElementById('formSuccess');
+  const errorEl   = document.getElementById('formError');
+  const submitBtn = form?.querySelector<HTMLButtonElement>('[type="submit"]');
+  const submitBtnOriginal = submitBtn?.innerHTML ?? '';
 
-  form?.addEventListener('submit', (e) => {
+  function showFormError(msg: string) {
+    const txt = errorEl?.querySelector<HTMLElement>('.contact-form__error-text');
+    if (txt) txt.textContent = msg;
+    errorEl?.classList.add('is-visible');
+    successEl?.classList.remove('is-visible');
+  }
+
+  function setBusy(busy: boolean) {
+    if (!submitBtn) return;
+    submitBtn.disabled = busy;
+    submitBtn.innerHTML = busy ? 'Verifying&hellip;' : submitBtnOriginal;
+  }
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    errorEl?.classList.remove('is-visible');
 
-    // Basic client-side validation
+    // Client-side field validation
     const required = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
     let valid = true;
     required.forEach((field) => {
       if (!field.value.trim()) {
         field.style.borderColor = '#b04040';
-        field.focus();
+        if (valid) field.focus();
         valid = false;
       } else {
         field.style.borderColor = '';
@@ -460,36 +588,56 @@ const faqs = [
     });
     if (!valid) return;
 
+    // Snapshot form data before async operations
     const data = new FormData(form);
-    const get = (key: string) => (data.get(key) as string)?.trim() || '—';
-
+    const get  = (k: string) => (data.get(k) as string)?.trim() || '—';
     const lines = [
-      '*Exhibition Flooring Enquiry — Sanchi Enterprises*',
-      '',
+      '*Exhibition Flooring Enquiry — Sanchi Enterprises*', '',
       `*Name:* ${get('name')}`,
       `*Company:* ${get('company')}`,
       `*Phone:* ${get('phone')}`,
       `*Email:* ${get('email')}`,
       `*Event:* ${get('event_name')}`,
-      `*Location:* ${get('event_location')}`,
-      '',
-      `*Requirements:*`,
-      get('requirements'),
+      `*Location:* ${get('event_location')}`, '',
+      '*Requirements:*', get('requirements'),
     ];
 
-    const msg = encodeURIComponent(lines.join('\n'));
-    window.open(`https://wa.me/919958132189?text=${msg}`, '_blank');
+    setBusy(true);
+    try {
+      // 1 — get Turnstile token (invisible challenge, usually instant)
+      const token = await getToken();
 
-    if (successEl) {
-      successEl.classList.add('is-visible');
+      // 2 — verify server-side (secret key never leaves the edge function)
+      const res = await fetch('/api/verify-turnstile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      });
+      const result = await res.json() as { success: boolean; error?: string };
+      if (!result.success) throw new Error(result.error ?? 'failed');
+
+      // 3 — open WhatsApp
+      window.open(`https://wa.me/919958132189?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+      successEl?.classList.add('is-visible');
+      form.reset();
+      if (widgetId) w.turnstile?.reset(widgetId);
+
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : '';
+      showFormError(
+        msg === 'not-ready'
+          ? 'Security check not loaded yet — please wait a moment and try again.'
+          : msg === 'timeout'
+          ? 'Verification timed out. Please try again.'
+          : 'Security check failed. Please refresh the page and try again.'
+      );
+      if (widgetId) w.turnstile?.reset(widgetId);
+    } finally {
+      setBusy(false);
     }
-    form.reset();
   });
 
-  // Clear red borders on input
-  form?.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach((field) => {
-    field.addEventListener('input', () => {
-      field.style.borderColor = '';
-    });
+  form?.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach((f) => {
+    f.addEventListener('input', () => { f.style.borderColor = ''; });
   });
 </script>
