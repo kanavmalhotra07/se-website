@@ -36,22 +36,13 @@ const steps = [
     <!-- ─── HERO — full-viewport, video-backed ───────────────── -->
     <section class="dc-hero" aria-labelledby="dc-heading">
       <div class="dc-hero__media" aria-hidden="true">
-        <img
-          src="/images/designer-carpet/electronica-green-aisle.jpg"
-          alt=""
-          class="dc-hero__poster"
-          width="1600"
-          height="900"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
         <video
           autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
+          poster="/images/designer-carpet/electronica-green-aisle.jpg"
           class="dc-hero__video"
         >
           <source src="/videos/designer/designer-light-led.mp4" type="video/mp4" />
@@ -593,17 +584,7 @@ const steps = [
     .dc-pf-cell--secondary .dc-pf-cell__img-wrap img { aspect-ratio: 4 / 3; }
   }
 
-  .dc-hero__poster {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .dc-hero__video { display: none; }
     .dc-hero__scroll-line { animation: none; }
     .dc-pf-cell__img-wrap img { transition: none; }
   }
