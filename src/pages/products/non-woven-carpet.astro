@@ -48,12 +48,81 @@ const applications = [
   'Multi-day Events',
   'Budget-conscious Projects',
 ];
+
+const faqs = [
+  {
+    q: 'What is the difference between Regular and Premium grade non woven carpet?',
+    a: 'Regular grade is the practical choice for large-area floor coverage where cost efficiency is the primary consideration — reliable appearance and easy handling for high-volume trade fair installations. Premium grade uses a denser construction with a more refined surface finish, suited to pavilions where presentation quality needs to be higher without moving to cut-pile alternatives such as velour.',
+  },
+  {
+    q: 'What floor areas can non woven carpet cover?',
+    a: 'Non woven carpet scales to any event size — from a few hundred square metres for a single stall to several thousand square metres covering multiple halls simultaneously. Carpet is supplied in bulk rolls and pre-cut to your floor plan dimensions.',
+  },
+  {
+    q: 'Which trade fairs and exhibitions use non woven carpet?',
+    a: 'Non woven carpet is the default floor covering across the Indian exhibition industry. It is installed at Pragati Maidan (New Delhi), Yashobhoomi (Dwarka), Bombay Exhibition Centre (Mumbai), Jio World Convention Centre, BIEC (Bengaluru), India Expo Centre (Greater Noida), and every major trade fair venue in India.',
+  },
+  {
+    q: 'What is the minimum order quantity for non woven carpet?',
+    a: 'Minimum order quantities depend on the shade and grade. For large exhibition projects — covering hundreds or thousands of square metres — carpet is supplied in full or partial roll quantities. We supply smaller quantities for individual stall flooring and large bulk orders for full hall coverage. Share your floor plan and we will confirm the quantity and pricing.',
+  },
+  {
+    q: 'Can non woven carpet be reused across multiple events?',
+    a: 'Standard practice in the Indian exhibition industry is to supply non woven carpet as a single-event material. The product is designed for efficient deployment and post-show removal rather than long-term reuse. For organizers managing carpet across a full event season, we can advise on the right grade and quantity strategy.',
+  },
+  {
+    q: 'How far in advance should non woven carpet be ordered?',
+    a: 'Because we maintain year-round inventory across both Regular and Premium grades — with stock held in Delhi and Mumbai — most orders can be fulfilled on relatively short notice. For large-scale orders covering multiple halls, we recommend confirming requirements at least 4–6 weeks before the event move-in date to allow pre-cutting and logistics coordination.',
+  },
+];
 ---
 
 <Layout
-  title="Non Woven Carpet — Sanchi Enterprises"
-  description="Non Woven exhibition carpet in Regular and Premium grades. 14 Regular and 15 Premium shades. The industry standard for trade fair floor coverage. Bulk supply and on-site installation across India."
+  title="Non Woven Exhibition Carpet — Bulk Supply & Installation | Sanchi Enterprises"
+  description="Non woven exhibition carpet in Regular and Premium grades — 29 shades in permanent stock. The industry standard for trade fair floor coverage across India. Bulk supply and on-site installation."
+  ogImage="https://sanchienterprises.com/images/products/non-woven/nw-in-use-1.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Non Woven Carpet', item: 'https://sanchienterprises.com/products/non-woven-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/non-woven-carpet/#product",
+          "name": "Non Woven Exhibition Carpet",
+          "description": "Non woven exhibition carpet available in Regular and Premium grades. 14 Regular shades and 15 Premium shades, all in permanent stock. The most widely used flooring product in the Indian exhibition industry — lightweight, cost-effective, and supplied cut to specification.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/non-woven-carpet",
+          "image": "https://sanchienterprises.com/images/products/non-woven/nw-in-use-1.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Grades", "value": "Regular and Premium" },
+            { "@type": "PropertyValue", "name": "Total Colours", "value": "29 shades" },
+            { "@type": "PropertyValue", "name": "Supply Format", "value": "Bulk roll, cut to size" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India delivery" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -318,6 +387,85 @@ const applications = [
       </div>
     </div>
 
+    <!-- ─── INDUSTRY CONTEXT ─────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="nw-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="nw-context-title" id="nw-context-heading">India's Exhibition Industry Runs on Non Woven Carpet.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
+          Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
+          floor beneath your feet is almost certainly non woven carpet. It has been the default
+          exhibition floor covering in India for decades: reliable in performance, available in
+          sufficient volume, and cost-effective at the scale that exhibition organisers and
+          contractors demand.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          Non woven carpet covers areas that few other flooring materials can manage efficiently
+          at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
+          square metres of floor in parallel. Individual stall floors at a few hundred square
+          metres each. The material's lightweight structure and simple installation method allow
+          large teams to cover significant floor areas within the overnight build window that
+          most trade fair venues in India operate.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          For exhibition organizers and stall contractors across India's full exhibition calendar
+          — from auto shows and technology expos to food and textile trade fairs — non woven
+          carpet's compatibility with all standard installation methods, year-round stock
+          availability, and cost efficiency at large floor areas make it the practical choice
+          the industry keeps returning to, event after event.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="nw-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="nw-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ─────────────────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/ribbed-carpet" class="prod-related__link">
+            <span class="prod-related__name">Ribbed Carpet</span>
+            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          </a>
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+          <a href="/products/caution-carpet" class="prod-related__link">
+            <span class="prod-related__name">Caution Carpet</span>
+            <span class="prod-related__desc">Safety flooring for cable trays and access zones</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- ─── CTA ──────────────────────────────────────────────────────────── -->
     <div class="prod-cta">
       <div class="container">
@@ -352,6 +500,90 @@ const applications = [
 </Layout>
 
 <style>
+  /* ─── Industry context (dark section) ─────────────────────────────────── */
+  .nw-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.65);
+    max-width: 760px;
+    margin-bottom: var(--sp-4);
+  }
+  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+
+  /* ─── FAQ section ──────────────────────────────────────────────────────── */
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ─── Related products ─────────────────────────────────────────────────── */
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+
   /* ─── Non Woven Hero — exhibition floor at full scale ─────────────────── */
   .nw-hero {
     position: relative;

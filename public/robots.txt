@@ -3,53 +3,39 @@
 #  https://sanchienterprises.com
 #
 #  Policy:
-#    ✓  Standard search engine indexing — ALLOWED
-#    ✗  AI training crawlers              — BLOCKED
-#    ✗  Aggressive data-mining bots       — BLOCKED
+#    ✓  Standard search engine indexing          — ALLOWED
+#    ✓  AI answer/search bots (Perplexity,        — ALLOWED  (for discoverability)
+#       ChatGPT Browse, Claude-Web, Gemini)
+#    ✗  AI model training crawlers               — BLOCKED
+#    ✗  Aggressive data-mining bots              — BLOCKED
 #
 #  All text, graphics, code, and layout on this website are
 #  the original intellectual property of Sanchi Enterprises.
 #  Unauthorised scraping, harvesting, or use of any content
 #  for AI model training is strictly prohibited.
 #
-#  Last updated: 2026-05-18
+#  Last updated: 2026-05-19
 # ============================================================
 
 
-# ── AI TRAINING CRAWLERS ────────────────────────────────────
-# These bots collect content to train large language models
-# and AI products. They provide no search-traffic benefit.
+# ── AI MODEL TRAINING CRAWLERS ──────────────────────────────
+# These bots collect content specifically for training LLMs.
+# They provide no search-traffic or discoverability benefit.
 
-# OpenAI — GPT model training
+# OpenAI — GPT model training (NOT ChatGPT Browse)
 User-agent: GPTBot
-Disallow: /
-
-# OpenAI — ChatGPT real-time browsing (separate agent)
-User-agent: ChatGPT-User
 Disallow: /
 
 # Anthropic — Claude model training
 User-agent: ClaudeBot
 Disallow: /
 
-# Anthropic — Claude.ai web access
-User-agent: Claude-Web
-Disallow: /
-
 # Anthropic — additional agent identifier
 User-agent: anthropic-ai
 Disallow: /
 
-# Perplexity AI — training + AI search index
-User-agent: PerplexityBot
-Disallow: /
-
 # ByteDance / TikTok — model training
 User-agent: Bytespider
-Disallow: /
-
-# Google — Gemini AI training ONLY (does NOT affect Google Search)
-User-agent: Google-Extended
 Disallow: /
 
 # Common Crawl — open dataset used to train many AI models
@@ -140,6 +126,28 @@ Disallow: /
 
 User-agent: Scrapy
 Disallow: /
+
+
+# ── AI ANSWER / SEARCH BOTS ─────────────────────────────────
+# These bots power AI-generated answers and search summaries.
+# Allowing them improves visibility in Perplexity, ChatGPT
+# Browse, and other AI-driven recommendation surfaces.
+
+# Perplexity AI — search index and AI answer engine
+User-agent: PerplexityBot
+Allow: /
+
+# OpenAI — ChatGPT real-time web browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude.ai web browsing and search
+User-agent: Claude-Web
+Allow: /
+
+# Google — Gemini AI Overviews and AI search features
+User-agent: Google-Extended
+Allow: /
 
 
 # ── STANDARD SEARCH ENGINES ─────────────────────────────────

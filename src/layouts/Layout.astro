@@ -1,15 +1,34 @@
 ---
 import '../styles/global.css';
 
+interface BreadcrumbItem {
+  name: string;
+  item: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
+
+const siteBase = 'https://sanchienterprises.com';
 
 const {
   title = 'Sanchi Enterprises — Exhibition Flooring & Carpet Solutions, India',
   description = 'Premium exhibition carpets and flooring solutions for trade fairs, expos, and conventions across India. Non-woven, ribbed, and velour carpets supplied in bulk.',
+  ogImage = `${siteBase}/images/products/non-woven/nw-hero-poster.jpg`,
+  breadcrumbs = [],
 } = Astro.props;
+
+const rawPath = Astro.url.pathname;
+const canonicalUrl = `${siteBase}${rawPath === '/' ? '/' : rawPath.replace(/\/$/, '')}`;
+
+const allBreadcrumbs: BreadcrumbItem[] = [
+  { name: 'Home', item: `${siteBase}/` },
+  ...breadcrumbs,
+];
 ---
 
 <!DOCTYPE html>
@@ -20,11 +39,20 @@ const {
   <meta name="theme-color" content="#0C1230" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
   <meta property="og:title"       content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://sanchienterprises.com" />
+  <meta property="og:url"         content={canonicalUrl} />
   <meta property="og:site_name"   content="Sanchi Enterprises" />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:image:width"  content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:locale"      content="en_IN" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
 
   <!-- ── Copyright & Ownership ────────────────────────────────────────────── -->
   <meta name="copyright"   content={`© ${new Date().getFullYear()} Sanchi Enterprises. All rights reserved.`} />
@@ -63,94 +91,156 @@ const {
     training crawlers (Midjourney, Adobe Firefly, and others).
     Definitive crawler-level blocking is enforced via robots.txt.
   -->
-  <meta name="robots"         content="index, follow, noai, noimageai" />
-  <meta name="googlebot"      content="index, follow" />
-  <meta name="CCBot"          content="noindex, noarchive, noimageai" />
-  <meta name="GPTBot"         content="noindex, noarchive, noai" />
-  <meta name="Google-Extended" content="noindex, noarchive, noai" />
-  <meta name="PerplexityBot"  content="noindex, noarchive, noai" />
-  <meta name="Bytespider"     content="noindex, noarchive, noai" />
-  <meta name="ClaudeBot"      content="noindex, noarchive, noai" />
+  <meta name="robots"          content="index, follow, noai, noimageai" />
+  <meta name="googlebot"       content="index, follow" />
+  <meta name="CCBot"           content="noindex, noarchive, noimageai" />
+  <meta name="GPTBot"          content="noindex, noarchive, noai" />
+  <meta name="Google-Extended" content="index, follow" />
+  <meta name="Bytespider"      content="noindex, noarchive, noai" />
+  <meta name="ClaudeBot"       content="noindex, noarchive, noai" />
 
   <!-- ── Structured Data / JSON-LD Schema Markup ──────────────────────────── -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": "https://sanchienterprises.com/#organization",
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": `${siteBase}/#organization`,
         "name": "Sanchi Enterprises",
-        "url": "https://sanchienterprises.com",
+        "url": siteBase,
         "logo": {
           "@type": "ImageObject",
-          "url": "https://sanchienterprises.com/logo.png"
+          "url": `${siteBase}/logo.png`,
+          "width": 512,
+          "height": 512
         },
-        "description": "India's leading supplier of exhibition carpets and full flooring solutions for trade fairs, conferences, and large-scale events.",
+        "image": `${siteBase}/images/products/non-woven/nw-hero-poster.jpg`,
+        "description": "Sanchi Enterprises is India's leading supplier and installer of exhibition carpets for trade fairs, expos, and conventions. Founded in 1995, we supply Non Woven, Ribbed, Velour, Caution, and custom Designer carpet with on-site installation across India's major exhibition venues.",
+        "foundingDate": "1995",
+        "founder": {
+          "@type": "Person",
+          "name": "Davinder Malhotra"
+        },
         "address": {
           "@type": "PostalAddress",
+          "addressLocality": "New Delhi",
+          "addressRegion": "Delhi",
           "addressCountry": "IN"
         },
+        "telephone": "+91-99581-32189",
+        "email": "kanav@sanchienterprises.com",
         "contactPoint": [
           {
             "@type": "ContactPoint",
             "telephone": "+91-99581-32189",
-            "contactType": "customer service",
-            "contactOption": "TollFree",
+            "contactType": "sales",
             "availableLanguage": ["English", "Hindi"]
           },
           {
             "@type": "ContactPoint",
             "email": "kanav@sanchienterprises.com",
-            "contactType": "sales"
+            "contactType": "customer service"
           }
         ],
         "areaServed": {
           "@type": "Country",
           "name": "India"
         },
+        "serviceArea": [
+          { "@type": "City", "name": "New Delhi" },
+          { "@type": "City", "name": "Mumbai" },
+          { "@type": "City", "name": "Bengaluru" },
+          { "@type": "City", "name": "Hyderabad" },
+          { "@type": "City", "name": "Chennai" },
+          { "@type": "City", "name": "Kolkata" }
+        ],
         "knowsAbout": [
-          "Exhibition Carpets",
-          "Conference Flooring",
-          "Non-Woven Carpet",
-          "Ribbed Carpet",
-          "Velour Carpet",
-          "Artificial Grass Carpet",
-          "Coir Carpet",
+          "Exhibition Carpet Supply India",
           "Trade Fair Flooring",
-          "Event Flooring Solutions"
-        ]
+          "Non-Woven Exhibition Carpet",
+          "Ribbed Exhibition Carpet",
+          "Velour Exhibition Carpet",
+          "Custom Designer Carpet",
+          "Caution Carpet Safety Flooring",
+          "Expo Flooring Installation",
+          "Convention Centre Flooring",
+          "Event Flooring Contractor India",
+          "Exhibition Flooring Solutions"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Exhibition Carpet Products",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Non Woven Exhibition Carpet",
+                "url": `${siteBase}/products/non-woven-carpet`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Ribbed Exhibition Carpet",
+                "url": `${siteBase}/products/ribbed-carpet`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Velour Exhibition Carpet",
+                "url": `${siteBase}/products/velour-carpet`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Custom Designer Exhibition Carpet",
+                "url": `${siteBase}/products/designer-carpet`
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Caution Safety Carpet",
+                "url": `${siteBase}/products/caution-carpet`
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "WebSite",
-        "@id": "https://sanchienterprises.com/#website",
-        "url": "https://sanchienterprises.com",
+        "@id": `${siteBase}/#website`,
+        "url": siteBase,
         "name": "Sanchi Enterprises",
         "description": "Premium exhibition carpets and flooring solutions for trade fairs, expos, and conventions across India.",
         "publisher": {
-          "@id": "https://sanchienterprises.com/#organization"
+          "@id": `${siteBase}/#organization`
         },
         "inLanguage": "en-IN",
         "copyrightYear": 2026,
         "copyrightHolder": {
-          "@id": "https://sanchienterprises.com/#organization"
+          "@id": `${siteBase}/#organization`
         }
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://sanchienterprises.com/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://sanchienterprises.com/"
-          }
-        ]
+        "@id": `${canonicalUrl}#breadcrumb`,
+        "itemListElement": allBreadcrumbs.map((bc, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": bc.name,
+          "item": bc.item
+        }))
       }
     ]
-  }
-  </script>
+  })}></script>
 
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />

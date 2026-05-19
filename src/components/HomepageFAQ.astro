@@ -1,0 +1,84 @@
+---
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<section class="home-faq" aria-labelledby="home-faq-heading">
+  <div class="container">
+    <div class="home-faq__header" data-animate>
+      <span class="eyebrow eyebrow--line">Common Questions</span>
+      <h2 class="section-title" id="home-faq-heading">Frequently Asked.</h2>
+    </div>
+    <div class="home-faq__grid">
+      {faqs.map((faq, i) => (
+        <div class="home-faq__item" data-animate data-delay={String((i % 2) + 1)}>
+          <p class="home-faq__q">{faq.q}</p>
+          <p class="home-faq__a">{faq.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-faq {
+    background: var(--color-warm-white);
+    padding: var(--sp-9) 0;
+    border-top: 1px solid var(--color-border-light, #E2DED9);
+  }
+
+  .home-faq__header {
+    max-width: 480px;
+    margin-bottom: var(--sp-7);
+  }
+
+  .home-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--sp-9);
+    row-gap: 0;
+  }
+
+  .home-faq__item {
+    border-top: 1px solid var(--color-border-light, #E2DED9);
+    padding: var(--sp-5) 0;
+  }
+
+  .home-faq__q {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    line-height: 1.38;
+    letter-spacing: -0.013em;
+    margin: 0 0 var(--sp-3) 0;
+  }
+
+  .home-faq__a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.78;
+    color: #6B6762;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .home-faq__grid {
+      column-gap: var(--sp-7);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-faq__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

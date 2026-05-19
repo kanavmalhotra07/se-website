@@ -13,12 +13,80 @@ const useCases = [
   'Loading Bay Approaches',
   'Emergency Exit Paths',
 ];
+
+const faqs = [
+  {
+    q: 'Can caution carpet be supplied and installed independently from the main exhibition carpet?',
+    a: 'Yes. Caution carpet can be supplied and installed as a standalone requirement. It is most effective, however, when integrated as part of the complete flooring brief — our team coordinates cable tray routing, access zone marking, and safety transitions alongside the primary carpet installation in a single, coordinated scope.',
+  },
+  {
+    q: 'What colour configuration is standard for caution carpet?',
+    a: 'Caution carpet is manufactured in high-visibility yellow and black — the industry standard for safety and hazard marking at live events. The yellow and black stripe pattern is immediately identifiable to visitors, crew, and contractors as a marked transition zone or hazard area.',
+  },
+  {
+    q: 'Who manages caution carpet during the live event?',
+    a: 'Our installation team handles laying, positioning, and securing of caution carpet prior to show opening. We remain available throughout live event days for adjustments, maintenance, and post-show removal — all managed under the same scope as the primary flooring.',
+  },
+  {
+    q: 'What widths and dimensions are available for cable tray caution carpet coverage?',
+    a: 'Caution carpet is supplied in standard roll widths and can be cut to any length required by your cable tray layout. Width options are confirmed at the briefing stage against your specific cable management plan. Share your floor plan and cable route dimensions when making an enquiry and we will confirm the exact coverage specification.',
+  },
+  {
+    q: 'Which exhibition venues across India does Sanchi supply caution carpet to?',
+    a: 'We supply and install caution carpet at trade fairs and live events across India — including Pragati Maidan (New Delhi), Bombay Exhibition Centre (Mumbai), BIEC (Bengaluru), India Expo Centre (Greater Noida), HITEX (Hyderabad), and major regional exhibition venues. Caution carpet is coordinated with the primary flooring scope at each venue rather than sourced separately.',
+  },
+  {
+    q: 'How far in advance should caution carpet be planned as part of an exhibition flooring brief?',
+    a: 'Caution carpet should be included in the initial flooring brief — at the same stage as the primary carpet specification. Cable tray routing, power distribution channels, and access transition zones need to be identified before the floor plan is finalised so that caution carpet can be cut to the correct dimensions and positioned accurately on installation day. Last-minute additions create avoidable complications. Include it in the brief from the start.',
+  },
+];
 ---
 
 <Layout
-  title="Caution Carpet — Sanchi Enterprises"
-  description="Caution carpet for cable tray management, access ramps, and protected movement zones during exhibitions and live events. Supplied and installed by Sanchi Enterprises."
+  title="Caution Carpet for Exhibitions — Cable Tray & Safety Flooring | Sanchi Enterprises"
+  description="Caution carpet for cable tray management, access ramps, and safety zones at trade fairs and live events. Yellow and black safety flooring supplied and installed by Sanchi Enterprises across India."
+  ogImage="https://sanchienterprises.com/images/catalogue/caution-in-use-1.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Caution Carpet', item: 'https://sanchienterprises.com/products/caution-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/caution-carpet/#product",
+          "name": "Caution Safety Carpet",
+          "description": "High-visibility yellow and black caution carpet for cable tray management, access ramps, and protected movement zones at trade fairs and live exhibitions. Supplied and installed by Sanchi Enterprises as part of a complete exhibition flooring scope.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/caution-carpet",
+          "image": "https://sanchienterprises.com/images/catalogue/caution-in-use-1.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Colour", "value": "Yellow and black (high-visibility)" },
+            { "@type": "PropertyValue", "name": "Application", "value": "Cable tray coverage, access ramps, safety walkways" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India delivery and installation" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -181,6 +249,88 @@ const useCases = [
           No separate contractor required. Caution carpet placement is handled
           as part of the same exhibition flooring brief.
         </p>
+      </div>
+    </div>
+
+    <!-- ─── INDUSTRY CONTEXT ───────────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="caution-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="caution-context-title" id="caution-context-heading">Planning Exhibition Safety Flooring as Part of the Brief.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          Most exhibition flooring briefs arrive without a caution carpet allocation. The primary
+          carpet — square metreage, product type, shade — receives the design attention. Caution
+          carpet is treated as an operational afterthought: ordered late, sourced separately, or
+          improvised on site. This creates avoidable problems. Cable tray routes that weren't
+          factored into the floor plan require ad hoc workarounds. Safety transition zones that
+          weren't coordinated with the primary carpet installation create visual inconsistency and
+          safety gaps at the handover between exhibition areas.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          At Pragati Maidan in New Delhi, Bombay Exhibition Centre in Mumbai, BIEC in Bengaluru,
+          and India Expo Centre in Greater Noida, exhibition infrastructure is substantial. Power
+          distribution channels, data cable routes, and AV equipment transitions cross active
+          visitor and crew movement paths for the full duration of the event. Caution carpet in
+          these environments is not a supplementary specification — it is a core component of a
+          well-managed show floor, required both by venue safety protocols and by the operational
+          reality of running a live trade fair at scale.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          Sanchi Enterprises integrates caution carpet into the primary flooring brief from the
+          planning stage. When the floor plan is reviewed, cable tray routes, access transition
+          points, and emergency exit paths are identified alongside the primary carpet layout.
+          Caution carpet is then cut, positioned, and installed as part of the same scope — laid
+          in coordination with the primary carpet, fixed for the event period, and removed cleanly
+          post-show. No separate contractor and no last-minute sourcing.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="caution-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="caution-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/ribbed-carpet" class="prod-related__link">
+            <span class="prod-related__name">Ribbed Carpet</span>
+            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          </a>
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -417,4 +567,86 @@ const useCases = [
       aspect-ratio: 4 / 3;
     }
   }
+
+  /* ─── Industry context ──────────────────────────────────────── */
+  .caution-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.2vw, 44px);
+    font-weight: 700;
+    line-height: 1.10;
+    letter-spacing: -0.022em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.58);
+    max-width: 760px;
+    margin-top: var(--sp-4);
+    margin-bottom: 0;
+  }
+
+  /* ─── FAQ + Related products ────────────────────────────────── */
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
 </style>

@@ -24,12 +24,80 @@ const steps = [
   { num: '02', label: 'Design & Approval',         desc: 'We create scaled visual proofs for review, revisions, and final approval before print production begins.' },
   { num: '03', label: 'Production & Installation', desc: 'Carpets are printed, finished, delivered, and installed on-site with live exhibition support if required.' },
 ];
+
+const faqs = [
+  {
+    q: 'What artwork files or formats do you need to produce custom exhibition carpet?',
+    a: 'We accept brand guidelines, vector artwork (.AI, .EPS, .PDF), high-resolution raster files (.PSD, .TIFF at 300dpi or higher), and concept sketches or reference images. Our design team works with what you have — production-ready artwork is developed and approved before any carpet goes to print.',
+  },
+  {
+    q: 'How long does custom designer carpet take from brief to installation?',
+    a: 'Lead time depends on the print area and installation scope. Once artwork is approved, production and delivery are coordinated to your event timeline. Submit your brief as early as possible — we will provide a full production schedule when scoping the project.',
+  },
+  {
+    q: 'Can designer carpet reproduce Pantone colours accurately?',
+    a: 'Yes. Our production process supports Pantone, RAL, and supplied swatch colour matching to your brand specification. We produce scaled visual proofs for colour approval before print production begins.',
+  },
+  {
+    q: 'Can designer carpet be produced for a single exhibition stall or booth?',
+    a: 'Yes. Designer carpet is produced at any scale — from a single brand stall of 20–30 square metres with a logo or brand pattern, to full hall coverage of several thousand square metres with a coordinated printed graphic system. The minimum order is determined by the print area and production setup. Share your floor plan and brief for a project-specific scope.',
+  },
+  {
+    q: 'Which Indian trade fairs have featured Sanchi custom designer carpet?',
+    a: 'Our designer carpet installations include Anuga FoodTec India, Light + LED India (Mumbai), Electronica India, India Design (New Delhi), and multiple private brand launches and VIP hospitality installations at Pragati Maidan, Bombay Exhibition Centre, and Jio World Convention Centre. Each installation is produced specifically for that project — there is no shared template or repeat design.',
+  },
+  {
+    q: 'What is the difference between designer carpet and standard exhibition carpet?',
+    a: 'Standard exhibition carpet — non woven, ribbed, velour — is selected from a stocked range of fixed colours and supplied cut to your dimensions. Designer carpet is produced specifically for your project: the artwork, colour, scale, and pattern are unique to your brief. It is specified when the floor itself is part of the brand or event identity, not a neutral background surface.',
+  },
+];
 ---
 
 <Layout
-  title="Designer Carpet — Sanchi Enterprises"
-  description="Fully custom exhibition carpet designed to your brief. Logos, brand colours, event themes, directional graphics, and bespoke artwork — produced and installed for trade fairs across India."
+  title="Custom Designer Exhibition Carpet — Printed Flooring India | Sanchi Enterprises"
+  description="Fully custom exhibition carpet produced to your brief — logos, brand colours, event themes, directional graphics, and bespoke artwork at exhibition scale. Designed and installed across India."
+  ogImage="https://sanchienterprises.com/images/designer-carpet/anuga-blue-wave.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Designer Carpet', item: 'https://sanchienterprises.com/products/designer-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/designer-carpet/#product",
+          "name": "Custom Designer Exhibition Carpet",
+          "description": "Fully custom exhibition carpet produced to your specification — logos, brand colours, event themes, directional graphics, and bespoke artwork at exhibition scale. Not template-based. Every carpet starts with your brief.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/designer-carpet",
+          "image": "https://sanchienterprises.com/images/designer-carpet/anuga-blue-wave.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Customisation", "value": "Fully custom — logos, colours, artwork, patterns" },
+            { "@type": "PropertyValue", "name": "Colour Matching", "value": "Pantone, RAL, and supplied swatch matching" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India production and installation" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -191,6 +259,89 @@ const steps = [
               <div class="dc-process__desc">{step.desc}</div>
             </div>
           ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── INDUSTRY CONTEXT ───────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="dc-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="dc-context-title" id="dc-context-heading">What Designer Carpet Actually Means at Exhibition Scale.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          At every exhibition, the floor sends a signal. Whether it reads as standard coverage or as
+          a spatial identity statement depends on how the flooring decision was made. Non woven,
+          ribbed, and velour carpet cover the floor, carry the footfall, and hold the palette. Designer
+          carpet is a different category of decision. The artwork, the scale, the pattern, and the
+          colour are produced from scratch — nothing is selected from a stock range. When a brand
+          specifies designer carpet, the floor stops being a neutral surface and becomes part of the
+          spatial communication.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          At Anuga FoodTec India, the entire hall floor was covered in a bold blue wave-grid system —
+          interlocking geometry that read as a single spatial identity from entry to exit across
+          several thousand square metres. At Light + LED India in Mumbai, a navy blue icon-pattern
+          carpet covered the full exhibition hall: a printed graphic system of electronics symbols
+          that extended the visual language of the event from the walls down to the floor. At this
+          scale, designer carpet functions as environmental branding — a decision made as part of the
+          exhibition design brief, not as a last-minute flooring specification.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          The same production precision applies at a single stall. A brand logo or a custom pattern
+          produced at 30 square metres — correctly positioned within a defined floor plan, matched to
+          Pantone or RAL colour standards, and installed without seams or registration errors —
+          demands the same accuracy as a full-hall installation. Sanchi produces designer carpet
+          across the full scale range: from 20-square-metre branded stalls at Pragati Maidan, Bombay
+          Exhibition Centre, and India Expo Centre, to multi-thousand-square-metre installations where
+          the floor defines the character of the entire event space.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ─────────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="dc-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="dc-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/ribbed-carpet" class="prod-related__link">
+            <span class="prod-related__name">Ribbed Carpet</span>
+            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          </a>
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/caution-carpet" class="prod-related__link">
+            <span class="prod-related__name">Caution Carpet</span>
+            <span class="prod-related__desc">Safety flooring for cable trays and access zones</span>
+          </a>
         </div>
       </div>
     </div>
@@ -588,4 +739,86 @@ const steps = [
     .dc-hero__scroll-line { animation: none; }
     .dc-pf-cell__img-wrap img { transition: none; }
   }
+
+  /* ─── Industry context ──────────────────────────────────── */
+  .dc-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.2vw, 44px);
+    font-weight: 700;
+    line-height: 1.10;
+    letter-spacing: -0.022em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.58);
+    max-width: 760px;
+    margin-top: var(--sp-4);
+    margin-bottom: 0;
+  }
+
+  /* ─── FAQ + Related products ─────────────────────────────── */
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
 </style>

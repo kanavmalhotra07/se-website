@@ -27,12 +27,81 @@ const applications = [
   'VIP & Hospitality Areas',
   'Convention Centres',
 ];
+
+const faqs = [
+  {
+    q: 'When should velour carpet be chosen over non woven or ribbed alternatives?',
+    a: 'Velour is selected when the floor finish is a deliberate part of the design statement — premium brand pavilions, art fairs, fashion show venues, VIP hospitality areas, and retail activations where a soft, dense, and visually rich underfoot experience is expected by the audience. The cut-pile surface is denser and softer than non woven or ribbed alternatives.',
+  },
+  {
+    q: 'Does velour carpet photograph well under exhibition lighting?',
+    a: 'Yes. The cut-pile surface absorbs and reflects light uniformly, producing a rich, deep appearance under both natural and exhibition hall lighting. Velour carpet is frequently specified in environments where the floor is an active element of the brand photography and visual identity.',
+  },
+  {
+    q: 'What are the installation requirements for velour carpet at events?',
+    a: 'Velour carpet is installed using the same method as other exhibition carpet types — laid over the exhibition floor and secured with carpet tape along edges and seam lines. Our installation team handles all cutting, laying, edge finishing, and post-show removal as part of the full flooring scope.',
+  },
+  {
+    q: 'Which exhibition types and industries most commonly specify velour carpet?',
+    a: 'Velour is most commonly specified at India Art Fair, design and architecture exhibitions, luxury brand pavilions at major expos, fashion industry events, pharmaceutical and healthcare conferences with premium hospitality zones, automobile launches and VIP brand activations. Any exhibition environment where the floor is expected to actively contribute to a high-end visitor experience.',
+  },
+  {
+    q: 'Can velour carpet be supplied in a custom colour outside the standard range?',
+    a: 'Our standard velour range covers 11 in-stock shades across the most commonly requested tones for premium exhibition environments. For custom colour requirements — exact Pantone or brand-matched specifications — our Designer Carpet service produces fully custom carpet to your supplied specification. Contact us to discuss whether a standard shade or a custom solution fits your project.',
+  },
+  {
+    q: 'How does velour carpet compare to loop pile carpet for premium events?',
+    a: 'Velour and loop pile are both premium products but serve different environments. Velour\'s cut-pile surface is softer underfoot and produces a richer visual finish — suited to brand activations, art environments, and hospitality areas where warmth is part of the experience. Loop pile\'s cut-loop construction creates a more structured, architectural surface — better suited to corporate conference spaces, long-duration installations, and professional environments where a more neutral floor character is preferred.',
+  },
+];
 ---
 
 <Layout
-  title="Velour Carpet — Sanchi Enterprises"
-  description="Velour exhibition carpet in 11 shades. Soft-finish cut-pile flooring for premium pavilions, art fairs, brand activations, and upmarket event environments. Bulk supply across India."
+  title="Velour Exhibition Carpet — Premium Event Flooring | Sanchi Enterprises"
+  description="Velour exhibition carpet in 11 stocked shades. Soft cut-pile finish for premium pavilions, art fairs, brand activations, and upmarket events. Bulk supply and on-site installation across India."
+  ogImage="https://sanchienterprises.com/images/catalogue/velour-black.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Velour Carpet', item: 'https://sanchienterprises.com/products/velour-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/velour-carpet/#product",
+          "name": "Velour Exhibition Carpet",
+          "description": "Velour cut-pile exhibition carpet in 11 stocked shades. Premium soft-finish flooring for brand pavilions, art fairs, VIP areas, and upmarket event environments across India.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/velour-carpet",
+          "image": "https://sanchienterprises.com/images/catalogue/velour-black.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Surface", "value": "Cut-pile velour" },
+            { "@type": "PropertyValue", "name": "Shades in Stock", "value": "11 colours" },
+            { "@type": "PropertyValue", "name": "Best Suited For", "value": "Premium and branded spaces" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India delivery" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -146,6 +215,86 @@ const applications = [
       </div>
     </div>
 
+    <!-- ─── INDUSTRY CONTEXT ──────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="velour-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="velour-context-title" id="velour-context-heading">The Premium Exhibition Floor Across India's High-End Events.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          Velour carpet is the material that signals quality in Indian exhibition environments.
+          When an international brand establishes its pavilion at a major industry trade fair,
+          when a premium product is being launched to a curated audience, when an art fair opens
+          to collectors and galleries — the floor covering is velour. The cut-pile surface
+          maintains a consistent, rich appearance across the full event run and does not show
+          footfall patterns the way lighter materials do under exhibition lighting.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          India Art Fair (New Delhi), design exhibitions, premium pharmaceutical conferences,
+          luxury automobile presentations, and international corporate pavilions at events
+          hosted at Pragati Maidan, Yashobhoomi, and Jio World Convention Centre all draw
+          on velour carpet as the standard for premium exhibition floor coverage.
+          When the floor needs to communicate an environment of quality to every visitor
+          who enters the space, velour is the specification.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          For exhibition contractors specifying flooring for premium spaces, velour carpet
+          occupies a practical and commercially important position: significantly better
+          presentation than non woven alternatives, available in bulk quantities at short
+          notice, and installable by the same team managing the full exhibition flooring scope.
+          It is the upgrade that exhibition organisers and premium brand teams reach for when
+          the standard material is not the right signal.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ────────────────────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="velour-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="velour-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/ribbed-carpet" class="prod-related__link">
+            <span class="prod-related__name">Ribbed Carpet</span>
+            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+          <a href="/products/caution-carpet" class="prod-related__link">
+            <span class="prod-related__name">Caution Carpet</span>
+            <span class="prod-related__desc">Safety flooring for cable trays and access zones</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="prod-cta">
       <div class="container">
         <div class="prod-cta__inner">
@@ -174,3 +323,85 @@ const applications = [
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .velour-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.65);
+    max-width: 760px;
+    margin-bottom: var(--sp-4);
+  }
+  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+</style>

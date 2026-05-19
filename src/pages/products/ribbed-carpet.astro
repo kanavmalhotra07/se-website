@@ -21,12 +21,81 @@ const applications = [
   'Brand Pavilions',
   'Convention Centres',
 ];
+
+const faqs = [
+  {
+    q: 'Why is ribbed carpet specified for high-footfall exhibition areas?',
+    a: 'The ribbed loop-pile surface distributes wear evenly across the structure, preventing the visible degradation that develops in cut-pile alternatives under sustained heavy traffic. It maintains its appearance across multi-day events — appropriate for entrance zones, main aisles, and corridors where thousands of visitors pass daily.',
+  },
+  {
+    q: 'What is the lead time for ribbed carpet supply?',
+    a: 'All 7 shades are maintained in permanent stock year-round. Most ribbed carpet orders can be fulfilled on short notice. Share your event dates, venue, and floor plan and we will confirm availability, cutting specification, and delivery timeline within 24 hours.',
+  },
+  {
+    q: 'Can ribbed carpet be installed over any type of exhibition floor?',
+    a: 'Yes. Ribbed carpet can be installed directly over concrete, wood composite, and standard exhibition hall flooring using carpet tape. The ribbed structure provides excellent dimensional stability and lays flat without buckling under high-traffic conditions.',
+  },
+  {
+    q: 'Is ribbed carpet suitable for outdoor or semi-covered exhibition areas?',
+    a: 'Ribbed carpet is designed for indoor exhibition environments. For outdoor pavilions, covered temporary structures, or semi-exposed areas, the installation conditions — including moisture exposure and temperature variation — should be discussed with our team before selecting. We can advise on the appropriate specification for your venue.',
+  },
+  {
+    q: 'How does ribbed carpet compare to non woven carpet for trade fair use?',
+    a: 'Non woven carpet is the cost-efficient choice for large-area coverage where economy of scale is the primary driver. Ribbed carpet is specified when durability under sustained high footfall is the overriding requirement — entrance halls, main aisles, and areas expected to carry thousands of visitors daily across multi-day events. The two products are complementary: non woven for general floor coverage, ribbed for the highest-traffic zones.',
+  },
+  {
+    q: 'Does ribbed carpet require any special floor preparation before installation?',
+    a: 'No special sub-floor preparation is required for standard exhibition hall conditions. Ribbed carpet is installed using carpet tape over concrete, screed, or composite hall flooring. Our installation team handles surface assessment, tape application, edge finishing, and seam management as part of the on-site scope.',
+  },
+];
 ---
 
 <Layout
-  title="Ribbed Carpet — Sanchi Enterprises"
-  description="Ribbed exhibition carpet in 7 shades. Durable, high-footfall suitable flooring for trade fairs, expo corridors, and convention halls. Bulk supply and installation across India."
+  title="Ribbed Exhibition Carpet — Trade Fair & Expo Flooring | Sanchi Enterprises"
+  description="Ribbed exhibition carpet in 7 stocked shades. Durable loop-pile surface for high-footfall trade fair halls, expo corridors, and convention centres. Bulk supply and on-site installation across India."
+  ogImage="https://sanchienterprises.com/images/catalogue/ribbed-black.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Ribbed Carpet', item: 'https://sanchienterprises.com/products/ribbed-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/ribbed-carpet/#product",
+          "name": "Ribbed Exhibition Carpet",
+          "description": "Ribbed loop-pile exhibition carpet in 7 stocked shades. Built for high-traffic trade fair environments — maintains appearance under sustained heavy footfall at multi-day expos and convention halls.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/ribbed-carpet",
+          "image": "https://sanchienterprises.com/images/catalogue/ribbed-black.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Surface", "value": "Ribbed loop-pile" },
+            { "@type": "PropertyValue", "name": "Shades in Stock", "value": "7 colours" },
+            { "@type": "PropertyValue", "name": "Supply Format", "value": "Bulk roll" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India delivery" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -140,6 +209,84 @@ const applications = [
       </div>
     </div>
 
+    <!-- ─── INDUSTRY CONTEXT ──────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="ribbed-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="ribbed-context-title" id="ribbed-context-heading">The Specified Choice for India's High-Traffic Exhibition Zones.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          Exhibition aisle flooring is among the most demanding applications for any carpet
+          product. A major trade fair in India can receive fifty thousand visitors over three
+          or four days — all walking the same corridors, entering through the same gates, and
+          converging on the same central aisles. The floor in these areas needs to hold its
+          appearance through that volume without showing cumulative wear.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          Ribbed carpet is routinely specified for high-traffic exhibition zones because its
+          loop-pile structure handles sustained foot pressure without surface degradation.
+          The ribbed texture provides better grip underfoot than flat-weave alternatives —
+          relevant in entrance areas and high-footfall corridors where visitor movement is
+          dense and directional. It maintains a clean, professional appearance across the
+          full duration of a multi-day event, from the opening hour to the final day.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          At exhibitions hosted at Pragati Maidan (New Delhi), Bombay Exhibition Centre
+          (Mumbai), BIEC (Bengaluru), and India Expo Centre (Greater Noida), ribbed carpet
+          is the standard specification for main aisles, entrance thresholds, and
+          high-footfall connecting corridors — with non woven or velour used in adjacent
+          areas according to the budget and presentation requirements of each zone.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ────────────────────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="ribbed-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="ribbed-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+          <a href="/products/caution-carpet" class="prod-related__link">
+            <span class="prod-related__name">Caution Carpet</span>
+            <span class="prod-related__desc">Safety flooring for cable trays and access zones</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="prod-cta">
       <div class="container">
         <div class="prod-cta__inner">
@@ -168,3 +315,85 @@ const applications = [
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .ribbed-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.65);
+    max-width: 760px;
+    margin-bottom: var(--sp-4);
+  }
+  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+</style>

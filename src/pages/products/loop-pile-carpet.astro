@@ -22,12 +22,82 @@ const applications = [
   'Interior Installations',
   'Long-term Event Setups',
 ];
+
+const faqs = [
+  {
+    q: 'How does loop pile carpet differ from velour for exhibition use?',
+    a: 'Both are premium products, but they serve different environments. Velour\'s cut-pile surface is softer and produces a richer, deeper visual finish — suited to brand activations, art fair stands, and hospitality spaces where warmth and softness are part of the experience. Loop pile\'s cut-loop construction creates a more structured, architectural surface — better suited to corporate conference lounges, long-duration brand suites, and professional environments where a considered, neutral floor quality is preferred.',
+  },
+  {
+    q: 'Is loop pile carpet suitable for multi-day exhibitions?',
+    a: 'Yes. The cut-loop construction maintains its structural integrity and surface appearance under sustained footfall across multi-day events. It is specifically suited to long-duration exhibition environments — conference facilities, hospitality lounges, and permanent-feel brand spaces — where the floor needs to look consistent from the first day of the show to the last.',
+  },
+  {
+    q: 'What shades are available and can they be matched to brand palettes?',
+    a: 'Loop pile carpet is available in 6 architectural tones: Charcoal, Grey, Brown, Beige, Maroon, and Blue — all held in permanent stock. These are neutral, professional tones suited to corporate and upmarket environments. For exact brand colour matching or custom patterns, our Designer Carpet service produces fully custom carpet to your Pantone or swatch specification.',
+  },
+  {
+    q: 'What types of events specify loop pile carpet in India?',
+    a: 'Loop pile carpet is specified at corporate hospitality suites and VIP areas at major trade fairs, premium conference pavilions at venues including Pragati Maidan (New Delhi), Jio World Convention Centre (Mumbai), and HITEX (Hyderabad), long-duration brand experience installations, and any exhibition environment where the floor needs to convey a serious, professional character over an extended event run.',
+  },
+  {
+    q: 'Can loop pile carpet be installed over any exhibition hall floor?',
+    a: 'Yes. Loop pile carpet is installed using standard carpet tape over concrete, screed, or composite exhibition hall flooring — the same method used for ribbed and velour carpet. Our installation team handles cutting, laying, edge finishing, and seam management on site. No special sub-floor preparation is required for standard exhibition hall conditions.',
+  },
+  {
+    q: 'How far in advance should loop pile carpet be ordered?',
+    a: 'All 6 shades are maintained in permanent stock year-round. Most loop pile carpet orders can be fulfilled on short notice. For large-area corporate installations or events during peak exhibition seasons, we recommend confirming requirements 4–6 weeks before the event move-in date to allow pre-cutting and logistics coordination.',
+  },
+];
 ---
 
 <Layout
-  title="Loop Pile Carpet — Sanchi Enterprises"
-  description="Loop pile exhibition carpet in 6 architectural shades. Dense structured surface for premium pavilions, corporate suites, and upmarket exhibition environments. Bulk supply and installation across India."
+  title="Loop Pile Exhibition Carpet — Corporate & Premium Event Flooring | Sanchi Enterprises"
+  description="Loop pile exhibition carpet in 6 architectural shades. Structured cut-loop surface for corporate pavilions, hospitality suites, conference lounges, and premium event environments. Bulk supply and installation across India."
+  ogImage="https://sanchienterprises.com/images/catalogue/lp-charcoal.jpg"
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Loop Pile Carpet', item: 'https://sanchienterprises.com/products/loop-pile-carpet' },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/loop-pile-carpet/#product",
+          "name": "Loop Pile Exhibition Carpet",
+          "description": "Loop pile cut-loop exhibition carpet in 6 architectural shades — Charcoal, Grey, Brown, Beige, Maroon, and Blue. Structured, dense surface for corporate pavilions, hospitality suites, conference lounges, and premium event environments. Bulk supply and on-site installation across India.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/loop-pile-carpet",
+          "image": "https://sanchienterprises.com/images/catalogue/lp-charcoal.jpg",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Surface", "value": "Cut-loop pile" },
+            { "@type": "PropertyValue", "name": "Shades in Stock", "value": "6 architectural tones" },
+            { "@type": "PropertyValue", "name": "Supply Format", "value": "Bulk roll" },
+            { "@type": "PropertyValue", "name": "Best Suited For", "value": "Corporate, hospitality, and long-duration premium spaces" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India delivery" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
 
@@ -168,6 +238,84 @@ const applications = [
       </div>
     </div>
 
+    <!-- ─── INDUSTRY CONTEXT ─────────────────────────────────────────── -->
+    <div class="prod-section prod-section--dark" aria-labelledby="lp-context-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+          <h2 class="prod-section__title--inverse" id="lp-context-heading">Loop Pile Carpet in Indian Exhibitions.</h2>
+        </div>
+        <p class="prod-section__body--inverse" data-animate data-delay="1">
+          Loop pile carpet occupies a specific position in the exhibition flooring hierarchy
+          that neither ribbed nor velour covers precisely. Its cut-loop construction produces
+          a surface that is more structured and architectural than velour's soft cut-pile —
+          suited to environments where the floor needs to convey quality and permanence
+          without the visual softness associated with premium event carpet.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="2">
+          Corporate hospitality suites, extended-run conference facilities, long-duration
+          exhibitions, and high-value product environments where visitors spend significant
+          time — these are the spaces where loop pile carpet's neutral, structured surface
+          performs best. The material reads as considered rather than decorative: appropriate
+          for environments where the exhibit or the conversation in the space is the focus,
+          not the floor itself.
+        </p>
+        <p class="prod-section__body--inverse" data-animate data-delay="3">
+          Among the venues where Sanchi Enterprises regularly installs flooring — Pragati
+          Maidan and Yashobhoomi in Delhi, the Jio World Convention Centre and Bombay
+          Exhibition Centre in Mumbai, BIEC in Bengaluru, and HITEX in Hyderabad — loop pile
+          carpet is the specified choice for hospitality zones and corporate pavilions where
+          the floor needs to support a professional, long-duration environment.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────────────── -->
+    <div class="prod-section" aria-labelledby="lp-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="lp-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/ribbed-carpet" class="prod-related__link">
+            <span class="prod-related__name">Ribbed Carpet</span>
+            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="prod-cta">
       <div class="container">
         <div class="prod-cta__inner">
@@ -211,4 +359,86 @@ const applications = [
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
   }
+
+  /* ─── Dark industry context section ─────────────────────────────────── */
+  .prod-section__title--inverse {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .prod-section__body--inverse {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.80;
+    color: rgba(247, 246, 243, 0.65);
+    max-width: 760px;
+    margin-bottom: var(--sp-4);
+  }
+  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+
+  /* ─── FAQ + Related products ─────────────────────────────────────────── */
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: var(--color-stone, #EFEDE8);
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
 </style>

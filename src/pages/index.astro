@@ -9,14 +9,54 @@ import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
 import OperationalProfile from '../components/OperationalProfile.astro';
 import ProcessStrip from '../components/ProcessStrip.astro';
+import HomepageFAQ from '../components/HomepageFAQ.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
+
+const faqs = [
+  {
+    q: 'What types of exhibition carpet does Sanchi supply?',
+    a: 'We supply six product types: non woven carpet (29 shades), ribbed carpet (7 shades), velour carpet (11 shades), loop pile carpet (6 shades), caution carpet for safety zones, and fully custom designer carpet produced to your brief. All stocked products are maintained year-round for immediate dispatch.',
+  },
+  {
+    q: 'Do you supply carpet only, or manage installation as well?',
+    a: 'Both. Sanchi manages the complete flooring scope — material supply, delivery to venue, on-site laying, edge finishing, and live-day maintenance. From order through to post-show removal, you work with one team and one point of contact.',
+  },
+  {
+    q: 'Which exhibition venues and cities across India do you cover?',
+    a: 'We supply and install at exhibitions across India — including Pragati Maidan (New Delhi), Bombay Exhibition Centre (Mumbai), BIEC (Bengaluru), India Expo Centre (Greater Noida), and HITEX (Hyderabad). We deliver to all major Indian cities and coordinate with venue management directly.',
+  },
+  {
+    q: 'Which carpet type is best for high-traffic trade fair floors?',
+    a: 'Non woven carpet is the most widely used for large-area exhibition coverage — cost-effective, lightweight, and available in 29 shades. Ribbed carpet is the preferred choice for high-footfall aisles and heavy-traffic zones. For premium pavilion areas, velour and loop pile carpet are specified.',
+  },
+  {
+    q: 'Can you produce carpet with custom logos or brand artwork?',
+    a: 'Yes. Our custom designer carpet is produced to specification — logos, brand colours, directional graphics, and event-specific artwork at any scale. This is a separate production process from our stocked colour range and requires artwork approval before production begins.',
+  },
+  {
+    q: 'What is the typical lead time for exhibition carpet supply?',
+    a: 'Stocked carpet types are available for short-notice orders. Lead time depends on volume and event schedule. For custom designer carpet, additional time is required for artwork approval and production. Share your event date when enquiring and we will confirm availability.',
+  },
+];
 ---
 
 <Layout
   title="Sanchi Enterprises — Exhibition Flooring & Carpet Solutions, India"
-  description="Premium exhibition carpets and flooring solutions for trade fairs, expos, and conventions across India. Non-woven, ribbed, and velour carpets. Pan-India delivery."
+  description="Sanchi Enterprises supplies and installs exhibition carpet across India — non woven, ribbed, velour, loop pile, designer, and caution carpet for trade fairs, expos, and conventions. Supply and installation since 1995."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+      }))
+    })}></script>
+  </Fragment>
+
   <Navbar />
   <main>
     <Hero />
@@ -27,6 +67,7 @@ import Footer from '../components/Footer.astro';
     <Projects />
     <OperationalProfile />
     <ProcessStrip />
+    <HomepageFAQ faqs={faqs} />
     <ContactCTA />
   </main>
   <Footer />

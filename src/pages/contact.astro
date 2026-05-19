@@ -61,11 +61,24 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
 <Layout
-  title="Contact Us — Sanchi Enterprises"
+  title="Contact Sanchi Enterprises — Exhibition Carpet Enquiries, India"
   description="Get in touch with Sanchi Enterprises for exhibition carpet supply, installation, and custom flooring solutions across India. Request a quote or speak to our team directly."
+  breadcrumbs={[{ name: 'Contact', item: 'https://sanchienterprises.com/contact' }]}
 >
   <Fragment slot="head">
     <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })}></script>
   </Fragment>
 
   <Navbar />
