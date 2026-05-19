@@ -54,7 +54,7 @@ const faqs = [
 <Layout
   title="Loop Pile Exhibition Carpet — Corporate & Premium Event Flooring | Sanchi Enterprises"
   description="Loop pile exhibition carpet in 6 architectural shades. Structured cut-loop surface for corporate pavilions, hospitality suites, conference lounges, and premium event environments. Bulk supply and installation across India."
-  ogImage="https://sanchienterprises.com/images/catalogue/lp-charcoal.jpg"
+  ogImage="https://sanchienterprises.com/images/loop-pile/lp-hero-full.jpg"
   breadcrumbs={[
     { name: 'Products', item: 'https://sanchienterprises.com/products' },
     { name: 'Loop Pile Carpet', item: 'https://sanchienterprises.com/products/loop-pile-carpet' },
@@ -71,7 +71,7 @@ const faqs = [
           "description": "Loop pile cut-loop exhibition carpet in 6 architectural shades — Charcoal, Grey, Brown, Beige, Maroon, and Blue. Structured, dense surface for corporate pavilions, hospitality suites, conference lounges, and premium event environments. Bulk supply and on-site installation across India.",
           "brand": { "@id": "https://sanchienterprises.com/#organization" },
           "url": "https://sanchienterprises.com/products/loop-pile-carpet",
-          "image": "https://sanchienterprises.com/images/catalogue/lp-charcoal.jpg",
+          "image": "https://sanchienterprises.com/images/loop-pile/lp-hero-full.jpg",
           "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
@@ -101,22 +101,23 @@ const faqs = [
   <Navbar />
   <main>
 
-    <section class="prod-hero prod-hero--lp" aria-labelledby="lp-heading">
-      <div class="lp-hero-bg" aria-hidden="true">
+    <!-- ─── HERO — full-viewport, cinematic ──────────────────────────── -->
+    <section class="lp-hero" aria-labelledby="lp-heading">
+      <div class="lp-hero__bg" aria-hidden="true">
         <img
-          src="/images/loop-pile/lp-hero.jpg"
+          src="/images/loop-pile/lp-hero-full.jpg"
           alt=""
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          width="1620"
+          width="1920"
           height="1080"
         />
       </div>
-      <div class="lp-hero-overlay" aria-hidden="true"></div>
+      <div class="lp-hero__overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="prod-hero__inner">
-          <a href="/products" class="prod-hero__back" data-animate>
+        <div class="lp-hero__content">
+          <a href="/products" class="lp-hero__back" data-animate>
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
               <path d="M11 4H1M5 1L1 4l4 3" stroke="currentColor" stroke-width="1.3"
                 stroke-linecap="round" stroke-linejoin="round"/>
@@ -124,10 +125,10 @@ const faqs = [
             All Products
           </a>
           <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate data-delay="1">Loop Pile Carpet</span>
-          <h1 class="prod-hero__title" id="lp-heading" data-animate data-delay="2">
+          <h1 class="lp-hero__title" id="lp-heading" data-animate data-delay="2">
             A Dense, Structured Surface<br />for Premium Environments.
           </h1>
-          <p class="prod-hero__intro" data-animate data-delay="3">
+          <p class="lp-hero__sub" data-animate data-delay="3">
             Loop pile carpet brings an architectural quality to exhibition pavilions
             and premium event spaces. Its dense, structured surface reads as a
             deliberate material choice — resilient under footfall, refined in
@@ -136,8 +137,24 @@ const faqs = [
           </p>
         </div>
       </div>
+      <div class="lp-hero__scroll" aria-hidden="true">
+        <div class="lp-hero__scroll-line"></div>
+      </div>
     </section>
 
+    <!-- ─── STATEMENT ────────────────────────────────────────────────── -->
+    <div class="lp-statement" aria-label="Product positioning">
+      <div class="container">
+        <div class="lp-statement__inner" data-animate>
+          <p class="lp-statement__text">
+            Structured. Architectural.<br />
+            <span class="lp-statement__em">The floor that holds its quality across every day of the show.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SHADE RANGE ───────────────────────────────────────────────── -->
     <div class="shade-section" aria-labelledby="shades-heading">
       <div class="container">
         <div class="shade-section__header" data-animate>
@@ -166,59 +183,73 @@ const faqs = [
       </div>
     </div>
 
-    <div class="prod-section prod-section--stone" aria-label="Product specifications">
-      <div class="container">
-        <div class="prod-section__header" data-animate>
+    <!-- ─── EDITORIAL SPLIT — texture image + specification ──────────── -->
+    <div class="lp-split" aria-labelledby="lp-spec-heading">
+      <div class="lp-split__visual" data-animate="image">
+        <img
+          src="/images/loop-pile/lp-detail-a.jpg"
+          alt="Loop pile carpet surface — Charcoal cut-loop construction showing the dense, structured pile texture"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="900"
+        />
+      </div>
+      <div class="lp-split__text">
+        <div class="lp-split__text-inner" data-animate data-delay="1">
           <span class="eyebrow eyebrow--line">Specification</span>
-          <h2 class="prod-section__title">Product Details</h2>
-        </div>
-        <p class="prod-section__body" data-animate data-delay="1">
-          Loop pile carpet is specified for environments where material quality is
-          a deliberate part of the environment. The cut-loop construction produces
-          a surface that is denser and more structured than non-woven alternatives —
-          maintaining its form across multi-day events and presenting well under
-          exhibition and architectural lighting.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="2">
-          Its tonal palette — anchored in neutral greys, browns, and charcoal —
-          works with corporate and hospitality interiors without competing with
-          the event itself. Supplied in bulk rolls, cut to your floor plan, and
-          installed on-site.
-        </p>
-        <div class="prod-features" data-animate data-delay="3">
-          <div class="prod-feature">
-            <div class="prod-feature__label">Surface</div>
-            <div class="prod-feature__value">Cut-loop pile</div>
-          </div>
-          <div class="prod-feature">
-            <div class="prod-feature__label">Supply Format</div>
-            <div class="prod-feature__value">Bulk roll</div>
-          </div>
-          <div class="prod-feature">
-            <div class="prod-feature__label">Shades in Stock</div>
-            <div class="prod-feature__value">6 colours</div>
-          </div>
-          <div class="prod-feature">
-            <div class="prod-feature__label">Installation</div>
-            <div class="prod-feature__value">Supply &amp; lay available</div>
-          </div>
-          <div class="prod-feature">
-            <div class="prod-feature__label">Best Suited For</div>
-            <div class="prod-feature__value">Premium &amp; corporate spaces</div>
-          </div>
-          <div class="prod-feature">
-            <div class="prod-feature__label">Coverage</div>
-            <div class="prod-feature__value">Pan-India delivery</div>
+          <h2 class="lp-split__title" id="lp-spec-heading">
+            Product Details
+          </h2>
+          <p class="lp-split__body">
+            Loop pile carpet is specified for environments where material quality is
+            a deliberate part of the environment. The cut-loop construction produces
+            a surface that is denser and more structured than non-woven alternatives —
+            maintaining its form across multi-day events and presenting well under
+            exhibition and architectural lighting.
+          </p>
+          <p class="lp-split__body">
+            Its tonal palette — anchored in neutral greys, browns, and charcoal —
+            works with corporate and hospitality interiors without competing with
+            the event itself. Supplied in bulk rolls, cut to your floor plan, and
+            installed on-site.
+          </p>
+          <div class="prod-features lp-features">
+            <div class="prod-feature">
+              <div class="prod-feature__label">Surface</div>
+              <div class="prod-feature__value">Cut-loop pile</div>
+            </div>
+            <div class="prod-feature">
+              <div class="prod-feature__label">Supply Format</div>
+              <div class="prod-feature__value">Bulk roll</div>
+            </div>
+            <div class="prod-feature">
+              <div class="prod-feature__label">Shades in Stock</div>
+              <div class="prod-feature__value">6 colours</div>
+            </div>
+            <div class="prod-feature">
+              <div class="prod-feature__label">Installation</div>
+              <div class="prod-feature__value">Supply &amp; lay available</div>
+            </div>
+            <div class="prod-feature">
+              <div class="prod-feature__label">Best Suited For</div>
+              <div class="prod-feature__value">Premium &amp; corporate spaces</div>
+            </div>
+            <div class="prod-feature">
+              <div class="prod-feature__label">Coverage</div>
+              <div class="prod-feature__value">Pan-India delivery</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="prod-section" aria-label="Applications">
+    <!-- ─── APPLICATIONS ─────────────────────────────────────────────── -->
+    <div class="prod-section" aria-labelledby="lp-apps-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">Applications</span>
-          <h2 class="prod-section__title">Where Loop Pile Works</h2>
+          <h2 class="prod-section__title" id="lp-apps-heading">Where Loop Pile Works</h2>
         </div>
         <div class="prod-apps-grid" data-animate data-delay="1">
           {applications.map((app) => (
@@ -231,40 +262,54 @@ const faqs = [
       </div>
     </div>
 
-    <div class="prod-section prod-section--stone" aria-label="Supply and installation">
+    <!-- ─── ATMOSPHERIC PANEL — supply & installation ────────────────── -->
+    <div class="lp-panel" aria-labelledby="lp-install-heading">
+      <div class="lp-panel__bg" aria-hidden="true">
+        <img
+          src="/images/loop-pile/lp-maroon-panel.jpg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="1920"
+          height="1080"
+        />
+      </div>
+      <div class="lp-panel__overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="prod-section__header" data-animate>
-          <span class="eyebrow eyebrow--line">Supply &amp; Installation</span>
-          <h2 class="prod-section__title">From Order to<br />On-site Installation.</h2>
+        <div class="lp-panel__content" data-animate>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Supply &amp; Installation</span>
+          <h2 class="lp-panel__title" id="lp-install-heading">
+            From Order to<br />On-site Installation.
+          </h2>
+          <p class="lp-panel__body">
+            Sanchi Enterprises supplies loop pile carpet in bulk quantities,
+            pre-cut and labelled to your floor plan. Our installation team handles
+            on-site laying, edge finishing, and live-day maintenance — managed
+            through a single point of contact from order through to post-show removal.
+          </p>
+          <p class="lp-panel__body">
+            All six shades are held in permanent stock, allowing short-notice orders
+            to be fulfilled without compromise on quality or lead time.
+          </p>
         </div>
-        <p class="prod-section__body" data-animate data-delay="1">
-          Sanchi Enterprises supplies loop pile carpet in bulk quantities,
-          pre-cut and labelled to your floor plan. Our installation team handles
-          on-site laying, edge finishing, and live-day maintenance — managed
-          through a single point of contact from order through to post-show removal.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="2">
-          All six shades are held in permanent stock, allowing short-notice orders
-          to be fulfilled without compromise on quality or lead time.
-        </p>
       </div>
     </div>
 
-    <!-- ─── INDUSTRY CONTEXT ─────────────────────────────────────────── -->
+    <!-- ─── EXHIBITION CONTEXT ───────────────────────────────────────── -->
     <div class="prod-section prod-section--dark" aria-labelledby="lp-context-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
-          <h2 class="prod-section__title--inverse" id="lp-context-heading">Loop Pile Carpet in Indian Exhibitions.</h2>
+          <h2 class="prod-section__title" id="lp-context-heading">Loop Pile Carpet<br />in Indian Exhibitions.</h2>
         </div>
-        <p class="prod-section__body--inverse" data-animate data-delay="1">
+        <p class="prod-section__body" data-animate data-delay="1">
           Loop pile carpet occupies a specific position in the exhibition flooring hierarchy
           that neither ribbed nor velour covers precisely. Its cut-loop construction produces
           a surface that is more structured and architectural than velour's soft cut-pile —
           suited to environments where the floor needs to convey quality and permanence
           without the visual softness associated with premium event carpet.
         </p>
-        <p class="prod-section__body--inverse" data-animate data-delay="2">
+        <p class="prod-section__body" data-animate data-delay="2">
           Corporate hospitality suites, extended-run conference facilities, long-duration
           exhibitions, and high-value product environments where visitors spend significant
           time — these are the spaces where loop pile carpet's neutral, structured surface
@@ -272,7 +317,7 @@ const faqs = [
           for environments where the exhibit or the conversation in the space is the focus,
           not the floor itself.
         </p>
-        <p class="prod-section__body--inverse" data-animate data-delay="3">
+        <p class="prod-section__body" data-animate data-delay="3">
           Among the venues where Sanchi Enterprises regularly installs flooring — Pragati
           Maidan and Yashobhoomi in Delhi, the Jio World Convention Centre and Bombay
           Exhibition Centre in Mumbai, BIEC in Bengaluru, and HITEX in Hyderabad — loop pile
@@ -282,52 +327,53 @@ const faqs = [
       </div>
     </div>
 
-    <!-- ─── FAQ ──────────────────────────────────────────────────────────── -->
+    <!-- ─── FAQ ──────────────────────────────────────────────────────── -->
     <div class="prod-section" aria-labelledby="lp-faq-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">FAQ</span>
           <h2 class="prod-section__title" id="lp-faq-heading">Common Questions</h2>
         </div>
-        <dl class="prod-faq" data-animate data-delay="1">
+        <dl class="lp-faq" data-animate data-delay="1">
           {faqs.map((faq) => (
-            <div class="prod-faq__item">
-              <dt class="prod-faq__q">{faq.q}</dt>
-              <dd class="prod-faq__a">{faq.a}</dd>
+            <div class="lp-faq__item">
+              <dt class="lp-faq__q">{faq.q}</dt>
+              <dd class="lp-faq__a">{faq.a}</dd>
             </div>
           ))}
         </dl>
       </div>
     </div>
 
-    <!-- ─── RELATED PRODUCTS ──────────────────────────────────────────────── -->
+    <!-- ─── RELATED PRODUCTS ─────────────────────────────────────────── -->
     <div class="prod-section prod-section--stone" aria-label="Related products">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">Also Available</span>
           <h2 class="prod-section__title">Explore Our Range</h2>
         </div>
-        <div class="prod-related" data-animate data-delay="1">
-          <a href="/products/velour-carpet" class="prod-related__link">
-            <span class="prod-related__name">Velour Carpet</span>
-            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+        <div class="lp-related" data-animate data-delay="1">
+          <a href="/products/velour-carpet" class="lp-related__link">
+            <span class="lp-related__name">Velour Carpet</span>
+            <span class="lp-related__desc">Premium cut-pile finish in 11 shades</span>
           </a>
-          <a href="/products/non-woven-carpet" class="prod-related__link">
-            <span class="prod-related__name">Non Woven Carpet</span>
-            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          <a href="/products/non-woven-carpet" class="lp-related__link">
+            <span class="lp-related__name">Non Woven Carpet</span>
+            <span class="lp-related__desc">29 shades — industry standard floor coverage</span>
           </a>
-          <a href="/products/ribbed-carpet" class="prod-related__link">
-            <span class="prod-related__name">Ribbed Carpet</span>
-            <span class="prod-related__desc">High-footfall loop-pile in 7 shades</span>
+          <a href="/products/ribbed-carpet" class="lp-related__link">
+            <span class="lp-related__name">Ribbed Carpet</span>
+            <span class="lp-related__desc">High-footfall ribbed surface in 7 shades</span>
           </a>
-          <a href="/products/designer-carpet" class="prod-related__link">
-            <span class="prod-related__name">Designer Carpet</span>
-            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          <a href="/products/designer-carpet" class="lp-related__link">
+            <span class="lp-related__name">Designer Carpet</span>
+            <span class="lp-related__desc">Fully custom printed to your brief</span>
           </a>
         </div>
       </div>
     </div>
 
+    <!-- ─── CTA ──────────────────────────────────────────────────────── -->
     <div class="prod-cta">
       <div class="container">
         <div class="prod-cta__inner">
@@ -360,88 +406,278 @@ const faqs = [
   <Footer />
 </Layout>
 
+<script>
+  // ─── Hero parallax — rAF-throttled ──────────────────────────────────
+  const lpHeroBg = document.querySelector<HTMLElement>('.lp-hero__bg img');
+  if (lpHeroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lpHeroBg.style.willChange = 'transform';
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          lpHeroBg.style.transform = `translate3d(0, ${window.scrollY * 0.14}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ─── Panel bg parallax ──────────────────────────────────────────────
+  const lpPanelBg = document.querySelector<HTMLElement>('.lp-panel__bg img');
+  if (lpPanelBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lpPanelBg.style.willChange = 'transform';
+    const panelEl = lpPanelBg.closest<HTMLElement>('.lp-panel');
+    if (panelEl) {
+      let pticking = false;
+      window.addEventListener('scroll', () => {
+        if (!pticking) {
+          requestAnimationFrame(() => {
+            const rect = panelEl.getBoundingClientRect();
+            const offset = (rect.top + rect.height / 2 - window.innerHeight / 2);
+            lpPanelBg.style.transform = `translate3d(0, ${offset * 0.10}px, 0)`;
+            pticking = false;
+          });
+          pticking = true;
+        }
+      }, { passive: true });
+    }
+  }
+</script>
+
 <style>
-  /* ─── Cinematic hero ────────────────────────────────────────────────── */
-  .prod-hero--lp {
-    min-height: 580px;
+  /* ─── Hero ──────────────────────────────────────────────────────────── */
+  .lp-hero {
+    position: relative;
+    min-height: 100svh;
     display: flex;
     align-items: flex-end;
+    overflow: hidden;
     padding-bottom: var(--sp-8);
+    background-color: var(--color-navy-dark);
   }
-  .lp-hero-bg {
+  .lp-hero__bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
     overflow: hidden;
   }
-  .lp-hero-bg img {
+  .lp-hero__bg img {
     width: 100%;
     height: 110%;
     object-fit: cover;
-    object-position: center 35%;
-    opacity: 0.38;
-    mix-blend-mode: luminosity;
+    object-position: center 42%;
   }
-  .lp-hero-overlay {
+  .lp-hero__overlay {
     position: absolute;
     inset: 0;
-    z-index: 0;
     background: linear-gradient(
-      to right,
-      rgba(12, 18, 48, 0.97) 30%,
-      rgba(12, 18, 48, 0.80) 70%,
-      rgba(12, 18, 48, 0.65) 100%
+      to top,
+      rgba(8, 12, 36, 0.97) 0%,
+      rgba(8, 12, 36, 0.68) 38%,
+      rgba(8, 12, 36, 0.28) 72%,
+      rgba(8, 12, 36, 0.14) 100%
     );
   }
-  .prod-hero--lp .prod-hero__inner {
+  .lp-hero__content {
     position: relative;
     z-index: 2;
+    max-width: 680px;
+    padding-top: 140px;
+  }
+  .lp-hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.40);
+    margin-bottom: var(--sp-5);
+    transition: color 0.22s ease;
+  }
+  .lp-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
+  .lp-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 6vw, 84px);
+    font-weight: 700;
+    line-height: 1.03;
+    letter-spacing: -0.032em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+  .lp-hero__sub {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: rgba(247, 246, 243, 0.58);
+    max-width: 480px;
+  }
+  .lp-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    z-index: 2;
+  }
+  .lp-hero__scroll-line {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, transparent, rgba(247, 246, 243, 0.40));
+    animation: lp-scroll 2.8s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes lp-scroll {
+    0%, 100% { opacity: 0.30; transform: scaleY(0.5); }
+    55%       { opacity: 0.85; transform: scaleY(1); }
   }
 
-  /* ─── Shade grid ────────────────────────────────────────────────────── */
+  /* ─── Statement ──────────────────────────────────────────────────────── */
+  .lp-statement {
+    background: var(--color-warm-white);
+    padding: var(--sp-9) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .lp-statement__inner { max-width: 720px; }
+  .lp-statement__text {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.6vw, 32px);
+    font-weight: 600;
+    line-height: 1.42;
+    letter-spacing: -0.016em;
+    color: rgba(12, 18, 48, 0.45);
+    margin: 0;
+  }
+  .lp-statement__em {
+    color: var(--color-navy-dark);
+    font-weight: 700;
+  }
+
+  /* ─── Shade grid ──────────────────────────────────────────────────────── */
   .lp-shade-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 
-  @media (max-width: 768px) {
-    .lp-shade-grid {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    }
+  /* ─── Editorial split — texture image + spec ──────────────────────────── */
+  .lp-split {
+    display: flex;
+    min-height: 580px;
+    overflow: hidden;
+    background: var(--color-stone);
+  }
+  .lp-split__visual {
+    flex: 0 0 48%;
+    overflow: hidden;
+  }
+  .lp-split__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 38%;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .lp-split:hover .lp-split__visual img { transform: scale(1.04); }
+  .lp-split__text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: var(--sp-8) var(--sp-7);
+  }
+  .lp-split__text-inner { max-width: 500px; }
+  .lp-split__title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.020em;
+    color: var(--color-navy-dark);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+  .lp-split__body {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.1vw, 15px);
+    line-height: 1.80;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--sp-4);
+  }
+  .lp-split__body:last-of-type { margin-bottom: var(--sp-5); }
+  /* scale the prod-features grid inside the split — 2 cols not 3 */
+  .lp-features {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: var(--sp-4);
   }
 
-  /* ─── Dark industry context section ─────────────────────────────────── */
-  .prod-section__title--inverse {
+  /* ─── Atmospheric panel ───────────────────────────────────────────────── */
+  .lp-panel {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-navy-dark);
+    padding: var(--sp-9) 0;
+  }
+  .lp-panel__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .lp-panel__bg img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    object-position: center 50%;
+    opacity: 0.32;
+    filter: saturate(0.65);
+  }
+  .lp-panel__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(8, 12, 36, 0.96) 0%,
+      rgba(8, 12, 36, 0.82) 55%,
+      rgba(8, 12, 36, 0.75) 100%
+    );
+  }
+  .lp-panel__content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
+  .lp-panel__title {
     font-family: var(--font-display);
-    font-size: clamp(24px, 3.5vw, 42px);
+    font-size: clamp(26px, 3.2vw, 42px);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
     color: var(--color-text-inverse);
     margin-top: var(--sp-3);
+    margin-bottom: var(--sp-5);
   }
-  .prod-section__body--inverse {
+  .lp-panel__body {
     font-family: var(--font-body);
     font-size: clamp(14px, 1.2vw, 16px);
     line-height: 1.80;
     color: rgba(247, 246, 243, 0.65);
-    max-width: 760px;
+    max-width: 560px;
     margin-bottom: var(--sp-4);
   }
-  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+  .lp-panel__body:last-child { margin-bottom: 0; }
 
-  /* ─── FAQ + Related products ─────────────────────────────────────────── */
-  .prod-faq {
+  /* ─── FAQ ─────────────────────────────────────────────────────────────── */
+  .lp-faq {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: var(--sp-5);
   }
-  .prod-faq__item {
-    border-top: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+  .lp-faq__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     padding-top: var(--sp-4);
   }
-  .prod-faq__q {
+  .lp-faq__q {
     font-family: var(--font-display);
     font-size: 16px;
     font-weight: 600;
@@ -449,45 +685,71 @@ const faqs = [
     margin-bottom: var(--sp-2);
     line-height: 1.4;
   }
-  .prod-faq__a {
+  .lp-faq__a {
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.75;
     color: var(--color-text-secondary);
     margin: 0;
   }
-  .prod-related {
+
+  /* ─── Related ─────────────────────────────────────────────────────────── */
+  .lp-related {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--sp-4);
   }
-  .prod-related__link {
+  .lp-related__link {
     display: flex;
     flex-direction: column;
     gap: var(--sp-1);
     padding: var(--sp-4);
-    border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 4px;
-    transition: border-color 0.22s ease, background 0.22s ease;
     text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
   }
-  .prod-related__link:hover {
+  .lp-related__link:hover {
     border-color: var(--color-navy);
-    background: var(--color-stone, #EFEDE8);
+    background: var(--color-stone);
   }
-  .prod-related__name {
+  .lp-related__name {
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 600;
     color: var(--color-navy-dark);
     letter-spacing: -0.01em;
   }
-  .prod-related__desc {
+  .lp-related__desc {
     font-family: var(--font-body);
     font-size: 12px;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
-  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+
+  /* ─── Responsive ──────────────────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .lp-split { flex-direction: column; min-height: auto; }
+    .lp-split__visual { height: 360px; flex: none; }
+    .lp-split__text { padding: var(--sp-6) var(--sp-4); }
+    .lp-split__text-inner { max-width: 100%; }
+    .lp-features { grid-template-columns: repeat(3, 1fr); }
+    .lp-related { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .lp-shade-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  }
+
+  @media (max-width: 600px) {
+    .lp-hero__scroll { display: none; }
+    .lp-split__visual { height: 260px; }
+    .lp-features { grid-template-columns: repeat(2, 1fr); }
+    .lp-related { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp-hero__scroll-line { animation: none; }
+    .lp-split:hover .lp-split__visual img { transform: none; }
+  }
 </style>
