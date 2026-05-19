@@ -1022,7 +1022,7 @@ button {
 
 .categories__grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   align-items: start;
 }
@@ -4543,7 +4543,7 @@ a.contact-detail-item__value:hover {
   }
 
   .categories__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .design-example {
