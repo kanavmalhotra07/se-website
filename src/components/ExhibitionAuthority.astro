@@ -1,0 +1,312 @@
+---
+interface Props {
+  heading?: string;
+}
+
+const { heading = "Trusted Across India's<br />Leading Exhibitions." } = Astro.props;
+
+const row1 = [
+  'India Maritime Week',
+  'Renewable Energy India',
+  'PMEC India',
+  'India Energy Week',
+  'India Art Fair',
+  'Plast India',
+  'Bharat Tex',
+  'SATTE',
+  'India Wood',
+  'Delhi Wood',
+  'Elecrama',
+  'Indian Handicrafts & Gift Fair',
+  'Auto Expo',
+  'India International Jewellery Show',
+  'BC Expo',
+  'Anuga FoodTec',
+  'IMTEX / Tooltech',
+];
+
+const row2 = [
+  'Electronica India / Productronica India',
+  'Semicon India',
+  'India Carpet Expo',
+  'Delhi Jewellery & Gem Fair',
+  'India Mobile Congress',
+  'International Engineering & Technology Fair',
+  'International Railway Equipment Exhibition',
+  'IPHEX',
+  'UP International Trade Show',
+  'WTSA',
+  'Aero India',
+  'Defence Expo',
+  'India International Trade Fair (IITF)',
+  'AI Impact Summit 2025',
+  'Waves Summit 2025',
+  'ACMA Automechanika',
+  'ACETECH Expo',
+];
+---
+
+<section class="exh-auth" aria-labelledby="exh-auth-heading">
+
+  <!-- ─── Header ──────────────────────────────────────────────── -->
+  <div class="container">
+    <div class="exh-auth__intro">
+      <div class="exh-auth__intro-left" data-animate>
+        <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Presence</span>
+        <h2 class="exh-auth__title" id="exh-auth-heading" set:html={heading}></h2>
+        <div class="exh-auth__stat">
+          <span class="exh-auth__stat-n" data-count-to="34" data-count-suffix="+">34+</span>
+          <span class="exh-auth__stat-l">Major exhibitions<br />supplied across India</span>
+        </div>
+      </div>
+      <div class="exh-auth__intro-right" data-animate data-delay="2">
+        <p class="exh-auth__body">
+          Sanchi Enterprises has supplied and installed exhibition flooring at over 34 major
+          trade fairs, expos, government summits, and industry conventions across India —
+          from Pragati Maidan and Yashobhoomi in New Delhi to Jio World Convention Centre
+          in Mumbai, BIEC in Bengaluru, and HITEX in Hyderabad.
+        </p>
+        <p class="exh-auth__body">
+          Flooring supplied for exhibitions including those listed spans the full Sanchi
+          product range — non-woven, ribbed, velour, loop pile, coir, and custom designer
+          carpet — across single pavilions, multi-hall installations, and
+          government-grade event environments.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Marquee tracks ─────────────────────────────────────── -->
+  <div class="exh-auth__tracks" aria-label="Exhibitions including">
+    <div class="exh-auth__fade exh-auth__fade--l" aria-hidden="true"></div>
+    <div class="exh-auth__fade exh-auth__fade--r" aria-hidden="true"></div>
+
+    <div class="exh-auth__track exh-auth__track--fwd">
+      <div class="exh-auth__reel">
+        {row1.map((name) => (
+          <>
+            <span class="exh-auth__item">{name}</span>
+            <span class="exh-auth__sep" aria-hidden="true">◆</span>
+          </>
+        ))}
+        {row1.map((name) => (
+          <>
+            <span class="exh-auth__item" aria-hidden="true">{name}</span>
+            <span class="exh-auth__sep" aria-hidden="true">◆</span>
+          </>
+        ))}
+      </div>
+    </div>
+
+    <div class="exh-auth__track exh-auth__track--rev">
+      <div class="exh-auth__reel">
+        {row2.map((name) => (
+          <>
+            <span class="exh-auth__item">{name}</span>
+            <span class="exh-auth__sep" aria-hidden="true">◆</span>
+          </>
+        ))}
+        {row2.map((name) => (
+          <>
+            <span class="exh-auth__item" aria-hidden="true">{name}</span>
+            <span class="exh-auth__sep" aria-hidden="true">◆</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Note ────────────────────────────────────────────────── -->
+  <div class="container">
+    <p class="exh-auth__note" data-animate>
+      Flooring supplied for exhibitions including those listed above.
+      Installations include carpet supply, professional laying, and post-event removal
+      across India's major exhibition venues.
+    </p>
+  </div>
+
+</section>
+
+<style>
+  /* ─── Section shell ──────────────────────────────────────────── */
+  .exh-auth {
+    background-color: var(--color-navy-dark);
+    padding-bottom: var(--sp-7);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ─── Intro two-column ───────────────────────────────────────── */
+  .exh-auth__intro {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-8);
+    align-items: start;
+    padding: var(--sp-9) 0 var(--sp-7);
+    border-bottom: 1px solid rgba(184, 150, 58, 0.18);
+    margin-bottom: var(--sp-6);
+  }
+  .exh-auth__title {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.6vw, 52px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-6);
+  }
+  .exh-auth__stat {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding-top: var(--sp-5);
+    border-top: 1px solid rgba(247, 246, 243, 0.08);
+  }
+  .exh-auth__stat-n {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 4.2vw, 58px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-gold);
+  }
+  .exh-auth__stat-l {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.42);
+    line-height: 1.55;
+  }
+  .exh-auth__intro-right {
+    padding-top: var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .exh-auth__body {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.15vw, 16px);
+    line-height: 1.82;
+    color: rgba(247, 246, 243, 0.55);
+    margin-bottom: var(--sp-4);
+    max-width: 520px;
+  }
+  .exh-auth__body:last-child { margin-bottom: 0; }
+
+  /* ─── Marquee tracks ─────────────────────────────────────────── */
+  .exh-auth__tracks {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .exh-auth__track {
+    overflow: hidden;
+    padding: 14px 0;
+  }
+  .exh-auth__track--rev {
+    border-top: 1px solid rgba(247, 246, 243, 0.05);
+  }
+  .exh-auth__reel {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    animation: exh-scroll 48s linear infinite;
+  }
+  .exh-auth__track--rev .exh-auth__reel {
+    animation-direction: reverse;
+    animation-duration: 38s;
+  }
+  @keyframes exh-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .exh-auth__track:hover .exh-auth__reel {
+    animation-play-state: paused;
+  }
+  .exh-auth__item {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.50);
+    white-space: nowrap;
+    padding: 0 28px;
+    transition: color 0.22s ease;
+  }
+  .exh-auth__track:hover .exh-auth__item {
+    color: rgba(247, 246, 243, 0.75);
+  }
+  .exh-auth__sep {
+    color: var(--color-gold);
+    opacity: 0.35;
+    font-size: 7px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  /* ─── Edge gradient fades ───────────────────────────────────── */
+  .exh-auth__fade--l,
+  .exh-auth__fade--r {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .exh-auth__fade--l {
+    left: 0;
+    background: linear-gradient(to right, var(--color-navy-dark) 0%, transparent 100%);
+  }
+  .exh-auth__fade--r {
+    right: 0;
+    background: linear-gradient(to left, var(--color-navy-dark) 0%, transparent 100%);
+  }
+
+  /* ─── Note line ─────────────────────────────────────────────── */
+  .exh-auth__note {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: rgba(247, 246, 243, 0.25);
+    line-height: 1.6;
+    margin-top: var(--sp-5);
+    padding-top: var(--sp-4);
+    border-top: 1px solid rgba(247, 246, 243, 0.05);
+    max-width: 680px;
+  }
+
+  /* ─── Responsive ────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .exh-auth__intro {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-6);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .exh-auth__intro {
+      grid-template-columns: 1fr;
+      gap: var(--sp-5);
+      padding: var(--sp-8) 0 var(--sp-6);
+    }
+    .exh-auth__intro-right { padding-top: 0; }
+    .exh-auth__body { max-width: 100%; }
+    .exh-auth__item { font-size: 12px; padding: 0 20px; }
+    .exh-auth__fade--l,
+    .exh-auth__fade--r { width: 60px; }
+  }
+
+  /* ─── Reduced motion ────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .exh-auth__reel { animation: none; }
+  }
+</style>
