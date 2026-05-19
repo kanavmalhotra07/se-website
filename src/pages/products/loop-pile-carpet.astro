@@ -145,11 +145,35 @@ const faqs = [
     <!-- ─── STATEMENT ────────────────────────────────────────────────── -->
     <div class="lp-statement" aria-label="Product positioning">
       <div class="container">
-        <div class="lp-statement__inner" data-animate>
-          <p class="lp-statement__text">
-            Structured. Architectural.<br />
-            <span class="lp-statement__em">The floor that holds its quality across every day of the show.</span>
-          </p>
+        <div class="lp-statement__layout">
+          <div class="lp-statement__inner" data-animate>
+            <span class="eyebrow eyebrow--line">Exhibition Grade</span>
+            <p class="lp-statement__text">
+              Structured. Architectural.<br />
+              <span class="lp-statement__em">The floor that holds its quality across every day of the show.</span>
+            </p>
+            <div class="lp-statement__meta" data-animate data-delay="1">
+              <div class="lp-statement__stat">
+                <span class="lp-statement__stat-n">6</span>
+                <span class="lp-statement__stat-l">Architectural<br />Shades in Stock</span>
+              </div>
+              <div class="lp-statement__divider" aria-hidden="true"></div>
+              <div class="lp-statement__stat">
+                <span class="lp-statement__stat-n">Multi-day</span>
+                <span class="lp-statement__stat-l">Surface Integrity<br />Under Footfall</span>
+              </div>
+            </div>
+          </div>
+          <div class="lp-statement__img" data-animate="image" aria-hidden="true">
+            <img
+              src="/images/loop-pile/lp-detail-a.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="900"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -472,10 +496,10 @@ const faqs = [
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(8, 12, 36, 0.97) 0%,
-      rgba(8, 12, 36, 0.72) 35%,
-      rgba(8, 12, 36, 0.45) 65%,
-      rgba(8, 12, 36, 0.30) 100%
+      rgba(8, 12, 36, 0.94) 0%,
+      rgba(8, 12, 36, 0.62) 28%,
+      rgba(8, 12, 36, 0.22) 58%,
+      rgba(8, 12, 36, 0.08) 100%
     );
   }
   .lp-hero__content {
@@ -536,22 +560,85 @@ const faqs = [
   /* ─── Statement ──────────────────────────────────────────────────────── */
   .lp-statement {
     background: var(--color-warm-white);
-    padding: var(--sp-9) 0;
+    padding: var(--sp-8) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
   }
-  .lp-statement__inner { max-width: 720px; }
+  .lp-statement__layout {
+    display: flex;
+    align-items: stretch;
+    gap: var(--sp-7);
+  }
+  .lp-statement__inner {
+    flex: 1;
+    padding: var(--sp-6) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .lp-statement__text {
     font-family: var(--font-display);
-    font-size: clamp(20px, 2.6vw, 32px);
+    font-size: clamp(22px, 2.8vw, 34px);
     font-weight: 600;
-    line-height: 1.42;
-    letter-spacing: -0.016em;
-    color: rgba(12, 18, 48, 0.45);
-    margin: 0;
+    line-height: 1.40;
+    letter-spacing: -0.018em;
+    color: rgba(12, 18, 48, 0.42);
+    margin: var(--sp-4) 0 var(--sp-6);
   }
   .lp-statement__em {
     color: var(--color-navy-dark);
     font-weight: 700;
+  }
+  .lp-statement__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    padding-top: var(--sp-5);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+  }
+  .lp-statement__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .lp-statement__stat-n {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-navy-dark);
+  }
+  .lp-statement__stat-l {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(12, 18, 48, 0.42);
+    line-height: 1.5;
+  }
+  .lp-statement__divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.10);
+  }
+  .lp-statement__img {
+    flex: 0 0 300px;
+    overflow: hidden;
+    border-radius: 2px;
+    margin: var(--sp-5) 0;
+  }
+  .lp-statement__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .lp-statement:hover .lp-statement__img img { transform: scale(1.04); }
+  @media (prefers-reduced-motion: reduce) {
+    .lp-statement:hover .lp-statement__img img { transform: none; }
   }
 
   /* ─── Shade grid ──────────────────────────────────────────────────────── */
@@ -627,17 +714,17 @@ const faqs = [
     height: 110%;
     object-fit: cover;
     object-position: center 40%;
-    opacity: 0.38;
-    filter: saturate(0.55);
+    opacity: 0.55;
+    filter: saturate(0.75);
   }
   .lp-panel__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(8, 12, 36, 0.96) 0%,
-      rgba(8, 12, 36, 0.82) 55%,
-      rgba(8, 12, 36, 0.75) 100%
+      rgba(8, 12, 36, 0.88) 0%,
+      rgba(8, 12, 36, 0.62) 50%,
+      rgba(8, 12, 36, 0.50) 100%
     );
   }
   .lp-panel__content {
@@ -735,10 +822,13 @@ const faqs = [
     .lp-split__text-inner { max-width: 100%; }
     .lp-features { grid-template-columns: repeat(3, 1fr); }
     .lp-related { grid-template-columns: repeat(2, 1fr); }
+    .lp-statement__img { flex: 0 0 220px; }
   }
 
   @media (max-width: 768px) {
     .lp-shade-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .lp-statement__img { display: none; }
+    .lp-statement__meta { flex-wrap: wrap; gap: var(--sp-4); }
   }
 
   @media (max-width: 600px) {
