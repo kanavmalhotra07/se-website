@@ -44,6 +44,7 @@ const faqs = [
   ]}
 >
   <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/coir/coir-3608.jpg" fetchpriority="high" />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
@@ -90,7 +91,7 @@ const faqs = [
           muted
           loop
           playsinline
-          preload="auto"
+          preload="none"
           poster="/images/coir/coir-3608.jpg"
           class="coir-hero__video"
         >
@@ -142,8 +143,8 @@ const faqs = [
           alt="Natural coir carpet woven from coconut husk fibre — surface texture showing the characteristic coarse natural weave in brown-beige tones"
           loading="lazy"
           decoding="async"
-          width="1440"
-          height="1080"
+          width="1200"
+          height="900"
         />
       </div>
       <div class="coir-split__text">
