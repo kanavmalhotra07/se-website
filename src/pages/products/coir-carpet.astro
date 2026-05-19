@@ -126,6 +126,32 @@ const faqs = [
       </div>
     </div>
 
+    <!-- ─── MEDIA ──────────────────────────────────────────────── -->
+    <div class="coir-media" aria-label="Coir carpet material photography">
+      <div class="coir-media__grid">
+        <div class="coir-media__cell coir-media__cell--main" data-animate="image">
+          <img
+            src="/images/coir/coir-3608.jpg"
+            alt="Natural coir carpet — close view of the woven coconut fibre surface texture in natural brown-beige tones"
+            loading="lazy"
+            decoding="async"
+            width="1440"
+            height="1080"
+          />
+        </div>
+        <div class="coir-media__cell coir-media__cell--side" data-animate="image" data-delay="1">
+          <img
+            src="/images/coir/coir-3607.jpg"
+            alt="Coir matting detail — natural fibre weave pattern showing the characteristic coarse texture"
+            loading="lazy"
+            decoding="async"
+            width="1440"
+            height="1080"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- ─── APPLICATIONS ──────────────────────────────────────── -->
     <div class="prod-section" aria-labelledby="coir-apps-heading">
       <div class="container">
@@ -224,6 +250,36 @@ const faqs = [
 </Layout>
 
 <style>
+  /* ─── Media section ────────────────────────────────────────────────── */
+  .coir-media {
+    background: var(--color-warm-white);
+  }
+  .coir-media__grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 0;
+    overflow: hidden;
+  }
+  .coir-media__cell {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+  .coir-media__cell--main { aspect-ratio: 16 / 10; }
+  .coir-media__cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s var(--ease-out, cubic-bezier(0.16,1,0.3,1));
+  }
+  .coir-media__cell:hover img { transform: scale(1.04); }
+  @media (max-width: 768px) {
+    .coir-media__grid { grid-template-columns: 1fr; }
+    .coir-media__cell--side { display: none; }
+  }
+
+  /* ─── FAQ + related ────────────────────────────────────────────────── */
   .prod-faq {
     margin: 0;
     padding: 0;

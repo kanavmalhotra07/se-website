@@ -101,7 +101,19 @@ const faqs = [
   <Navbar />
   <main>
 
-    <section class="prod-hero" aria-labelledby="lp-heading">
+    <section class="prod-hero prod-hero--lp" aria-labelledby="lp-heading">
+      <div class="lp-hero-bg" aria-hidden="true">
+        <img
+          src="/images/loop-pile/lp-hero.jpg"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="1620"
+          height="1080"
+        />
+      </div>
+      <div class="lp-hero-overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="prod-hero__inner">
           <a href="/products" class="prod-hero__back" data-animate>
@@ -349,7 +361,44 @@ const faqs = [
 </Layout>
 
 <style>
-  /* Push the 6-card grid slightly wider so cards don't over-stretch */
+  /* ─── Cinematic hero ────────────────────────────────────────────────── */
+  .prod-hero--lp {
+    min-height: 580px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: var(--sp-8);
+  }
+  .lp-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .lp-hero-bg img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0.38;
+    mix-blend-mode: luminosity;
+  }
+  .lp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+      to right,
+      rgba(12, 18, 48, 0.97) 30%,
+      rgba(12, 18, 48, 0.80) 70%,
+      rgba(12, 18, 48, 0.65) 100%
+    );
+  }
+  .prod-hero--lp .prod-hero__inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─── Shade grid ────────────────────────────────────────────────────── */
   .lp-shade-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }

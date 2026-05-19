@@ -74,7 +74,7 @@ const loopPileShades = [
 
 <Layout
   title="Exhibition Carpet Products — Non Woven, Ribbed, Velour & More | Sanchi Enterprises"
-  description="Non Woven, Ribbed, Velour, Designer, and Caution exhibition carpet for trade fairs, expos, and conventions. Bulk supply, custom design, and on-site installation across India."
+  description="Eight specialist exhibition carpet categories — Non Woven, Ribbed, Velour, Loop Pile, Designer, Caution, Grass, and Coir. Bulk supply, custom design, and on-site installation across India."
   ogImage="https://sanchienterprises.com/images/hero/hero.jpg"
   breadcrumbs={[{ name: 'Products', item: 'https://sanchienterprises.com/products' }]}
 >
@@ -92,7 +92,7 @@ const loopPileShades = [
           <span class="eyebrow eyebrow--inverse eyebrow--line">Product Range</span>
           <h1 class="pi-hero__title">Flooring that<br />defines the space.</h1>
           <p class="pi-hero__sub">
-            Six specialist carpet categories. Thousands of square metres installed across
+            Eight specialist carpet categories. Thousands of square metres installed across
             India's leading trade fairs, expos, and branded exhibitions every year.
           </p>
           <div class="pi-hero__cats" aria-hidden="true">
@@ -101,7 +101,9 @@ const loopPileShades = [
             <span>Velour</span><span class="pi-hero__cats-dot">·</span>
             <span>Designer</span><span class="pi-hero__cats-dot">·</span>
             <span>Loop Pile</span><span class="pi-hero__cats-dot">·</span>
-            <span>Caution</span>
+            <span>Caution</span><span class="pi-hero__cats-dot">·</span>
+            <span>Grass</span><span class="pi-hero__cats-dot">·</span>
+            <span>Coir</span>
           </div>
         </div>
       </div>
@@ -471,6 +473,85 @@ const loopPileShades = [
       </div>
     </section>
 
+    <!-- ── 07 GRASS CARPET — dark, CSS visual ───────────────────── -->
+    <section class="pi-prod pi-prod--dark pi-prod--flip pi-grass" id="grass" aria-labelledby="grass-heading">
+      <div class="pi-grass__visual" data-animate="image" aria-hidden="true"></div>
+      <div class="pi-prod__content">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number" aria-hidden="true">07</span>
+          <span class="eyebrow eyebrow--inverse eyebrow--line">Grass Carpet</span>
+          <h2 class="pi-prod__name" id="grass-heading">
+            Natural Texture.<br />Any Indoor Venue.
+          </h2>
+          <p class="pi-prod__body">
+            Synthetic grass carpet for exhibition booths, garden-themed brand activations,
+            food &amp; beverage pavilions, and product launches requiring a natural-texture floor.
+            Installed over any venue surface without sub-floor preparation.
+          </p>
+          <div class="pi-prod__tags">
+            <span class="pi-prod__tag pi-prod__tag--inv">Garden Theme Events</span>
+            <span class="pi-prod__tag pi-prod__tag--inv">Brand Activations</span>
+            <span class="pi-prod__tag pi-prod__tag--inv">Product Launches</span>
+          </div>
+          <a href="/products/grass-carpet" class="pi-prod__link">
+            View Grass Carpet
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 08 COIR — stone, material photography ─────────────────── -->
+    <section class="pi-prod pi-prod--stone" id="coir" aria-labelledby="coir-heading">
+      <div class="pi-prod__visual" data-animate="image">
+        <img
+          src="/images/coir/coir-3608.jpg"
+          alt="Natural coir carpet woven from coconut husk fibre — close view of the coarse, textured surface in natural brown-beige tones"
+          class="pi-prod__img"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 50%"
+          width="1440"
+          height="1080"
+        />
+      </div>
+      <div class="pi-prod__content pi-prod__content--light">
+        <div class="pi-prod__content-inner" data-animate>
+          <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">08</span>
+          <span class="eyebrow eyebrow--line">Coir Carpet</span>
+          <h2 class="pi-prod__name pi-prod__name--dark" id="coir-heading">
+            A Material Quality<br />No Synthetic Matches.
+          </h2>
+          <p class="pi-prod__body pi-prod__body--dark">
+            Woven from natural coconut husk fibre — renewable, biodegradable, and carrying
+            the distinctive coarse texture of heritage craft. Specified for exhibition entrances,
+            eco-brand pavilions, organic product showcases, and any environment where the floor
+            material is part of the story.
+          </p>
+          <div class="pi-prod__specs pi-prod__specs--light">
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label pi-prod__spec-label--muted">Material</span>
+              <span class="pi-prod__spec-value pi-prod__spec-value--dark">Natural coconut husk fibre</span>
+            </div>
+            <div class="pi-prod__spec">
+              <span class="pi-prod__spec-label pi-prod__spec-label--muted">Best for</span>
+              <span class="pi-prod__spec-value pi-prod__spec-value--dark">Eco pavilions · Entrances · Organic brands</span>
+            </div>
+          </div>
+          <a href="/products/coir-carpet" class="pi-prod__link pi-prod__link--navy">
+            View Coir Carpet
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+              <path d="M1 5h12M8.5 1.5L13 5l-4.5 3.5" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ── VENUE STRIP ────────────────────────────────────────── -->
     <section class="pi-venues" aria-label="Exhibitions served">
       <div class="pi-venues__label-row">
@@ -823,6 +904,34 @@ const loopPileShades = [
     opacity: 0.35;
     transition: opacity 0.32s ease, color 0.32s ease;
   }
+
+  /* ─── Grass Carpet CSS visual ──────────────────────────────── */
+  .pi-grass__visual {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #060f06 0%, #0b1c0b 45%, #0e2610 100%);
+  }
+  .pi-grass__visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(82deg,
+        transparent 0px, transparent 14px,
+        rgba(40,110,30,0.12) 14px, rgba(40,110,30,0.12) 15px),
+      repeating-linear-gradient(94deg,
+        transparent 0px, transparent 20px,
+        rgba(40,110,30,0.08) 20px, rgba(40,110,30,0.08) 21px);
+  }
+  .pi-grass__visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 70%, rgba(20,70,15,0.55) 0%, transparent 70%);
+  }
+  @media (max-width: 860px) { .pi-grass__visual { height: 340px; flex: none; } }
+  @media (max-width: 600px) { .pi-grass__visual { height: 260px; } }
 
   /* ─── Caution diagonal stripe motif ────────────────────────── */
   .pi-caution__content {
