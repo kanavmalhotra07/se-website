@@ -37,6 +37,7 @@ const faqs = [
 <Layout
   title="Coir Carpet — Natural Fibre Exhibition Flooring | Sanchi Enterprises"
   description="Natural coir carpet woven from coconut husk fibre for exhibition entrances, eco-themed pavilions, organic brand events, and hospitality areas. Supplied and installed across India by Sanchi Enterprises."
+  ogImage="https://sanchienterprises.com/images/coir/coir-3608.jpg"
   breadcrumbs={[
     { name: 'Products', item: 'https://sanchienterprises.com/products' },
     { name: 'Coir Carpet', item: 'https://sanchienterprises.com/products/coir-carpet' },
@@ -53,6 +54,7 @@ const faqs = [
           "description": "Natural coir carpet woven from coconut husk fibre for exhibition entrances, eco-themed pavilions, organic brand events, and hospitality areas. Supplied and installed across India.",
           "brand": { "@id": "https://sanchienterprises.com/#organization" },
           "url": "https://sanchienterprises.com/products/coir-carpet",
+          "image": "https://sanchienterprises.com/images/coir/coir-3608.jpg",
           "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
@@ -80,79 +82,94 @@ const faqs = [
   <Navbar />
   <main>
 
-    <!-- ─── HERO ──────────────────────────────────────────────── -->
-    <section class="prod-hero" aria-labelledby="coir-heading">
+    <!-- ─── HERO — full-viewport, video-backed ───────────────────── -->
+    <section class="coir-hero" aria-labelledby="coir-heading">
+      <div class="coir-hero__media" aria-hidden="true">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="/images/coir/coir-3608.jpg"
+          class="coir-hero__video"
+        >
+          <source src="/images/coir/coir-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="coir-hero__overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="prod-hero__inner">
-          <a href="/products" class="prod-hero__back">
+        <div class="coir-hero__content">
+          <a href="/products" class="coir-hero__back" data-animate>
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
               <path d="M11 4H1M5 1L1 4l4 3" stroke="currentColor" stroke-width="1.3"
                 stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             All Products
           </a>
-          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate>Coir Carpet</span>
-          <h1 class="prod-hero__title" id="coir-heading" data-animate data-delay="1">
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate data-delay="1">Coir Carpet</span>
+          <h1 class="coir-hero__title" id="coir-heading" data-animate data-delay="2">
             Natural Coconut Fibre<br />Exhibition Flooring.
           </h1>
-          <p class="prod-hero__intro" data-animate data-delay="2">
+          <p class="coir-hero__sub" data-animate data-delay="3">
             Coir matting woven from natural coconut husk fibre — for exhibition
             entrances, eco-themed pavilions, and organic brand environments across India.
           </p>
         </div>
       </div>
+      <div class="coir-hero__scroll" aria-hidden="true">
+        <div class="coir-hero__scroll-line"></div>
+      </div>
     </section>
 
-    <!-- ─── ABOUT ─────────────────────────────────────────────── -->
-    <div class="prod-section prod-section--stone" aria-labelledby="coir-about-heading">
+    <!-- ─── STATEMENT ────────────────────────────────────────────── -->
+    <div class="coir-statement" aria-label="Product positioning">
       <div class="container">
-        <div class="prod-section__header" data-animate>
+        <div class="coir-statement__inner" data-animate>
+          <p class="coir-statement__text">
+            Woven from heritage craft.<br />
+            <span class="coir-statement__em">A floor material that carries meaning in every fibre.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── EDITORIAL SPLIT — image left, about text right ──────── -->
+    <div class="coir-split" aria-labelledby="coir-about-heading">
+      <div class="coir-split__visual" data-animate="image">
+        <img
+          src="/images/coir/coir-3609.jpg"
+          alt="Natural coir carpet woven from coconut husk fibre — surface texture showing the characteristic coarse natural weave in brown-beige tones"
+          loading="lazy"
+          decoding="async"
+          width="1440"
+          height="1080"
+        />
+      </div>
+      <div class="coir-split__text">
+        <div class="coir-split__text-inner" data-animate data-delay="1">
           <span class="eyebrow eyebrow--line">About the Product</span>
-          <h2 class="prod-section__title" id="coir-about-heading">A Material Quality<br />No Synthetic Can Match.</h2>
-        </div>
-        <p class="prod-section__body" data-animate data-delay="1">
-          Coir carpet is woven from natural coconut husk fibre — a renewable, biodegradable
-          material with a distinctive coarse texture that carries the quality of heritage
-          craft. In exhibition environments, coir is specified for entrance mats, organic
-          and natural brand pavilions, sustainability-themed events, and wherever a floor
-          material that reads as natural and unprocessed is part of the design brief.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="2">
-          Sanchi supplies and installs coir carpet across India's major exhibition venues,
-          coordinated with the wider flooring scope where natural materials are being
-          combined with standard exhibition carpet. Enquire for specification and
-          availability for your event dates.
-        </p>
-      </div>
-    </div>
-
-    <!-- ─── MEDIA ──────────────────────────────────────────────── -->
-    <div class="coir-media" aria-label="Coir carpet material photography">
-      <div class="coir-media__grid">
-        <div class="coir-media__cell coir-media__cell--main" data-animate="image">
-          <img
-            src="/images/coir/coir-3608.jpg"
-            alt="Natural coir carpet — close view of the woven coconut fibre surface texture in natural brown-beige tones"
-            loading="lazy"
-            decoding="async"
-            width="1440"
-            height="1080"
-          />
-        </div>
-        <div class="coir-media__cell coir-media__cell--side" data-animate="image" data-delay="1">
-          <img
-            src="/images/coir/coir-3607.jpg"
-            alt="Coir matting detail — natural fibre weave pattern showing the characteristic coarse texture"
-            loading="lazy"
-            decoding="async"
-            width="1440"
-            height="1080"
-          />
+          <h2 class="coir-split__title" id="coir-about-heading">
+            A Material Quality<br />No Synthetic Can Match.
+          </h2>
+          <p class="coir-split__body">
+            Coir carpet is woven from natural coconut husk fibre — a renewable, biodegradable
+            material with a distinctive coarse texture that carries the quality of heritage
+            craft. In exhibition environments, coir is specified for entrance mats, organic
+            and natural brand pavilions, sustainability-themed events, and wherever a floor
+            material that reads as natural and unprocessed is part of the design brief.
+          </p>
+          <p class="coir-split__body">
+            Sanchi supplies and installs coir carpet across India's major exhibition venues,
+            coordinated with the wider flooring scope where natural materials are being
+            combined with standard exhibition carpet. Enquire for specification and
+            availability for your event dates.
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- ─── APPLICATIONS ──────────────────────────────────────── -->
+    <!-- ─── APPLICATIONS ─────────────────────────────────────────── -->
     <div class="prod-section" aria-labelledby="coir-apps-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
@@ -170,53 +187,73 @@ const faqs = [
       </div>
     </div>
 
-    <!-- ─── FAQ ───────────────────────────────────────────────── -->
+    <!-- ─── SPEC STRIP ────────────────────────────────────────────── -->
+    <div class="coir-specs" aria-label="Product specification">
+      <div class="container">
+        <div class="coir-specs__grid" data-animate>
+          <div class="coir-specs__item">
+            <span class="coir-specs__label">Material</span>
+            <span class="coir-specs__value">Natural coconut husk fibre</span>
+          </div>
+          <div class="coir-specs__item">
+            <span class="coir-specs__label">Finish</span>
+            <span class="coir-specs__value">Woven — natural brown &amp; beige tones</span>
+          </div>
+          <div class="coir-specs__item">
+            <span class="coir-specs__label">Coverage</span>
+            <span class="coir-specs__value">Pan-India supply &amp; installation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────── -->
     <div class="prod-section prod-section--stone" aria-labelledby="coir-faq-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">FAQ</span>
           <h2 class="prod-section__title" id="coir-faq-heading">Common Questions</h2>
         </div>
-        <dl class="prod-faq" data-animate data-delay="1">
+        <dl class="coir-faq" data-animate data-delay="1">
           {faqs.map((faq) => (
-            <div class="prod-faq__item">
-              <dt class="prod-faq__q">{faq.q}</dt>
-              <dd class="prod-faq__a">{faq.a}</dd>
+            <div class="coir-faq__item">
+              <dt class="coir-faq__q">{faq.q}</dt>
+              <dd class="coir-faq__a">{faq.a}</dd>
             </div>
           ))}
         </dl>
       </div>
     </div>
 
-    <!-- ─── RELATED PRODUCTS ──────────────────────────────────── -->
+    <!-- ─── RELATED PRODUCTS ─────────────────────────────────────── -->
     <div class="prod-section" aria-label="Related products">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">Also Available</span>
           <h2 class="prod-section__title">Explore Our Range</h2>
         </div>
-        <div class="prod-related" data-animate data-delay="1">
-          <a href="/products/grass-carpet" class="prod-related__link">
-            <span class="prod-related__name">Grass Carpet</span>
-            <span class="prod-related__desc">Synthetic grass for themed exhibition environments</span>
+        <div class="coir-related" data-animate data-delay="1">
+          <a href="/products/grass-carpet" class="coir-related__link">
+            <span class="coir-related__name">Grass Carpet</span>
+            <span class="coir-related__desc">Synthetic grass for themed exhibition environments</span>
           </a>
-          <a href="/products/velour-carpet" class="prod-related__link">
-            <span class="prod-related__name">Velour Carpet</span>
-            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          <a href="/products/velour-carpet" class="coir-related__link">
+            <span class="coir-related__name">Velour Carpet</span>
+            <span class="coir-related__desc">Premium cut-pile finish in 11 shades</span>
           </a>
-          <a href="/products/non-woven-carpet" class="prod-related__link">
-            <span class="prod-related__name">Non Woven Carpet</span>
-            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          <a href="/products/non-woven-carpet" class="coir-related__link">
+            <span class="coir-related__name">Non Woven Carpet</span>
+            <span class="coir-related__desc">29 shades — industry standard floor coverage</span>
           </a>
-          <a href="/products/designer-carpet" class="prod-related__link">
-            <span class="prod-related__name">Designer Carpet</span>
-            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          <a href="/products/designer-carpet" class="coir-related__link">
+            <span class="coir-related__name">Designer Carpet</span>
+            <span class="coir-related__desc">Fully custom printed to your brief</span>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <!-- ─── CTA ──────────────────────────────────────────────────── -->
     <div class="prod-cta">
       <div class="container">
         <div class="prod-cta__inner">
@@ -250,48 +287,211 @@ const faqs = [
 </Layout>
 
 <style>
-  /* ─── Media section ────────────────────────────────────────────────── */
-  .coir-media {
-    background: var(--color-warm-white);
+  /* ─── Hero ──────────────────────────────────────────────────────── */
+  .coir-hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-bottom: var(--sp-8);
+    background-color: var(--color-navy-dark);
   }
-  .coir-media__grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 0;
+  .coir-hero__media {
+    position: absolute;
+    inset: 0;
     overflow: hidden;
   }
-  .coir-media__cell {
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-  }
-  .coir-media__cell--main { aspect-ratio: 16 / 10; }
-  .coir-media__cell img {
+  .coir-hero__video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.8s var(--ease-out, cubic-bezier(0.16,1,0.3,1));
+    object-position: center center;
   }
-  .coir-media__cell:hover img { transform: scale(1.04); }
-  @media (max-width: 768px) {
-    .coir-media__grid { grid-template-columns: 1fr; }
-    .coir-media__cell--side { display: none; }
+  .coir-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8, 12, 36, 0.97) 0%,
+      rgba(8, 12, 36, 0.65) 38%,
+      rgba(8, 12, 36, 0.26) 72%,
+      rgba(8, 12, 36, 0.14) 100%
+    );
+  }
+  .coir-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding-top: 140px;
+  }
+  .coir-hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.40);
+    margin-bottom: var(--sp-5);
+    transition: color 0.22s ease;
+  }
+  .coir-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
+  .coir-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 6vw, 84px);
+    font-weight: 700;
+    line-height: 1.03;
+    letter-spacing: -0.032em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+  .coir-hero__sub {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: rgba(247, 246, 243, 0.58);
+    max-width: 440px;
+  }
+  .coir-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    z-index: 2;
+  }
+  .coir-hero__scroll-line {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, transparent, rgba(247, 246, 243, 0.40));
+    animation: coir-scroll 2.8s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes coir-scroll {
+    0%, 100% { opacity: 0.30; transform: scaleY(0.5); }
+    55%       { opacity: 0.85; transform: scaleY(1); }
   }
 
-  /* ─── FAQ + related ────────────────────────────────────────────────── */
-  .prod-faq {
+  /* ─── Statement ─────────────────────────────────────────────────── */
+  .coir-statement {
+    background: var(--color-warm-white);
+    padding: var(--sp-9) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .coir-statement__inner { max-width: 720px; }
+  .coir-statement__text {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.6vw, 32px);
+    font-weight: 600;
+    line-height: 1.42;
+    letter-spacing: -0.016em;
+    color: rgba(12, 18, 48, 0.45);
+    margin: 0;
+  }
+  .coir-statement__em {
+    color: var(--color-navy-dark);
+    font-weight: 700;
+  }
+
+  /* ─── Editorial split ───────────────────────────────────────────── */
+  .coir-split {
+    display: flex;
+    min-height: 580px;
+    overflow: hidden;
+    background: var(--color-stone);
+  }
+  .coir-split__visual {
+    flex: 0 0 50%;
+    overflow: hidden;
+  }
+  .coir-split__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .coir-split:hover .coir-split__visual img { transform: scale(1.04); }
+  .coir-split__text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: var(--sp-8) var(--sp-7);
+  }
+  .coir-split__text-inner { max-width: 480px; }
+  .coir-split__title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    color: var(--color-navy-dark);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+  .coir-split__body {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.1vw, 15px);
+    line-height: 1.80;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--sp-4);
+  }
+  .coir-split__body:last-child { margin-bottom: 0; }
+
+  /* ─── Spec strip ────────────────────────────────────────────────── */
+  .coir-specs {
+    background: var(--color-navy-dark);
+    padding: var(--sp-6) 0;
+  }
+  .coir-specs__grid {
+    display: flex;
+    gap: 0;
+  }
+  .coir-specs__item {
+    flex: 1;
+    padding: var(--sp-4) var(--sp-5);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .coir-specs__item:first-child { padding-left: 0; }
+  .coir-specs__item:last-child  { border-right: none; }
+  .coir-specs__label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.35);
+  }
+  .coir-specs__value {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: rgba(247, 246, 243, 0.88);
+  }
+
+  /* ─── FAQ ───────────────────────────────────────────────────────── */
+  .coir-faq {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: var(--sp-5);
   }
-  .prod-faq__item {
-    border-top: 1px solid rgba(0,0,0,0.08);
+  .coir-faq__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     padding-top: var(--sp-4);
   }
-  .prod-faq__q {
+  .coir-faq__q {
     font-family: var(--font-display);
     font-size: 16px;
     font-weight: 600;
@@ -299,45 +499,72 @@ const faqs = [
     margin-bottom: var(--sp-2);
     line-height: 1.4;
   }
-  .prod-faq__a {
+  .coir-faq__a {
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.75;
     color: var(--color-text-secondary);
     margin: 0;
   }
-  .prod-related {
+
+  /* ─── Related ───────────────────────────────────────────────────── */
+  .coir-related {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--sp-4);
   }
-  .prod-related__link {
+  .coir-related__link {
     display: flex;
     flex-direction: column;
     gap: var(--sp-1);
     padding: var(--sp-4);
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 4px;
-    transition: border-color 0.22s ease, background 0.22s ease;
     text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
   }
-  .prod-related__link:hover {
+  .coir-related__link:hover {
     border-color: var(--color-navy);
-    background: #EFEDE8;
+    background: var(--color-stone);
   }
-  .prod-related__name {
+  .coir-related__name {
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 600;
     color: var(--color-navy-dark);
     letter-spacing: -0.01em;
   }
-  .prod-related__desc {
+  .coir-related__desc {
     font-family: var(--font-body);
     font-size: 12px;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
-  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+
+  /* ─── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .coir-split { flex-direction: column; min-height: auto; }
+    .coir-split__visual { height: 360px; flex: none; }
+    .coir-split__text { padding: var(--sp-6) var(--sp-4); }
+    .coir-split__text-inner { max-width: 100%; }
+    .coir-related { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .coir-hero__scroll { display: none; }
+    .coir-split__visual { height: 260px; }
+    .coir-specs__grid { flex-direction: column; }
+    .coir-specs__item {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: var(--sp-3) 0;
+    }
+    .coir-specs__item:last-child { border-bottom: none; }
+    .coir-related { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .coir-hero__scroll-line { animation: none; }
+    .coir-split:hover .coir-split__visual img { transform: none; }
+  }
 </style>
