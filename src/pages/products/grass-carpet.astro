@@ -1,0 +1,288 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const applications = [
+  'Exhibition Booths',
+  'Brand Activations',
+  'Product Launch Settings',
+  'Food & Beverage Pavilions',
+  'Garden-theme Events',
+  'Retail Pop-ups',
+  'Outdoor Event Areas',
+  'Corporate Hospitality Zones',
+];
+
+const faqs = [
+  {
+    q: 'What is the difference between grass carpet and artificial grass carpet?',
+    a: 'Grass carpet and artificial grass carpet refer to the same product category — a synthetic flooring surface manufactured to replicate the appearance and texture of natural grass. It is produced from polypropylene or polyethylene fibres in a range of pile heights and green tones. Both terms describe the same range supplied by Sanchi Enterprises.',
+  },
+  {
+    q: 'Can artificial grass carpet be installed indoors for exhibition use?',
+    a: 'Yes. Synthetic grass carpet is suitable for installation over standard indoor venue surfaces — including concrete, composite, and existing carpeted hall floors. It is installed using carpet tape or adhesive, without sub-floor preparation, and can be laid alongside other carpet types within the same installation scope.',
+  },
+  {
+    q: 'Which exhibitions and events use grass carpet?',
+    a: 'Grass carpet is most commonly used for garden and outdoor-themed exhibition booths, food and beverage pavilions, product launches requiring a natural-texture floor, brand activations, and retail pop-ups. It introduces a distinct material texture that reads as outdoor or natural in an otherwise standard venue environment.',
+  },
+  {
+    q: 'How do I order grass carpet for an exhibition?',
+    a: 'Share your event brief, floor plan dimensions, and event dates. We will confirm the available specification, cutting dimensions, supply scope, and installation timeline. Contact us via the enquiry form or WhatsApp.',
+  },
+];
+---
+
+<Layout
+  title="Grass Carpet & Artificial Grass Flooring — Exhibition & Events | Sanchi Enterprises"
+  description="Synthetic grass carpet and artificial grass flooring for exhibition booths, brand activations, product launches, and garden-theme events. Supplied and installed across India by Sanchi Enterprises."
+  breadcrumbs={[
+    { name: 'Products', item: 'https://sanchienterprises.com/products' },
+    { name: 'Grass Carpet', item: 'https://sanchienterprises.com/products/grass-carpet' },
+  ]}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "@id": "https://sanchienterprises.com/products/grass-carpet/#product",
+          "name": "Grass Carpet & Artificial Grass Flooring",
+          "description": "Synthetic grass carpet and artificial grass flooring for exhibition booths, brand activations, product launches, and garden-theme events. Supplied and installed across India.",
+          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "url": "https://sanchienterprises.com/products/grass-carpet",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": { "@id": "https://sanchienterprises.com/#organization" }
+          },
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Material", "value": "Synthetic polypropylene / polyethylene fibre" },
+            { "@type": "PropertyValue", "name": "Finish", "value": "Grass pile — natural green tones" },
+            { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India supply and installation" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }
+      ]
+    })}></script>
+  </Fragment>
+
+  <Navbar />
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────────── -->
+    <section class="prod-hero" aria-labelledby="grass-heading">
+      <div class="container">
+        <div class="prod-hero__inner">
+          <a href="/products" class="prod-hero__back">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+              <path d="M11 4H1M5 1L1 4l4 3" stroke="currentColor" stroke-width="1.3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            All Products
+          </a>
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate>Grass Carpet</span>
+          <h1 class="prod-hero__title" id="grass-heading" data-animate data-delay="1">
+            Synthetic Grass for<br />Exhibition Spaces.
+          </h1>
+          <p class="prod-hero__intro" data-animate data-delay="2">
+            Artificial grass carpet for exhibition booths, brand activations, product
+            launches, and garden-theme events — supplied and installed across India.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="grass-about-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">About the Product</span>
+          <h2 class="prod-section__title" id="grass-about-heading">Natural Texture.<br />Any Indoor Venue.</h2>
+        </div>
+        <p class="prod-section__body" data-animate data-delay="1">
+          Artificial grass carpet brings a natural, textured surface to any exhibition
+          environment — from product launches and food &amp; beverage pavilions to
+          garden-themed brand activations. The synthetic pile gives the visual character
+          of a grass surface without the limitations of natural turf: suitable for
+          indoor venue installation, flat and consistent underfoot, and available in
+          standard green tones for immediate supply.
+        </p>
+        <p class="prod-section__body" data-animate data-delay="2">
+          Sanchi supplies and installs synthetic grass carpet across India's major
+          exhibition venues, coordinated with the wider flooring scope where mixed
+          materials are part of the brief. Enquire for specification details and
+          availability for your event dates.
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── APPLICATIONS ──────────────────────────────────────── -->
+    <div class="prod-section" aria-labelledby="grass-apps-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Applications</span>
+          <h2 class="prod-section__title" id="grass-apps-heading">Where Grass Carpet Is Used</h2>
+        </div>
+        <div class="prod-apps-grid" data-animate data-delay="1">
+          {applications.map((app) => (
+            <div class="prod-app-item">
+              <div class="prod-app-item__dot"></div>
+              <div class="prod-app-item__label">{app}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FAQ ───────────────────────────────────────────────── -->
+    <div class="prod-section prod-section--stone" aria-labelledby="grass-faq-heading">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">FAQ</span>
+          <h2 class="prod-section__title" id="grass-faq-heading">Common Questions</h2>
+        </div>
+        <dl class="prod-faq" data-animate data-delay="1">
+          {faqs.map((faq) => (
+            <div class="prod-faq__item">
+              <dt class="prod-faq__q">{faq.q}</dt>
+              <dd class="prod-faq__a">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <!-- ─── RELATED PRODUCTS ──────────────────────────────────── -->
+    <div class="prod-section" aria-label="Related products">
+      <div class="container">
+        <div class="prod-section__header" data-animate>
+          <span class="eyebrow eyebrow--line">Also Available</span>
+          <h2 class="prod-section__title">Explore Our Range</h2>
+        </div>
+        <div class="prod-related" data-animate data-delay="1">
+          <a href="/products/coir-carpet" class="prod-related__link">
+            <span class="prod-related__name">Coir Carpet</span>
+            <span class="prod-related__desc">Natural coconut fibre matting</span>
+          </a>
+          <a href="/products/velour-carpet" class="prod-related__link">
+            <span class="prod-related__name">Velour Carpet</span>
+            <span class="prod-related__desc">Premium cut-pile finish in 11 shades</span>
+          </a>
+          <a href="/products/non-woven-carpet" class="prod-related__link">
+            <span class="prod-related__name">Non Woven Carpet</span>
+            <span class="prod-related__desc">29 shades — industry standard floor coverage</span>
+          </a>
+          <a href="/products/designer-carpet" class="prod-related__link">
+            <span class="prod-related__name">Designer Carpet</span>
+            <span class="prod-related__desc">Fully custom printed to your brief</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CTA ───────────────────────────────────────────────── -->
+    <div class="prod-cta">
+      <div class="container">
+        <div class="prod-cta__inner">
+          <div class="prod-cta__text" data-animate>
+            <div class="prod-cta__title">Enquire about Grass Carpet</div>
+            <p class="prod-cta__sub">
+              Share your event brief, venue, and floor plan.
+              We'll confirm specification and availability within 24 hours.
+            </p>
+          </div>
+          <div class="prod-cta__actions" data-animate data-delay="1">
+            <a href="/contact" class="btn btn--ghost-light">Send Enquiry</a>
+            <a
+              href="https://wa.me/919958132189"
+              class="btn btn--whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .prod-faq {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .prod-faq__item {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: var(--sp-4);
+  }
+  .prod-faq__q {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-2);
+    line-height: 1.4;
+  }
+  .prod-faq__a {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .prod-related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+  .prod-related__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-4);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    transition: border-color 0.22s ease, background 0.22s ease;
+    text-decoration: none;
+  }
+  .prod-related__link:hover {
+    border-color: var(--color-navy);
+    background: #EFEDE8;
+  }
+  .prod-related__name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-dark);
+    letter-spacing: -0.01em;
+  }
+  .prod-related__desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) { .prod-related { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .prod-related { grid-template-columns: 1fr; } }
+</style>
