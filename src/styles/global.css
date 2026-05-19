@@ -4827,10 +4827,6 @@ a.contact-detail-item__value:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .categories__grid .cat-card:nth-child(1) .cat-card__img-wrap {
-    aspect-ratio: 4 / 3;
-  }
-
   .categories__header {
     flex-direction: column;
     align-items: flex-start;
