@@ -5105,8 +5105,16 @@ a.contact-detail-item__value:hover {
   }
 
   .about-pg-gallery__grid {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 180px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+
+  /* Item 1 (wide) collapses to 1 col on mobile.
+     5 regular items between 2 wide items in a 2-col grid leaves col 2
+     of the penultimate row empty. Collapsing item 1 makes items flow
+     cleanly: pairs in rows 1–3, item 7 full-width in row 4. */
+  .about-pg-gallery__item--w2:first-child {
+    grid-column: span 1;
   }
 
   .about-pg-gallery__item--w2 {
