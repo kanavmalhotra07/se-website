@@ -1,6 +1,6 @@
 # ============================================================
 #  robots.txt — Sanchi Enterprises
-#  https://sanchienterprises.com
+#  https://www.sanchienterprises.com
 #
 #  Policy:
 #    ✓  Standard search engine indexing          — ALLOWED
@@ -228,4 +228,4 @@ Crawl-delay: 10
 
 
 # ── SITEMAP ──────────────────────────────────────────────────
-Sitemap: https://sanchienterprises.com/sitemap.xml
+Sitemap: https://www.sanchienterprises.com/sitemap.xml

@@ -1,5 +1,5 @@
 # llms.txt — Sanchi Enterprises
-# https://sanchienterprises.com
+# https://www.sanchienterprises.com
 #
 # This file declares the content usage policy for AI language models,
 # automated agents, and large-scale data systems interacting with this website.
@@ -44,12 +44,12 @@ contact: kanav@sanchienterprises.com
 
 ## Sitemap (publicly indexable pages)
 
-- https://sanchienterprises.com/
-- https://sanchienterprises.com/products
-- https://sanchienterprises.com/products/non-woven-carpet
-- https://sanchienterprises.com/products/ribbed-carpet
-- https://sanchienterprises.com/products/velour-carpet
-- https://sanchienterprises.com/products/caution-carpet
-- https://sanchienterprises.com/products/designer-carpet
-- https://sanchienterprises.com/about
-- https://sanchienterprises.com/contact
+- https://www.sanchienterprises.com/
+- https://www.sanchienterprises.com/products
+- https://www.sanchienterprises.com/products/non-woven-carpet
+- https://www.sanchienterprises.com/products/ribbed-carpet
+- https://www.sanchienterprises.com/products/velour-carpet
+- https://www.sanchienterprises.com/products/caution-carpet
+- https://www.sanchienterprises.com/products/designer-carpet
+- https://www.sanchienterprises.com/about
+- https://www.sanchienterprises.com/contact

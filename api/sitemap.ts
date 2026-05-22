@@ -4,7 +4,7 @@ export default function handler(_request: Request): Response {
   return new Response(null, {
     status: 301,
     headers: {
-      Location: 'https://sanchienterprises.com/sitemap.xml',
+      Location: 'https://www.sanchienterprises.com/sitemap.xml',
     },
   });
 }
