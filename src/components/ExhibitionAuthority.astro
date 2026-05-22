@@ -128,18 +128,66 @@ const row2 = [
 </section>
 
 <script>
-  // Touch pause — mirrors hover behavior for mobile users
-  document.querySelectorAll('.exh-auth__track').forEach((track) => {
-    track.addEventListener('touchstart', () => {
-      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.add('is-touch-paused'));
-    }, { passive: true });
-    track.addEventListener('touchend', () => {
-      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.remove('is-touch-paused'));
-    }, { passive: true });
-    track.addEventListener('touchcancel', () => {
-      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.remove('is-touch-paused'));
-    }, { passive: true });
-  });
+  // rAF-driven marquee — bypasses iOS Safari overflow+CSS-animation rendering bug.
+  // Direct style.transform writes always trigger the GPU compositor correctly.
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const isMobile = window.innerWidth <= 768;
+
+    const tracks = [
+      {
+        reel: document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel'),
+        track: document.querySelector<HTMLElement>('.exh-auth__track--fwd'),
+        dir: 1,                          // positive = scrolls left
+        speed: isMobile ? 52 : 90,       // px/s
+      },
+      {
+        reel: document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel'),
+        track: document.querySelector<HTMLElement>('.exh-auth__track--rev'),
+        dir: -1,                         // negative = scrolls right
+        speed: isMobile ? 40 : 72,
+      },
+    ];
+
+    tracks.forEach(({ reel, track, dir, speed }) => {
+      if (!reel || !track) return;
+
+      // Half the reel = width of one copy of content = seamless loop distance
+      const halfW = reel.getBoundingClientRect().width / 2;
+      if (halfW <= 0) return;
+
+      let pos = 0;
+      let paused = false;
+      let last = 0;
+
+      // Pause on hover (desktop) and touch (mobile)
+      track.addEventListener('mouseenter', () => { paused = true; });
+      track.addEventListener('mouseleave', () => { paused = false; });
+      track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+      track.addEventListener('touchend',   () => { paused = false; }, { passive: true });
+      track.addEventListener('touchcancel',() => { paused = false; }, { passive: true });
+
+      function tick(ts: number) {
+        const dt = last ? Math.min(ts - last, 50) : 0; // cap at 50ms to absorb tab-switch gaps
+        last = ts;
+
+        if (!paused && dt > 0) {
+          pos += (speed * dt / 1000) * dir;
+
+          // Seamless wrap
+          if (dir > 0 && pos >= halfW)  pos -= halfW;
+          if (dir < 0 && pos <= -halfW) pos += halfW;
+
+          reel.style.transform = `translate3d(${-pos}px, 0, 0)`;
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    });
+  })();
 </script>
 
 <style>
@@ -233,19 +281,7 @@ const row2 = [
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    animation: exh-scroll 48s linear infinite;
-  }
-  .exh-auth__track--rev .exh-auth__reel {
-    animation-direction: reverse;
-    animation-duration: 38s;
-  }
-  @keyframes exh-scroll {
-    from { transform: translate3d(0, 0, 0); }
-    to   { transform: translate3d(-50%, 0, 0); }
-  }
-  .exh-auth__track:hover .exh-auth__reel,
-  .exh-auth__reel.is-touch-paused {
-    animation-play-state: paused;
+    /* transform driven by JS — no CSS animation */
   }
   .exh-auth__item {
     font-family: var(--font-display);
@@ -324,10 +360,8 @@ const row2 = [
       margin-bottom: var(--sp-4);
     }
 
-    /* Marquee: slower, larger spacing, more track height */
+    /* Marquee: larger spacing, more track height (speed via JS) */
     .exh-auth__track { padding: 18px 0; }
-    .exh-auth__reel { animation-duration: 65s; }
-    .exh-auth__track--rev .exh-auth__reel { animation-duration: 52s; }
     .exh-auth__item {
       font-size: 13px;
       padding: 0 36px;
@@ -343,8 +377,5 @@ const row2 = [
     .exh-auth__note { display: none; }
   }
 
-  /* ─── Reduced motion ────────────────────────────────────────── */
-  @media (prefers-reduced-motion: reduce) {
-    .exh-auth__reel { animation: none; }
-  }
+  /* ─── Reduced motion — JS checks this at runtime ───────────── */
 </style>
