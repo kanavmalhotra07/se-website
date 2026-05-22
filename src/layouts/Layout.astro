@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import 'lenis/dist/lenis.css';
 
 interface BreadcrumbItem {
   name: string;
@@ -275,7 +276,21 @@ const allBreadcrumbs: BreadcrumbItem[] = [
   <slot />
 
   <script>
+    import Lenis from 'lenis';
+
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ─── Smooth scroll — desktop non-touch only ──────────────────────────────
+    // lerp 0.1 → ~400ms to settle: barely perceptible weighted feel, not cinematic
+    if (!reducedMotion && !window.matchMedia('(pointer: coarse)').matches) {
+      const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, syncTouch: false });
+      let rafId: number;
+      const raf = (time: number) => { lenis.raf(time); rafId = requestAnimationFrame(raf); };
+      rafId = requestAnimationFrame(raf);
+      document.addEventListener('visibilitychange', () => {
+        document.hidden ? cancelAnimationFrame(rafId) : (rafId = requestAnimationFrame(raf));
+      });
+    }
 
     // ─── Navbar: transparent → glass blur on scroll ─────────────────────────
     const navbar = document.querySelector<HTMLElement>('.navbar');
