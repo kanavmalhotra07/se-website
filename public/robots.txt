@@ -14,7 +14,7 @@
 #  Unauthorised scraping, harvesting, or use of any content
 #  for AI model training is strictly prohibited.
 #
-#  Last updated: 2026-05-19
+#  Last updated: 2026-05-22
 # ============================================================
 
 
@@ -135,18 +135,22 @@ Disallow: /
 
 # Perplexity AI — search index and AI answer engine
 User-agent: PerplexityBot
+Disallow: /api/
 Allow: /
 
 # OpenAI — ChatGPT real-time web browsing
 User-agent: ChatGPT-User
+Disallow: /api/
 Allow: /
 
 # Anthropic — Claude.ai web browsing and search
 User-agent: Claude-Web
+Disallow: /api/
 Allow: /
 
 # Google — Gemini AI Overviews and AI search features
 User-agent: Google-Extended
+Disallow: /api/
 Allow: /
 
 
@@ -155,48 +159,61 @@ Allow: /
 
 # Google Search (all agents)
 User-agent: Googlebot
+Disallow: /api/
 Allow: /
 
 User-agent: Googlebot-Image
+Disallow: /api/
 Allow: /
 
 User-agent: Googlebot-Video
+Disallow: /api/
 Allow: /
 
 User-agent: Googlebot-News
+Disallow: /api/
 Allow: /
 
 User-agent: AdsBot-Google
+Disallow: /api/
 Allow: /
 
 # Microsoft Bing
 User-agent: Bingbot
+Disallow: /api/
 Allow: /
 
 User-agent: msnbot
+Disallow: /api/
 Allow: /
 
 User-agent: msnbot-media
+Disallow: /api/
 Allow: /
 
 # Yahoo (powered by Bing)
 User-agent: Slurp
+Disallow: /api/
 Allow: /
 
 # DuckDuckGo
 User-agent: DuckDuckBot
+Disallow: /api/
 Allow: /
 
 # Yandex
 User-agent: YandexBot
+Disallow: /api/
 Allow: /
 
 # Baidu
 User-agent: Baiduspider
+Disallow: /api/
 Allow: /
 
 # Apple Search (legitimate search, not AI training)
 User-agent: Applebot
+Disallow: /api/
 Allow: /
 
 

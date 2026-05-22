@@ -1,6 +1,15 @@
 {
   "trailingSlash": false,
 
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.sanchienterprises.com" }],
+      "destination": "https://sanchienterprises.com/$1",
+      "permanent": true
+    }
+  ],
+
   "headers": [
     {
       "source": "/(.*)",
