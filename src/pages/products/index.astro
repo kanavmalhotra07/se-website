@@ -475,9 +475,21 @@ const loopPileShades = [
       </div>
     </section>
 
-    <!-- ── 07 GRASS CARPET — dark, CSS visual ───────────────────── -->
+    <!-- ── 07 GRASS CARPET — dark, photo visual ─────────────────── -->
     <section class="pi-prod pi-prod--dark pi-prod--flip pi-grass" id="grass" aria-labelledby="grass-heading">
-      <div class="pi-grass__visual" data-animate="image" aria-hidden="true"></div>
+      <div class="pi-grass__visual" data-animate="image" aria-hidden="true">
+        <div class="pi-grass__img-wrap">
+          <img
+            src="/images/catalogue/grass-split.jpg"
+            alt=""
+            class="pi-grass__img"
+            loading="lazy"
+            decoding="async"
+            width="928"
+            height="1152"
+          />
+        </div>
+      </div>
       <div class="pi-prod__content">
         <div class="pi-prod__content-inner" data-animate>
           <span class="pi-prod__number" aria-hidden="true">07</span>
@@ -628,6 +640,29 @@ const loopPileShades = [
         ticking = true;
       }
     }, { passive: true });
+  }
+
+  // Grass section — section-relative parallax, ultra-slow
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const grassSection = document.querySelector<HTMLElement>('#grass');
+    const grassWrap    = document.querySelector<HTMLElement>('.pi-grass__img-wrap');
+    if (grassSection && grassWrap) {
+      grassWrap.style.willChange = 'transform';
+      let grassTicking = false;
+      window.addEventListener('scroll', () => {
+        if (!grassTicking) {
+          requestAnimationFrame(() => {
+            const rect     = grassSection.getBoundingClientRect();
+            const vh       = window.innerHeight;
+            const progress = (vh - rect.top) / (vh + rect.height);
+            const offset   = (progress - 0.5) * rect.height * 0.12;
+            grassWrap.style.transform = `translate3d(0, ${offset}px, 0)`;
+            grassTicking = false;
+          });
+          grassTicking = true;
+        }
+      }, { passive: true });
+    }
   }
 </script>
 
@@ -907,33 +942,36 @@ const loopPileShades = [
     transition: opacity 0.32s ease, color 0.32s ease;
   }
 
-  /* ─── Grass Carpet CSS visual ──────────────────────────────── */
+  /* ─── Grass Carpet photo visual ────────────────────────────── */
   .pi-grass__visual {
     flex: 0 0 50%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, #060f06 0%, #0b1c0b 45%, #0e2610 100%);
+    background: #060f06;
   }
-  .pi-grass__visual::before {
-    content: '';
+  .pi-grass__img-wrap {
     position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(82deg,
-        transparent 0px, transparent 14px,
-        rgba(40,110,30,0.12) 14px, rgba(40,110,30,0.12) 15px),
-      repeating-linear-gradient(94deg,
-        transparent 0px, transparent 20px,
-        rgba(40,110,30,0.08) 20px, rgba(40,110,30,0.08) 21px);
+    top: -8%;
+    left: 0;
+    right: 0;
+    bottom: -8%;
   }
-  .pi-grass__visual::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 60% 70%, rgba(20,70,15,0.55) 0%, transparent 70%);
+  .pi-grass__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 68%;
+    display: block;
+    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .pi-grass:hover .pi-grass__img { transform: scale(1.03); }
   @media (max-width: 860px) { .pi-grass__visual { height: 340px; flex: none; } }
   @media (max-width: 600px) { .pi-grass__visual { height: 260px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .pi-grass__img-wrap { transform: none !important; }
+    .pi-grass__img { transition: none; }
+    .pi-grass:hover .pi-grass__img { transform: none; }
+  }
 
   /* ─── Caution diagonal stripe motif ────────────────────────── */
   .pi-caution__content {
