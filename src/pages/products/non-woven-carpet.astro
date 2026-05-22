@@ -559,7 +559,7 @@ const faqs = [
     padding: var(--sp-4);
     border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
     border-radius: 4px;
-    transition: border-color 0.22s ease, background 0.22s ease;
+    transition: border-color 0.22s var(--ease-out), background 0.22s var(--ease-out);
     text-decoration: none;
   }
   .prod-related__link:hover {
@@ -645,7 +645,7 @@ const faqs = [
     text-transform: uppercase;
     color: rgba(247, 246, 243, 0.38);
     margin-bottom: var(--sp-5);
-    transition: color 0.22s ease;
+    transition: color 0.22s var(--ease-out);
   }
   .nw-hero__back:hover { color: rgba(247, 246, 243, 0.75); }
 
@@ -821,7 +821,7 @@ const faqs = [
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.70s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.70s var(--ease-out);
   }
 
   .nw-gallery__item--tall img { min-height: 480px; }
