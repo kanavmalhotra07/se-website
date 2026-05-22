@@ -766,7 +766,7 @@ const loopPileShades = [
     display: inline-flex; align-items: center; gap: 10px;
     font-family: var(--font-display); font-size: 14px; font-weight: 600; letter-spacing: -0.01em;
     color: var(--color-gold); border-bottom: 1px solid rgba(184,150,58,0.32); padding-bottom: 3px;
-    transition: border-color 0.30s ease, gap 0.30s var(--ease-out);
+    transition: border-color 0.30s var(--ease-out), gap 0.30s var(--ease-out);
   }
   .pi-prod__link:hover { border-color: var(--color-gold); gap: 16px; }
   .pi-prod__link--navy { color: var(--color-navy); border-bottom-color: rgba(27,42,107,0.22); }
@@ -781,7 +781,7 @@ const loopPileShades = [
   .pi-nw-wall-group { padding-top: var(--sp-5); }
   .pi-nw-wall-group + .pi-nw-wall-group { padding-top: var(--sp-4); }
   .pi-nw-wall-label {
-    display: block; font-family: var(--font-body); font-size: 9.5px; font-weight: 500;
+    display: block; font-family: var(--font-body); font-size: 10px; font-weight: 500;
     letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,246,243,0.32);
     margin-bottom: var(--sp-3);
   }
@@ -826,7 +826,7 @@ const loopPileShades = [
   .pi-shade-mini:hover .pi-shade-mini__img { transform: scale(1.04); }
   .pi-shade-mini__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .pi-shade-mini__name {
-    font-family: var(--font-body); font-size: 8.5px; font-weight: 500;
+    font-family: var(--font-body); font-size: 9px; font-weight: 500;
     letter-spacing: 0.05em; color: var(--color-text-secondary);
     text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
@@ -962,7 +962,7 @@ const loopPileShades = [
     object-fit: cover;
     object-position: center 68%;
     display: block;
-    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 1.8s var(--ease-out);
   }
   .pi-grass:hover .pi-grass__img { transform: scale(1.03); }
   @media (max-width: 860px) { .pi-grass__visual { height: 340px; flex: none; } }
