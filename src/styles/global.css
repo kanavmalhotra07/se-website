@@ -28,6 +28,7 @@
 
   /* Typography */
   --font-display: 'DM Sans', system-ui, sans-serif;
+  --font-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
   /* Spacing */
@@ -335,6 +336,7 @@ button {
 [data-animate][data-delay="5"] { transition-delay: 320ms; }
 [data-animate][data-delay="6"] { transition-delay: 390ms; }
 [data-animate][data-delay="7"] { transition-delay: 460ms; }
+[data-animate][data-delay="8"] { transition-delay: 530ms; }
 
 /* Eyebrow gold line: grow in when parent reveals */
 [data-animate] .eyebrow--line::after,
@@ -756,11 +758,11 @@ button {
 }
 
 .hero__headline {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 4.8vw, 66px);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 5.8vw, 78px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   color: var(--color-text-inverse);
   margin-bottom: 28px;
 }
@@ -1023,7 +1025,7 @@ button {
 .categories__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 16px;
   align-items: start;
 }
 
@@ -1055,6 +1057,27 @@ button {
 .cat-card__img-wrap {
   overflow: hidden;
   aspect-ratio: 4 / 5;
+  position: relative;
+}
+
+.cat-card__img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.04) 35%,
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cat-card:hover .cat-card__img-wrap::before {
+  opacity: 1;
 }
 
 .cat-card--featured .cat-card__img-wrap {
@@ -1066,11 +1089,12 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.55s var(--ease-out);
+  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
 }
 
 .cat-card:hover .cat-card__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  filter: contrast(1.04) brightness(1.04);
 }
 
 .cat-card__overlay {
@@ -1082,6 +1106,11 @@ button {
     rgba(8, 12, 38, 0.28) 46%,
     rgba(8, 12, 38, 0.04) 100%
   );
+  transition: opacity 0.55s ease;
+}
+
+.cat-card:hover .cat-card__overlay {
+  opacity: 0.84;
 }
 
 .cat-card__info {
@@ -1273,11 +1302,12 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.9s var(--ease-out);
+  transition: transform 0.75s var(--ease-out), filter 0.75s ease;
 }
 
 .project-card:hover .project-card__img {
   transform: scale(1.04);
+  filter: contrast(1.04) brightness(1.03);
 }
 
 /* Text overlay — positioned inside the image */
@@ -1609,11 +1639,11 @@ button {
 }
 
 .contact-cta__title {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 62px);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.5vw, 70px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
   color: var(--color-text-inverse);
   margin-bottom: var(--sp-3);
   padding-top: 4px;
@@ -1815,11 +1845,11 @@ button {
 }
 
 .prod-index-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4.5vw, 58px);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5.4vw, 68px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
   color: var(--color-text-inverse);
   margin-bottom: var(--sp-3);
 }
@@ -1871,6 +1901,27 @@ button {
 .prod-listing-card__img-wrap {
   overflow: hidden;
   aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.prod-listing-card__img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 35%,
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.prod-listing-card:hover .prod-listing-card__img-wrap::before {
+  opacity: 1;
 }
 
 .prod-listing-card__img-wrap--blank {
@@ -1896,11 +1947,12 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
 }
 
 .prod-listing-card:hover .prod-listing-card__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  filter: contrast(1.04) brightness(1.03);
 }
 
 .prod-listing-card__overlay {
@@ -1912,6 +1964,11 @@ button {
     rgba(8, 12, 38, 0.38) 44%,
     rgba(8, 12, 38, 0.05) 100%
   );
+  transition: opacity 0.55s ease;
+}
+
+.prod-listing-card:hover .prod-listing-card__overlay {
+  opacity: 0.84;
 }
 
 .prod-listing-card__info {
@@ -2096,11 +2153,12 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: 62% center;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
 }
 
 .shade-card:hover .shade-card__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  filter: contrast(1.04) brightness(1.04);
 }
 
 .shade-card__name {
@@ -3636,11 +3694,11 @@ a.contact-detail-item__value:hover {
 }
 
 .about-pg-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4.5vw, 62px);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 5.4vw, 72px);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
   color: var(--color-text-inverse);
   margin-bottom: var(--sp-3);
 }
@@ -4781,7 +4839,7 @@ a.contact-detail-item__value:hover {
 
   /* Hero */
   .hero__headline {
-    font-size: clamp(34px, 8.5vw, 48px);
+    font-size: clamp(42px, 10vw, 58px);
   }
 
   .hero__sub {
