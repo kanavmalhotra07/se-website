@@ -339,7 +339,7 @@ const faqs = [
     text-transform: uppercase;
     color: rgba(247, 246, 243, 0.40);
     margin-bottom: var(--sp-5);
-    transition: color 0.22s ease;
+    transition: color 0.22s var(--ease-out);
   }
   .coir-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
   .coir-hero__title {
@@ -415,7 +415,7 @@ const faqs = [
     object-fit: cover;
     object-position: center 40%;
     display: block;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.85s var(--ease-out);
   }
   .coir-split:hover .coir-split__visual img { transform: scale(1.04); }
   .coir-split__text {
@@ -522,7 +522,7 @@ const faqs = [
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     text-decoration: none;
-    transition: border-color 0.22s ease, background 0.22s ease;
+    transition: border-color 0.22s var(--ease-out), background 0.22s var(--ease-out);
   }
   .coir-related__link:hover {
     border-color: var(--color-navy);
