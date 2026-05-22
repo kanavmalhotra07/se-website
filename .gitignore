@@ -36,11 +36,16 @@ public/videos/wip/wip-installation-2.mp4
 public/videos/wip/wip-installation-3.mp4
 
 # Root-level raw source asset archives — originals only, not served
-Catalogue/
-Catalogue\ /
-Exhibition\ Photos/
-Aesthetic\ Bunch\ photos/
-Dual\ carpet\ photos/
-Home\ Page/
-Products\ Page\ /
-Logo/
+# Leading / anchors each pattern to the repo root, preventing accidental
+# matches against public/images/catalogue/ on case-insensitive filesystems.
+/Catalogue/
+/Catalogue\ /
+/Exhibition\ Photos/
+/Aesthetic\ Bunch\ photos/
+/Dual\ carpet\ photos/
+/Home\ Page/
+/Products\ Page\ /
+/Logo/
+/HF/
+/Loop\ Pile/
+/Coir\ Carpet/
