@@ -181,14 +181,8 @@ button {
   transition:
     background var(--dur-fast) ease,
     color var(--dur-fast) ease,
-    border-color var(--dur-fast) ease,
-    transform 220ms var(--ease-out),
-    box-shadow 220ms ease;
+    border-color var(--dur-fast) ease;
   white-space: nowrap;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
 }
 
 /* Trailing arrow icon slides right on hover */
@@ -3324,13 +3318,10 @@ a.contact-detail-item__value:hover {
   padding: var(--sp-4) var(--sp-4) var(--sp-4) 0;
   border-right: 1px solid var(--color-border-light);
   border-bottom: 2px solid transparent;
-  transition:
-    transform 0.32s var(--ease-out),
-    border-bottom-color 0.32s ease;
+  transition: border-bottom-color 0.32s ease;
 }
 
 .contact-why__item:hover {
-  transform: translateY(-4px);
   border-bottom-color: rgba(184, 150, 58, 0.40);
 }
 
