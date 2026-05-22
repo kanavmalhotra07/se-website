@@ -3830,7 +3830,7 @@ a.contact-detail-item__value:hover {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 1.4s var(--ease-out);
+  transition: transform 0.85s var(--ease-out);
   display: block;
 }
 
@@ -5159,6 +5159,7 @@ a.contact-detail-item__value:hover {
   .about-pg-quality__content-row {
     grid-template-columns: 1fr;
     gap: var(--sp-5);
+    padding-top: var(--sp-4);
   }
 
   .about-pg-why__spine {
