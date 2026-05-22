@@ -2039,9 +2039,9 @@ button {
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: rgba(247, 246, 243, 0.42);
   margin-bottom: var(--sp-5);
