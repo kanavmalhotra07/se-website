@@ -179,9 +179,9 @@ button {
   border: 1.5px solid transparent;
   cursor: pointer;
   transition:
-    background var(--dur-fast) ease,
-    color var(--dur-fast) ease,
-    border-color var(--dur-fast) ease;
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
@@ -254,8 +254,8 @@ button {
   background-color: var(--color-navy-dark);
   color: var(--color-text-inverse);
   transition:
-    background var(--dur-fast) ease,
-    border-color var(--dur-fast) ease;
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 .btn--whatsapp-primary:hover {
   background-color: var(--color-navy);
@@ -358,8 +358,8 @@ button {
   /* Intentionally not transitioning backdrop-filter — animating blur is
      compositor-heavy. Background + box-shadow transition is sufficient. */
   transition:
-    background 320ms ease,
-    box-shadow 320ms ease;
+    background 320ms var(--ease-out),
+    box-shadow 320ms var(--ease-out);
 }
 
 .navbar__inner {
@@ -380,7 +380,7 @@ button {
   height: 90px;
   width: auto;
   filter: brightness(0) invert(1);
-  transition: opacity var(--dur-med) ease;
+  transition: opacity var(--dur-med) var(--ease-out);
 }
 
 .navbar.is-scrolled {
@@ -403,7 +403,7 @@ button {
   letter-spacing: 0.03em;
   color: rgba(247, 246, 243, 0.82);
   padding: 8px 22px;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
   position: relative;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
@@ -457,8 +457,8 @@ button {
   pointer-events: none;
   transform: translateY(-4px);
   transition:
-    opacity var(--dur-fast) ease,
-    transform var(--dur-fast) ease,
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
     visibility 0s var(--dur-fast);
 }
 
@@ -468,8 +468,8 @@ button {
   pointer-events: auto;
   transform: translateY(0);
   transition:
-    opacity var(--dur-fast) ease,
-    transform var(--dur-fast) ease,
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
     visibility 0s;
 }
 
@@ -482,8 +482,8 @@ button {
   letter-spacing: 0.02em;
   color: rgba(247, 246, 243, 0.62);
   transition:
-    color var(--dur-fast) ease,
-    background var(--dur-fast) ease;
+    color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
 }
 
 .navbar__dropdown-link:hover {
@@ -519,7 +519,7 @@ button {
   color: rgba(247, 246, 243, 0.72);
   padding: 8px 0 8px 24px;
   border-left: 1px solid rgba(247, 246, 243, 0.14);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
@@ -545,7 +545,7 @@ button {
   width: 22px;
   height: 1.5px;
   background-color: var(--color-text-inverse);
-  transition: transform var(--dur-med) ease, opacity var(--dur-fast) ease;
+  transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
 }
 
 /* Mobile menu */
@@ -561,7 +561,7 @@ button {
   visibility: hidden;
   transform: translateY(-8px);
   transition:
-    opacity 0.28s ease,
+    opacity 0.28s var(--ease-out),
     transform 0.32s var(--ease-out),
     visibility 0s 0.32s;
   overflow-y: auto;
@@ -574,7 +574,7 @@ button {
   visibility: visible;
   transform: translateY(0);
   transition:
-    opacity 0.28s ease,
+    opacity 0.28s var(--ease-out),
     transform 0.32s var(--ease-out),
     visibility 0s;
 }
@@ -640,7 +640,7 @@ button {
   font-weight: 400;
   color: rgba(247, 246, 243, 0.55);
   padding: 7px 0 7px 16px;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .mobile-menu__sub-link:hover {
@@ -816,7 +816,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 14px 28px;
-  transition: background var(--dur-fast) ease;
+  transition: background var(--dur-fast) var(--ease-out);
 }
 
 .btn--hero-primary:hover {
@@ -836,7 +836,7 @@ button {
   color: rgba(247, 246, 243, 0.65);
   padding: 14px 0;
   border-bottom: 1px solid rgba(247, 246, 243, 0.25);
-  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
@@ -1008,7 +1008,7 @@ button {
   gap: 6px;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
-  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 
 .categories__link-all:hover {
@@ -1065,7 +1065,7 @@ button {
     transparent 62%
   );
   opacity: 0;
-  transition: opacity 0.55s ease;
+  transition: opacity 0.55s var(--ease-out);
   pointer-events: none;
   z-index: 2;
 }
@@ -1083,7 +1083,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
+  transition: transform 0.65s var(--ease-out), filter 0.65s var(--ease-out);
 }
 
 .cat-card:hover .cat-card__img {
@@ -1100,7 +1100,7 @@ button {
     rgba(8, 12, 38, 0.28) 46%,
     rgba(8, 12, 38, 0.04) 100%
   );
-  transition: opacity 0.55s ease;
+  transition: opacity 0.55s var(--ease-out);
 }
 
 .cat-card:hover .cat-card__overlay {
@@ -1147,9 +1147,9 @@ button {
   opacity: 0;
   transform: translateX(-6px);
   transition:
-    opacity var(--dur-fast) ease,
-    transform var(--dur-fast) ease,
-    border-color var(--dur-fast) ease;
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 
 .cat-card:hover .cat-card__arrow {
@@ -1296,7 +1296,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.75s var(--ease-out), filter 0.75s ease;
+  transition: transform 0.75s var(--ease-out), filter 0.75s var(--ease-out);
 }
 
 .project-card:hover .project-card__img {
@@ -1447,7 +1447,7 @@ button {
   letter-spacing: 0.04em;
   padding: 7px 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: color 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+  transition: color 0.22s var(--ease-out), border-color 0.22s var(--ease-out), background-color 0.22s var(--ease-out);
 }
 
 .ops__tag:hover {
@@ -1458,17 +1458,17 @@ button {
 
 .ops__item {
   cursor: default;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s var(--ease-out);
 }
 
 .ops__item:hover .ops__num {
   color: var(--color-gold);
-  transition: color 0.25s ease;
+  transition: color 0.25s var(--ease-out);
 }
 
 .ops__item:hover .ops__strength {
   color: rgba(247, 246, 243, 1.0);
-  transition: color 0.25s ease;
+  transition: color 0.25s var(--ease-out);
 }
 
 .ops__statement {
@@ -1508,7 +1508,7 @@ button {
   padding: 0 var(--sp-4) var(--sp-4) 0;
   border-right: 1px solid rgba(184, 150, 58, 0.14);
   padding-left: var(--sp-3);
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s var(--ease-out);
 }
 
 .process__step:first-child {
@@ -1526,12 +1526,12 @@ button {
 
 .process__step:hover .process__num {
   opacity: 0.28;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s var(--ease-out);
 }
 
 .process__step:hover .process__label {
   color: var(--color-navy);
-  transition: color 0.25s ease;
+  transition: color 0.25s var(--ease-out);
 }
 
 .process__num {
@@ -1543,7 +1543,7 @@ button {
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: var(--sp-3);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s var(--ease-out);
 }
 
 .process__label {
@@ -1553,7 +1553,7 @@ button {
   color: var(--color-text-primary);
   margin-bottom: 8px;
   line-height: 1.25;
-  transition: color 0.25s ease;
+  transition: color 0.25s var(--ease-out);
 }
 
 .process__desc {
@@ -1724,7 +1724,7 @@ button {
   font-size: 15px;
   font-weight: 500;
   color: rgba(247, 246, 243, 0.76);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .footer__link:hover {
@@ -1739,7 +1739,7 @@ button {
   margin-bottom: 10px;
   line-height: 1.55;
   display: block;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .footer__contact-item:hover {
@@ -1793,7 +1793,7 @@ button {
   display: flex;
   align-items: center;
   color: rgba(247, 246, 243, 0.52);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .footer__social-link:hover {
@@ -1909,7 +1909,7 @@ button {
     transparent 62%
   );
   opacity: 0;
-  transition: opacity 0.55s ease;
+  transition: opacity 0.55s var(--ease-out);
   pointer-events: none;
   z-index: 2;
 }
@@ -1941,7 +1941,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
+  transition: transform 0.65s var(--ease-out), filter 0.65s var(--ease-out);
 }
 
 .prod-listing-card:hover .prod-listing-card__img {
@@ -1958,7 +1958,7 @@ button {
     rgba(8, 12, 38, 0.38) 44%,
     rgba(8, 12, 38, 0.05) 100%
   );
-  transition: opacity 0.55s ease;
+  transition: opacity 0.55s var(--ease-out);
 }
 
 .prod-listing-card:hover .prod-listing-card__overlay {
@@ -2002,7 +2002,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .prod-listing-card:hover .prod-listing-card__cta {
@@ -2045,7 +2045,7 @@ button {
   text-transform: uppercase;
   color: rgba(247, 246, 243, 0.42);
   margin-bottom: var(--sp-5);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .prod-hero__back:hover {
@@ -2147,7 +2147,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: 62% center;
-  transition: transform 0.65s var(--ease-out), filter 0.65s ease;
+  transition: transform 0.65s var(--ease-out), filter 0.65s var(--ease-out);
 }
 
 .shade-card:hover .shade-card__img {
@@ -2482,7 +2482,7 @@ button {
   text-transform: uppercase;
   color: rgba(247, 246, 243, 0.38);
   margin-bottom: var(--sp-7);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .designer-hero__back:hover {
@@ -3117,8 +3117,8 @@ button {
   appearance: none;
   -webkit-appearance: none;
   transition:
-    border-color var(--dur-fast) ease,
-    box-shadow var(--dur-fast) ease;
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
 .form-input:focus,
@@ -3164,7 +3164,7 @@ button {
   color: var(--color-text-secondary);
   padding-bottom: 1px;
   border-bottom: 1px solid transparent;
-  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 
 .form-footer__call:hover {
@@ -3276,7 +3276,7 @@ button {
   letter-spacing: -0.01em;
   line-height: 1.3;
   display: block;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 a.contact-detail-item__value:hover {
@@ -3318,7 +3318,7 @@ a.contact-detail-item__value:hover {
   padding: var(--sp-4) var(--sp-4) var(--sp-4) 0;
   border-right: 1px solid var(--color-border-light);
   border-bottom: 2px solid transparent;
-  transition: border-bottom-color 0.32s ease;
+  transition: border-bottom-color 0.32s var(--ease-out);
 }
 
 .contact-why__item:hover {
@@ -3356,7 +3356,7 @@ a.contact-detail-item__value:hover {
   letter-spacing: -0.012em;
   line-height: 1.25;
   margin-bottom: var(--sp-2);
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .contact-why__desc {
@@ -3405,7 +3405,7 @@ a.contact-detail-item__value:hover {
   letter-spacing: -0.014em;
   line-height: 1.3;
   text-align: left;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 .faq-question:hover .faq-question__text {
@@ -3428,9 +3428,9 @@ a.contact-detail-item__value:hover {
   color: var(--color-text-muted);
   transition:
     transform var(--dur-med) var(--ease-out),
-    border-color var(--dur-fast) ease,
-    background-color var(--dur-fast) ease,
-    color var(--dur-fast) ease;
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
 .faq-question:hover .faq-chevron {
@@ -3464,7 +3464,7 @@ a.contact-detail-item__value:hover {
   margin-left: 1px;
   opacity: 0;
   transform: translateY(-8px);
-  transition: opacity 260ms 60ms ease, transform 260ms 60ms ease;
+  transition: opacity 260ms 60ms var(--ease-out), transform 260ms 60ms var(--ease-out);
 }
 
 .faq-item.is-open .faq-answer__inner {
@@ -4215,7 +4215,7 @@ a.contact-detail-item__value:hover {
   background: var(--color-gold);
   flex-shrink: 0;
   margin-top: 8px;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s var(--ease-out);
 }
 
 .about-pg-quality__point:hover .about-pg-quality__dot {
@@ -4283,7 +4283,7 @@ a.contact-detail-item__value:hover {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  transition: background 0.3s ease;
+  transition: background 0.3s var(--ease-out);
 }
 
 .about-pg-presence__venue:hover {
@@ -4297,7 +4297,7 @@ a.contact-detail-item__value:hover {
   opacity: 0.50;
   display: block;
   margin-bottom: 4px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s var(--ease-out);
 }
 
 .about-pg-presence__venue:hover .about-pg-presence__venue-icon {
@@ -4434,7 +4434,7 @@ a.contact-detail-item__value:hover {
   line-height: 1;
   letter-spacing: -0.04em;
   color: rgba(27, 42, 107, 0.07);
-  transition: color 0.45s ease;
+  transition: color 0.45s var(--ease-out);
   padding-top: 4px;
 }
 
@@ -4502,7 +4502,7 @@ a.contact-detail-item__value:hover {
   pointer-events: none;
   z-index: 2;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s var(--ease-out);
 }
 
 .about-pg-gallery__grid:hover::after {
@@ -4513,7 +4513,7 @@ a.contact-detail-item__value:hover {
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.04);
   position: relative;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s var(--ease-out);
 }
 
 .about-pg-gallery__item--w2 {
@@ -4530,7 +4530,7 @@ a.contact-detail-item__value:hover {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s var(--ease-out), filter 0.5s ease;
+  transition: transform 0.7s var(--ease-out), filter 0.5s var(--ease-out);
   filter: brightness(0.92) saturate(0.84);
 }
 
