@@ -4813,9 +4813,11 @@ a.contact-detail-item__value:hover {
 @media (max-width: 768px) {
   :root {
     --container-pad: 20px;
-    --sp-9: 80px;
-    --sp-8: 64px;
-    --sp-7: 56px;
+    --sp-9: 72px;
+    --sp-8: 56px;
+    --sp-7: 44px;
+    --sp-6: 40px;  /* desktop: 64px — previously unadjusted, fixing inverted hierarchy */
+    --sp-5: 32px;  /* desktop: 48px — previously unadjusted */
   }
 
   /* Navbar */
@@ -4834,7 +4836,7 @@ a.contact-detail-item__value:hover {
   }
 
   .hero__sub {
-    font-size: 13px;
+    font-size: 14px;
     max-width: 320px;
   }
 
@@ -5052,6 +5054,17 @@ a.contact-detail-item__value:hover {
     align-items: center;
   }
 
+  /* Contact CTA — desktop uses var(--sp-9) which is still 72px after token reduction;
+     override to a section-level value that feels premium without wasteful height */
+  .contact-cta {
+    padding: var(--sp-7) 0;
+  }
+
+  /* Contact form section — top padding is hardcoded 70px at desktop */
+  .contact-section {
+    padding-top: var(--sp-7);
+  }
+
   /* Contact CTA */
   .contact-cta__actions {
     flex-direction: column;
@@ -5137,6 +5150,15 @@ a.contact-detail-item__value:hover {
 
   .about-pg-why__spine {
     display: none;
+  }
+
+  /* Reduce hardcoded 52px section padding/header margin to match token rhythm */
+  .about-pg-why {
+    padding: var(--sp-7) 0;
+  }
+
+  .about-pg-why__top {
+    margin-bottom: var(--sp-5);
   }
 
   .about-pg-why__item {
