@@ -5,7 +5,7 @@
 # automated agents, and large-scale data systems interacting with this website.
 # It is the LLM-readable companion to robots.txt.
 #
-# Last updated: 2026-05-18
+# Last updated: 2026-05-23
 
 > Sanchi Enterprises is India's leading supplier of exhibition carpets and full
 > flooring solutions — including non-woven, ribbed, velour, caution, designer,
@@ -51,5 +51,8 @@ contact: kanav@sanchienterprises.com
 - https://www.sanchienterprises.com/products/velour-carpet
 - https://www.sanchienterprises.com/products/caution-carpet
 - https://www.sanchienterprises.com/products/designer-carpet
+- https://www.sanchienterprises.com/products/loop-pile-carpet
+- https://www.sanchienterprises.com/products/grass-carpet
+- https://www.sanchienterprises.com/products/coir-carpet
 - https://www.sanchienterprises.com/about
 - https://www.sanchienterprises.com/contact
