@@ -127,6 +127,21 @@ const row2 = [
 
 </section>
 
+<script>
+  // Touch pause — mirrors hover behavior for mobile users
+  document.querySelectorAll('.exh-auth__track').forEach((track) => {
+    track.addEventListener('touchstart', () => {
+      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.add('is-touch-paused'));
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.remove('is-touch-paused'));
+    }, { passive: true });
+    track.addEventListener('touchcancel', () => {
+      track.querySelectorAll('.exh-auth__reel').forEach((r) => r.classList.remove('is-touch-paused'));
+    }, { passive: true });
+  });
+</script>
+
 <style>
   /* ─── Section shell ──────────────────────────────────────────── */
   .exh-auth {
@@ -216,6 +231,8 @@ const row2 = [
     align-items: center;
     width: max-content;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     animation: exh-scroll 48s linear infinite;
   }
   .exh-auth__track--rev .exh-auth__reel {
@@ -223,10 +240,11 @@ const row2 = [
     animation-duration: 38s;
   }
   @keyframes exh-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
   }
-  .exh-auth__track:hover .exh-auth__reel {
+  .exh-auth__track:hover .exh-auth__reel,
+  .exh-auth__reel.is-touch-paused {
     animation-play-state: paused;
   }
   .exh-auth__item {
@@ -293,16 +311,36 @@ const row2 = [
   }
 
   @media (max-width: 768px) {
+    /* Intro: stat block only — no body copy */
     .exh-auth__intro {
       grid-template-columns: 1fr;
-      gap: var(--sp-5);
-      padding: var(--sp-8) 0 var(--sp-6);
+      gap: 0;
+      padding: var(--sp-6) 0 var(--sp-5);
+      margin-bottom: var(--sp-4);
     }
-    .exh-auth__intro-right { padding-top: 0; }
-    .exh-auth__body { max-width: 100%; }
-    .exh-auth__item { font-size: 12px; padding: 0 20px; }
+    .exh-auth__intro-right { display: none; }
+    .exh-auth__title {
+      font-size: clamp(28px, 8vw, 38px);
+      margin-bottom: var(--sp-4);
+    }
+
+    /* Marquee: slower, larger spacing, more track height */
+    .exh-auth__track { padding: 18px 0; }
+    .exh-auth__reel { animation-duration: 65s; }
+    .exh-auth__track--rev .exh-auth__reel { animation-duration: 52s; }
+    .exh-auth__item {
+      font-size: 13px;
+      padding: 0 36px;
+      color: rgba(247, 246, 243, 0.60);
+    }
+    .exh-auth__sep { font-size: 6px; opacity: 0.28; }
+
+    /* Tighter edge fades on narrow screens */
     .exh-auth__fade--l,
-    .exh-auth__fade--r { width: 60px; }
+    .exh-auth__fade--r { width: 48px; }
+
+    /* Hide the note on mobile — marquee is the proof */
+    .exh-auth__note { display: none; }
   }
 
   /* ─── Reduced motion ────────────────────────────────────────── */
