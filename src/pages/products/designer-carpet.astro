@@ -67,19 +67,15 @@ const faqs = [
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Product",
-          "@id": "https://sanchienterprises.com/products/designer-carpet/#product",
+          "@type": "Service",
+          "@id": "https://sanchienterprises.com/products/designer-carpet/#service",
           "name": "Custom Designer Exhibition Carpet",
           "description": "Fully custom exhibition carpet produced to your specification — logos, brand colours, event themes, directional graphics, and bespoke artwork at exhibition scale. Not template-based. Every carpet starts with your brief.",
-          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "serviceType": "Custom Exhibition Carpet Production and Installation",
+          "provider": { "@id": "https://sanchienterprises.com/#organization" },
           "url": "https://sanchienterprises.com/products/designer-carpet",
           "image": "https://sanchienterprises.com/images/designer-carpet/anuga-blue-wave.jpg",
-          "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "INR",
-            "seller": { "@id": "https://sanchienterprises.com/#organization" }
-          },
+          "areaServed": { "@type": "Country", "name": "India" },
           "additionalProperty": [
             { "@type": "PropertyValue", "name": "Customisation", "value": "Fully custom — logos, colours, artwork, patterns" },
             { "@type": "PropertyValue", "name": "Colour Matching", "value": "Pantone, RAL, and supplied swatch matching" },

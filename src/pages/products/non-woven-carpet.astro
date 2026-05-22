@@ -91,19 +91,15 @@ const faqs = [
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Product",
-          "@id": "https://sanchienterprises.com/products/non-woven-carpet/#product",
+          "@type": "Service",
+          "@id": "https://sanchienterprises.com/products/non-woven-carpet/#service",
           "name": "Non Woven Exhibition Carpet",
           "description": "Non woven exhibition carpet available in Regular and Premium grades. 14 Regular shades and 15 Premium shades, all in permanent stock. The most widely used flooring product in the Indian exhibition industry — lightweight, cost-effective, and supplied cut to specification.",
-          "brand": { "@id": "https://sanchienterprises.com/#organization" },
+          "serviceType": "Exhibition Carpet Supply and Installation",
+          "provider": { "@id": "https://sanchienterprises.com/#organization" },
           "url": "https://sanchienterprises.com/products/non-woven-carpet",
           "image": "https://sanchienterprises.com/images/products/non-woven/nw-in-use-1.jpg",
-          "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "INR",
-            "seller": { "@id": "https://sanchienterprises.com/#organization" }
-          },
+          "areaServed": { "@type": "Country", "name": "India" },
           "additionalProperty": [
             { "@type": "PropertyValue", "name": "Grades", "value": "Regular and Premium" },
             { "@type": "PropertyValue", "name": "Total Colours", "value": "29 shades" },
