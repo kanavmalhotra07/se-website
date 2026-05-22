@@ -1207,7 +1207,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 1.0s var(--ease-out);
+  transition: transform 0.85s var(--ease-out);
 }
 
 .about__img-wrap:hover .about__img {
@@ -4900,6 +4900,10 @@ a.contact-detail-item__value:hover {
   }
 
   /* Projects */
+  .projects {
+    padding-bottom: var(--sp-7);
+  }
+
   .projects__grid {
     grid-template-columns: 1fr;
   }
@@ -5052,6 +5056,15 @@ a.contact-detail-item__value:hover {
   .contact-final-cta__actions {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* FAQ */
+  .home-faq {
+    padding: var(--sp-7) 0;
+  }
+
+  .home-faq__header {
+    margin-bottom: var(--sp-5);
   }
 
   /* Contact CTA — desktop uses var(--sp-9) which is still 72px after token reduction;
