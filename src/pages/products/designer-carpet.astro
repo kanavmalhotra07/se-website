@@ -457,7 +457,7 @@ const faqs = [
     text-transform: uppercase;
     color: rgba(247, 246, 243, 0.40);
     margin-bottom: var(--sp-5);
-    transition: color 0.22s ease;
+    transition: color 0.22s var(--ease-out);
   }
   .dc-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
 
@@ -564,7 +564,7 @@ const faqs = [
     object-fit: cover;
     display: block;
     filter: brightness(0.72);
-    transition: transform 0.65s var(--ease-out), filter 0.50s ease;
+    transition: transform 0.65s var(--ease-out), filter 0.50s var(--ease-out);
   }
 
   .dc-pf-cell:hover .dc-pf-cell__img-wrap img {
@@ -632,7 +632,7 @@ const faqs = [
     text-transform: uppercase;
     color: rgba(247, 246, 243, 0.36);
     background: linear-gradient(to top, rgba(8, 12, 36, 0.88) 0%, transparent 100%);
-    transition: color 0.38s ease;
+    transition: color 0.38s var(--ease-out);
   }
 
   .dc-pf-cell__cap span {
@@ -797,7 +797,7 @@ const faqs = [
     padding: var(--sp-4);
     border: 1px solid var(--color-border-light, rgba(0,0,0,0.08));
     border-radius: 4px;
-    transition: border-color 0.22s ease, background 0.22s ease;
+    transition: border-color 0.22s var(--ease-out), background 0.22s var(--ease-out);
     text-decoration: none;
   }
   .prod-related__link:hover {
