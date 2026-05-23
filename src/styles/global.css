@@ -1782,6 +1782,24 @@ button {
   color: rgba(247, 246, 243, 0.44);
 }
 
+.footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__legal-link {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(247, 246, 243, 0.38);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__legal-link:hover {
+  color: rgba(247, 246, 243, 0.72);
+}
+
 .footer__social {
   display: flex;
   align-items: center;
@@ -5094,6 +5112,11 @@ a.contact-detail-item__value:hover {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--sp-2);
+  }
+
+  .footer__legal {
+    flex-wrap: wrap;
+    gap: 14px;
   }
 
   /* About page mobile */

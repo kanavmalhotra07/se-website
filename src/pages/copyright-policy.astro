@@ -1,0 +1,303 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = 'May 2026';
+const copyrightYear = new Date().getFullYear();
+---
+
+<Layout
+  title="Copyright Policy — Sanchi Enterprises"
+  description="Copyright policy for Sanchi Enterprises. All website content — text, images, design, and code — is the exclusive property of Sanchi Enterprises."
+  breadcrumbs={[{ name: 'Copyright Policy', item: 'https://www.sanchienterprises.com/copyright-policy' }]}
+>
+  <Navbar />
+  <main>
+
+    <section class="legal-hero" aria-labelledby="copyright-heading">
+      <div class="container">
+        <div class="legal-hero__inner">
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate>Legal</span>
+          <h1 class="legal-hero__title" id="copyright-heading" data-animate data-delay="1">
+            Copyright Policy
+          </h1>
+          <p class="legal-hero__meta" data-animate data-delay="2">
+            Sanchi Enterprises &nbsp;·&nbsp; Last updated {lastUpdated}
+          </p>
+          <p class="legal-hero__intro" data-animate data-delay="3">
+            All original content on this website is the intellectual property of Sanchi
+            Enterprises. This policy sets out what is and is not permitted.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="legal-body">
+      <div class="container">
+        <div class="legal-content">
+
+          <section class="legal-section" aria-labelledby="cp-s1">
+            <h2 class="legal-section__title" id="cp-s1">1. Ownership</h2>
+            <p>
+              © {copyrightYear} Sanchi Enterprises. All rights reserved.
+            </p>
+            <p>
+              All content published on this website — including but not limited to written
+              text, product descriptions, photography, video, graphic design, HTML markup,
+              CSS, JavaScript, logos, and brand identity — is the exclusive intellectual
+              property of Sanchi Enterprises unless explicitly stated otherwise.
+            </p>
+            <p>
+              This content is protected under the Copyright Act 1957 (India), the Information
+              Technology Act 2000 (India), and applicable international copyright treaties
+              including the Berne Convention.
+            </p>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s2">
+            <h2 class="legal-section__title" id="cp-s2">2. Scope of Protection</h2>
+            <p>
+              Copyright protection extends to all original works on this website, including:
+            </p>
+            <ul>
+              <li>Product photography — all swatch images, installation photographs, and event photography</li>
+              <li>Written content — product descriptions, brand copy, FAQ responses, and page text</li>
+              <li>Design and layout — visual composition, typography choices, colour system, and UI patterns</li>
+              <li>Code — HTML structure, CSS styling, and client-side JavaScript</li>
+              <li>Brand assets — the Sanchi Enterprises name, logo, and associated brand identity</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s3">
+            <h2 class="legal-section__title" id="cp-s3">3. Permitted Use</h2>
+            <p>You may:</p>
+            <ul>
+              <li>View and print individual pages for your own personal, non-commercial reference</li>
+              <li>Share a link to a page on this website on social media or in a message</li>
+              <li>Quote brief extracts of text in a review, editorial, or press context, provided attribution is given to Sanchi Enterprises with a link to the source page</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s4">
+            <h2 class="legal-section__title" id="cp-s4">4. Prohibited Use</h2>
+            <p>
+              Without prior written consent from Sanchi Enterprises, you must not:
+            </p>
+            <ul>
+              <li>Reproduce, republish, or distribute any content from this website in any form or medium</li>
+              <li>Use photographs, product images, or any visual content for commercial purposes</li>
+              <li>Modify, adapt, or create derivative works based on our content</li>
+              <li>Remove or alter any copyright notices, watermarks, or attribution from any content</li>
+              <li>Incorporate any part of this website's content into another website, publication, or product without permission</li>
+              <li>Mirror or frame any page of this website</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s5">
+            <h2 class="legal-section__title" id="cp-s5">5. AI Training and Automated Harvesting</h2>
+            <p>
+              The use of any content from this website for training, fine-tuning, or otherwise
+              developing artificial intelligence or machine learning models is expressly prohibited.
+              This prohibition applies to all forms of AI and ML systems, including but not limited
+              to large language models, image generation models, and data extraction pipelines.
+            </p>
+            <p>
+              Automated scraping, harvesting, or systematic extraction of content from this website
+              — whether by bot, crawler, script, or any other automated means — is prohibited without
+              express prior written authorisation.
+            </p>
+            <p>
+              These restrictions are reflected in our <code>robots.txt</code> file and reinforced
+              through Cloudflare-level bot management controls. Circumventing these technical
+              measures is a violation of this policy and may constitute an offence under the
+              Information Technology Act 2000 (India).
+            </p>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s6">
+            <h2 class="legal-section__title" id="cp-s6">6. Licensing and Permission Requests</h2>
+            <p>
+              If you wish to use any content from this website beyond what is expressly permitted
+              above — including for editorial use, media coverage, or trade publications — please
+              contact us in advance to request written permission.
+            </p>
+            <p>
+              We consider all reasonable requests and respond promptly. Requests should specify:
+            </p>
+            <ul>
+              <li>Your name and organisation</li>
+              <li>The specific content you wish to use</li>
+              <li>The intended purpose and publication or platform</li>
+              <li>The proposed territory and duration of use</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s7">
+            <h2 class="legal-section__title" id="cp-s7">7. Reporting Infringement</h2>
+            <p>
+              If you believe that content owned by you has been published on this website
+              without authorisation, please contact us with the following information:
+            </p>
+            <ul>
+              <li>Your name and contact details</li>
+              <li>A description of the copyrighted work you believe has been infringed</li>
+              <li>The specific URL on this website where the alleged infringement appears</li>
+              <li>A statement that you have a good-faith belief that the use is not authorised</li>
+              <li>A statement that the information in your notice is accurate</li>
+            </ul>
+            <p>
+              We will investigate and respond within 14 business days. Verified claims will
+              result in prompt removal of the relevant content.
+            </p>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s8">
+            <h2 class="legal-section__title" id="cp-s8">8. Enforcement</h2>
+            <p>
+              Sanchi Enterprises reserves the right to pursue all available legal remedies
+              against unauthorised use of our intellectual property, including injunctive
+              relief and claims for damages under applicable Indian and international law.
+            </p>
+          </section>
+
+          <section class="legal-section" aria-labelledby="cp-s9">
+            <h2 class="legal-section__title" id="cp-s9">9. Contact</h2>
+            <p>
+              For permissions, licensing enquiries, or infringement reports:<br />
+              <strong>Sanchi Enterprises</strong><br />
+              Email: <a href="mailto:kanav@sanchienterprises.com">kanav@sanchienterprises.com</a><br />
+              Phone: <a href="tel:+919958132189">+91 99581 32189</a>
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-hero {
+    background-color: var(--color-navy-dark);
+    padding: var(--sp-8) 0 var(--sp-7);
+    position: relative;
+    overflow: hidden;
+  }
+  .legal-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(27,42,107,0.30) 0%, transparent 62%);
+    pointer-events: none;
+  }
+  .legal-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+  .legal-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--sp-2);
+  }
+  .legal-hero__meta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(247,246,243,0.40);
+    margin-bottom: var(--sp-3);
+  }
+  .legal-hero__intro {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.72;
+    color: rgba(247,246,243,0.64);
+    max-width: 560px;
+  }
+
+  .legal-body {
+    background-color: var(--color-warm-white);
+    padding: var(--sp-7) 0 var(--sp-8);
+  }
+  .legal-content {
+    max-width: 720px;
+  }
+
+  .legal-section {
+    padding-bottom: var(--sp-6);
+    margin-bottom: var(--sp-6);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  .legal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .legal-section__title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--color-navy-dark);
+    margin-bottom: var(--sp-3);
+    line-height: 1.2;
+  }
+  .legal-section__subtitle {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-top: var(--sp-4);
+    margin-bottom: var(--sp-2);
+  }
+  .legal-section p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.82;
+    color: var(--color-text-primary);
+    opacity: 0.82;
+    margin-bottom: var(--sp-3);
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section ul,
+  .legal-section ol {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.82;
+    color: var(--color-text-primary);
+    opacity: 0.82;
+    padding-left: var(--sp-4);
+    margin-bottom: var(--sp-3);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .legal-section code {
+    font-family: var(--font-body);
+    font-size: 13px;
+    background: var(--color-stone);
+    padding: 2px 6px;
+    border-radius: 2px;
+    color: var(--color-navy-dark);
+  }
+  .legal-section a {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-section a:hover { color: var(--color-navy-dark); }
+
+  @media (max-width: 768px) {
+    .legal-hero { padding: var(--sp-7) 0 var(--sp-6); }
+    .legal-section__title { font-size: 18px; }
+  }
+</style>
