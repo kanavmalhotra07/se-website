@@ -84,10 +84,27 @@ const products = [
   <nav class="mobile-menu__nav container">
     <a href="/"         class="mobile-menu__link">Home</a>
     <div class="mobile-menu__group">
-      <span class="mobile-menu__group-label">Products</span>
-      {products.map((p) => (
-        <a href={p.href} class="mobile-menu__sub-link">{p.label}</a>
-      ))}
+      <div class="mobile-menu__group-header">
+        <a href="/products" class="mobile-menu__group-link">Products</a>
+        <button
+          class="mobile-menu__group-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-products-submenu"
+          aria-label="Toggle Products submenu"
+        >
+          <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__sub-links" id="mobile-products-submenu" aria-hidden="true">
+        <div class="mobile-menu__sub-links-inner">
+          {products.map((p) => (
+            <a href={p.href} class="mobile-menu__sub-link">{p.label}</a>
+          ))}
+        </div>
+      </div>
     </div>
     <a href="/about"    class="mobile-menu__link">About</a>
     <a href="/contact"  class="mobile-menu__link">Contact</a>

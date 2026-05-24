@@ -621,16 +621,77 @@ button {
 
 .mobile-menu__group {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 14px 0 8px;
+  padding: 0;
 }
 
-.mobile-menu__group-label {
+/* Header row: Products link + chevron toggle */
+.mobile-menu__group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-menu__group-link {
   font-family: var(--font-display);
   font-size: 26px;
   font-weight: 600;
   color: var(--color-text-inverse);
-  display: block;
-  margin-bottom: 8px;
+  padding: 14px 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-menu__group-toggle {
+  background: none;
+  border: none;
+  color: rgba(247, 246, 243, 0.45);
+  padding: 14px 0 14px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu__group-toggle:hover,
+.mobile-menu__group-toggle:focus-visible {
+  color: rgba(247, 246, 243, 0.80);
+}
+
+.mobile-menu__group-toggle:focus-visible {
+  outline: 2px solid rgba(247, 246, 243, 0.45);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.mobile-menu__group-toggle svg {
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.mobile-menu__group-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Collapsible sub-links — grid-row trick for 0→auto height */
+.mobile-menu__sub-links {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-med) var(--ease-out);
+}
+
+.mobile-menu__sub-links.is-open {
+  grid-template-rows: 1fr;
+}
+
+.mobile-menu__sub-links-inner {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom var(--dur-med) var(--ease-out);
+}
+
+.mobile-menu__sub-links.is-open .mobile-menu__sub-links-inner {
+  padding-bottom: 8px;
 }
 
 .mobile-menu__sub-link {

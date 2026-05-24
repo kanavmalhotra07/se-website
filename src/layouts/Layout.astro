@@ -347,20 +347,37 @@ const allBreadcrumbs: BreadcrumbItem[] = [
     const hamburger  = document.querySelector('.navbar__hamburger');
     const mobileMenu = document.querySelector('.navbar__mobile');
     const mobileClose = document.querySelector('.mobile-menu__close');
+    const productsToggle = document.querySelector<HTMLButtonElement>('.mobile-menu__group-toggle');
+    const productsSubmenu = document.getElementById('mobile-products-submenu');
+
+    const resetProductsSubmenu = () => {
+      productsToggle?.setAttribute('aria-expanded', 'false');
+      productsSubmenu?.classList.remove('is-open');
+      productsSubmenu?.setAttribute('aria-hidden', 'true');
+    };
+
+    const closeMobileMenu = () => {
+      mobileMenu?.classList.remove('is-open');
+      document.body.style.overflow = '';
+      resetProductsSubmenu();
+    };
 
     hamburger?.addEventListener('click', () => {
       mobileMenu?.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     });
 
-    const closeMobileMenu = () => {
-      mobileMenu?.classList.remove('is-open');
-      document.body.style.overflow = '';
-    };
-
     mobileClose?.addEventListener('click', closeMobileMenu);
-    document.querySelectorAll('.mobile-menu__link, .mobile-menu__sub-link').forEach((link) => {
+    document.querySelectorAll('.mobile-menu__link, .mobile-menu__sub-link, .mobile-menu__group-link').forEach((link) => {
       link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Products submenu chevron toggle
+    productsToggle?.addEventListener('click', () => {
+      const expanded = productsToggle.getAttribute('aria-expanded') === 'true';
+      productsToggle.setAttribute('aria-expanded', String(!expanded));
+      productsSubmenu?.classList.toggle('is-open');
+      productsSubmenu?.setAttribute('aria-hidden', String(expanded));
     });
 
     // ─── Background video lifecycle — pause when offscreen, play on entry ────
