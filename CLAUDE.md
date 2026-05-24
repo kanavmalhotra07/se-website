@@ -30,8 +30,6 @@ Static marketing site for **Sanchi Enterprises** — exhibition carpet supplier,
 /contact    → src/pages/contact.astro
 ```
 
-**Known issue:** The products index page links to `/products/loop-pile-carpet` but that page does not exist — it will 404. Either create the page or remove the link before going live.
-
 ## Layout shell
 
 `src/layouts/Layout.astro` is the only shared wrapper. It takes `title` and `description` props for per-page SEO. **All shared client-side JS lives in one `<script>` block inside it:**
