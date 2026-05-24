@@ -302,7 +302,7 @@ button {
   transform: scale(1);
 }
 
-/* Horizontal entry variant */
+/* Horizontal entry — left */
 [data-animate="from-left"] {
   opacity: 0;
   transform: translateX(-22px);
@@ -311,6 +311,19 @@ button {
     transform var(--dur-reveal-slide) var(--ease-out);
 }
 [data-animate="from-left"].is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Horizontal entry — right (right-column content in split layouts) */
+[data-animate="from-right"] {
+  opacity: 0;
+  transform: translateX(22px);
+  transition:
+    opacity var(--dur-reveal-slide) var(--ease-out),
+    transform var(--dur-reveal-slide) var(--ease-out);
+}
+[data-animate="from-right"].is-visible {
   opacity: 1;
   transform: translateX(0);
 }
@@ -458,16 +471,17 @@ button {
   min-width: 240px;
   background-color: #0a1028;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 2px solid rgba(184, 150, 58, 0.45);
   padding: 8px 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-4px);
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.36), 0 4px 12px rgba(0, 0, 0, 0.2);
   transition:
-    opacity var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out),
-    visibility 0s var(--dur-fast);
+    opacity 220ms var(--ease-out),
+    transform 260ms var(--ease-out),
+    visibility 0s 220ms;
 }
 
 .navbar__item:hover .navbar__dropdown {
@@ -476,8 +490,8 @@ button {
   pointer-events: auto;
   transform: translateY(0);
   transition:
-    opacity var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out),
+    opacity 220ms var(--ease-out),
+    transform 260ms var(--ease-out),
     visibility 0s;
 }
 
@@ -1048,6 +1062,26 @@ button {
   display: block;
 }
 
+/* Cascade within each stat item: number first, label follows */
+.trust-bar__item .trust-bar__number {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+.trust-bar__item.is-visible .trust-bar__number {
+  opacity: 1;
+  transform: translateY(0);
+}
+.trust-bar__item .trust-bar__label {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 400ms 120ms var(--ease-out), transform 400ms 120ms var(--ease-out);
+}
+.trust-bar__item.is-visible .trust-bar__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ============================================
    PRODUCT CATEGORIES
    ============================================ */
@@ -1185,6 +1219,12 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  transform: translateY(0);
+  transition: transform 0.55s var(--ease-out);
+}
+
+.cat-card:hover .cat-card__info {
+  transform: translateY(-6px);
 }
 
 .cat-card__name {
@@ -1381,6 +1421,12 @@ button {
   right: 0;
   padding: 22px 24px 26px;
   z-index: 2;
+  transform: translateY(0);
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .project-card__info {
+  transform: translateY(-6px);
 }
 
 .project-card__name {
@@ -1593,26 +1639,29 @@ button {
   padding-top: var(--sp-5);
 }
 
-.process__step:hover .process__num {
-  opacity: 0.28;
-  transition: opacity 0.3s var(--ease-out);
-}
-
-.process__step:hover .process__label {
-  color: var(--color-navy);
-  transition: color 0.25s var(--ease-out);
-}
 
 .process__num {
   font-family: var(--font-display);
   font-size: 54px;
   font-weight: 800;
   color: var(--color-navy);
-  opacity: 0.14;
+  opacity: 0;
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: var(--sp-3);
-  transition: opacity 0.3s var(--ease-out);
+  transform: translateY(8px);
+  transition:
+    opacity 400ms var(--ease-out),
+    transform 400ms var(--ease-out);
+}
+
+.process__step.is-visible .process__num {
+  opacity: 0.14;
+  transform: translateY(0);
+}
+
+.process__step:hover .process__num {
+  opacity: 0.28;
 }
 
 .process__label {
@@ -1622,7 +1671,21 @@ button {
   color: var(--color-text-primary);
   margin-bottom: 8px;
   line-height: 1.25;
-  transition: color 0.25s var(--ease-out);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 400ms 80ms var(--ease-out),
+    transform 400ms 80ms var(--ease-out),
+    color 250ms var(--ease-out);
+}
+
+.process__step.is-visible .process__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process__step:hover .process__label {
+  color: var(--color-navy);
 }
 
 .process__desc {
@@ -1631,6 +1694,16 @@ button {
   font-weight: 400;
   color: var(--color-text-secondary);
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 400ms 160ms var(--ease-out),
+    transform 400ms 160ms var(--ease-out);
+}
+
+.process__step.is-visible .process__desc {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ============================================
@@ -5327,6 +5400,7 @@ a.contact-detail-item__value:hover {
   [data-animate],
   [data-animate="image"],
   [data-animate="from-left"],
+  [data-animate="from-right"],
   [data-animate="reveal-up"] {
     opacity: 1;
     transform: none;
@@ -5339,6 +5413,21 @@ a.contact-detail-item__value:hover {
     transform: scaleX(1);
     transition: none;
   }
+
+  /* Cascade elements — immediately visible, no transitions */
+  .trust-bar__item .trust-bar__number,
+  .trust-bar__item .trust-bar__label,
+  .process__step .process__num,
+  .process__step .process__label,
+  .process__step .process__desc {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .process__step.is-visible .process__num { opacity: 0.14; }
+  .cat-card__info,
+  .project-card__info { transition: none; }
 
   .btn,
   .btn svg:last-child,
