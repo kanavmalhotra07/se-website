@@ -128,65 +128,82 @@ const row2 = [
 </section>
 
 <script>
-  // rAF-driven marquee — bypasses iOS Safari overflow+CSS-animation rendering bug.
-  // Direct style.transform writes always trigger the GPU compositor correctly.
+  // rAF marquee. Direct transform writes → GPU compositor path on all browsers.
+  //
+  // Bug that this replaces: the old dir=-1 branch drove translate3d to +halfW,
+  // pushing the reel off-screen to the right (blank space) before jumping back.
+  // The unified offset formula below is direction-agnostic and always correct:
+  //   dir +1 (scrolls left):  translate = -offset         (0 → -halfW)
+  //   dir -1 (scrolls right): translate = -(halfW-offset) (-halfW → 0)
+  // Both wrap seamlessly because the reel contains two identical copies.
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const isMobile = window.innerWidth <= 768;
 
-    const tracks = [
-      {
-        reel: document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel'),
-        track: document.querySelector<HTMLElement>('.exh-auth__track--fwd'),
-        dir: 1,                          // positive = scrolls left
-        speed: isMobile ? 52 : 90,       // px/s
-      },
-      {
-        reel: document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel'),
-        track: document.querySelector<HTMLElement>('.exh-auth__track--rev'),
-        dir: -1,                         // negative = scrolls right
-        speed: isMobile ? 40 : 72,
-      },
-    ];
+    function init() {
+      const configs = [
+        {
+          reel:  document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel'),
+          track: document.querySelector<HTMLElement>('.exh-auth__track--fwd'),
+          dir:   1,
+          speed: isMobile ? 52 : 90,
+        },
+        {
+          reel:  document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel'),
+          track: document.querySelector<HTMLElement>('.exh-auth__track--rev'),
+          dir:  -1,
+          speed: isMobile ? 40 : 72,
+        },
+      ];
 
-    tracks.forEach(({ reel, track, dir, speed }) => {
-      if (!reel || !track) return;
+      configs.forEach(({ reel, track, dir, speed }) => {
+        if (!reel || !track) return;
 
-      // Half the reel = width of one copy of content = seamless loop distance
-      const halfW = reel.getBoundingClientRect().width / 2;
-      if (halfW <= 0) return;
+        // scrollWidth (not getBoundingClientRect) is unaffected by existing transforms
+        const halfW = reel.scrollWidth / 2;
+        if (halfW <= 0) return;
 
-      let pos = 0;
-      let paused = false;
-      let last = 0;
+        let offset = 0;   // always in [0, halfW)
+        let slow   = false;
+        let last   = 0;
 
-      // Pause on hover (desktop) and touch (mobile)
-      track.addEventListener('mouseenter', () => { paused = true; });
-      track.addEventListener('mouseleave', () => { paused = false; });
-      track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-      track.addEventListener('touchend',   () => { paused = false; }, { passive: true });
-      track.addEventListener('touchcancel',() => { paused = false; }, { passive: true });
+        // Slow to 30% on hover — desktop only, never fully stop
+        track.addEventListener('mouseenter', () => { slow = true;  });
+        track.addEventListener('mouseleave', () => { slow = false; });
 
-      function tick(ts: number) {
-        const dt = last ? Math.min(ts - last, 50) : 0; // cap at 50ms to absorb tab-switch gaps
-        last = ts;
+        // Prime the reverse reel to its correct start position (-halfW) so
+        // it never shows the blank space that was the old bug on first paint
+        reel.style.transform = dir > 0
+          ? 'translate3d(0,0,0)'
+          : `translate3d(${-halfW}px,0,0)`;
 
-        if (!paused && dt > 0) {
-          pos += (speed * dt / 1000) * dir;
+        function tick(ts: number) {
+          const dt = last ? Math.min(ts - last, 50) : 0;
+          last = ts;
 
-          // Seamless wrap
-          if (dir > 0 && pos >= halfW)  pos -= halfW;
-          if (dir < 0 && pos <= -halfW) pos += halfW;
+          if (dt > 0) {
+            offset += speed * (slow ? 0.3 : 1) * dt / 1000;
+            if (offset >= halfW) offset -= halfW;
 
-          reel.style.transform = `translate3d(${-pos}px, 0, 0)`;
+            const x = dir > 0 ? -offset : -(halfW - offset);
+            reel.style.transform = `translate3d(${x}px,0,0)`;
+          }
+
+          requestAnimationFrame(tick);
         }
 
         requestAnimationFrame(tick);
-      }
+      });
+    }
 
-      requestAnimationFrame(tick);
-    });
+    // Defer measurement until web fonts are loaded — DM Sans changes glyph
+    // widths vs the fallback font, making scrollWidth inaccurate if read early.
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(init);
+    } else {
+      init();
+    }
   })();
 </script>
 
@@ -292,7 +309,7 @@ const row2 = [
     color: rgba(247, 246, 243, 0.50);
     white-space: nowrap;
     padding: 0 28px;
-    transition: color 0.22s ease;
+    transition: color var(--dur-fast) var(--ease-out);
   }
   .exh-auth__track:hover .exh-auth__item {
     color: rgba(247, 246, 243, 0.75);
