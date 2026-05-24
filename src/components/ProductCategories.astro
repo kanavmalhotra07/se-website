@@ -5,6 +5,7 @@ const categories = [
     name:        'Non Woven Carpet',
     sub:         '29 shades — bulk expo flooring',
     img:         '/images/catalogue/nw-roll-macro.webp',
+    srcset:      '/images/catalogue/nw-roll-macro-640w.webp 640w, /images/catalogue/nw-roll-macro.webp 900w',
     placeholder: false,
     imgPos:      '58% center',
   },
@@ -13,6 +14,7 @@ const categories = [
     name:        'Ribbed Carpet',
     sub:         '7 shades — high-footfall trade fair floors',
     img:         '/images/catalogue/ribbed-carpet.webp',
+    srcset:      '/images/catalogue/ribbed-carpet-640w.webp 640w, /images/catalogue/ribbed-carpet.webp 1440w',
     placeholder: false,
     imgPos:      '68% center',
   },
@@ -21,6 +23,7 @@ const categories = [
     name:        'Velour Carpet',
     sub:         '11 shades — premium pavilion finish',
     img:         '/images/catalogue/velour-hero.webp',
+    srcset:      '/images/catalogue/velour-hero-640w.webp 640w, /images/catalogue/velour-hero.webp 1200w',
     placeholder: false,
     imgPos:      '55% 60%',
   },
@@ -29,6 +32,7 @@ const categories = [
     name:        'Loop Pile',
     sub:         '6 shades — architectural cut-loop texture',
     img:         '/images/catalogue/lp-macro.webp',
+    srcset:      '/images/catalogue/lp-macro-640w.webp 640w, /images/catalogue/lp-macro.webp 896w',
     placeholder: false,
     imgPos:      'center 62%',
   },
@@ -37,6 +41,7 @@ const categories = [
     name:        'Caution Carpet',
     sub:         'Safety Flooring · Cable Tray Coverage',
     img:         '/images/catalogue/caution-carpet-1.webp',
+    srcset:      '/images/catalogue/caution-carpet-1-640w.webp 640w, /images/catalogue/caution-carpet-1.webp 1440w',
     placeholder: false,
     imgPos:      'center 62%',
   },
@@ -45,6 +50,7 @@ const categories = [
     name:        'Designer Carpet',
     sub:         'Custom Artwork · Brand Identity · Event Themes',
     img:         '/images/designer-carpet/anuga-blue-wave.webp',
+    srcset:      '/images/designer-carpet/anuga-blue-wave-640w.webp 640w, /images/designer-carpet/anuga-blue-wave-1280w.webp 1280w, /images/designer-carpet/anuga-blue-wave.webp 1920w',
     placeholder: false,
     imgPos:      'center 58%',
   },
@@ -53,6 +59,7 @@ const categories = [
     name:        'Grass Carpet',
     sub:         'Synthetic grass for themed exhibition environments',
     img:         '/images/catalogue/grass-carpet-hero.webp',
+    srcset:      '/images/catalogue/grass-carpet-hero-640w.webp 640w, /images/catalogue/grass-carpet-hero.webp 1200w',
     placeholder: false,
     imgPos:      'center 35%',
   },
@@ -61,6 +68,7 @@ const categories = [
     name:        'Coir Carpet',
     sub:         'Natural coconut fibre for eco & organic pavilions',
     img:         '/images/coir/coir-3608.webp',
+    srcset:      '/images/coir/coir-3608-640w.webp 640w, /images/coir/coir-3608.webp 1280w',
     placeholder: false,
     imgPos:      'center 50%',
   },
@@ -112,6 +120,8 @@ const categories = [
             {!cat.placeholder && cat.img && (
               <img
                 src={cat.img}
+                srcset={cat.srcset}
+                sizes="(max-width: 1024px) calc(50vw - 24px), calc(25vw - 16px)"
                 alt={cat.name}
                 class="cat-card__img"
                 loading="lazy"

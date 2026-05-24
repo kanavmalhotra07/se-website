@@ -10,11 +10,16 @@
         loop
         playsinline
         preload="metadata"
-        poster="/images/bridge/afterhero-2-poster.webp"
+        poster="/images/bridge/afterhero-2-poster-1280w.webp"
         class="home-bridge__video"
       >
         <source src="/videos/afterhero-2.mp4" type="video/mp4" />
-        <img src="/images/bridge/afterhero-2-poster.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" />
+        <img
+          src="/images/bridge/afterhero-2-poster.webp"
+          srcset="/images/bridge/afterhero-2-poster-640w.webp 640w, /images/bridge/afterhero-2-poster-1280w.webp 1280w, /images/bridge/afterhero-2-poster.webp 1920w"
+          sizes="100vw"
+          alt="" width="1920" height="1080" loading="lazy" decoding="async"
+        />
       </video>
       <div class="home-bridge__veil"></div>
     </div>
