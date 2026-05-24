@@ -4,89 +4,92 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 
 const nwRegularShades = [
-  { src: '/images/catalogue/nw-light-grey.jpg',   name: 'Light Grey'   },
-  { src: '/images/catalogue/nw-light-camel.jpg',  name: 'Light Camel'  },
-  { src: '/images/catalogue/nw-camel.jpg',         name: 'Camel'        },
-  { src: '/images/catalogue/nw-light-brown.jpg',  name: 'Light Brown'  },
-  { src: '/images/catalogue/nw-dark-brown.jpg',   name: 'Dark Brown'   },
-  { src: '/images/catalogue/nw-dark-grey.jpg',    name: 'Dark Grey'    },
-  { src: '/images/catalogue/nw-black.jpg',         name: 'Black'        },
-  { src: '/images/catalogue/nw-blue-black.jpg',   name: 'Blue Black'   },
-  { src: '/images/catalogue/nw-green-black.jpg',  name: 'Green Black'  },
-  { src: '/images/catalogue/nw-plain-green.jpg',  name: 'Plain Green'  },
-  { src: '/images/catalogue/nw-red.jpg',           name: 'Red'          },
-  { src: '/images/catalogue/nw-red-black.jpg',    name: 'Red Black'    },
-  { src: '/images/catalogue/nw-magenta.jpg',       name: 'Magenta'      },
-  { src: '/images/catalogue/nw-blue.jpg',          name: 'Plain Blue'   },
+  { src: '/images/catalogue/nw-light-grey.webp',   name: 'Light Grey'   },
+  { src: '/images/catalogue/nw-light-camel.webp',  name: 'Light Camel'  },
+  { src: '/images/catalogue/nw-camel.webp',         name: 'Camel'        },
+  { src: '/images/catalogue/nw-light-brown.webp',  name: 'Light Brown'  },
+  { src: '/images/catalogue/nw-dark-brown.webp',   name: 'Dark Brown'   },
+  { src: '/images/catalogue/nw-dark-grey.webp',    name: 'Dark Grey'    },
+  { src: '/images/catalogue/nw-black.webp',         name: 'Black'        },
+  { src: '/images/catalogue/nw-blue-black.webp',   name: 'Blue Black'   },
+  { src: '/images/catalogue/nw-green-black.webp',  name: 'Green Black'  },
+  { src: '/images/catalogue/nw-plain-green.webp',  name: 'Plain Green'  },
+  { src: '/images/catalogue/nw-red.webp',           name: 'Red'          },
+  { src: '/images/catalogue/nw-red-black.webp',    name: 'Red Black'    },
+  { src: '/images/catalogue/nw-magenta.webp',       name: 'Magenta'      },
+  { src: '/images/catalogue/nw-blue.webp',          name: 'Plain Blue'   },
 ];
 
 const nwPremiumShades = [
-  { src: '/images/catalogue/nw-p-orange.jpg',        name: 'Orange'       },
-  { src: '/images/catalogue/nw-p-safron.jpg',        name: 'Saffron'      },
-  { src: '/images/catalogue/nw-p-yellow.jpg',        name: 'Yellow'       },
-  { src: '/images/catalogue/nw-p-yellow-green.jpg',  name: 'Yellow Green' },
-  { src: '/images/catalogue/nw-p-cactus-green.jpg',  name: 'Cactus Green' },
-  { src: '/images/catalogue/nw-p-aqua-green.jpg',    name: 'Aqua Green'   },
-  { src: '/images/catalogue/nw-p-firozi-blue.jpg',   name: 'Firozi Blue'  },
-  { src: '/images/catalogue/nw-p-oasis-blue.jpg',    name: 'Oasis Blue'   },
-  { src: '/images/catalogue/nw-p-turkish-blue.jpg',  name: 'Turkish Blue' },
-  { src: '/images/catalogue/nw-p-violet.jpg',        name: 'Violet'       },
-  { src: '/images/catalogue/nw-p-purple.jpg',        name: 'Purple'       },
-  { src: '/images/catalogue/nw-p-dark-purple.jpg',   name: 'Dark Purple'  },
-  { src: '/images/catalogue/nw-p-pink.jpg',           name: 'Pink'         },
-  { src: '/images/catalogue/nw-p-golden.jpg',         name: 'Golden'       },
-  { src: '/images/catalogue/nw-p-silver-grey.jpg',   name: 'Silver Grey'  },
+  { src: '/images/catalogue/nw-p-orange.webp',        name: 'Orange'       },
+  { src: '/images/catalogue/nw-p-safron.webp',        name: 'Saffron'      },
+  { src: '/images/catalogue/nw-p-yellow.webp',        name: 'Yellow'       },
+  { src: '/images/catalogue/nw-p-yellow-green.webp',  name: 'Yellow Green' },
+  { src: '/images/catalogue/nw-p-cactus-green.webp',  name: 'Cactus Green' },
+  { src: '/images/catalogue/nw-p-aqua-green.webp',    name: 'Aqua Green'   },
+  { src: '/images/catalogue/nw-p-firozi-blue.webp',   name: 'Firozi Blue'  },
+  { src: '/images/catalogue/nw-p-oasis-blue.webp',    name: 'Oasis Blue'   },
+  { src: '/images/catalogue/nw-p-turkish-blue.webp',  name: 'Turkish Blue' },
+  { src: '/images/catalogue/nw-p-violet.webp',        name: 'Violet'       },
+  { src: '/images/catalogue/nw-p-purple.webp',        name: 'Purple'       },
+  { src: '/images/catalogue/nw-p-dark-purple.webp',   name: 'Dark Purple'  },
+  { src: '/images/catalogue/nw-p-pink.webp',           name: 'Pink'         },
+  { src: '/images/catalogue/nw-p-golden.webp',         name: 'Golden'       },
+  { src: '/images/catalogue/nw-p-silver-grey.webp',   name: 'Silver Grey'  },
 ];
 
 const velourShades = [
-  { src: '/images/catalogue/velour-silver-grey.jpg', name: 'Silver Grey'  },
-  { src: '/images/catalogue/velour-camel.jpg',        name: 'Camel'        },
-  { src: '/images/catalogue/velour-dark-grey.jpg',    name: 'Dark Grey'    },
-  { src: '/images/catalogue/velour-black.jpg',        name: 'Black'        },
-  { src: '/images/catalogue/velour-powder-blue.jpg',  name: 'Powder Blue'  },
-  { src: '/images/catalogue/velour-pastel-green.jpg', name: 'Pastel Green' },
-  { src: '/images/catalogue/velour-medium-grey.jpg',  name: 'Medium Grey'  },
-  { src: '/images/catalogue/velour-dark-brown.jpg',   name: 'Dark Brown'   },
-  { src: '/images/catalogue/velour-pink.jpg',          name: 'Pink'         },
-  { src: '/images/catalogue/velour-red.jpg',           name: 'Red'          },
-  { src: '/images/catalogue/velour-red-black.jpg',    name: 'Red Black'    },
+  { src: '/images/catalogue/velour-silver-grey.webp', name: 'Silver Grey'  },
+  { src: '/images/catalogue/velour-camel.webp',        name: 'Camel'        },
+  { src: '/images/catalogue/velour-dark-grey.webp',    name: 'Dark Grey'    },
+  { src: '/images/catalogue/velour-black.webp',        name: 'Black'        },
+  { src: '/images/catalogue/velour-powder-blue.webp',  name: 'Powder Blue'  },
+  { src: '/images/catalogue/velour-pastel-green.webp', name: 'Pastel Green' },
+  { src: '/images/catalogue/velour-medium-grey.webp',  name: 'Medium Grey'  },
+  { src: '/images/catalogue/velour-dark-brown.webp',   name: 'Dark Brown'   },
+  { src: '/images/catalogue/velour-pink.webp',          name: 'Pink'         },
+  { src: '/images/catalogue/velour-red.webp',           name: 'Red'          },
+  { src: '/images/catalogue/velour-red-black.webp',    name: 'Red Black'    },
 ];
 
 const ribbedShades = [
-  { src: '/images/catalogue/ribbed-medium-grey.jpg', name: 'Medium Grey' },
-  { src: '/images/catalogue/ribbed-dark-grey.jpg',   name: 'Dark Grey'   },
-  { src: '/images/catalogue/ribbed-black.jpg',        name: 'Black'       },
-  { src: '/images/catalogue/ribbed-grey.jpg',         name: 'Grey'        },
-  { src: '/images/catalogue/ribbed-powder-blue.jpg',  name: 'Powder Blue' },
-  { src: '/images/catalogue/ribbed-red.jpg',          name: 'Red'         },
-  { src: '/images/catalogue/ribbed-dark-brown.jpg',   name: 'Dark Brown'  },
+  { src: '/images/catalogue/ribbed-medium-grey.webp', name: 'Medium Grey' },
+  { src: '/images/catalogue/ribbed-dark-grey.webp',   name: 'Dark Grey'   },
+  { src: '/images/catalogue/ribbed-black.webp',        name: 'Black'       },
+  { src: '/images/catalogue/ribbed-grey.webp',         name: 'Grey'        },
+  { src: '/images/catalogue/ribbed-powder-blue.webp',  name: 'Powder Blue' },
+  { src: '/images/catalogue/ribbed-red.webp',          name: 'Red'         },
+  { src: '/images/catalogue/ribbed-dark-brown.webp',   name: 'Dark Brown'  },
 ];
 
 const loopPileShades = [
-  { src: '/images/catalogue/lp-beige.jpg',         name: 'Beige'    },
-  { src: '/images/catalogue/lp-blue.jpg',          name: 'Blue'     },
-  { src: '/images/catalogue/lp-brown.jpg',         name: 'Brown'    },
-  { src: '/images/catalogue/lp-charcoal.jpg',      name: 'Charcoal' },
-  { src: '/images/catalogue/loop-pile-grey.jpg',   name: 'Grey'     },
-  { src: '/images/catalogue/loop-pile-maroon.jpg', name: 'Maroon'   },
+  { src: '/images/catalogue/lp-beige.webp',         name: 'Beige'    },
+  { src: '/images/catalogue/lp-blue.webp',          name: 'Blue'     },
+  { src: '/images/catalogue/lp-brown.webp',         name: 'Brown'    },
+  { src: '/images/catalogue/lp-charcoal.webp',      name: 'Charcoal' },
+  { src: '/images/catalogue/loop-pile-grey.webp',   name: 'Grey'     },
+  { src: '/images/catalogue/loop-pile-maroon.webp', name: 'Maroon'   },
 ];
 ---
 
 <Layout
   title="Exhibition Carpet Products — Non Woven, Ribbed, Velour & More | Sanchi Enterprises"
   description="Eight specialist exhibition carpet categories — Non Woven, Ribbed, Velour, Loop Pile, Designer, Caution, Grass, and Coir. Bulk supply, custom design, and on-site installation across India."
-  ogImage="https://www.sanchienterprises.com/images/hero/hero.jpg"
+  ogImage="https://www.sanchienterprises.com/images/hero/hero.webp"
   ogImageWidth="1200"
   ogImageHeight="900"
   breadcrumbs={[{ name: 'Products', item: 'https://www.sanchienterprises.com/products' }]}
 >
+  <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/hero/hero.webp" fetchpriority="high" />
+  </Fragment>
   <Navbar />
   <main>
 
     <!-- ── HERO ────────────────────────────────────────────── -->
     <section class="pi-hero" aria-label="Products overview">
       <div class="pi-hero__bg" aria-hidden="true">
-        <img src="/images/hero/hero.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1080" />
+        <img src="/images/hero/hero.webp" alt="" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1080" />
       </div>
       <div class="pi-hero__overlay" aria-hidden="true"></div>
       <div class="container">
@@ -118,7 +121,7 @@ const loopPileShades = [
     <section class="pi-prod pi-prod--dark pi-prod--flip" id="non-woven" aria-labelledby="nonwoven-heading">
       <div class="pi-prod__visual" data-animate="image">
         <img
-          src="/images/about/gartex-2.jpg"
+          src="/images/about/gartex-2.webp"
           alt="Magenta non-woven carpet covering the full Gartex exhibition hall — wide perspective showing carpet-defined floor at scale"
           class="pi-prod__img"
           loading="lazy"
@@ -198,7 +201,7 @@ const loopPileShades = [
     <section class="pi-prod pi-prod--stone" id="ribbed" aria-labelledby="ribbed-heading">
       <div class="pi-prod__visual" data-animate="image">
         <img
-          src="/images/catalogue/ribbed-black.jpg"
+          src="/images/catalogue/ribbed-black.webp"
           alt="Ribbed Black carpet — dense loop-pile surface texture at macro scale"
           class="pi-prod__img"
           loading="lazy"
@@ -245,7 +248,7 @@ const loopPileShades = [
     <section class="pi-velour" id="velour" aria-labelledby="velour-heading">
       <div class="pi-velour__bg" aria-hidden="true">
         <img
-          src="/images/aesthetic/DSC03565.jpg"
+          src="/images/aesthetic/DSC03565.webp"
           alt=""
           loading="lazy"
           decoding="async"
@@ -303,7 +306,7 @@ const loopPileShades = [
         <!-- Left — dominant main panel with text overlay -->
         <div class="pi-dmos__cell pi-dmos__cell--main">
           <img
-            src="/images/designer-carpet/electronica-tech-hall.jpg"
+            src="/images/designer-carpet/electronica-tech-hall.webp"
             alt="Electronica India — wide exhibition hall entrance with custom blue electronics-icon printed carpet covering the entire open floor at architectural scale"
             loading="lazy"
             decoding="async"
@@ -342,7 +345,7 @@ const loopPileShades = [
         <!-- Right — single supporting detail panel -->
         <div class="pi-dmos__cell pi-dmos__cell--side">
           <img
-            src="/images/designer-carpet/iitf-triangles.jpg"
+            src="/images/designer-carpet/iitf-triangles.webp"
             alt="Wide exhibition hall floor covered end-to-end in a bold pink and magenta triangular geometric printed carpet at full architectural scale"
             loading="lazy"
             decoding="async"
@@ -356,16 +359,16 @@ const loopPileShades = [
       <!-- Pattern type strip — About-page hover interaction -->
       <div class="pi-designer__strip" aria-label="Design pattern examples">
         <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Icon pattern — Light + LED India">
-          <img src="/images/designer-carpet/light-led-icon-foyer.jpg" alt="Wide venue foyer covered in navy blue printed carpet with white tech icon pattern at Light + LED India" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 55%" />
+          <img src="/images/designer-carpet/light-led-icon-foyer.webp" alt="Wide venue foyer covered in navy blue printed carpet with white tech icon pattern at Light + LED India" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 55%" />
         </a>
         <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Terracotta Swirl — Anuga Select">
-          <img src="/images/designer-carpet/anuga-select-swirl.jpg" alt="Rich terracotta and red swirl-pattern printed carpet covering the entrance lobby at Anuga Select" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 55%" />
+          <img src="/images/designer-carpet/anuga-select-swirl.webp" alt="Rich terracotta and red swirl-pattern printed carpet covering the entrance lobby at Anuga Select" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 55%" />
         </a>
         <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Diamond pattern — Smart Home Expo">
-          <img src="/images/designer-carpet/smart-home-diamond.jpg" alt="Grand convention centre foyer with bold black and white diamond-grid printed carpet at Smart Home Expo Mumbai" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 60%" />
+          <img src="/images/designer-carpet/smart-home-diamond.webp" alt="Grand convention centre foyer with bold black and white diamond-grid printed carpet at Smart Home Expo Mumbai" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 60%" />
         </a>
         <a href="/products/designer-carpet" class="pi-designer__thumb" aria-label="Floral pattern — DJGF">
-          <img src="/images/designer-carpet/djgf-floral.jpg" alt="Colourful floral petal-pattern designer carpet" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 45%" />
+          <img src="/images/designer-carpet/djgf-floral.webp" alt="Colourful floral petal-pattern designer carpet" loading="lazy" decoding="async" width="1920" height="1440" style="object-position: center 45%" />
         </a>
       </div>
     </section>
@@ -374,7 +377,7 @@ const loopPileShades = [
     <section class="pi-prod pi-prod--dark pi-prod--flip pi-caution" id="caution" aria-labelledby="caution-heading">
       <div class="pi-prod__visual" data-animate="image">
         <img
-          src="/images/catalogue/caution-in-use-2.jpg"
+          src="/images/catalogue/caution-in-use-2.webp"
           alt="Yellow and black caution carpet marking a cable tray threshold at a live exhibition event"
           class="pi-prod__img"
           loading="lazy"
@@ -421,7 +424,7 @@ const loopPileShades = [
     <section class="pi-prod pi-prod--stone pi-loop" id="loop-pile" aria-labelledby="looppile-heading">
       <div class="pi-prod__visual pi-loop__visual" data-animate="image">
         <img
-          src="/images/catalogue/lp-charcoal.jpg"
+          src="/images/catalogue/lp-charcoal.webp"
           alt="Loop Pile Charcoal carpet — editorial close-up showing dense loop-pile construction and surface texture"
           class="pi-prod__img pi-loop__img"
           loading="lazy"
@@ -480,7 +483,7 @@ const loopPileShades = [
       <div class="pi-grass__visual" data-animate="image" aria-hidden="true">
         <div class="pi-grass__img-wrap">
           <img
-            src="/images/catalogue/grass-split.jpg"
+            src="/images/catalogue/grass-split.webp"
             alt=""
             class="pi-grass__img"
             loading="lazy"
@@ -522,7 +525,7 @@ const loopPileShades = [
     <section class="pi-prod pi-prod--stone" id="coir" aria-labelledby="coir-heading">
       <div class="pi-prod__visual" data-animate="image">
         <img
-          src="/images/coir/coir-3608.jpg"
+          src="/images/coir/coir-3608.webp"
           alt="Natural coir carpet woven from coconut husk fibre — close view of the coarse, textured surface in natural brown-beige tones"
           class="pi-prod__img"
           loading="lazy"

@@ -47,6 +47,9 @@ const faqs = [
   description="Sanchi Enterprises supplies and installs exhibition carpet across India — non woven, ribbed, velour, loop pile, designer, and caution carpet for trade fairs, expos, and conventions. Supply and installation since 1995."
 >
   <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/hero/design-mumbai-poster.webp"
+      imagesrcset="/images/hero/design-mumbai-poster-640w.webp 640w, /images/hero/design-mumbai-poster-1280w.webp 1280w, /images/hero/design-mumbai-poster.webp 1920w"
+      imagesizes="100vw" fetchpriority="high" />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",

@@ -69,24 +69,29 @@ const qualityPoints = [
 ];
 
 const galleryImages = [
-  { src: '/images/about/designer-dsc09616.jpg', alt: 'Anuga FoodTec India Dairy, New Delhi',  wide: true,  pos: 'center 45%'   },
-  { src: '/images/about/art-fair-1.jpg',        alt: 'India Art Fair, New Delhi',             wide: false, pos: 'center center' },
-  { src: '/images/about/imw-1.jpg',             alt: 'India Maritime Week, Mumbai',           wide: false, pos: 'center center' },
-  { src: '/images/about/gartex-2.jpg',          alt: 'Gartex and Denim Show, Mumbai',        wide: false, pos: 'center 50%'   },
-  { src: '/images/about/designer-IMG_0057.jpg', alt: 'India AI Impact Summit 2026',          wide: false, pos: 'center center' },
-  { src: '/images/about/ifat-1.jpg',            alt: 'IFAT + Drink Technology, Delhi',       wide: false, pos: 'center center' },
-  { src: '/images/about/india-design-5.jpg',    alt: 'India Design, New Delhi',              wide: true,  pos: 'center center' },
+  { src: '/images/about/designer-dsc09616.webp', alt: 'Anuga FoodTec India Dairy, New Delhi',  wide: true,  pos: 'center 45%'   },
+  { src: '/images/about/art-fair-1.webp',        alt: 'India Art Fair, New Delhi',             wide: false, pos: 'center center' },
+  { src: '/images/about/imw-1.webp',             alt: 'India Maritime Week, Mumbai',           wide: false, pos: 'center center' },
+  { src: '/images/about/gartex-2.webp',          alt: 'Gartex and Denim Show, Mumbai',        wide: false, pos: 'center 50%'   },
+  { src: '/images/about/designer-IMG_0057.webp', alt: 'India AI Impact Summit 2026',          wide: false, pos: 'center center' },
+  { src: '/images/about/ifat-1.webp',            alt: 'IFAT + Drink Technology, Delhi',       wide: false, pos: 'center center' },
+  { src: '/images/about/india-design-5.webp',    alt: 'India Design, New Delhi',              wide: true,  pos: 'center center' },
 ];
 ---
 
 <Layout
   title="About Sanchi Enterprises — Exhibition Flooring Since 1995"
   description="Founded by Davinder Malhotra in 1995, Sanchi Enterprises has been supplying and installing exhibition carpet at India's major trade fairs and expo centres for three decades."
-  ogImage="https://www.sanchienterprises.com/images/about/designer-dsc09616.jpg"
+  ogImage="https://www.sanchienterprises.com/images/about/designer-dsc09616.webp"
   ogImageWidth="1920"
   ogImageHeight="1280"
   breadcrumbs={[{ name: 'About', item: 'https://www.sanchienterprises.com/about' }]}
 >
+  <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/about/ai-summit-hero.webp"
+      imagesrcset="/images/about/ai-summit-hero-640w.webp 640w, /images/about/ai-summit-hero-1280w.webp 1280w, /images/about/ai-summit-hero.webp 1920w"
+      imagesizes="100vw" fetchpriority="high" />
+  </Fragment>
   <Navbar />
   <main>
 
@@ -94,7 +99,9 @@ const galleryImages = [
     <section class="about-pg-hero" aria-labelledby="about-heading">
       <div class="about-pg-hero__bg" aria-hidden="true">
         <img
-          src="/images/about/ai-summit-hero.jpg"
+          src="/images/about/ai-summit-hero.webp"
+          srcset="/images/about/ai-summit-hero-640w.webp 640w, /images/about/ai-summit-hero-1280w.webp 1280w, /images/about/ai-summit-hero.webp 1920w"
+          sizes="100vw"
           alt=""
           width="1600"
           height="900"
@@ -184,7 +191,7 @@ const galleryImages = [
         <div class="about-pg-story__img-side" data-animate="image">
           <img
             class="about-pg-story__img"
-            src="/images/about/gartex-3.jpg"
+            src="/images/about/gartex-3.webp"
             alt="Gartex trade fair, India — large-scale carpet installation in progress"
             loading="lazy"
             decoding="async"
@@ -281,7 +288,7 @@ const galleryImages = [
           loop
           playsinline
           preload="metadata"
-          poster="/images/about/installation-1.jpg"
+          poster="/images/about/installation-1.webp"
           aria-hidden="true"
         >
           <source src="/videos/wip/wip-installation-1.mp4" type="video/mp4" />
