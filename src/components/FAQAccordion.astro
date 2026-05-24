@@ -1,0 +1,59 @@
+---
+interface FAQ { q: string; a: string; }
+interface Props { faqs: FAQ[]; }
+const { faqs } = Astro.props;
+---
+
+<ul class="faq-accordion" role="list">
+  {faqs.map((faq, i) => (
+    <li class:list={['faq-accordion__item', { 'is-open': i === 0 }]}>
+      <button
+        class="faq-accordion__trigger"
+        type="button"
+        aria-expanded={i === 0 ? 'true' : 'false'}
+        aria-controls={`faq-body-${i}`}
+        id={`faq-trigger-${i}`}
+      >
+        <span class="faq-accordion__q">{faq.q}</span>
+        <span class="faq-accordion__icon" aria-hidden="true">
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+      <div
+        class="faq-accordion__body"
+        id={`faq-body-${i}`}
+        role="region"
+        aria-labelledby={`faq-trigger-${i}`}
+      >
+        <div class="faq-accordion__body-inner">
+          <p class="faq-accordion__a">{faq.a}</p>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.faq-accordion').forEach(accordion => {
+    const items = Array.from(accordion.querySelectorAll<HTMLElement>('.faq-accordion__item'));
+    items.forEach(item => {
+      const trigger = item.querySelector<HTMLButtonElement>('.faq-accordion__trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+        items.forEach(other => {
+          other.classList.remove('is-open');
+          other.querySelector<HTMLButtonElement>('.faq-accordion__trigger')
+            ?.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 
 const whyItems = [
   {
@@ -372,33 +373,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
             Common Questions
           </h2>
         </div>
-        <ul class="faq-list" data-animate data-delay="1" role="list">
-          {faqs.map((faq, i) => (
-            <li class="faq-item" id={`faq-${i}`}>
-              <button
-                class="faq-question"
-                aria-expanded="false"
-                aria-controls={`faq-answer-${i}`}
-                type="button"
-              >
-                <span class="faq-question__text">{faq.q}</span>
-                <span class="faq-chevron" aria-hidden="true">
-                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                    <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.4"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="faq-answer"
-                id={`faq-answer-${i}`}
-                role="region"
-              >
-                <div class="faq-answer__inner">{faq.a}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div data-animate data-delay="1">
+          <FAQAccordion faqs={faqs} />
+        </div>
       </div>
     </section>
 
@@ -470,36 +447,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
     reset(id: string): void;
   };
   const w = window as Window & { turnstile?: TurnstileAPI };
-
-  // ── FAQ Accordion ─────────────────────────────────────────────────────────
-  function openFaqItem(item: HTMLElement) {
-    const answer = item.querySelector<HTMLElement>('.faq-answer');
-    const inner  = item.querySelector<HTMLElement>('.faq-answer__inner');
-    const btn    = item.querySelector<HTMLButtonElement>('.faq-question');
-    if (!answer || !inner) return;
-    answer.style.height = inner.offsetHeight + 'px';
-    item.classList.add('is-open');
-    btn?.setAttribute('aria-expanded', 'true');
-  }
-  function closeFaqItem(item: HTMLElement) {
-    const answer = item.querySelector<HTMLElement>('.faq-answer');
-    const btn    = item.querySelector<HTMLButtonElement>('.faq-question');
-    if (!answer) return;
-    answer.style.height = '0';
-    item.classList.remove('is-open');
-    btn?.setAttribute('aria-expanded', 'false');
-  }
-  document.querySelectorAll<HTMLButtonElement>('.faq-question').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest<HTMLElement>('.faq-item');
-      if (!item) return;
-      const isOpen = item.classList.contains('is-open');
-      document.querySelectorAll<HTMLElement>('.faq-item.is-open').forEach(closeFaqItem);
-      if (!isOpen) openFaqItem(item);
-    });
-  });
-  const firstFaq = document.querySelector<HTMLElement>('.faq-item');
-  if (firstFaq) openFaqItem(firstFaq);
 
   // ── Turnstile invisible widget ────────────────────────────────────────────
   const widgetEl = document.getElementById('turnstile-widget') as HTMLElement | null;

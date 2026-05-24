@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import ExhibitionAuthority from '../../components/ExhibitionAuthority.astro';
 import Footer from '../../components/Footer.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
 
 const shades = [
   { name: 'Charcoal',  img: '/images/catalogue/lp-charcoal.webp'       },
@@ -372,14 +373,9 @@ const faqs = [
           <span class="eyebrow eyebrow--line">FAQ</span>
           <h2 class="prod-section__title" id="lp-faq-heading">Common Questions</h2>
         </div>
-        <dl class="lp-faq" data-animate data-delay="1">
-          {faqs.map((faq) => (
-            <div class="lp-faq__item">
-              <dt class="lp-faq__q">{faq.q}</dt>
-              <dd class="lp-faq__a">{faq.a}</dd>
-            </div>
-          ))}
-        </dl>
+        <div data-animate data-delay="1">
+          <FAQAccordion faqs={faqs} />
+        </div>
       </div>
     </div>
 
@@ -767,32 +763,6 @@ const faqs = [
   .lp-panel__body:last-child { margin-bottom: 0; }
 
   /* ─── FAQ ─────────────────────────────────────────────────────────────── */
-  .lp-faq {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-5);
-  }
-  .lp-faq__item {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-top: var(--sp-4);
-  }
-  .lp-faq__q {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-navy-dark);
-    margin-bottom: var(--sp-2);
-    line-height: 1.4;
-  }
-  .lp-faq__a {
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--color-text-secondary);
-    margin: 0;
-  }
 
   /* ─── Related ─────────────────────────────────────────────────────────── */
   .lp-related {
