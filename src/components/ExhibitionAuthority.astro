@@ -128,81 +128,106 @@ const row2 = [
 </section>
 
 <script>
-  // rAF marquee. Direct transform writes → GPU compositor path on all browsers.
+  // rAF marquee — GPU compositor path on all browsers including iOS Safari.
   //
-  // Bug that this replaces: the old dir=-1 branch drove translate3d to +halfW,
-  // pushing the reel off-screen to the right (blank space) before jumping back.
-  // The unified offset formula below is direction-agnostic and always correct:
-  //   dir +1 (scrolls left):  translate = -offset         (0 → -halfW)
-  //   dir -1 (scrolls right): translate = -(halfW-offset) (-halfW → 0)
-  // Both wrap seamlessly because the reel contains two identical copies.
+  // Direction formula (both tracks share [0, halfW) offset counter):
+  //   dir +1 (left):  translate = -offset          (0 → -halfW, seamless wrap)
+  //   dir -1 (right): translate = -(halfW - offset) (-halfW → 0, seamless wrap)
+  //
+  // Mobile fix: document.fonts.ready fires while the section is below the fold.
+  // On iOS Safari, off-screen overflow:hidden + will-change:transform elements
+  // can return scrollWidth=0 at that moment, causing a silent bail-out.
+  // The IntersectionObserver below is a second trigger that fires once the
+  // section is actually near the viewport, guaranteeing a valid scrollWidth.
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const isMobile = window.innerWidth <= 768;
+    let initialized = false;
+    let retries     = 0;
 
-    function init() {
-      const configs = [
-        {
-          reel:  document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel'),
-          track: document.querySelector<HTMLElement>('.exh-auth__track--fwd'),
-          dir:   1,
-          speed: isMobile ? 52 : 90,
-        },
-        {
-          reel:  document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel'),
-          track: document.querySelector<HTMLElement>('.exh-auth__track--rev'),
-          dir:  -1,
-          speed: isMobile ? 40 : 72,
-        },
-      ];
+    // Queries at IIFE time — deferred module runs after DOM parse, so safe.
+    const fwdReel  = document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel');
+    const fwdTrack = document.querySelector<HTMLElement>('.exh-auth__track--fwd');
+    const revReel  = document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel');
+    const revTrack = document.querySelector<HTMLElement>('.exh-auth__track--rev');
 
-      configs.forEach(({ reel, track, dir, speed }) => {
-        if (!reel || !track) return;
+    if (!fwdReel || !fwdTrack || !revReel || !revTrack) return;
 
-        // scrollWidth (not getBoundingClientRect) is unaffected by existing transforms
-        const halfW = reel.scrollWidth / 2;
-        if (halfW <= 0) return;
+    function startTrack(reel: HTMLElement, track: HTMLElement, dir: number, speed: number) {
+      const halfW = reel.scrollWidth / 2;
+      if (halfW <= 0) return;
 
-        let offset = 0;   // always in [0, halfW)
-        let slow   = false;
-        let last   = 0;
+      let offset = 0;
+      let slow   = false;
+      let last   = 0;
 
-        // Slow to 30% on hover — desktop only, never fully stop
-        track.addEventListener('mouseenter', () => { slow = true;  });
-        track.addEventListener('mouseleave', () => { slow = false; });
+      // Desktop: slow to 30% on hover — never fully stop
+      track.addEventListener('mouseenter', () => { slow = true;  });
+      track.addEventListener('mouseleave', () => { slow = false; });
 
-        // Prime the reverse reel to its correct start position (-halfW) so
-        // it never shows the blank space that was the old bug on first paint
-        reel.style.transform = dir > 0
-          ? 'translate3d(0,0,0)'
-          : `translate3d(${-halfW}px,0,0)`;
+      // Set correct initial position so reverse reel never shows blank space
+      reel.style.transform = `translate3d(${dir > 0 ? 0 : -halfW}px,0,0)`;
 
-        function tick(ts: number) {
-          const dt = last ? Math.min(ts - last, 50) : 0;
-          last = ts;
+      function tick(ts: number) {
+        const dt = last ? Math.min(ts - last, 50) : 0; // 50ms cap absorbs tab-switch gaps
+        last = ts;
 
-          if (dt > 0) {
-            offset += speed * (slow ? 0.3 : 1) * dt / 1000;
-            if (offset >= halfW) offset -= halfW;
-
-            const x = dir > 0 ? -offset : -(halfW - offset);
-            reel.style.transform = `translate3d(${x}px,0,0)`;
-          }
-
-          requestAnimationFrame(tick);
+        if (dt > 0) {
+          offset += speed * (slow ? 0.3 : 1) * dt / 1000;
+          if (offset >= halfW) offset -= halfW;
+          const x = dir > 0 ? -offset : -(halfW - offset);
+          reel.style.transform = `translate3d(${x}px,0,0)`;
         }
 
         requestAnimationFrame(tick);
-      });
+      }
+
+      requestAnimationFrame(tick);
     }
 
-    // Defer measurement until web fonts are loaded — DM Sans changes glyph
-    // widths vs the fallback font, making scrollWidth inaccurate if read early.
+    function initAll() {
+      if (initialized) return;
+
+      // scrollWidth=0 means layout hasn't computed yet (common on mobile
+      // when the section is off-screen). Retry up to 6× via rAF.
+      if (fwdReel.scrollWidth === 0) {
+        if (retries++ < 6) requestAnimationFrame(initAll);
+        return;
+      }
+
+      initialized = true;
+      startTrack(fwdReel, fwdTrack, 1,  isMobile ? 52 : 90);
+      startTrack(revReel, revTrack, -1, isMobile ? 40 : 72);
+    }
+
+    // Double rAF: guarantees one full layout pass before we read scrollWidth.
+    // Single rAF can fire before the browser has flushed pending style changes.
+    function scheduleInit() {
+      requestAnimationFrame(() => requestAnimationFrame(initAll));
+    }
+
+    // Primary path: wait for web fonts so DM Sans glyphs set accurate widths
     if (document.fonts?.ready) {
-      document.fonts.ready.then(init);
+      document.fonts.ready.then(scheduleInit);
     } else {
-      init();
+      scheduleInit();
+    }
+
+    // Mobile fallback: IntersectionObserver fires when section enters viewport.
+    // If fonts.ready fired with scrollWidth=0 (off-screen iOS Safari issue),
+    // this second trigger catches it once the user scrolls near the section.
+    if ('IntersectionObserver' in window) {
+      const section = document.querySelector('.exh-auth__tracks');
+      if (section) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !initialized) {
+            io.disconnect();
+            scheduleInit();
+          }
+        }, { rootMargin: '120px' }); // 120px pre-load so animation is ready before visible
+        io.observe(section);
+      }
     }
   })();
 </script>
@@ -298,7 +323,7 @@ const row2 = [
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* transform driven by JS — no CSS animation */
+    transform: translate3d(0, 0, 0); /* prime GPU layer before JS takes over */
   }
   .exh-auth__item {
     font-family: var(--font-display);
