@@ -644,7 +644,7 @@ button {
 .mobile-menu__group-toggle {
   background: none;
   border: none;
-  color: rgba(247, 246, 243, 0.45);
+  color: rgba(247, 246, 243, 0.55);
   padding: 14px 0 14px 20px;
   cursor: pointer;
   display: flex;
@@ -979,7 +979,7 @@ button {
   font-weight: 400;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: rgba(247, 246, 243, 0.44);
+  color: rgba(247, 246, 243, 0.55);
   white-space: nowrap;
   pointer-events: none;
   z-index: 2;
@@ -1675,7 +1675,7 @@ button {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
-  color: rgba(247, 246, 243, 0.45);
+  color: rgba(247, 246, 243, 0.55);
   line-height: 1.65;
   margin-bottom: var(--sp-6);
   padding-left: var(--sp-4);
@@ -1686,7 +1686,7 @@ button {
   display: block;
   font-size: 12px;
   margin-top: 10px;
-  color: rgba(247, 246, 243, 0.35);
+  color: rgba(247, 246, 243, 0.55);
   font-style: normal;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1840,7 +1840,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: rgba(247, 246, 243, 0.44);
+  color: rgba(247, 246, 243, 0.55);
 }
 
 .footer__legal {
@@ -1853,7 +1853,7 @@ button {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(247, 246, 243, 0.38);
+  color: rgba(247, 246, 243, 0.55);
   transition: color var(--dur-fast) var(--ease-out);
 }
 
@@ -2122,7 +2122,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(247, 246, 243, 0.42);
+  color: rgba(247, 246, 243, 0.55);
   margin-bottom: var(--sp-5);
   transition: color var(--dur-fast) var(--ease-out);
 }
@@ -2337,7 +2337,7 @@ button {
 }
 
 .prod-section--dark .prod-feature__label {
-  color: rgba(247, 246, 243, 0.42);
+  color: rgba(247, 246, 243, 0.55);
 }
 
 .prod-feature__value {
@@ -2559,7 +2559,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgba(247, 246, 243, 0.38);
+  color: rgba(247, 246, 243, 0.55);
   margin-bottom: var(--sp-7);
   transition: color var(--dur-fast) var(--ease-out);
 }
@@ -3044,7 +3044,7 @@ button {
 .dc-scope__desc {
   font-family: var(--font-body);
   font-size: 14px;
-  color: rgba(247, 246, 243, 0.40);
+  color: rgba(247, 246, 243, 0.55);
   line-height: 1.70;
   max-width: 280px;
 }
