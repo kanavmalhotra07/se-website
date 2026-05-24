@@ -128,107 +128,27 @@ const row2 = [
 </section>
 
 <script>
-  // rAF marquee — GPU compositor path on all browsers including iOS Safari.
+  // Core animation is pure CSS (see @keyframes below) — runs on the compositor
+  // thread and is immune to JS timing, power management, and iOS Safari's
+  // off-screen rAF suppression that was breaking the previous implementation.
   //
-  // Direction formula (both tracks share [0, halfW) offset counter):
-  //   dir +1 (left):  translate = -offset          (0 → -halfW, seamless wrap)
-  //   dir -1 (right): translate = -(halfW - offset) (-halfW → 0, seamless wrap)
-  //
-  // Mobile fix: document.fonts.ready fires while the section is below the fold.
-  // On iOS Safari, off-screen overflow:hidden + will-change:transform elements
-  // can return scrollWidth=0 at that moment, causing a silent bail-out.
-  // The IntersectionObserver below is a second trigger that fires once the
-  // section is actually near the viewport, guaranteeing a valid scrollWidth.
+  // This script handles desktop hover only: Web Animations API playbackRate
+  // gives a smooth 30% slowdown without the jump that changing animation-duration
+  // would cause. mouseenter never fires on mobile, so mobile is unaffected.
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const isMobile = window.innerWidth <= 768;
-    let initialized = false;
-    let retries     = 0;
+    document.querySelectorAll<HTMLElement>('.exh-auth__track').forEach((track) => {
+      const reel = track.querySelector<HTMLElement>('.exh-auth__reel');
+      if (!reel) return;
 
-    // Queries at IIFE time — deferred module runs after DOM parse, so safe.
-    const fwdReel  = document.querySelector<HTMLElement>('.exh-auth__track--fwd .exh-auth__reel');
-    const fwdTrack = document.querySelector<HTMLElement>('.exh-auth__track--fwd');
-    const revReel  = document.querySelector<HTMLElement>('.exh-auth__track--rev .exh-auth__reel');
-    const revTrack = document.querySelector<HTMLElement>('.exh-auth__track--rev');
-
-    if (!fwdReel || !fwdTrack || !revReel || !revTrack) return;
-
-    function startTrack(reel: HTMLElement, track: HTMLElement, dir: number, speed: number) {
-      const halfW = reel.scrollWidth / 2;
-      if (halfW <= 0) return;
-
-      let offset = 0;
-      let slow   = false;
-      let last   = 0;
-
-      // Desktop: slow to 30% on hover — never fully stop
-      track.addEventListener('mouseenter', () => { slow = true;  });
-      track.addEventListener('mouseleave', () => { slow = false; });
-
-      // Set correct initial position so reverse reel never shows blank space
-      reel.style.transform = `translate3d(${dir > 0 ? 0 : -halfW}px,0,0)`;
-
-      function tick(ts: number) {
-        const dt = last ? Math.min(ts - last, 50) : 0; // 50ms cap absorbs tab-switch gaps
-        last = ts;
-
-        if (dt > 0) {
-          offset += speed * (slow ? 0.3 : 1) * dt / 1000;
-          if (offset >= halfW) offset -= halfW;
-          const x = dir > 0 ? -offset : -(halfW - offset);
-          reel.style.transform = `translate3d(${x}px,0,0)`;
-        }
-
-        requestAnimationFrame(tick);
-      }
-
-      requestAnimationFrame(tick);
-    }
-
-    function initAll() {
-      if (initialized) return;
-
-      // scrollWidth=0 means layout hasn't computed yet (common on mobile
-      // when the section is off-screen). Retry up to 6× via rAF.
-      if (fwdReel.scrollWidth === 0) {
-        if (retries++ < 6) requestAnimationFrame(initAll);
-        return;
-      }
-
-      initialized = true;
-      startTrack(fwdReel, fwdTrack, 1,  isMobile ? 52 : 90);
-      startTrack(revReel, revTrack, -1, isMobile ? 40 : 72);
-    }
-
-    // Double rAF: guarantees one full layout pass before we read scrollWidth.
-    // Single rAF can fire before the browser has flushed pending style changes.
-    function scheduleInit() {
-      requestAnimationFrame(() => requestAnimationFrame(initAll));
-    }
-
-    // Primary path: wait for web fonts so DM Sans glyphs set accurate widths
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(scheduleInit);
-    } else {
-      scheduleInit();
-    }
-
-    // Mobile fallback: IntersectionObserver fires when section enters viewport.
-    // If fonts.ready fired with scrollWidth=0 (off-screen iOS Safari issue),
-    // this second trigger catches it once the user scrolls near the section.
-    if ('IntersectionObserver' in window) {
-      const section = document.querySelector('.exh-auth__tracks');
-      if (section) {
-        const io = new IntersectionObserver((entries) => {
-          if (entries[0].isIntersecting && !initialized) {
-            io.disconnect();
-            scheduleInit();
-          }
-        }, { rootMargin: '120px' }); // 120px pre-load so animation is ready before visible
-        io.observe(section);
-      }
-    }
+      track.addEventListener('mouseenter', () => {
+        reel.getAnimations().forEach((a) => { a.playbackRate = 0.3; });
+      });
+      track.addEventListener('mouseleave', () => {
+        reel.getAnimations().forEach((a) => { a.playbackRate = 1; });
+      });
+    });
   })();
 </script>
 
@@ -323,7 +243,39 @@ const row2 = [
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: translate3d(0, 0, 0); /* prime GPU layer before JS takes over */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* ─── Keyframes ──────────────────────────────────────────────── */
+  /* -50% is always exactly one copy's width because the reel holds  */
+  /* two identical copies (total = 2×copy), making -50% = -1×copy.  */
+  @-webkit-keyframes exh-marquee-fwd {
+    from { -webkit-transform: translate3d(0, 0, 0);    transform: translate3d(0, 0, 0);    }
+    to   { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+  }
+  @keyframes exh-marquee-fwd {
+    from { transform: translate3d(0, 0, 0);    }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @-webkit-keyframes exh-marquee-rev {
+    from { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+    to   { -webkit-transform: translate3d(0%, 0, 0);   transform: translate3d(0%, 0, 0);   }
+  }
+  @keyframes exh-marquee-rev {
+    from { transform: translate3d(-50%, 0, 0); }
+    to   { transform: translate3d(0%, 0, 0);   }
+  }
+
+  /* ─── Apply animations ───────────────────────────────────────── */
+  .exh-auth__track--fwd .exh-auth__reel {
+    -webkit-animation: exh-marquee-fwd 32s linear infinite;
+    animation:         exh-marquee-fwd 32s linear infinite;
+  }
+  .exh-auth__track--rev .exh-auth__reel {
+    -webkit-animation: exh-marquee-rev 40s linear infinite;
+    animation:         exh-marquee-rev 40s linear infinite;
   }
   .exh-auth__item {
     font-family: var(--font-display);
@@ -402,7 +354,17 @@ const row2 = [
       margin-bottom: var(--sp-4);
     }
 
-    /* Marquee: larger spacing, more track height (speed via JS) */
+    /* Marquee: slightly slower on mobile for readability */
+    .exh-auth__track--fwd .exh-auth__reel {
+      -webkit-animation-duration: 44s;
+      animation-duration: 44s;
+    }
+    .exh-auth__track--rev .exh-auth__reel {
+      -webkit-animation-duration: 56s;
+      animation-duration: 56s;
+    }
+
+    /* Larger touch targets and spacing */
     .exh-auth__track { padding: 18px 0; }
     .exh-auth__item {
       font-size: 13px;
@@ -419,5 +381,18 @@ const row2 = [
     .exh-auth__note { display: none; }
   }
 
-  /* ─── Reduced motion — JS checks this at runtime ───────────── */
+  /* Desktop hover: slow via JS playbackRate — CSS class is a no-op fallback */
+  @media (hover: hover) {
+    .exh-auth__track:hover .exh-auth__item {
+      color: rgba(247, 246, 243, 0.75);
+    }
+  }
+
+  /* Reduced motion: CSS disables animation — no JS needed */
+  @media (prefers-reduced-motion: reduce) {
+    .exh-auth__reel {
+      -webkit-animation: none;
+      animation: none;
+    }
+  }
 </style>
