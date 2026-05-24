@@ -55,6 +55,12 @@
   --dur-fast:  160ms;
   --dur-med:   280ms;
   --dur-slow:  500ms;
+
+  /* Scroll-reveal durations — used by [data-animate] system */
+  --dur-reveal:        700ms;   /* default fade+lift */
+  --dur-reveal-image:  900ms;   /* image bloom-in */
+  --dur-reveal-slide:  680ms;   /* horizontal entry */
+  --dur-reveal-slow:  1300ms;   /* cinematic clip-path reveal */
 }
 
 /* ============================================
@@ -268,13 +274,13 @@ button {
    SCROLL ANIMATIONS
    ============================================ */
 
-/* Base: subtle upward fade — tighter lift than before */
+/* Base: subtle upward fade */
 [data-animate] {
   opacity: 0;
   transform: translateY(20px);
   transition:
-    opacity 700ms var(--ease-out),
-    transform 700ms var(--ease-out);
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
 }
 
 [data-animate].is-visible {
@@ -287,8 +293,8 @@ button {
   opacity: 0;
   transform: scale(0.97);
   transition:
-    opacity 900ms var(--ease-out),
-    transform 900ms var(--ease-out);
+    opacity var(--dur-reveal-image) var(--ease-out),
+    transform var(--dur-reveal-image) var(--ease-out);
 }
 
 [data-animate="image"].is-visible {
@@ -301,8 +307,8 @@ button {
   opacity: 0;
   transform: translateX(-22px);
   transition:
-    opacity 680ms var(--ease-out),
-    transform 680ms var(--ease-out);
+    opacity var(--dur-reveal-slide) var(--ease-out),
+    transform var(--dur-reveal-slide) var(--ease-out);
 }
 [data-animate="from-left"].is-visible {
   opacity: 1;
@@ -315,9 +321,9 @@ button {
   transform: translateY(10px);
   clip-path: inset(0 0 9% 0);
   transition:
-    opacity 1.3s var(--ease-out),
-    transform 1.3s var(--ease-out),
-    clip-path 1.3s var(--ease-out);
+    opacity var(--dur-reveal-slow) var(--ease-out),
+    transform var(--dur-reveal-slow) var(--ease-out),
+    clip-path var(--dur-reveal-slow) var(--ease-out);
 }
 [data-animate="reveal-up"].is-visible {
   opacity: 1;

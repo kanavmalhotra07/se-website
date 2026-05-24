@@ -9,9 +9,9 @@ const stats = [
 
 <div class="trust-bar" aria-label="Key statistics">
   <div class="container">
-    <div class="trust-bar__grid" data-animate>
+    <div class="trust-bar__grid">
       {stats.map((stat, i) => (
-        <div class="trust-bar__item" data-delay={String(i + 1)}>
+        <div class="trust-bar__item" data-animate data-delay={String(i + 1)}>
           <span
             class="trust-bar__number"
             data-count-to={String(stat.countTo)}

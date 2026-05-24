@@ -57,23 +57,37 @@ Page-specific JS (product hero parallax, gallery spotlight, FAQ accordion, conta
 --font-body:        'Inter'   /* body copy, labels, nav */
 --ease-out: cubic-bezier(0.16, 1, 0.3, 1)  /* all major transitions */
 --sp-1 … --sp-9:   8px … 120px
+
+/* Scroll-reveal durations — used exclusively by [data-animate] */
+--dur-reveal:        700ms   /* default fade+lift */
+--dur-reveal-image:  900ms   /* image bloom-in */
+--dur-reveal-slide:  680ms   /* horizontal entry */
+--dur-reveal-slow:  1300ms   /* cinematic clip-path (reveal-up) */
 ```
 
 **Breakpoints:** `1024px` (tablet) and `768px` (mobile) — both defined at the bottom of `global.css`. At `768px` the spacing tokens `--sp-7/8/9` are reduced and the navbar collapses to hamburger.
 
 ## Animation system
 
-Three `data-animate` variants — pick the right one for each element:
+`src/pages/about.astro` is the motion benchmark. Every new section should match its reveal quality.
 
-| Attribute | Effect | Use for |
-|---|---|---|
-| `data-animate` | opacity + translateY(20px) | Text blocks, cards, headers |
-| `data-animate="image"` | opacity + scale(0.97) | Photo panels, hero backgrounds |
-| `data-animate="from-left"` | opacity + translateX(-22px) | Sidebars, pull-quotes |
+Four `data-animate` variants — pick the right one per element:
 
-Stagger siblings with `data-delay="1"` through `"7"` (80ms → 530ms increments). The eyebrow gold underline (`eyebrow--line::after`) grows via `scaleX(0→1)` automatically when its parent gets `.is-visible`.
+| Attribute | Effect | Duration | Use for |
+|---|---|---|---|
+| `data-animate` | opacity + translateY(20px) | 700ms | Text blocks, cards, headers, hero content |
+| `data-animate="image"` | opacity + scale(0.97) | 900ms | Photo panels, hero backgrounds |
+| `data-animate="from-left"` | opacity + translateX(-22px) | 680ms | Sidebars, pull-quotes |
+| `data-animate="reveal-up"` | opacity + translateY(10px) + clip-path unmask | 1300ms | Major section headings, editorial moments |
 
-All transitions use `--ease-out`. Images always need an `overflow: hidden` wrapper for the scale-bloom to be clipped.
+Stagger siblings with `data-delay="1"` through `"8"` (60ms → 530ms increments). The eyebrow gold underline (`eyebrow--line::after`) grows via `scaleX(0→1)` automatically when its parent gets `.is-visible`.
+
+**Rules:**
+- Every meaningful section element (eyebrow, h1/h2, body, grid, image) needs `data-animate`
+- Hero content (above the fold) uses `data-animate` — the IntersectionObserver fires immediately for visible elements
+- Animate items individually when stagger adds value (stats, cards, list items); animate wrapper when the group should enter as one unit
+- Images always need an `overflow: hidden` wrapper for scale-bloom to clip correctly
+- All reveal durations reference `--dur-reveal*` tokens from `:root`
 
 Disable everything gracefully via `@media (prefers-reduced-motion: reduce)` — already wired in `global.css`.
 
