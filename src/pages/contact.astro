@@ -642,7 +642,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
           ? 'Security check not loaded yet — please wait a moment and try again.'
           : msg === 'timeout'
           ? 'Verification timed out. Please try again.'
-          : 'Security check failed. Please refresh the page and try again.'
+          : 'Security check failed. Please try submitting the form again.'
       );
       if (widgetId) w.turnstile?.reset(widgetId);
     } finally {
