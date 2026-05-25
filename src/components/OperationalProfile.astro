@@ -36,20 +36,18 @@ const industries = [
   <span class="ops__deco" aria-hidden="true">30</span>
   <div class="container">
     <div class="ops__grid">
-      <div>
-        <span class="eyebrow eyebrow--inverse" data-animate>Operational Profile</span>
+      <div class="ops__col-left" data-animate>
+        <span class="eyebrow eyebrow--inverse">Operational Profile</span>
         <h2
           class="section-title section-title--inverse"
           id="ops-heading"
           style="margin-bottom:var(--sp-6);"
-          data-animate
-          data-delay="1"
         >
           Why Organizers<br />Choose Sanchi.
         </h2>
         <div class="ops__strengths">
           {strengths.map((s, i) => (
-            <div class="ops__item" data-animate data-delay={String(i + 2)}>
+            <div class="ops__item" data-animate data-delay={String(i + 1)}>
               <span class="ops__num">0{i + 1}</span>
               <div>
                 <div class="ops__strength">{s.label}</div>

@@ -738,7 +738,10 @@ const loopPileShades = [
     font-family: var(--font-display); font-size: clamp(30px, 3.6vw, 50px);
     font-weight: 700; line-height: 1.07; letter-spacing: -0.026em;
     color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 920ms 60ms var(--ease-out);
   }
+  .pi-prod__content-inner.is-visible .pi-prod__name { clip-path: inset(0 0 0% 0); }
   .pi-prod__name--dark { color: var(--color-text-primary); }
   .pi-prod__body { font-family: var(--font-body); font-size: 15px; line-height: 1.82; color: rgba(247,246,243,0.68); margin-bottom: var(--sp-4); }
   .pi-prod__body--dark { color: var(--color-text-secondary); }
@@ -859,7 +862,10 @@ const loopPileShades = [
     font-family: var(--font-display); font-size: clamp(34px, 4.2vw, 58px);
     font-weight: 700; line-height: 1.05; letter-spacing: -0.028em;
     color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 920ms 60ms var(--ease-out);
   }
+  .pi-velour__content.is-visible .pi-velour__title { clip-path: inset(0 0 0% 0); }
   .pi-velour__body {
     font-family: var(--font-body); font-size: 15px; line-height: 1.82;
     color: rgba(247,246,243,0.68); margin-bottom: var(--sp-4);
@@ -896,7 +902,10 @@ const loopPileShades = [
     font-family: var(--font-display); font-size: clamp(28px, 3.8vw, 52px);
     font-weight: 700; line-height: 1.06; letter-spacing: -0.028em;
     color: var(--color-text-inverse); margin-top: var(--sp-3); margin-bottom: var(--sp-3);
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 920ms 60ms var(--ease-out);
   }
+  .pi-dmos.is-visible .pi-dmos__title { clip-path: inset(0 0 0% 0); }
   .pi-dmos__body {
     font-family: var(--font-body); font-size: 15px; line-height: 1.78;
     color: rgba(247,246,243,0.70); margin-bottom: var(--sp-4); max-width: 400px;
@@ -1075,5 +1084,9 @@ const loopPileShades = [
     .pi-prod__img, .pi-dmos__cell img, .pi-velour__swatch img,
     .pi-designer__thumb img, .pi-loop__img { transition: none; }
     .pi-venues__track { animation: none; }
+    .pi-prod__name, .pi-velour__title, .pi-dmos__title {
+      clip-path: none;
+      transition: none;
+    }
   }
 </style>

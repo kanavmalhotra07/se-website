@@ -164,10 +164,22 @@ button {
   line-height: 1.1;
   letter-spacing: -0.015em;
   color: var(--color-text-primary);
+  clip-path: inset(0 0 105% 0);
+  transition: clip-path 920ms 60ms var(--ease-out);
 }
 
 .section-title--inverse {
   color: var(--color-text-inverse);
+}
+
+/* Curtain-wipe reveal: cascade from observed parent or self */
+.section-title.is-visible,
+.home-faq__header.is-visible .section-title,
+.categories__header.is-visible .section-title,
+.projects__header.is-visible .section-title,
+.about__body.is-visible .section-title,
+.ops__col-left.is-visible .section-title {
+  clip-path: inset(0 0 0% 0);
 }
 
 /* ============================================
@@ -2417,6 +2429,12 @@ button {
   color: var(--color-text-primary);
   margin-bottom: var(--sp-2);
   line-height: 1.2;
+  clip-path: inset(0 0 105% 0);
+  transition: clip-path 900ms 60ms var(--ease-out);
+}
+
+.prod-section__header.is-visible .prod-section__title {
+  clip-path: inset(0 0 0% 0);
 }
 
 .prod-section--dark .prod-section__title {
@@ -2602,6 +2620,12 @@ button {
   color: var(--color-text-inverse);
   margin-bottom: var(--sp-2);
   line-height: 1.2;
+  clip-path: inset(0 0 105% 0);
+  transition: clip-path 900ms 60ms var(--ease-out);
+}
+
+.prod-cta__text.is-visible .prod-cta__title {
+  clip-path: inset(0 0 0% 0);
 }
 
 .prod-cta__sub {
@@ -4598,6 +4622,12 @@ a.contact-detail-item__value:hover {
   letter-spacing: -0.030em;
   color: var(--color-text-primary);
   margin-top: var(--sp-2);
+  clip-path: inset(0 0 105% 0);
+  transition: clip-path 920ms 60ms var(--ease-out);
+}
+
+.about-pg-why__top.is-visible .about-pg-why__heading {
+  clip-path: inset(0 0 0% 0);
 }
 
 .about-pg-why__list {
@@ -5474,6 +5504,18 @@ a.contact-detail-item__value:hover {
   .process__step .process__desc {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  /* Heading clip-path curtain wipes — reveal immediately */
+  .section-title,
+  .prod-section__title,
+  .prod-cta__title,
+  .about-pg-why__heading,
+  .about-pg-story__title,
+  .about-pg-ops__title,
+  .about-pg-quality__title {
+    clip-path: none;
     transition: none;
   }
 

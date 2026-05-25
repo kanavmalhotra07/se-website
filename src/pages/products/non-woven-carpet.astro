@@ -516,6 +516,11 @@ const faqs = [
     letter-spacing: -0.02em;
     color: var(--color-text-inverse);
     margin-top: var(--sp-3);
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 920ms 60ms var(--ease-out);
+  }
+  .prod-section__header.is-visible .nw-context-title {
+    clip-path: inset(0 0 0% 0);
   }
   .prod-section__body--inverse {
     font-family: var(--font-body);
@@ -742,6 +747,11 @@ const faqs = [
     margin: var(--sp-2) 0 0;
     letter-spacing: -0.01em;
     line-height: 1.1;
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 900ms 60ms var(--ease-out);
+  }
+  .nw-shade-header.is-visible .nw-shade-title {
+    clip-path: inset(0 0 0% 0);
   }
 
   .nw-shade-count {
@@ -818,5 +828,13 @@ const faqs = [
     .nw-gallery__item--tall { grid-row: auto; }
     .nw-gallery__item--tall img { min-height: 260px; }
     .nw-gallery__item:not(.nw-gallery__item--tall) img { aspect-ratio: 3 / 2; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nw-context-title,
+    .nw-shade-title {
+      clip-path: none;
+      transition: none;
+    }
   }
 </style>
