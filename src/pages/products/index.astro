@@ -93,14 +93,14 @@ const loopPileShades = [
       </div>
       <div class="pi-hero__overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="pi-hero__inner" data-animate>
-          <span class="eyebrow eyebrow--inverse eyebrow--line">Product Range</span>
-          <h1 class="pi-hero__title">Flooring that<br />defines the space.</h1>
-          <p class="pi-hero__sub">
+        <div class="pi-hero__inner">
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate>Product Range</span>
+          <h1 class="pi-hero__title" data-animate data-delay="1">Flooring that<br />defines the space.</h1>
+          <p class="pi-hero__sub" data-animate data-delay="2">
             Eight specialist carpet categories. Thousands of square metres installed across
             India's leading trade fairs, expos, and branded exhibitions every year.
           </p>
-          <div class="pi-hero__cats" aria-hidden="true">
+          <div class="pi-hero__cats" aria-hidden="true" data-animate data-delay="3">
             <span>Non Woven</span><span class="pi-hero__cats-dot">·</span>
             <span>Ribbed</span><span class="pi-hero__cats-dot">·</span>
             <span>Velour</span><span class="pi-hero__cats-dot">·</span>
@@ -132,7 +132,7 @@ const loopPileShades = [
         />
       </div>
       <div class="pi-prod__content">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-left">
           <span class="pi-prod__number" aria-hidden="true">01</span>
           <span class="eyebrow eyebrow--inverse eyebrow--line">Non Woven Carpet</span>
           <h2 class="pi-prod__name" id="nonwoven-heading">
@@ -212,7 +212,7 @@ const loopPileShades = [
         />
       </div>
       <div class="pi-prod__content pi-prod__content--light">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-right">
           <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">02</span>
           <span class="eyebrow eyebrow--line">Ribbed Carpet</span>
           <h2 class="pi-prod__name pi-prod__name--dark" id="ribbed-heading">
@@ -259,7 +259,7 @@ const loopPileShades = [
       <div class="pi-velour__overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="pi-velour__layout">
-          <div class="pi-velour__content" data-animate>
+          <div class="pi-velour__content" data-animate="from-left">
             <span class="pi-prod__number" aria-hidden="true">03</span>
             <span class="eyebrow eyebrow--inverse eyebrow--line">Velour Carpet</span>
             <h2 class="pi-velour__title" id="velour-heading">
@@ -288,7 +288,7 @@ const loopPileShades = [
               </svg>
             </a>
           </div>
-          <div class="pi-velour__shades" data-animate data-delay="1">
+          <div class="pi-velour__shades" data-animate="from-right" data-delay="1">
             {velourShades.map((s) => (
               <div class="pi-velour__swatch">
                 <img src={s.src} alt={s.name} loading="lazy" decoding="async" width="200" height="250" />
@@ -388,7 +388,7 @@ const loopPileShades = [
         />
       </div>
       <div class="pi-prod__content pi-caution__content">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-left">
           <span class="pi-prod__number" aria-hidden="true">05</span>
           <span class="eyebrow eyebrow--inverse eyebrow--line">Caution Carpet</span>
           <h2 class="pi-prod__name" id="caution-heading">
@@ -436,7 +436,7 @@ const loopPileShades = [
         <div class="pi-loop__vignette" aria-hidden="true"></div>
       </div>
       <div class="pi-prod__content pi-prod__content--light">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-right">
           <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">06</span>
           <span class="eyebrow eyebrow--line">Loop Pile Carpet</span>
           <h2 class="pi-prod__name pi-prod__name--dark" id="looppile-heading">
@@ -494,7 +494,7 @@ const loopPileShades = [
         </div>
       </div>
       <div class="pi-prod__content">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-left">
           <span class="pi-prod__number" aria-hidden="true">07</span>
           <span class="eyebrow eyebrow--inverse eyebrow--line">Grass Carpet</span>
           <h2 class="pi-prod__name" id="grass-heading">
@@ -536,7 +536,7 @@ const loopPileShades = [
         />
       </div>
       <div class="pi-prod__content pi-prod__content--light">
-        <div class="pi-prod__content-inner" data-animate>
+        <div class="pi-prod__content-inner" data-animate="from-right">
           <span class="pi-prod__number pi-prod__number--dim" aria-hidden="true">08</span>
           <span class="eyebrow eyebrow--line">Coir Carpet</span>
           <h2 class="pi-prod__name pi-prod__name--dark" id="coir-heading">
