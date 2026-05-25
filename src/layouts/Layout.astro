@@ -263,8 +263,14 @@ const allBreadcrumbs: BreadcrumbItem[] = [
     ]
   })}></script>
 
-  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <!-- Favicon — ordered: ICO (any size) → SVG (modern) → PNG fallback -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+  <!-- iOS Safari: bookmarks, home screen, tab switcher -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- PWA / Android Chrome -->
+  <link rel="manifest" href="/site.webmanifest" />
   <slot name="head" />
 </head>
 <body>
