@@ -293,6 +293,15 @@ const allBreadcrumbs: BreadcrumbItem[] = [
       navbar?.classList.toggle('is-scrolled', window.scrollY > 60);
     }, { passive: true });
 
+    // ─── Navbar: active state for current page ───────────────────────────────
+    const currentPath = window.location.pathname;
+    document.querySelectorAll<HTMLAnchorElement>('.navbar__link').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const active = href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+      if (active) link.classList.add('is-active');
+    });
+
     // ─── Hero parallax — rAF-throttled, both pages ──────────────────────────
     if (!reducedMotion) {
       const parallaxTargets: Array<{ el: HTMLElement; rate: number }> = [];
@@ -353,12 +362,14 @@ const allBreadcrumbs: BreadcrumbItem[] = [
 
     const closeMobileMenu = () => {
       mobileMenu?.classList.remove('is-open');
+      hamburger?.classList.remove('is-open');
       document.body.style.overflow = '';
       resetProductsSubmenu();
     };
 
     hamburger?.addEventListener('click', () => {
       mobileMenu?.classList.add('is-open');
+      hamburger.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     });
 

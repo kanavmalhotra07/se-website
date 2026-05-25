@@ -607,6 +607,8 @@ button {
   justify-content: space-between;
   height: 80px;
   flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 .mobile-menu__logo img {
@@ -639,11 +641,15 @@ button {
   color: var(--color-text-inverse);
   padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  opacity: 0;
+  transform: translateY(14px);
 }
 
 .mobile-menu__group {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   padding: 0;
+  opacity: 0;
+  transform: translateY(14px);
 }
 
 /* Header row: Products link + chevron toggle */
@@ -732,6 +738,52 @@ button {
 
 .mobile-menu__cta {
   padding-top: var(--sp-5);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Mobile menu — stagger reveal on open */
+.navbar__mobile.is-open .mobile-menu__header {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+}
+.navbar__mobile.is-open .mobile-menu__nav > .mobile-menu__link:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms 50ms var(--ease-out), transform 300ms 50ms var(--ease-out);
+}
+.navbar__mobile.is-open .mobile-menu__nav > .mobile-menu__group {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms 100ms var(--ease-out), transform 300ms 100ms var(--ease-out);
+}
+.navbar__mobile.is-open .mobile-menu__nav > .mobile-menu__link:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms 150ms var(--ease-out), transform 300ms 150ms var(--ease-out);
+}
+.navbar__mobile.is-open .mobile-menu__nav > .mobile-menu__link:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms 200ms var(--ease-out), transform 300ms 200ms var(--ease-out);
+}
+.navbar__mobile.is-open .mobile-menu__cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms 250ms var(--ease-out), transform 300ms 250ms var(--ease-out);
+}
+
+/* Hamburger → X morph */
+.navbar__hamburger.is-open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.navbar__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* ============================================
@@ -5458,5 +5510,18 @@ a.contact-detail-item__value:hover {
     animation: none;
     opacity: 0.4;
     transform: scaleY(1);
+  }
+
+  .mobile-menu__header,
+  .mobile-menu__link,
+  .mobile-menu__group,
+  .mobile-menu__cta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .navbar__hamburger span {
+    transition: none;
   }
 }
