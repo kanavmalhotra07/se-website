@@ -339,14 +339,30 @@ const faqs = [
           <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
           <h2 class="prod-section__title" id="lp-context-heading">Loop Pile Carpet<br />in Indian Exhibitions.</h2>
         </div>
-        <p class="prod-section__body" data-animate data-delay="1">
-          Loop pile carpet occupies a specific position in the exhibition flooring hierarchy
-          that neither ribbed nor velour covers precisely. Its cut-loop construction produces
-          a surface that is more structured and architectural than velour's soft cut-pile —
-          suited to environments where the floor needs to convey quality and permanence
-          without the visual softness associated with premium event carpet.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="2">
+
+        <!-- Split: opening paragraph + hospitality suite visual -->
+        <div class="lp-ctx__row">
+          <p class="prod-section__body lp-ctx__p" data-animate>
+            Loop pile carpet occupies a specific position in the exhibition flooring hierarchy
+            that neither ribbed nor velour covers precisely. Its cut-loop construction produces
+            a surface that is more structured and architectural than velour's soft cut-pile —
+            suited to environments where the floor needs to convey quality and permanence
+            without the visual softness associated with premium event carpet.
+          </p>
+          <figure class="lp-ctx__fig" data-animate="image" data-delay="1">
+            <img
+              src="/images/loop-pile/lp-hospitality-suite.jpg"
+              alt="Loop pile carpet in a corporate hospitality suite — blue shade, executive conference environment"
+              loading="lazy"
+              decoding="async"
+              width="1440"
+              height="960"
+            />
+            <figcaption class="lp-ctx__fig-cap">Corporate suite — AI Impact Summit India</figcaption>
+          </figure>
+        </div>
+
+        <p class="prod-section__body" data-animate>
           Corporate hospitality suites, extended-run conference facilities, long-duration
           exhibitions, and high-value product environments where visitors spend significant
           time — these are the spaces where loop pile carpet's neutral, structured surface
@@ -354,7 +370,7 @@ const faqs = [
           for environments where the exhibit or the conversation in the space is the focus,
           not the floor itself.
         </p>
-        <p class="prod-section__body" data-animate data-delay="3">
+        <p class="prod-section__body" data-animate data-delay="1">
           Among the venues where Sanchi Enterprises regularly installs flooring — Pragati
           Maidan and Yashobhoomi in Delhi, the Jio World Convention Centre and Bombay
           Exhibition Centre in Mumbai, BIEC in Bengaluru, and HITEX in Hyderabad — loop pile
@@ -363,6 +379,18 @@ const faqs = [
         </p>
       </div>
     </div>
+
+    <!-- ─── ENVIRONMENTAL BREAK — hall scale visual pause ────────────── -->
+    <figure class="lp-env-break" data-animate="image" aria-hidden="true">
+      <img
+        src="/images/loop-pile/lp-hall-env.jpg"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="1920"
+        height="900"
+      />
+    </figure>
 
     <ExhibitionAuthority heading="Installed at India's<br />Major Trade Fairs." />
 
@@ -483,11 +511,12 @@ const faqs = [
   /* ─── Hero ──────────────────────────────────────────────────────────── */
   .lp-hero {
     position: relative;
-    min-height: 100svh;
+    min-height: 42vh;
+    max-height: 560px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
-    padding-bottom: var(--sp-8);
+    padding-bottom: 0;
     background-color: var(--color-navy-dark);
   }
   .lp-hero__bg {
@@ -505,18 +534,18 @@ const faqs = [
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to top,
-      rgba(8, 12, 36, 0.94) 0%,
-      rgba(8, 12, 36, 0.62) 28%,
-      rgba(8, 12, 36, 0.22) 58%,
-      rgba(8, 12, 36, 0.08) 100%
+      to right,
+      rgba(8, 12, 36, 0.82) 0%,
+      rgba(8, 12, 36, 0.60) 55%,
+      rgba(8, 12, 36, 0.20) 100%
     );
   }
   .lp-hero__content {
     position: relative;
     z-index: 2;
-    max-width: 680px;
-    padding-top: 140px;
+    max-width: 640px;
+    padding-top: 80px;
+    padding-bottom: var(--sp-7);
   }
   .lp-hero__back {
     display: inline-flex;
@@ -534,20 +563,20 @@ const faqs = [
   .lp-hero__back:hover { color: rgba(247, 246, 243, 0.80); }
   .lp-hero__title {
     font-family: var(--font-display);
-    font-size: clamp(42px, 6vw, 84px);
+    font-size: clamp(28px, 3.8vw, 58px);
     font-weight: 700;
-    line-height: 1.03;
-    letter-spacing: -0.032em;
+    line-height: 1.06;
+    letter-spacing: -0.028em;
     color: var(--color-text-inverse);
     margin-top: var(--sp-3);
-    margin-bottom: var(--sp-4);
+    margin-bottom: var(--sp-3);
   }
   .lp-hero__sub {
     font-family: var(--font-body);
-    font-size: clamp(14px, 1.3vw, 17px);
+    font-size: clamp(13px, 1.1vw, 15px);
     line-height: 1.72;
-    color: rgba(247, 246, 243, 0.58);
-    max-width: 480px;
+    color: rgba(247, 246, 243, 0.52);
+    max-width: 440px;
   }
   .lp-hero__scroll {
     position: absolute;
@@ -762,6 +791,87 @@ const faqs = [
   }
   .lp-panel__body:last-child { margin-bottom: 0; }
 
+  /* ─── Heading curtain-wipes — page-level cascade ────────────────────── */
+  .lp-panel__title {
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 900ms 60ms var(--ease-out);
+  }
+  .lp-panel__content.is-visible .lp-panel__title {
+    clip-path: inset(0 0 0% 0);
+  }
+  .lp-split__title {
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 900ms 60ms var(--ease-out);
+  }
+  .lp-split__text-inner.is-visible .lp-split__title {
+    clip-path: inset(0 0 0% 0);
+  }
+  .shade-section__title {
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 900ms 60ms var(--ease-out);
+  }
+  .shade-section__header.is-visible .shade-section__title {
+    clip-path: inset(0 0 0% 0);
+  }
+  /* Statement large text — slower cinematic wipe */
+  .lp-statement__text {
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 1100ms 80ms var(--ease-out);
+  }
+  .lp-statement__inner.is-visible .lp-statement__text {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  /* ─── Exhibition Context split layout ──────────────────────────────── */
+  .lp-ctx__row {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--sp-6);
+    align-items: start;
+    margin-bottom: var(--sp-6);
+  }
+  .lp-ctx__p { margin-bottom: 0; }
+  .lp-ctx__fig {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .lp-ctx__fig img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(0.82);
+    transition: transform 0.85s var(--ease-out);
+  }
+  .lp-ctx__fig:hover img { transform: scale(1.03); }
+  .lp-ctx__fig-cap {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.28);
+    padding-top: var(--sp-2);
+  }
+
+  /* ─── Environmental hall break ──────────────────────────────────────── */
+  .lp-env-break {
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    position: relative;
+  }
+  .lp-env-break img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    filter: saturate(0.76) brightness(0.82);
+  }
+
   /* ─── FAQ ─────────────────────────────────────────────────────────────── */
 
   /* ─── Related ─────────────────────────────────────────────────────────── */
@@ -807,9 +917,14 @@ const faqs = [
     .lp-features { grid-template-columns: repeat(3, 1fr); }
     .lp-related { grid-template-columns: repeat(2, 1fr); }
     .lp-statement__img { flex: 0 0 220px; }
+    .lp-ctx__row { grid-template-columns: 1fr; }
+    .lp-ctx__fig img { aspect-ratio: 16 / 9; }
+    .lp-env-break img { height: 300px; }
   }
 
   @media (max-width: 768px) {
+    .lp-hero { min-height: 38vh; max-height: 420px; }
+    .lp-hero__content { padding-top: 70px; }
     .lp-shade-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
     .lp-statement__img { display: none; }
     .lp-statement__meta { flex-wrap: wrap; gap: var(--sp-4); }
@@ -820,10 +935,19 @@ const faqs = [
     .lp-split__visual { height: 260px; }
     .lp-features { grid-template-columns: repeat(2, 1fr); }
     .lp-related { grid-template-columns: 1fr; }
+    .lp-env-break img { height: 220px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .lp-hero__scroll-line { animation: none; }
-    .lp-split:hover .lp-split__visual img { transform: none; }
+    .lp-split:hover .lp-split__visual img,
+    .lp-ctx__fig:hover img { transform: none; }
+    .lp-panel__title,
+    .lp-split__title,
+    .shade-section__title,
+    .lp-statement__text {
+      clip-path: none;
+      transition: none;
+    }
   }
 </style>
