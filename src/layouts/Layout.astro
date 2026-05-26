@@ -271,6 +271,8 @@ const allBreadcrumbs: BreadcrumbItem[] = [
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <!-- PWA / Android Chrome -->
   <link rel="manifest" href="/site.webmanifest" />
+  <!-- Font preload — DM Sans 400 (sole weight served) -->
+  <link rel="preload" href="/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
   <slot name="head" />
 </head>
 <body>
