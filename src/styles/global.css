@@ -817,6 +817,12 @@ button {
   z-index: 0;
 }
 
+.hero__bg-picture {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
 .hero__bg img,
 .hero__bg-video {
   width: 100%;

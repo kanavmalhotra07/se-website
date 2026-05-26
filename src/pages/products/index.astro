@@ -120,16 +120,28 @@ const loopPileShades = [
     <!-- ── 01 NON WOVEN — dark, image right ─────────────────── -->
     <section class="pi-prod pi-prod--dark pi-prod--flip" id="non-woven" aria-labelledby="nonwoven-heading">
       <div class="pi-prod__visual" data-animate="image">
-        <img
-          src="/images/about/gartex-2.webp"
-          alt="Magenta non-woven carpet covering the full Gartex exhibition hall — wide perspective showing carpet-defined floor at scale"
-          class="pi-prod__img"
-          loading="lazy"
-          decoding="async"
-          style="object-position: center 42%"
-          width="1200"
-          height="900"
-        />
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/images/about/gartex-2-800w.avif 800w, /images/about/gartex-2-1200w.avif 1200w"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          <source
+            type="image/webp"
+            srcset="/images/about/gartex-2-800w.webp 800w, /images/about/gartex-2-1200w.webp 1200w"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          <img
+            src="/images/about/gartex-2-1200w.webp"
+            alt="Magenta non-woven carpet covering the full Gartex exhibition hall — wide perspective showing carpet-defined floor at scale"
+            class="pi-prod__img"
+            loading="lazy"
+            decoding="async"
+            style="object-position: center 42%"
+            width="1200"
+            height="900"
+          />
+        </picture>
       </div>
       <div class="pi-prod__content">
         <div class="pi-prod__content-inner" data-animate="from-left">

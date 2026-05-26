@@ -19,20 +19,19 @@
 
 <section class="hero" aria-label="Hero">
   <div class="hero__bg" aria-hidden="true">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-      poster="/images/hero/design-mumbai-poster.webp"
-      class="hero__bg-video"
-      data-lazy-src="/videos/design-mumbai-hero.mp4"
-    >
-      <img
-        src="/images/hero/design-mumbai-poster.webp"
+    <picture class="hero__bg-picture">
+      <source
+        type="image/avif"
+        srcset="/images/hero/design-mumbai-poster-640w.avif 640w, /images/hero/design-mumbai-poster-1280w.avif 1280w, /images/hero/design-mumbai-poster.avif 1920w"
+        sizes="100vw"
+      />
+      <source
+        type="image/webp"
         srcset="/images/hero/design-mumbai-poster-640w.webp 640w, /images/hero/design-mumbai-poster-1280w.webp 1280w, /images/hero/design-mumbai-poster.webp 1920w"
         sizes="100vw"
+      />
+      <img
+        src="/images/hero/design-mumbai-poster.webp"
         alt=""
         width="1920"
         height="1080"
@@ -40,7 +39,16 @@
         decoding="async"
         fetchpriority="high"
       />
-    </video>
+    </picture>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      class="hero__bg-video"
+      data-lazy-src="/videos/design-mumbai-hero.mp4"
+    ></video>
   </div>
 
   <div class="hero__overlay" aria-hidden="true"></div>

@@ -407,16 +407,23 @@ const faqs = [
       <div class="nw-story__track">
         <div class="nw-story__pin">
           <div class="nw-story__bg" aria-hidden="true">
-            <img
-              src="/images/non-woven/nw-story-bg.jpg"
-              srcset="/images/non-woven/nw-story-bg-1280w.jpg 1280w, /images/non-woven/nw-story-bg.jpg 1920w"
-              sizes="100vw"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              width="1920"
-              height="1280"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/images/non-woven/nw-story-bg-1280w.webp 1280w, /images/non-woven/nw-story-bg.webp 1920w"
+                sizes="100vw"
+              />
+              <img
+                src="/images/non-woven/nw-story-bg.jpg"
+                srcset="/images/non-woven/nw-story-bg-1280w.jpg 1280w, /images/non-woven/nw-story-bg.jpg 1920w"
+                sizes="100vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1280"
+              />
+            </picture>
           </div>
           <div class="nw-story__veil" aria-hidden="true"></div>
           <div class="nw-story__stage">
