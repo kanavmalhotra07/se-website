@@ -415,39 +415,41 @@ const faqs = [
               height="1280"
             />
           </div>
-          <div class="nw-story__overlay" aria-hidden="true"></div>
+          <div class="nw-story__veil" aria-hidden="true"></div>
           <div class="nw-story__stage">
-            <div class="container">
-              <header class="nw-story__head" data-animate>
-                <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
-                <h2 class="nw-context-title" id="nw-context-heading">
-                  India's Exhibition Industry<br />Runs on Non Woven Carpet.
-                </h2>
-              </header>
-              <div class="nw-story__paras" aria-live="polite">
-                <p class="nw-story__para" data-story-para="0">
-                  Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
-                  Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
-                  floor beneath your feet is almost certainly non woven carpet. It has been the default
-                  exhibition floor covering in India for decades: reliable in performance, available in
-                  sufficient volume, and cost-effective at the scale that exhibition organisers and
-                  contractors demand.
-                </p>
-                <p class="nw-story__para" data-story-para="1">
-                  Non woven carpet covers areas that few other flooring materials can manage efficiently
-                  at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
-                  square metres of floor in parallel. Individual stall floors at a few hundred square
-                  metres each. The material's lightweight structure and simple installation method allow
-                  large teams to cover significant floor areas within the overnight build window that
-                  most trade fair venues in India operate.
-                </p>
-                <p class="nw-story__para" data-story-para="2">
-                  For exhibition organizers and stall contractors across India's full exhibition calendar
-                  — from auto shows and technology expos to food and textile trade fairs — non woven
-                  carpet's compatibility with all standard installation methods, year-round stock
-                  availability, and cost efficiency at large floor areas make it the practical choice
-                  the industry keeps returning to, event after event.
-                </p>
+            <div class="nw-story__content">
+              <div class="container">
+                <header class="nw-story__head" data-animate>
+                  <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+                  <h2 class="nw-context-title" id="nw-context-heading">
+                    India's Exhibition Industry<br />Runs on Non Woven Carpet.
+                  </h2>
+                </header>
+                <div class="nw-story__paras">
+                  <p class="nw-story__para" data-story-para="0">
+                    Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
+                    Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
+                    floor beneath your feet is almost certainly non woven carpet. It has been the default
+                    exhibition floor covering in India for decades: reliable in performance, available in
+                    sufficient volume, and cost-effective at the scale that exhibition organisers and
+                    contractors demand.
+                  </p>
+                  <p class="nw-story__para" data-story-para="1">
+                    Non woven carpet covers areas that few other flooring materials can manage efficiently
+                    at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
+                    square metres of floor in parallel. Individual stall floors at a few hundred square
+                    metres each. The material's lightweight structure and simple installation method allow
+                    large teams to cover significant floor areas within the overnight build window that
+                    most trade fair venues in India operate.
+                  </p>
+                  <p class="nw-story__para" data-story-para="2">
+                    For exhibition organizers and stall contractors across India's full exhibition calendar
+                    — from auto shows and technology expos to food and textile trade fairs — non woven
+                    carpet's compatibility with all standard installation methods, year-round stock
+                    availability, and cost efficiency at large floor areas make it the practical choice
+                    the industry keeps returning to, event after event.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -532,13 +534,16 @@ const faqs = [
 <style>
   /* ─── Scroll Story — Exhibition Context ──────────────────────────────── */
   .nw-story { background: var(--color-navy-dark); }
-  .nw-story__track { position: relative; height: 450vh; }
+
+  .nw-story__track { position: relative; height: 480vh; }
+
   .nw-story__pin {
     position: sticky;
     top: 0;
     height: 100vh;
     overflow: hidden;
   }
+
   .nw-story__bg {
     position: absolute;
     inset: 0;
@@ -550,62 +555,65 @@ const faqs = [
     object-fit: cover;
     object-position: center 55%;
   }
-  .nw-story__overlay {
+
+  /* Two-layer veil: left editorial column (horizontal) + bottom vignette (vertical) */
+  .nw-story__veil {
     position: absolute;
     inset: 0;
     z-index: 1;
-    /* Dark at top (heading zone) and bottom (paras zone); open in the middle */
-    background: linear-gradient(
-      to bottom,
-      rgba(12, 18, 48, 0.80) 0%,
-      rgba(12, 18, 48, 0.15) 32%,
-      rgba(12, 18, 48, 0.15) 58%,
-      rgba(12, 18, 48, 0.92) 100%
-    );
+    background:
+      linear-gradient(to top, rgba(12,18,48,0.80) 0%, rgba(12,18,48,0.30) 38%, transparent 64%),
+      linear-gradient(to right, rgba(12,18,48,0.97) 0%, rgba(12,18,48,0.90) 22%, rgba(12,18,48,0.46) 50%, rgba(12,18,48,0.06) 100%);
   }
+
+  /* Stage: full-size canvas, clips content that exits bounds */
   .nw-story__stage {
     position: absolute;
     inset: 0;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    /* 100px = navbar height; var(--sp-6) = 64px breathing room */
-    padding: calc(100px + var(--sp-6)) 0 8vh;
+    overflow: hidden;
   }
-  .nw-story__head { margin-bottom: var(--sp-4); }
-  .nw-story__paras {
-    max-width: 640px;
-    margin-top: auto; /* push paragraphs to bottom zone */
+
+  /* Content wrapper — JS translates this block vertically during scroll entry */
+  .nw-story__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* 100px navbar + 64px (--sp-6) breathing room = 164px settled top */
+    padding-top: calc(100px + var(--sp-6));
   }
+
+  .nw-story__head { margin-bottom: var(--sp-5); }
+
+  .nw-story__paras { max-width: 520px; }
 
   .nw-context-title {
     font-family: var(--font-display);
-    font-size: clamp(24px, 3.5vw, 42px);
+    font-size: clamp(24px, 3.4vw, 44px);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     color: var(--color-text-inverse);
     margin-top: var(--sp-3);
     clip-path: inset(0 0 105% 0);
     transition: clip-path 920ms 60ms var(--ease-out);
   }
-  .nw-story__head.is-visible .nw-context-title {
-    clip-path: inset(0 0 0% 0);
-  }
+  .nw-story__head.is-visible .nw-context-title { clip-path: inset(0 0 0% 0); }
 
   .nw-story__para {
-    color: rgba(247, 246, 243, 0.70);
+    color: rgba(247, 246, 243, 0.78);
     font-family: var(--font-body);
-    font-size: clamp(14px, 1.2vw, 16px);
-    line-height: 1.80;
+    font-size: clamp(14px, 1.15vw, 16px);
+    line-height: 1.82;
     margin-bottom: var(--sp-4);
   }
   .nw-story__para:last-child { margin-bottom: 0; }
 
-  /* JS adds this class — hides paras until scroll reveals them */
+  /* JS-enhanced: hide paras until scroll-driven reveal */
   .nw-story--js .nw-story__para {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
 
   /* ─── Mobile: static fallback ─────────────────────────────────────────── */
@@ -613,18 +621,11 @@ const faqs = [
     .nw-story__track { height: auto; }
     .nw-story__pin { position: static; height: auto; }
     .nw-story__bg { position: relative; height: 56vw; min-height: 220px; }
-    .nw-story__overlay { display: none; }
-    .nw-story__stage {
-      position: static;
-      display: block;
-      padding: var(--sp-7) 0 var(--sp-8);
-      background: var(--color-navy-dark);
-    }
+    .nw-story__veil { display: none; }
+    .nw-story__stage { position: static; overflow: visible; background: var(--color-navy-dark); }
+    .nw-story__content { position: static; padding: var(--sp-7) 0 var(--sp-8); }
     .nw-story__head { margin-bottom: var(--sp-4); }
-    .nw-story--js .nw-story__para {
-      opacity: 1;
-      transform: none;
-    }
+    .nw-story--js .nw-story__para { opacity: 1; transform: none; }
   }
 
 
@@ -935,38 +936,61 @@ const faqs = [
       opacity: 1;
       transform: none;
     }
+    .nw-story__content {
+      transform: none !important;
+    }
   }
 </style>
 
 <script>
   (function () {
     var mm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var story = document.querySelector('.nw-story');
-    var track = document.querySelector('.nw-story__track');
-    var paras = Array.from(document.querySelectorAll('.nw-story__para'));
+    var story   = document.querySelector('.nw-story');
+    var track   = document.querySelector('.nw-story__track');
+    var content = document.querySelector('.nw-story__content');
+    var paras   = Array.from(document.querySelectorAll('.nw-story__para'));
 
-    if (!story || !track || !paras.length) return;
+    if (!story || !track || !content || !paras.length) return;
     if (mm.matches || window.innerWidth < 768) return;
 
     story.classList.add('nw-story--js');
 
     var raf = null;
 
+    // Cubic ease-out
+    function eOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+    // Content block starts 24vh below settled position, rises as user enters
+    var initDrop = window.innerHeight * 0.24;
+
+    // Scroll phases (as fraction of total progress 0→1):
+    // 0.00–0.18  heading settles upward into position
+    // 0.18–0.36  para 0 reveals
+    // 0.36–0.44  reading pause
+    // 0.44–0.62  para 1 reveals
+    // 0.62–0.70  reading pause
+    // 0.70–0.88  para 2 reveals
+    // 0.88–1.00  all visible, section holds before FAQ
+    var SETTLE_END   = 0.18;
+    var PARA_PHASES  = [[0.18, 0.36], [0.44, 0.62], [0.70, 0.88]];
+
     function update() {
       raf = null;
       var rect = track.getBoundingClientRect();
       var scrollTravel = rect.height - window.innerHeight;
-      var progress = Math.max(0, Math.min(1, -rect.top / scrollTravel));
+      var progress = clamp(-rect.top / scrollTravel, 0, 1);
 
+      // Content block settles from initDrop → 0 over SETTLE_END
+      var settleT = eOut(clamp(progress / SETTLE_END, 0, 1));
+      content.style.transform = 'translateY(' + (initDrop * (1 - settleT)) + 'px)';
+
+      // Sequential paragraph reveals
       paras.forEach(function (p, i) {
-        // Para i appears at progress threshold (i+1)/(paras.length+1)
-        var threshold = (i + 1) / (paras.length + 1); // 0.25, 0.50, 0.75
-        var fadeIn = 0.09; // fraction of total progress for fade-in ramp
-
-        var t = Math.max(0, Math.min(1, (progress - (threshold - fadeIn)) / fadeIn));
-
-        p.style.opacity = String(t);
-        p.style.transform = t < 1 ? 'translate3d(0,' + (24 * (1 - t)) + 'px,0)' : '';
+        var ph = PARA_PHASES[i];
+        var t  = eOut(clamp((progress - ph[0]) / (ph[1] - ph[0]), 0, 1));
+        p.style.opacity   = String(t);
+        p.style.transform = 'translate3d(0,' + Math.round(28 * (1 - t)) + 'px,0)';
       });
     }
 
@@ -974,17 +998,18 @@ const faqs = [
       if (!raf) raf = requestAnimationFrame(update);
     }
 
-    // Prime/release will-change via IntersectionObserver
+    // Prime/release will-change as section enters/exits viewport
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        paras.forEach(function (p) {
-          p.style.willChange = e.isIntersecting ? 'opacity, transform' : 'auto';
-        });
+        var wc = e.isIntersecting ? 'transform'          : 'auto';
+        var wp = e.isIntersecting ? 'opacity, transform' : 'auto';
+        content.style.willChange = wc;
+        paras.forEach(function (p) { p.style.willChange = wp; });
       });
     }, { threshold: 0 });
     io.observe(track);
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    update();
+    update(); // set initial state before first scroll event
   })();
 </script>
