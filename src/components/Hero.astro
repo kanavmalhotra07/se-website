@@ -1,6 +1,22 @@
 ---
 ---
 
+<style>
+  @keyframes heroUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero__eyebrow  { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.04s both; }
+  .hero__headline { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.10s both; }
+  .hero__sub      { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.17s both; }
+  .hero__actions  { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.24s both; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__eyebrow, .hero__headline, .hero__sub, .hero__actions {
+      animation: none;
+    }
+  }
+</style>
+
 <section class="hero" aria-label="Hero">
   <div class="hero__bg" aria-hidden="true">
     <video
@@ -8,11 +24,11 @@
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="none"
       poster="/images/hero/design-mumbai-poster.webp"
       class="hero__bg-video"
+      data-lazy-src="/videos/design-mumbai-hero.mp4"
     >
-      <source src="/videos/design-mumbai-hero.mp4" type="video/mp4" />
       <img
         src="/images/hero/design-mumbai-poster.webp"
         srcset="/images/hero/design-mumbai-poster-640w.webp 640w, /images/hero/design-mumbai-poster-1280w.webp 1280w, /images/hero/design-mumbai-poster.webp 1920w"
@@ -32,16 +48,16 @@
 
   <div class="hero__content container">
     <div class="hero__inner">
-      <span class="hero__eyebrow" data-animate>Exhibition Flooring · India</span>
-      <h1 class="hero__headline" data-animate data-delay="1">
+      <span class="hero__eyebrow">Exhibition Flooring · India</span>
+      <h1 class="hero__headline">
         The Floor Beneath<br />India's Exhibitions.
       </h1>
-      <p class="hero__sub" data-animate data-delay="2">
+      <p class="hero__sub">
         Non woven, ribbed, velour, and custom exhibition carpet —
         supplied and installed for trade fairs, expos, and
         conventions across India.
       </p>
-      <div class="hero__actions" data-animate data-delay="3">
+      <div class="hero__actions">
         <a href="/products" class="btn btn--hero-primary">View Catalogue</a>
         <a href="/contact" class="hero__cta-link">
           Get a Quote

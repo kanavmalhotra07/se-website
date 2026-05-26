@@ -394,20 +394,25 @@ const allBreadcrumbs: BreadcrumbItem[] = [
       productsSubmenu?.setAttribute('aria-hidden', String(expanded));
     });
 
-    // ─── Background video lifecycle — pause when offscreen, play on entry ────
-    // 160px pre-load margin so video is already playing before it enters view.
+    // ─── Background video lifecycle — lazy-load src, pause when offscreen ────
+    // 200px pre-load margin so src is set before the video enters view.
     const videoObs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
         if (entry.isIntersecting) {
+          const lazySrc = (video as HTMLVideoElement & { dataset: DOMStringMap }).dataset.lazySrc;
+          if (lazySrc && !video.src) {
+            video.src = lazySrc;
+            video.load();
+          }
           video.play().catch(() => {});
         } else {
           video.pause();
         }
       });
-    }, { rootMargin: '160px 0px' });
+    }, { rootMargin: '200px 0px' });
 
-    document.querySelectorAll<HTMLVideoElement>('video[autoplay][muted]').forEach((video) => {
+    document.querySelectorAll<HTMLVideoElement>('video[data-lazy-src]').forEach((video) => {
       videoObs.observe(video);
     });
 
