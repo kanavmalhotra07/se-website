@@ -332,37 +332,90 @@ const faqs = [
       </div>
     </div>
 
-    <!-- ─── EXHIBITION CONTEXT ───────────────────────────────────────── -->
-    <div class="prod-section prod-section--dark" aria-labelledby="lp-context-heading">
-      <div class="container">
-        <div class="prod-section__header" data-animate>
-          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
-          <h2 class="prod-section__title" id="lp-context-heading">Loop Pile Carpet<br />in Indian Exhibitions.</h2>
+    <!-- ─── EXHIBITION CONTEXT — scroll story ───────────────────────── -->
+    <section class="lp-story" aria-labelledby="lp-context-heading">
+      <div class="lp-story__track">
+        <div class="lp-story__pin">
+          <div class="lp-story__bg" aria-hidden="true">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/images/loop-pile/lp-bilateral-corridor-1280w.webp 1280w, /images/loop-pile/lp-bilateral-corridor.webp 1920w"
+                sizes="100vw"
+              />
+              <img
+                src="/images/loop-pile/lp-bilateral-corridor.jpg"
+                srcset="/images/loop-pile/lp-bilateral-corridor-1280w.jpg 1280w, /images/loop-pile/lp-bilateral-corridor.jpg 1920w"
+                sizes="100vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="1920"
+                height="1440"
+              />
+            </picture>
+          </div>
+          <div class="lp-story__veil" aria-hidden="true"></div>
+          <div class="lp-story__stage">
+
+            <!-- Chapter 0 — Heading -->
+            <div class="lp-story__chapter lp-story__chapter--head">
+              <div class="container">
+                <header class="lp-story__head" data-animate>
+                  <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+                  <h2 class="lp-context-title" id="lp-context-heading">
+                    Loop Pile Carpet<br />in Indian Exhibitions.
+                  </h2>
+                </header>
+              </div>
+            </div>
+
+            <!-- Chapter 1 — Para 1 -->
+            <div class="lp-story__chapter lp-story__chapter--para" data-chapter="0">
+              <div class="container">
+                <p class="lp-story__para">
+                  Loop pile carpet occupies a specific position in the exhibition flooring
+                  hierarchy that neither ribbed nor velour covers precisely. Its cut-loop
+                  construction produces a surface that is more structured and architectural
+                  than velour's soft cut-pile — suited to environments where the floor needs
+                  to convey quality and permanence without the visual softness associated
+                  with premium event carpet.
+                </p>
+              </div>
+            </div>
+
+            <!-- Chapter 2 — Para 2 -->
+            <div class="lp-story__chapter lp-story__chapter--para" data-chapter="1">
+              <div class="container">
+                <p class="lp-story__para">
+                  Corporate hospitality suites, extended-run conference facilities,
+                  long-duration exhibitions, and high-value product environments where
+                  visitors spend significant time — these are the spaces where loop pile
+                  carpet's neutral, structured surface performs best. The material reads as
+                  considered rather than decorative: appropriate for environments where the
+                  exhibit or the conversation in the space is the focus, not the floor itself.
+                </p>
+              </div>
+            </div>
+
+            <!-- Chapter 3 — Para 3 -->
+            <div class="lp-story__chapter lp-story__chapter--para" data-chapter="2">
+              <div class="container">
+                <p class="lp-story__para">
+                  Among the venues where Sanchi Enterprises regularly installs flooring —
+                  Pragati Maidan and Yashobhoomi in Delhi, the Jio World Convention Centre
+                  and Bombay Exhibition Centre in Mumbai, BIEC in Bengaluru, and HITEX in
+                  Hyderabad — loop pile carpet is the specified choice for hospitality zones
+                  and corporate pavilions where the floor needs to support a professional,
+                  long-duration environment.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <p class="prod-section__body" data-animate data-delay="1">
-          Loop pile carpet occupies a specific position in the exhibition flooring hierarchy
-          that neither ribbed nor velour covers precisely. Its cut-loop construction produces
-          a surface that is more structured and architectural than velour's soft cut-pile —
-          suited to environments where the floor needs to convey quality and permanence
-          without the visual softness associated with premium event carpet.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="2">
-          Corporate hospitality suites, extended-run conference facilities, long-duration
-          exhibitions, and high-value product environments where visitors spend significant
-          time — these are the spaces where loop pile carpet's neutral, structured surface
-          performs best. The material reads as considered rather than decorative: appropriate
-          for environments where the exhibit or the conversation in the space is the focus,
-          not the floor itself.
-        </p>
-        <p class="prod-section__body" data-animate data-delay="3">
-          Among the venues where Sanchi Enterprises regularly installs flooring — Pragati
-          Maidan and Yashobhoomi in Delhi, the Jio World Convention Centre and Bombay
-          Exhibition Centre in Mumbai, BIEC in Bengaluru, and HITEX in Hyderabad — loop pile
-          carpet is the specified choice for hospitality zones and corporate pavilions where
-          the floor needs to support a professional, long-duration environment.
-        </p>
       </div>
-    </div>
+    </section>
 
     <ExhibitionAuthority heading="Installed at India's<br />Major Trade Fairs." />
 
@@ -477,6 +530,104 @@ const faqs = [
       }, { passive: true });
     }
   }
+
+  // ─── Exhibition Context — solo-chapter scroll story ─────────────────
+  (function () {
+    var mm      = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var story   = document.querySelector('.lp-story');
+    var track   = document.querySelector('.lp-story__track');
+    var headCh  = document.querySelector('.lp-story__chapter--head');
+    var paraChs = Array.from(document.querySelectorAll('.lp-story__chapter--para'));
+
+    if (!story || !track || !headCh || !paraChs.length) return;
+    if (mm.matches || window.innerWidth < 768) return;
+
+    story.classList.add('lp-story--js');
+
+    var VH     = window.innerHeight;
+    var TRAVEL = Math.round(VH * 0.28);
+    var raf    = null;
+
+    function eOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+    // Ch 0 — Heading:  active 0.00–0.18, exits 0.18–0.26
+    // Ch 1 — Para 1:   enters 0.22–0.32, active 0.32–0.52, exits 0.52–0.60
+    // Ch 2 — Para 2:   enters 0.56–0.66, active 0.66–0.80, exits 0.80–0.88
+    // Ch 3 — Para 3:   enters 0.84–0.92, active 0.92–1.00 (no exit)
+    var TL = [
+      { enter: null,          exit: [0.18, 0.26] },
+      { enter: [0.22, 0.32],  exit: [0.52, 0.60] },
+      { enter: [0.56, 0.66],  exit: [0.80, 0.88] },
+      { enter: [0.84, 0.92],  exit: null          },
+    ];
+
+    var chapters = [headCh].concat(paraChs);
+
+    function update() {
+      raf = null;
+      var rect         = track.getBoundingClientRect();
+      var scrollTravel = rect.height - VH;
+      var progress     = clamp(-rect.top / scrollTravel, 0, 1);
+
+      chapters.forEach(function (ch, i) {
+        var tm = TL[i];
+        var opacity, ty;
+
+        if (tm.enter === null) {
+          if (progress <= tm.exit[0]) {
+            opacity = 1; ty = 0;
+          } else if (progress < tm.exit[1]) {
+            var te = eOut(clamp((progress - tm.exit[0]) / (tm.exit[1] - tm.exit[0]), 0, 1));
+            opacity = 1 - te; ty = -TRAVEL * te;
+          } else {
+            opacity = 0; ty = -TRAVEL;
+          }
+        } else if (tm.exit === null) {
+          if (progress < tm.enter[0]) {
+            opacity = 0; ty = TRAVEL;
+          } else if (progress < tm.enter[1]) {
+            var tn = eOut(clamp((progress - tm.enter[0]) / (tm.enter[1] - tm.enter[0]), 0, 1));
+            opacity = tn; ty = Math.round(TRAVEL * (1 - tn));
+          } else {
+            opacity = 1; ty = 0;
+          }
+        } else {
+          if (progress < tm.enter[0]) {
+            opacity = 0; ty = TRAVEL;
+          } else if (progress < tm.enter[1]) {
+            var enterT = eOut(clamp((progress - tm.enter[0]) / (tm.enter[1] - tm.enter[0]), 0, 1));
+            opacity = enterT; ty = Math.round(TRAVEL * (1 - enterT));
+          } else if (progress <= tm.exit[0]) {
+            opacity = 1; ty = 0;
+          } else if (progress < tm.exit[1]) {
+            var exitT = eOut(clamp((progress - tm.exit[0]) / (tm.exit[1] - tm.exit[0]), 0, 1));
+            opacity = 1 - exitT; ty = -Math.round(TRAVEL * exitT);
+          } else {
+            opacity = 0; ty = -TRAVEL;
+          }
+        }
+
+        ch.style.opacity   = String(opacity);
+        ch.style.transform = ty !== 0 ? 'translate3d(0,' + ty + 'px,0)' : '';
+      });
+    }
+
+    function onScroll() {
+      if (!raf) raf = requestAnimationFrame(update);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var w = e.isIntersecting ? 'opacity, transform' : 'auto';
+        chapters.forEach(function (ch) { ch.style.willChange = w; });
+      });
+    }, { threshold: 0 });
+    io.observe(track);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  })();
 </script>
 
 <style>
@@ -798,6 +949,85 @@ const faqs = [
     line-height: 1.5;
   }
 
+  /* ─── Scroll Story — Exhibition Context ──────────────────────────────── */
+  .lp-story { background: var(--color-navy-dark); }
+  .lp-story__track { position: relative; height: 550vh; }
+  .lp-story__pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .lp-story__bg { position: absolute; inset: 0; z-index: 0; }
+  .lp-story__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  /* Left editorial panel (strong — image has white walls) + bottom vignette */
+  .lp-story__veil {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to top, rgba(12,18,48,0.70) 0%, rgba(12,18,48,0.20) 42%, transparent 66%),
+      linear-gradient(to right, rgba(12,18,48,0.97) 0%, rgba(12,18,48,0.93) 28%, rgba(12,18,48,0.52) 54%, rgba(12,18,48,0.06) 100%);
+  }
+  .lp-story__stage {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .lp-story__chapter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .lp-story__chapter--head {
+    padding-top: calc(100px + var(--sp-6));
+  }
+  .lp-story__chapter--para {
+    padding-top: 32vh;
+  }
+  .lp-context-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.8vw, 52px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+    clip-path: inset(0 0 105% 0);
+    transition: clip-path 920ms 60ms var(--ease-out);
+  }
+  .lp-story__head.is-visible .lp-context-title { clip-path: inset(0 0 0% 0); }
+  .lp-story__para {
+    color: rgba(247, 246, 243, 0.84);
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.25vw, 18px);
+    line-height: 1.85;
+    max-width: 520px;
+  }
+  .lp-story--js .lp-story__chapter--para { opacity: 0; }
+
+  /* Mobile: linear static fallback */
+  @media (max-width: 767px) {
+    .lp-story__track  { height: auto; }
+    .lp-story__pin    { position: static; height: auto; }
+    .lp-story__bg     { position: relative; height: 56vw; min-height: 220px; }
+    .lp-story__veil   { display: none; }
+    .lp-story__stage  { position: static; overflow: visible; background: var(--color-navy-dark); }
+    .lp-story__chapter        { position: static; padding: 0; }
+    .lp-story__chapter--head  { padding: var(--sp-8) 0 var(--sp-5); }
+    .lp-story__chapter--para  { padding: 0 0 var(--sp-6); }
+    .lp-story__chapter--para:last-child { padding-bottom: var(--sp-8); }
+    .lp-story--js .lp-story__chapter--para { opacity: 1; }
+    .lp-story__para   { max-width: none; }
+  }
+
   /* ─── Responsive ──────────────────────────────────────────────────────── */
   @media (max-width: 860px) {
     .lp-split { flex-direction: column; min-height: auto; }
@@ -825,5 +1055,8 @@ const faqs = [
   @media (prefers-reduced-motion: reduce) {
     .lp-hero__scroll-line { animation: none; }
     .lp-split:hover .lp-split__visual img { transform: none; }
+    .lp-context-title { clip-path: none; transition: none; }
+    .lp-story__chapter { transform: none !important; }
+    .lp-story--js .lp-story__chapter--para { opacity: 1; }
   }
 </style>
