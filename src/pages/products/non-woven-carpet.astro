@@ -554,11 +554,13 @@ const faqs = [
     position: absolute;
     inset: 0;
     z-index: 1;
+    /* Dark at top (heading zone) and bottom (paras zone); open in the middle */
     background: linear-gradient(
-      to top,
-      rgba(12, 18, 48, 0.90) 0%,
-      rgba(12, 18, 48, 0.60) 45%,
-      rgba(12, 18, 48, 0.40) 100%
+      to bottom,
+      rgba(12, 18, 48, 0.80) 0%,
+      rgba(12, 18, 48, 0.15) 32%,
+      rgba(12, 18, 48, 0.15) 58%,
+      rgba(12, 18, 48, 0.92) 100%
     );
   }
   .nw-story__stage {
@@ -567,11 +569,14 @@ const faqs = [
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 10vh;
+    /* 100px = navbar height; var(--sp-6) = 64px breathing room */
+    padding: calc(100px + var(--sp-6)) 0 8vh;
   }
-  .nw-story__head { margin-bottom: var(--sp-5); }
-  .nw-story__paras { max-width: 640px; }
+  .nw-story__head { margin-bottom: var(--sp-4); }
+  .nw-story__paras {
+    max-width: 640px;
+    margin-top: auto; /* push paragraphs to bottom zone */
+  }
 
   .nw-context-title {
     font-family: var(--font-display);
