@@ -399,38 +399,61 @@ const faqs = [
       </div>
     </div>
 
-    <!-- ─── INDUSTRY CONTEXT ─────────────────────────────────────────────── -->
-    <div class="prod-section prod-section--dark" aria-labelledby="nw-context-heading">
-      <div class="container">
-        <div class="prod-section__header" data-animate>
-          <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
-          <h2 class="nw-context-title" id="nw-context-heading">India's Exhibition Industry Runs on Non Woven Carpet.</h2>
+    <!-- ─── SCROLL STORY — Exhibition Context ─────────────────────────────── -->
+    <section class="nw-story" aria-labelledby="nw-context-heading">
+      <div class="nw-story__track">
+        <div class="nw-story__pin">
+          <div class="nw-story__bg" aria-hidden="true">
+            <img
+              src="/images/non-woven/nw-story-bg.jpg"
+              srcset="/images/non-woven/nw-story-bg-1280w.jpg 1280w, /images/non-woven/nw-story-bg.jpg 1920w"
+              sizes="100vw"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1920"
+              height="1280"
+            />
+          </div>
+          <div class="nw-story__overlay" aria-hidden="true"></div>
+          <div class="nw-story__stage">
+            <div class="container">
+              <header class="nw-story__head" data-animate>
+                <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
+                <h2 class="nw-context-title" id="nw-context-heading">
+                  India's Exhibition Industry<br />Runs on Non Woven Carpet.
+                </h2>
+              </header>
+              <div class="nw-story__paras" aria-live="polite">
+                <p class="nw-story__para" data-story-para="0">
+                  Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
+                  Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
+                  floor beneath your feet is almost certainly non woven carpet. It has been the default
+                  exhibition floor covering in India for decades: reliable in performance, available in
+                  sufficient volume, and cost-effective at the scale that exhibition organisers and
+                  contractors demand.
+                </p>
+                <p class="nw-story__para" data-story-para="1">
+                  Non woven carpet covers areas that few other flooring materials can manage efficiently
+                  at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
+                  square metres of floor in parallel. Individual stall floors at a few hundred square
+                  metres each. The material's lightweight structure and simple installation method allow
+                  large teams to cover significant floor areas within the overnight build window that
+                  most trade fair venues in India operate.
+                </p>
+                <p class="nw-story__para" data-story-para="2">
+                  For exhibition organizers and stall contractors across India's full exhibition calendar
+                  — from auto shows and technology expos to food and textile trade fairs — non woven
+                  carpet's compatibility with all standard installation methods, year-round stock
+                  availability, and cost efficiency at large floor areas make it the practical choice
+                  the industry keeps returning to, event after event.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="prod-section__body--inverse" data-animate data-delay="1">
-          Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
-          Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
-          floor beneath your feet is almost certainly non woven carpet. It has been the default
-          exhibition floor covering in India for decades: reliable in performance, available in
-          sufficient volume, and cost-effective at the scale that exhibition organisers and
-          contractors demand.
-        </p>
-        <p class="prod-section__body--inverse" data-animate data-delay="2">
-          Non woven carpet covers areas that few other flooring materials can manage efficiently
-          at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
-          square metres of floor in parallel. Individual stall floors at a few hundred square
-          metres each. The material's lightweight structure and simple installation method allow
-          large teams to cover significant floor areas within the overnight build window that
-          most trade fair venues in India operate.
-        </p>
-        <p class="prod-section__body--inverse" data-animate data-delay="3">
-          For exhibition organizers and stall contractors across India's full exhibition calendar
-          — from auto shows and technology expos to food and textile trade fairs — non woven
-          carpet's compatibility with all standard installation methods, year-round stock
-          availability, and cost efficiency at large floor areas make it the practical choice
-          the industry keeps returning to, event after event.
-        </p>
       </div>
-    </div>
+    </section>
 
     <!-- ─── FAQ ──────────────────────────────────────────────────────────── -->
     <div class="prod-section prod-section--stone" aria-labelledby="nw-faq-heading">
@@ -507,7 +530,49 @@ const faqs = [
 </Layout>
 
 <style>
-  /* ─── Industry context (dark section) ─────────────────────────────────── */
+  /* ─── Scroll Story — Exhibition Context ──────────────────────────────── */
+  .nw-story { background: var(--color-navy-dark); }
+  .nw-story__track { position: relative; height: 450vh; }
+  .nw-story__pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .nw-story__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .nw-story__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+  .nw-story__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(12, 18, 48, 0.90) 0%,
+      rgba(12, 18, 48, 0.60) 45%,
+      rgba(12, 18, 48, 0.40) 100%
+    );
+  }
+  .nw-story__stage {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10vh;
+  }
+  .nw-story__head { margin-bottom: var(--sp-5); }
+  .nw-story__paras { max-width: 640px; }
+
   .nw-context-title {
     font-family: var(--font-display);
     font-size: clamp(24px, 3.5vw, 42px);
@@ -519,18 +584,43 @@ const faqs = [
     clip-path: inset(0 0 105% 0);
     transition: clip-path 920ms 60ms var(--ease-out);
   }
-  .prod-section__header.is-visible .nw-context-title {
+  .nw-story__head.is-visible .nw-context-title {
     clip-path: inset(0 0 0% 0);
   }
-  .prod-section__body--inverse {
+
+  .nw-story__para {
+    color: rgba(247, 246, 243, 0.70);
     font-family: var(--font-body);
     font-size: clamp(14px, 1.2vw, 16px);
     line-height: 1.80;
-    color: rgba(247, 246, 243, 0.65);
-    max-width: 760px;
     margin-bottom: var(--sp-4);
   }
-  .prod-section__body--inverse:last-child { margin-bottom: 0; }
+  .nw-story__para:last-child { margin-bottom: 0; }
+
+  /* JS adds this class — hides paras until scroll reveals them */
+  .nw-story--js .nw-story__para {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  /* ─── Mobile: static fallback ─────────────────────────────────────────── */
+  @media (max-width: 767px) {
+    .nw-story__track { height: auto; }
+    .nw-story__pin { position: static; height: auto; }
+    .nw-story__bg { position: relative; height: 56vw; min-height: 220px; }
+    .nw-story__overlay { display: none; }
+    .nw-story__stage {
+      position: static;
+      display: block;
+      padding: var(--sp-7) 0 var(--sp-8);
+      background: var(--color-navy-dark);
+    }
+    .nw-story__head { margin-bottom: var(--sp-4); }
+    .nw-story--js .nw-story__para {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
 
   /* ─── Related products ─────────────────────────────────────────────────── */
@@ -836,5 +926,60 @@ const faqs = [
       clip-path: none;
       transition: none;
     }
+    .nw-story--js .nw-story__para {
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>
+
+<script>
+  (function () {
+    var mm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var story = document.querySelector('.nw-story');
+    var track = document.querySelector('.nw-story__track');
+    var paras = Array.from(document.querySelectorAll('.nw-story__para'));
+
+    if (!story || !track || !paras.length) return;
+    if (mm.matches || window.innerWidth < 768) return;
+
+    story.classList.add('nw-story--js');
+
+    var raf = null;
+
+    function update() {
+      raf = null;
+      var rect = track.getBoundingClientRect();
+      var scrollTravel = rect.height - window.innerHeight;
+      var progress = Math.max(0, Math.min(1, -rect.top / scrollTravel));
+
+      paras.forEach(function (p, i) {
+        // Para i appears at progress threshold (i+1)/(paras.length+1)
+        var threshold = (i + 1) / (paras.length + 1); // 0.25, 0.50, 0.75
+        var fadeIn = 0.09; // fraction of total progress for fade-in ramp
+
+        var t = Math.max(0, Math.min(1, (progress - (threshold - fadeIn)) / fadeIn));
+
+        p.style.opacity = String(t);
+        p.style.transform = t < 1 ? 'translate3d(0,' + (24 * (1 - t)) + 'px,0)' : '';
+      });
+    }
+
+    function onScroll() {
+      if (!raf) raf = requestAnimationFrame(update);
+    }
+
+    // Prime/release will-change via IntersectionObserver
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        paras.forEach(function (p) {
+          p.style.willChange = e.isIntersecting ? 'opacity, transform' : 'auto';
+        });
+      });
+    }, { threshold: 0 });
+    io.observe(track);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  })();
+</script>
