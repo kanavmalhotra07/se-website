@@ -417,7 +417,9 @@ const faqs = [
           </div>
           <div class="nw-story__veil" aria-hidden="true"></div>
           <div class="nw-story__stage">
-            <div class="nw-story__content">
+
+            <!-- Chapter 0 — Heading (solo, no other text) -->
+            <div class="nw-story__chapter nw-story__chapter--head">
               <div class="container">
                 <header class="nw-story__head" data-animate>
                   <span class="eyebrow eyebrow--inverse eyebrow--line">Exhibition Context</span>
@@ -425,33 +427,50 @@ const faqs = [
                     India's Exhibition Industry<br />Runs on Non Woven Carpet.
                   </h2>
                 </header>
-                <div class="nw-story__paras">
-                  <p class="nw-story__para" data-story-para="0">
-                    Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
-                    Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
-                    floor beneath your feet is almost certainly non woven carpet. It has been the default
-                    exhibition floor covering in India for decades: reliable in performance, available in
-                    sufficient volume, and cost-effective at the scale that exhibition organisers and
-                    contractors demand.
-                  </p>
-                  <p class="nw-story__para" data-story-para="1">
-                    Non woven carpet covers areas that few other flooring materials can manage efficiently
-                    at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
-                    square metres of floor in parallel. Individual stall floors at a few hundred square
-                    metres each. The material's lightweight structure and simple installation method allow
-                    large teams to cover significant floor areas within the overnight build window that
-                    most trade fair venues in India operate.
-                  </p>
-                  <p class="nw-story__para" data-story-para="2">
-                    For exhibition organizers and stall contractors across India's full exhibition calendar
-                    — from auto shows and technology expos to food and textile trade fairs — non woven
-                    carpet's compatibility with all standard installation methods, year-round stock
-                    availability, and cost efficiency at large floor areas make it the practical choice
-                    the industry keeps returning to, event after event.
-                  </p>
-                </div>
               </div>
             </div>
+
+            <!-- Chapter 1 — Para 1 (solo) -->
+            <div class="nw-story__chapter nw-story__chapter--para" data-chapter="0">
+              <div class="container">
+                <p class="nw-story__para">
+                  Walk into any trade fair in India — at Pragati Maidan in New Delhi, Bombay Exhibition
+                  Centre in Mumbai, BIEC in Bengaluru, or India Expo Centre in Greater Noida — and the
+                  floor beneath your feet is almost certainly non woven carpet. It has been the default
+                  exhibition floor covering in India for decades: reliable in performance, available in
+                  sufficient volume, and cost-effective at the scale that exhibition organisers and
+                  contractors demand.
+                </p>
+              </div>
+            </div>
+
+            <!-- Chapter 2 — Para 2 (solo) -->
+            <div class="nw-story__chapter nw-story__chapter--para" data-chapter="1">
+              <div class="container">
+                <p class="nw-story__para">
+                  Non woven carpet covers areas that few other flooring materials can manage efficiently
+                  at exhibition scale. Halls of 10,000 square metres. Multi-hall events running 50,000
+                  square metres of floor in parallel. Individual stall floors at a few hundred square
+                  metres each. The material's lightweight structure and simple installation method allow
+                  large teams to cover significant floor areas within the overnight build window that
+                  most trade fair venues in India operate.
+                </p>
+              </div>
+            </div>
+
+            <!-- Chapter 3 — Para 3 (solo, natural section exit) -->
+            <div class="nw-story__chapter nw-story__chapter--para" data-chapter="2">
+              <div class="container">
+                <p class="nw-story__para">
+                  For exhibition organizers and stall contractors across India's full exhibition calendar
+                  — from auto shows and technology expos to food and textile trade fairs — non woven
+                  carpet's compatibility with all standard installation methods, year-round stock
+                  availability, and cost efficiency at large floor areas make it the practical choice
+                  the industry keeps returning to, event after event.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -535,7 +554,8 @@ const faqs = [
   /* ─── Scroll Story — Exhibition Context ──────────────────────────────── */
   .nw-story { background: var(--color-navy-dark); }
 
-  .nw-story__track { position: relative; height: 480vh; }
+  /* 550vh gives ~900px of active scroll per chapter at typical viewport */
+  .nw-story__track { position: relative; height: 550vh; }
 
   .nw-story__pin {
     position: sticky;
@@ -544,11 +564,7 @@ const faqs = [
     overflow: hidden;
   }
 
-  .nw-story__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
+  .nw-story__bg { position: absolute; inset: 0; z-index: 0; }
   .nw-story__bg img {
     width: 100%;
     height: 100%;
@@ -556,17 +572,17 @@ const faqs = [
     object-position: center 55%;
   }
 
-  /* Two-layer veil: left editorial column (horizontal) + bottom vignette (vertical) */
+  /* Left editorial panel + bottom vignette — keeps text readable over image */
   .nw-story__veil {
     position: absolute;
     inset: 0;
     z-index: 1;
     background:
-      linear-gradient(to top, rgba(12,18,48,0.80) 0%, rgba(12,18,48,0.30) 38%, transparent 64%),
-      linear-gradient(to right, rgba(12,18,48,0.97) 0%, rgba(12,18,48,0.90) 22%, rgba(12,18,48,0.46) 50%, rgba(12,18,48,0.06) 100%);
+      linear-gradient(to top, rgba(12,18,48,0.72) 0%, rgba(12,18,48,0.18) 40%, transparent 65%),
+      linear-gradient(to right, rgba(12,18,48,0.96) 0%, rgba(12,18,48,0.88) 24%, rgba(12,18,48,0.40) 52%, rgba(12,18,48,0.05) 100%);
   }
 
-  /* Stage: full-size canvas, clips content that exits bounds */
+  /* Stage clips chapters that are translating above/below the viewport */
   .nw-story__stage {
     position: absolute;
     inset: 0;
@@ -574,26 +590,30 @@ const faqs = [
     overflow: hidden;
   }
 
-  /* Content wrapper — JS translates this block vertically during scroll entry */
-  .nw-story__content {
+  /* All chapters occupy the same absolute space — only one visible at a time */
+  .nw-story__chapter {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    /* 100px navbar + 64px (--sp-6) breathing room = 164px settled top */
-    padding-top: calc(100px + var(--sp-6));
   }
 
-  .nw-story__head { margin-bottom: var(--sp-5); }
+  /* Heading chapter: top-anchored below navbar */
+  .nw-story__chapter--head {
+    padding-top: calc(100px + var(--sp-6)); /* 164px: 100px navbar + 64px breathing */
+  }
 
-  .nw-story__paras { max-width: 520px; }
+  /* Paragraph chapters: sit in the reading zone (~35% from top) */
+  .nw-story__chapter--para {
+    padding-top: 32vh;
+  }
 
   .nw-context-title {
     font-family: var(--font-display);
-    font-size: clamp(24px, 3.4vw, 44px);
+    font-size: clamp(26px, 3.8vw, 52px);
     font-weight: 700;
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     color: var(--color-text-inverse);
     margin-top: var(--sp-3);
     clip-path: inset(0 0 105% 0);
@@ -601,31 +621,31 @@ const faqs = [
   }
   .nw-story__head.is-visible .nw-context-title { clip-path: inset(0 0 0% 0); }
 
+  /* Paragraph text — larger, looser for solo reading */
   .nw-story__para {
-    color: rgba(247, 246, 243, 0.78);
+    color: rgba(247, 246, 243, 0.82);
     font-family: var(--font-body);
-    font-size: clamp(14px, 1.15vw, 16px);
-    line-height: 1.82;
-    margin-bottom: var(--sp-4);
-  }
-  .nw-story__para:last-child { margin-bottom: 0; }
-
-  /* JS-enhanced: hide paras until scroll-driven reveal */
-  .nw-story--js .nw-story__para {
-    opacity: 0;
-    transform: translateY(28px);
+    font-size: clamp(15px, 1.25vw, 18px);
+    line-height: 1.85;
+    max-width: 520px;
   }
 
-  /* ─── Mobile: static fallback ─────────────────────────────────────────── */
+  /* Para chapters start hidden — JS manages opacity + translate */
+  .nw-story--js .nw-story__chapter--para { opacity: 0; }
+
+  /* ─── Mobile: linear static fallback ──────────────────────────────────── */
   @media (max-width: 767px) {
     .nw-story__track { height: auto; }
-    .nw-story__pin { position: static; height: auto; }
-    .nw-story__bg { position: relative; height: 56vw; min-height: 220px; }
-    .nw-story__veil { display: none; }
+    .nw-story__pin   { position: static; height: auto; }
+    .nw-story__bg    { position: relative; height: 56vw; min-height: 220px; }
+    .nw-story__veil  { display: none; }
     .nw-story__stage { position: static; overflow: visible; background: var(--color-navy-dark); }
-    .nw-story__content { position: static; padding: var(--sp-7) 0 var(--sp-8); }
-    .nw-story__head { margin-bottom: var(--sp-4); }
-    .nw-story--js .nw-story__para { opacity: 1; transform: none; }
+    .nw-story__chapter      { position: static; padding: 0; }
+    .nw-story__chapter--head { padding: var(--sp-8) 0 var(--sp-5); }
+    .nw-story__chapter--para { padding: 0 0 var(--sp-6); }
+    .nw-story__chapter--para:last-child { padding-bottom: var(--sp-8); }
+    .nw-story--js .nw-story__chapter--para { opacity: 1; }
+    .nw-story__para { max-width: none; }
   }
 
 
@@ -932,65 +952,101 @@ const faqs = [
       clip-path: none;
       transition: none;
     }
-    .nw-story--js .nw-story__para {
-      opacity: 1;
-      transform: none;
-    }
-    .nw-story__content {
-      transform: none !important;
-    }
+    .nw-story__chapter { transform: none !important; }
+    .nw-story--js .nw-story__chapter--para { opacity: 1; }
   }
 </style>
 
 <script>
   (function () {
-    var mm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var story   = document.querySelector('.nw-story');
-    var track   = document.querySelector('.nw-story__track');
-    var content = document.querySelector('.nw-story__content');
-    var paras   = Array.from(document.querySelectorAll('.nw-story__para'));
+    var mm    = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var story = document.querySelector('.nw-story');
+    var track = document.querySelector('.nw-story__track');
+    var headCh  = document.querySelector('.nw-story__chapter--head');
+    var paraChs = Array.from(document.querySelectorAll('.nw-story__chapter--para'));
 
-    if (!story || !track || !content || !paras.length) return;
+    if (!story || !track || !headCh || !paraChs.length) return;
     if (mm.matches || window.innerWidth < 768) return;
 
     story.classList.add('nw-story--js');
 
-    var raf = null;
+    var VH     = window.innerHeight;
+    var TRAVEL = Math.round(VH * 0.28); // px each chapter travels on enter/exit
+    var raf    = null;
 
-    // Cubic ease-out
     function eOut(t) { return 1 - Math.pow(1 - t, 3); }
     function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
 
-    // Content block starts 24vh below settled position, rises as user enters
-    var initDrop = window.innerHeight * 0.24;
+    // Timeline fractions (0→1 of total scroll progress).
+    // Each chapter: enter [start,end], exit [start,end] or null.
+    //
+    // 550vh track ≈ 4050px scroll at 900px viewport; each 0.10 ≈ 405px.
+    //
+    // Ch 0 — Heading:  active 0.00–0.18,  exits 0.18–0.26
+    // Ch 1 — Para 1:   enters 0.22–0.32,  active 0.32–0.52,  exits 0.52–0.60
+    // Ch 2 — Para 2:   enters 0.56–0.66,  active 0.66–0.80,  exits 0.80–0.88
+    // Ch 3 — Para 3:   enters 0.84–0.92,  active 0.92–1.00   (no exit — natural)
+    var TL = [
+      { enter: null,          exit: [0.18, 0.26] }, // heading
+      { enter: [0.22, 0.32],  exit: [0.52, 0.60] }, // para 1
+      { enter: [0.56, 0.66],  exit: [0.80, 0.88] }, // para 2
+      { enter: [0.84, 0.92],  exit: null          }, // para 3
+    ];
 
-    // Scroll phases (as fraction of total progress 0→1):
-    // 0.00–0.18  heading settles upward into position
-    // 0.18–0.36  para 0 reveals
-    // 0.36–0.44  reading pause
-    // 0.44–0.62  para 1 reveals
-    // 0.62–0.70  reading pause
-    // 0.70–0.88  para 2 reveals
-    // 0.88–1.00  all visible, section holds before FAQ
-    var SETTLE_END   = 0.18;
-    var PARA_PHASES  = [[0.18, 0.36], [0.44, 0.62], [0.70, 0.88]];
+    var chapters = [headCh].concat(paraChs);
 
     function update() {
       raf = null;
-      var rect = track.getBoundingClientRect();
-      var scrollTravel = rect.height - window.innerHeight;
-      var progress = clamp(-rect.top / scrollTravel, 0, 1);
+      var rect         = track.getBoundingClientRect();
+      var scrollTravel = rect.height - VH;
+      var progress     = clamp(-rect.top / scrollTravel, 0, 1);
 
-      // Content block settles from initDrop → 0 over SETTLE_END
-      var settleT = eOut(clamp(progress / SETTLE_END, 0, 1));
-      content.style.transform = 'translateY(' + (initDrop * (1 - settleT)) + 'px)';
+      chapters.forEach(function (ch, i) {
+        var tm = TL[i];
+        var opacity, ty;
 
-      // Sequential paragraph reveals
-      paras.forEach(function (p, i) {
-        var ph = PARA_PHASES[i];
-        var t  = eOut(clamp((progress - ph[0]) / (ph[1] - ph[0]), 0, 1));
-        p.style.opacity   = String(t);
-        p.style.transform = 'translate3d(0,' + Math.round(28 * (1 - t)) + 'px,0)';
+        if (tm.enter === null) {
+          // Heading: starts fully visible, only exits
+          if (progress <= tm.exit[0]) {
+            opacity = 1; ty = 0;
+          } else if (progress < tm.exit[1]) {
+            var te = eOut(clamp((progress - tm.exit[0]) / (tm.exit[1] - tm.exit[0]), 0, 1));
+            opacity = 1 - te; ty = -TRAVEL * te;
+          } else {
+            opacity = 0; ty = -TRAVEL;
+          }
+
+        } else if (tm.exit === null) {
+          // Last para: enters and stays until natural section exit
+          if (progress < tm.enter[0]) {
+            opacity = 0; ty = TRAVEL;
+          } else if (progress < tm.enter[1]) {
+            var tn = eOut(clamp((progress - tm.enter[0]) / (tm.enter[1] - tm.enter[0]), 0, 1));
+            opacity = tn; ty = Math.round(TRAVEL * (1 - tn));
+          } else {
+            opacity = 1; ty = 0;
+          }
+
+        } else {
+          // Middle para: enters, holds, exits
+          var enterT, exitT;
+          if (progress < tm.enter[0]) {
+            opacity = 0; ty = TRAVEL;
+          } else if (progress < tm.enter[1]) {
+            enterT  = eOut(clamp((progress - tm.enter[0]) / (tm.enter[1] - tm.enter[0]), 0, 1));
+            opacity = enterT; ty = Math.round(TRAVEL * (1 - enterT));
+          } else if (progress <= tm.exit[0]) {
+            opacity = 1; ty = 0;
+          } else if (progress < tm.exit[1]) {
+            exitT   = eOut(clamp((progress - tm.exit[0]) / (tm.exit[1] - tm.exit[0]), 0, 1));
+            opacity = 1 - exitT; ty = -Math.round(TRAVEL * exitT);
+          } else {
+            opacity = 0; ty = -TRAVEL;
+          }
+        }
+
+        ch.style.opacity   = String(opacity);
+        ch.style.transform = ty !== 0 ? 'translate3d(0,' + ty + 'px,0)' : '';
       });
     }
 
@@ -998,18 +1054,16 @@ const faqs = [
       if (!raf) raf = requestAnimationFrame(update);
     }
 
-    // Prime/release will-change as section enters/exits viewport
+    // Prime/release will-change when track enters/exits viewport
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        var wc = e.isIntersecting ? 'transform'          : 'auto';
-        var wp = e.isIntersecting ? 'opacity, transform' : 'auto';
-        content.style.willChange = wc;
-        paras.forEach(function (p) { p.style.willChange = wp; });
+        var w = e.isIntersecting ? 'opacity, transform' : 'auto';
+        chapters.forEach(function (ch) { ch.style.willChange = w; });
       });
     }, { threshold: 0 });
     io.observe(track);
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    update(); // set initial state before first scroll event
+    update(); // initialise state before first scroll
   })();
 </script>
