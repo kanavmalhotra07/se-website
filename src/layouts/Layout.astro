@@ -395,7 +395,9 @@ const allBreadcrumbs: BreadcrumbItem[] = [
     });
 
     // ─── Background video lifecycle — lazy-load src, pause when offscreen ────
-    // 200px pre-load margin so src is set before the video enters view.
+    // Shrink effective root by 200px from the bottom so videos just below the
+    // fold (e.g. the bridge strip) don't download on the initial page load.
+    // Above-fold videos (in-viewport) still fire immediately.
     const videoObs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
@@ -410,7 +412,7 @@ const allBreadcrumbs: BreadcrumbItem[] = [
           video.pause();
         }
       });
-    }, { rootMargin: '200px 0px' });
+    }, { rootMargin: '0px 0px -200px 0px' });
 
     document.querySelectorAll<HTMLVideoElement>('video[data-lazy-src]').forEach((video) => {
       videoObs.observe(video);
