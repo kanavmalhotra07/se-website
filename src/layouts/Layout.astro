@@ -394,28 +394,56 @@ const allBreadcrumbs: BreadcrumbItem[] = [
       productsSubmenu?.setAttribute('aria-hidden', String(expanded));
     });
 
-    // ─── Background video lifecycle — lazy-load src, pause when offscreen ────
-    // Shrink effective root by 200px from the bottom so videos just below the
-    // fold (e.g. the bridge strip) don't download on the initial page load.
-    // Above-fold videos (in-viewport) still fire immediately.
-    const videoObs = new IntersectionObserver((entries) => {
+    // ─── Background video lifecycle — two-phase: pre-buffer + fade-in ──────────
+    // Phase 1 fires 300px before viewport so the video is already buffered
+    // by the time the section becomes visible. Phase 2 fades the video in
+    // over the static poster when it enters the viewport.
+
+    const applyVideoFade = (video: HTMLVideoElement) => {
+      const startPlay = () => {
+        video.play().catch(() => {});
+        video.classList.add('is-playing');
+      };
+      if (video.readyState >= 2) {
+        startPlay();
+      } else {
+        video.addEventListener('canplay', startPlay, { once: true });
+      }
+    };
+
+    // Phase 1 — fires 300px before section reaches the viewport
+    const videoPreloadObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const video = entry.target as HTMLVideoElement;
+        const lazySrc = video.dataset.lazySrc;
+        if (lazySrc && !video.src) {
+          video.src = lazySrc;
+          video.load();
+        }
+        videoPreloadObs.unobserve(video);
+      });
+    }, { rootMargin: '300px 0px' });
+
+    // Phase 2 — fires at viewport entry: play + fade; pause off-screen
+    const videoPlayObs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
         if (entry.isIntersecting) {
-          const lazySrc = (video as HTMLVideoElement & { dataset: DOMStringMap }).dataset.lazySrc;
-          if (lazySrc && !video.src) {
-            video.src = lazySrc;
-            video.load();
+          if (!video.src) {
+            const lazySrc = video.dataset.lazySrc;
+            if (lazySrc) { video.src = lazySrc; video.load(); }
           }
-          video.play().catch(() => {});
+          applyVideoFade(video);
         } else {
           video.pause();
         }
       });
-    }, { rootMargin: '0px 0px -200px 0px' });
+    }, { rootMargin: '0px 0px' });
 
-    document.querySelectorAll<HTMLVideoElement>('video[data-lazy-src]').forEach((video) => {
-      videoObs.observe(video);
+    document.querySelectorAll<HTMLVideoElement>('video[data-lazy-src]').forEach((v) => {
+      videoPreloadObs.observe(v);
+      videoPlayObs.observe(v);
     });
 
     // ─── Animated number counters ────────────────────────────────────────────

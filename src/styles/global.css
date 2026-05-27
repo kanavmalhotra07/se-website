@@ -1031,17 +1031,28 @@ button {
 .home-bridge__video-wrap {
   position: absolute;
   inset: 0;
+  transform-origin: center bottom;
+  animation: bridge-drift 18s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
+.home-bridge__poster,
 .home-bridge__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 76%;
-  background-color: var(--color-navy-dark);
-  transform-origin: center bottom;
-  animation: bridge-drift 18s ease-in-out infinite alternate;
-  will-change: transform;
+}
+
+.home-bridge__video {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.home-bridge__video.is-playing {
+  opacity: 1;
 }
 
 @keyframes bridge-drift {
@@ -1050,9 +1061,12 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-bridge__video {
+  .home-bridge__video-wrap {
     animation: none;
     transform: scale(1.10) translateX(3%);
+  }
+  .home-bridge__video {
+    transition: none;
   }
 }
 
@@ -1801,11 +1815,23 @@ button {
   z-index: 0;
 }
 
-.contact-cta__bg video {
+.contact-cta__bg-poster,
+.contact-cta__bg-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
+}
+
+.contact-cta__bg-video {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.contact-cta__bg-video.is-playing {
+  opacity: 1;
 }
 
 .contact-cta__overlay {
@@ -5552,9 +5578,13 @@ a.contact-detail-item__value:hover {
   }
 
   /* Stop perpetual animations for users who prefer reduced motion */
-  .home-bridge__video,
+  .home-bridge__video-wrap,
   .about-pg-marquee__track {
     animation: none;
+  }
+
+  .contact-cta__bg-video {
+    transition: none;
   }
 
   .about-pg-hero__scan-line {
