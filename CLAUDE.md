@@ -145,6 +145,6 @@ Swatch naming convention: `{type}-{colour-name}.jpg` (e.g. `ribbed-powder-blue.j
 
 WhatsApp number `+91 99581 32189` is hardcoded in: `Navbar.astro`, `ContactCTA.astro`, and every product page CTA. Update all locations if it changes.
 
-Contact emails: `sanchienterprises@yahoo.com` and `kanav@sanchienterprises.com` (in `Footer.astro` and `contact.astro`).
+Contact emails: `sanchi.enterprises@yahoo.com` and `kanav@sanchienterprises.com` (in `Footer.astro` and `contact.astro`).
 
 Deployed domain: `https://sanchienterprises.com` (set in `astro.config.mjs`).
