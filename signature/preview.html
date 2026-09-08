@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signature preview harness — NOT SHIPPED</title>
+<style>
+  /* LOCAL TEST HARNESS ONLY. Five literal copies of the signature markup —
+     no cloning, no shared nodes, no iframes, no script. */
+  body { margin:0; padding:24px; background:#E4E4E4;
+         font-family:-apple-system, "Segoe UI", Arial, sans-serif; color:#222; }
+  h1 { font-size:16px; margin:0 0 4px; }
+  .note { font-size:12px; color:#666; margin:0 0 6px; max-width:900px; line-height:1.55; }
+  .grid { display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; margin-top:18px; }
+  .panel { flex:0 0 auto; }
+  .label { font-size:11px; font-weight:600; letter-spacing:.03em; text-transform:uppercase;
+           color:#555; margin:0 0 6px; max-width:480px; }
+  .stage { padding:20px; border:1px solid #C9C9C9; width:480px; box-sizing:border-box; }
+  .s1 { background:#FFFFFF; }
+  .s2 { background:#F1F1F1; }
+  .s3 { background:#1F1F1F; }
+  /* Panel 3 ONLY: Outlook.com-style forced inversion of the whole body. This
+     flips the logo too, which flatters the navy mark. Not the failure case. */
+  .s3 > * { filter: invert(1) hue-rotate(180deg); }
+  .s4 { background:#FFFFFF; }
+  /* Panel 5: Gmail / Apple Mail recolour text and leave images ALONE. No filter —
+     the colours are overridden in the markup and the image renders as authored. */
+  .s5 { background:#1F1F1F; }
+</style>
+</head>
+<body>
+
+<h1>Sanchi Enterprises signature — preview harness</h1>
+<p class="note">
+  Not shipped. Panels 1&ndash;3 and 5 use the <strong>local</strong>
+  <code>assets/se-sig-logo-v1.png</code>; <code>signature.html</code> uses the production
+  HTTPS URL. Panel 4 keeps the <code>&lt;img&gt;</code> but points it at a broken path.
+  Each stage is 480px wide.
+</p>
+<p class="note">
+  <strong>Panel 3 vs panel 5 is the comparison that matters.</strong> Panel 3 inverts the
+  whole body including the logo, so the navy mark comes out light. Panel 5 is what Gmail
+  and Apple Mail actually do &mdash; recolour the text, leave the image untouched &mdash;
+  and is where the transparent navy logo shows its real cost.
+</p>
+<div class="grid">
+
+  <div class="panel">
+    <p class="label">1 &middot; White #FFFFFF</p>
+    <div class="stage s1">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="480" role="presentation" style="border-collapse:collapse;width:100%;max-width:480px;font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+      <td width="120" valign="top" style="width:120px;vertical-align:top;font-size:0;line-height:0;"><img src="assets/se-sig-logo-v1.png" width="120" height="75" alt="Sanchi Enterprises" style="width:120px;height:75px;display:block;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:1.4;font-weight:bold;color:#1B2A6B;"></td>
+      <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+      <td valign="top" style="vertical-align:top;font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:17px;font-weight:bold;line-height:1.4;color:#1B2A6B;">Kanav Malhotra</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">Second Generation Leader</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.2px;line-height:1.4;color:#1B2A6B;">SANCHI ENTERPRISES</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#B8963A" height="2" style="height:2px;width:100%;background-color:#B8963A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="tel:+919958132189" style="color:#3A3A3A;text-decoration:none;">+91 99581 32189</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="mailto:sanchi.enterprises@yahoo.com" style="color:#3A3A3A;text-decoration:none;">sanchi.enterprises@yahoo.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="https://www.sanchienterprises.com" style="color:#3A3A3A;text-decoration:none;">sanchienterprises.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">India</td></tr>
+      <tr><td height="8" style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#1B2A6B;"><a href="https://www.linkedin.com/in/kanavmalhotra07/" style="color:#1B2A6B;text-decoration:none;">LinkedIn</a> <span style="color:#6B6B6B;">&middot;</span> <a href="https://www.linkedin.com/company/sanchinterprises/" style="color:#1B2A6B;text-decoration:none;">Company Page</a></td></tr>
+      </table>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3" style="font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#E4E1DA" height="1" style="height:1px;width:100%;background-color:#E4E1DA;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:1.4;color:#6B6B6B;">Exhibition flooring since 1995 &middot; 500+ events</td></tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="label">2 &middot; Webmail canvas #F1F1F1</p>
+    <div class="stage s2">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="480" role="presentation" style="border-collapse:collapse;width:100%;max-width:480px;font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+      <td width="120" valign="top" style="width:120px;vertical-align:top;font-size:0;line-height:0;"><img src="assets/se-sig-logo-v1.png" width="120" height="75" alt="Sanchi Enterprises" style="width:120px;height:75px;display:block;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:1.4;font-weight:bold;color:#1B2A6B;"></td>
+      <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+      <td valign="top" style="vertical-align:top;font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:17px;font-weight:bold;line-height:1.4;color:#1B2A6B;">Kanav Malhotra</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">Second Generation Leader</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.2px;line-height:1.4;color:#1B2A6B;">SANCHI ENTERPRISES</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#B8963A" height="2" style="height:2px;width:100%;background-color:#B8963A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="tel:+919958132189" style="color:#3A3A3A;text-decoration:none;">+91 99581 32189</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="mailto:sanchi.enterprises@yahoo.com" style="color:#3A3A3A;text-decoration:none;">sanchi.enterprises@yahoo.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="https://www.sanchienterprises.com" style="color:#3A3A3A;text-decoration:none;">sanchienterprises.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">India</td></tr>
+      <tr><td height="8" style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#1B2A6B;"><a href="https://www.linkedin.com/in/kanavmalhotra07/" style="color:#1B2A6B;text-decoration:none;">LinkedIn</a> <span style="color:#6B6B6B;">&middot;</span> <a href="https://www.linkedin.com/company/sanchinterprises/" style="color:#1B2A6B;text-decoration:none;">Company Page</a></td></tr>
+      </table>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3" style="font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#E4E1DA" height="1" style="height:1px;width:100%;background-color:#E4E1DA;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:1.4;color:#6B6B6B;">Exhibition flooring since 1995 &middot; 500+ events</td></tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="label">3 &middot; Outlook.com forced inversion — whole body inverted</p>
+    <div class="stage s3">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="480" role="presentation" style="border-collapse:collapse;width:100%;max-width:480px;font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+      <td width="120" valign="top" style="width:120px;vertical-align:top;font-size:0;line-height:0;"><img src="assets/se-sig-logo-v1.png" width="120" height="75" alt="Sanchi Enterprises" style="width:120px;height:75px;display:block;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:1.4;font-weight:bold;color:#1B2A6B;"></td>
+      <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+      <td valign="top" style="vertical-align:top;font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:17px;font-weight:bold;line-height:1.4;color:#1B2A6B;">Kanav Malhotra</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">Second Generation Leader</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.2px;line-height:1.4;color:#1B2A6B;">SANCHI ENTERPRISES</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#B8963A" height="2" style="height:2px;width:100%;background-color:#B8963A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="tel:+919958132189" style="color:#3A3A3A;text-decoration:none;">+91 99581 32189</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="mailto:sanchi.enterprises@yahoo.com" style="color:#3A3A3A;text-decoration:none;">sanchi.enterprises@yahoo.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="https://www.sanchienterprises.com" style="color:#3A3A3A;text-decoration:none;">sanchienterprises.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">India</td></tr>
+      <tr><td height="8" style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#1B2A6B;"><a href="https://www.linkedin.com/in/kanavmalhotra07/" style="color:#1B2A6B;text-decoration:none;">LinkedIn</a> <span style="color:#6B6B6B;">&middot;</span> <a href="https://www.linkedin.com/company/sanchinterprises/" style="color:#1B2A6B;text-decoration:none;">Company Page</a></td></tr>
+      </table>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3" style="font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#E4E1DA" height="1" style="height:1px;width:100%;background-color:#E4E1DA;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:1.4;color:#6B6B6B;">Exhibition flooring since 1995 &middot; 500+ events</td></tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="label">4 &middot; Images blocked — alt text must be legible</p>
+    <div class="stage s4">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="480" role="presentation" style="border-collapse:collapse;width:100%;max-width:480px;font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+      <td width="120" valign="top" style="width:120px;vertical-align:top;font-size:0;line-height:0;"><img src="assets/__images-blocked__.png" width="120" height="75" alt="Sanchi Enterprises" style="width:120px;height:75px;display:block;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:1.4;font-weight:bold;color:#1B2A6B;"></td>
+      <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+      <td valign="top" style="vertical-align:top;font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:17px;font-weight:bold;line-height:1.4;color:#1B2A6B;">Kanav Malhotra</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">Second Generation Leader</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.2px;line-height:1.4;color:#1B2A6B;">SANCHI ENTERPRISES</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#B8963A" height="2" style="height:2px;width:100%;background-color:#B8963A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="tel:+919958132189" style="color:#3A3A3A;text-decoration:none;">+91 99581 32189</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="mailto:sanchi.enterprises@yahoo.com" style="color:#3A3A3A;text-decoration:none;">sanchi.enterprises@yahoo.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#3A3A3A;"><a href="https://www.sanchienterprises.com" style="color:#3A3A3A;text-decoration:none;">sanchienterprises.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#6B6B6B;">India</td></tr>
+      <tr><td height="8" style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#1B2A6B;"><a href="https://www.linkedin.com/in/kanavmalhotra07/" style="color:#1B2A6B;text-decoration:none;">LinkedIn</a> <span style="color:#6B6B6B;">&middot;</span> <a href="https://www.linkedin.com/company/sanchinterprises/" style="color:#1B2A6B;text-decoration:none;">Company Page</a></td></tr>
+      </table>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3" style="font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#E4E1DA" height="1" style="height:1px;width:100%;background-color:#E4E1DA;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:1.4;color:#6B6B6B;">Exhibition flooring since 1995 &middot; 500+ events</td></tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="label">5 &middot; Gmail / Apple Mail dark — image untouched</p>
+    <div class="stage s5">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="480" role="presentation" style="border-collapse:collapse;width:100%;max-width:480px;font-family:Arial, Helvetica, sans-serif;">
+      <tr>
+      <td width="120" valign="top" style="width:120px;vertical-align:top;font-size:0;line-height:0;"><img src="assets/se-sig-logo-v1.png" width="120" height="75" alt="Sanchi Enterprises" style="width:120px;height:75px;display:block;border:0;outline:none;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:1.4;font-weight:bold;color:#9BAAE6;"></td>
+      <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+      <td valign="top" style="vertical-align:top;font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:17px;font-weight:bold;line-height:1.4;color:#9BAAE6;">Kanav Malhotra</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#ADADAD;">Second Generation Leader</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.2px;line-height:1.4;color:#9BAAE6;">SANCHI ENTERPRISES</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#B8963A" height="2" style="height:2px;width:100%;background-color:#B8963A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#E6E6E6;"><a href="tel:+919958132189" style="color:#E6E6E6;text-decoration:none;">+91 99581 32189</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#E6E6E6;"><a href="mailto:sanchi.enterprises@yahoo.com" style="color:#E6E6E6;text-decoration:none;">sanchi.enterprises@yahoo.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#E6E6E6;"><a href="https://www.sanchienterprises.com" style="color:#E6E6E6;text-decoration:none;">sanchienterprises.com</a></td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#ADADAD;">India</td></tr>
+      <tr><td height="8" style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:1.4;color:#9BAAE6;"><a href="https://www.linkedin.com/in/kanavmalhotra07/" style="color:#9BAAE6;text-decoration:none;">LinkedIn</a> <span style="color:#ADADAD;">&middot;</span> <a href="https://www.linkedin.com/company/sanchinterprises/" style="color:#9BAAE6;text-decoration:none;">Company Page</a></td></tr>
+      </table>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3" style="font-size:0;line-height:0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;width:100%;">
+      <tr><td height="12" style="height:12px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td bgcolor="#4A4A4A" height="1" style="height:1px;width:100%;background-color:#4A4A4A;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td height="10" style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
+      <tr><td style="font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:1.4;color:#ADADAD;">Exhibition flooring since 1995 &middot; 500+ events</td></tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
