@@ -2,9 +2,12 @@
 
 Kanav Malhotra · Second Generation Leader
 
-The current design (**v2**) is a **solid navy block, 600px wide**, with a cream
-reverse logo on the left and light type on the right. It is not a
-light-background signature — that was v1, kept as a rollback point.
+The current design (**v3**) is a **solid navy block, 600px wide**: cream reverse
+logo on the left, a 1px vertical rule, then the type column on the right. It is
+not a light-background signature — that was v1, kept as a rollback point.
+
+v3 refines v2: a vertical divider between the two columns, a gold company
+eyebrow over a thinned gold rule, an 18px name, and a denser credentials line.
 
 | File | Purpose |
 |---|---|
@@ -12,27 +15,27 @@ light-background signature — that was v1, kept as a rollback point.
 | `signature-plain.html` | Fallback: light background, no logo, no navy block, single column. Use if Yahoo mangles the table version. |
 | `signature-mobile.txt` | Plain-text fallback. URLs are visible here because there is no markup to hide them behind. |
 | `preview.html` | Local test harness, seven render states. **Not shipped, never pasted anywhere.** |
-| `assets/se-sig-logo-reverse-plate-v1.png` | **The live asset.** Cream reverse mark on a baked-in `#1B2A6B` plate, 240×150, **no transparency**, displayed at 120×75. |
-| `assets/se-sig-logo-reverse-v1.png` | Transparent cream reverse mark from the first v2 build. **Deployed but no longer referenced — retained deliberately. Do not delete.** |
+| `assets/se-sig-logo-reverse-v1.png` | **The live asset.** Cream reverse mark, 240×150, transparent, displayed at 120×75. |
+| `assets/se-sig-logo-reverse-plate-v1.png` | Cream mark on a baked-in `#1B2A6B` plate. Built to survive the Gmail app's partial inversion, then **rejected on aesthetics** — a navy tile on a lightened container looks worse than a washed-out mark. **Deployed but no longer referenced — retained deliberately. Do not delete.** |
 | `assets/se-monogram-alpha.png` | Untouched transparent master. Both logos derive from this. |
 | `assets/se-sig-logo-v1.png` | Navy mark from v1. **Deployed but no longer referenced — retained deliberately. Do not delete.** |
 
 ## Permanent asset URL
 
 ```
-https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-plate-v1.png
+https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-v1.png
 ```
 
 Hardcoded in `signature.html` and baked into every email sent from this
-signature. `se-sig-logo-reverse-plate-v1.png` is **permanent** — never rename,
-move, or delete it. Any future change ships under a new filename with a new URL.
+signature. `se-sig-logo-reverse-v1.png` is **permanent** — never rename, move,
+or delete it. Any future change ships under a new filename with a new URL.
 
 The **www** host matches the website link, so neither takes a redirect hop.
 
 ### The superseded assets
 
 ```
-https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-v1.png
+https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-plate-v1.png
 https://www.sanchienterprises.com/images/email/se-sig-logo-v1.png
 ```
 
@@ -56,11 +59,12 @@ The website link resolves to the **www** host while the visible string stays bar
 
 ## Install
 
-1. Copy `assets/se-sig-logo-reverse-plate-v1.png` into the website repo at
-   `public/images/email/se-sig-logo-reverse-plate-v1.png`. Commit and **push** —
-   the deploy is what publishes it.
+1. Copy `assets/se-sig-logo-reverse-v1.png` into the website repo at
+   `public/images/email/se-sig-logo-reverse-v1.png`. Commit and **push** —
+   the deploy is what publishes it. *(Already deployed — this step only matters
+   for a fresh environment.)*
 
-2. Verify `https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-plate-v1.png`
+2. Verify `https://www.sanchienterprises.com/images/email/se-sig-logo-reverse-v1.png`
    loads **in an incognito window**. If it 404s or asks for auth, every
    signature is silently broken and you will not see it in your own outbox.
 
@@ -94,8 +98,7 @@ Open `preview.html` in Chrome. Seven states, each stage 620px wide:
 5. **Gmail / Apple Mail dark** — image left untouched.
 6. **`bgcolor` stripped** — the worst case for the *type*. See below.
 7. **Gmail app partial inversion** — the container is lightened toward lavender
-   and the type is darkened, but the `<img>` is left alone. This is the case the
-   navy plate exists for. See below.
+   and the type is darkened, but the `<img>` is left alone. See below.
 
 ### Panel 6 is the known weakness
 
@@ -105,35 +108,67 @@ ground disappears and the light type is left on white:
 | Element | Contrast on white |
 |---|---|
 | Name `#FFFFFF` | **1:1 — invisible** |
-| `SANCHI ENTERPRISES` and alt text `#F7F6F3` | **1.08:1 — invisible** |
+| Alt text `#F7F6F3` (images blocked) | **1.08:1 — invisible** |
 | Contact values `#DCE0EE` | Barely perceptible |
-| LinkedIn `#D4B563`, gold rule, hairline | Readable |
+| `SANCHI ENTERPRISES` `#C9A961` | Readable — improved in v3 |
+| LinkedIn `#D4B563`, gold rule, vertical divider, hairline | Readable |
 
-The recipient's name and the company name vanish. This is structural to any
-light-on-dark design and has no fallback — unlike v1, where losing the logo
-still left navy text on white. Some corporate Outlook/Exchange configurations
-and a few aggressive webmail sanitisers do strip background colours. If that
-turns out to matter in testing, `email-signature-v1` is the rollback.
+The recipient's name still vanishes. This is structural to any light-on-dark
+design and has no fallback — unlike v1, where losing the logo still left navy
+text on white. Some corporate Outlook/Exchange configurations and a few
+aggressive webmail sanitisers do strip background colours. If that turns out to
+matter in testing, `email-signature-v1` is the rollback.
 
-Note that the **logo itself survives panel 6** now that it carries its own navy
-plate — losing the container background no longer takes the mark with it.
+v3 improves this panel twice over: the company eyebrow went gold `#C9A961`,
+which is readable on white where cream `#F7F6F3` was not, and the **vertical
+divider survives** in navy `#38457F`, so the two-column structure holds even
+with no background.
 
-### Why the logo is a plate, not a transparent PNG
+### Panel 7 — the Gmail app, accepted as-is
 
 The Gmail mobile app applies a *partial* inversion: it lightens the container's
-navy and darkens the type, but leaves images untouched. A transparent cream mark
-has no ground of its own, so it inherited the lightened container and washed out
-to near-invisible — cream on lavender.
+navy and darkens the type, but leaves images untouched. The transparent cream
+mark has no ground of its own, so it inherits the lightened container and washes
+out to a faint ghost.
 
-Baking `#1B2A6B` into the PNG makes the image self-sufficient: the mark always
-sits on its own navy regardless of what the client does to the surrounding
-cell. In normal rendering the plate is pixel-identical to the block behind it
-(both `#1B2A6B`) so there is no visible seam; under partial inversion it reads
-as a deliberate navy tile rather than an empty gap.
+**This is accepted and deliberately not fixed.** A navy-plated PNG
+(`se-sig-logo-reverse-plate-v1.png`) does solve it — the image carries its own
+background and stays crisp — but it reads as a hard navy tile sitting on a
+lavender block, which was judged worse than a faded mark. The plate is kept in
+the repo, unreferenced, if that call is ever revisited.
 
-The cost is that under a **full** inversion (panel 3) the plate inverts along
-with everything else instead of staying navy. That is the correct tradeoff:
-full inversion still leaves the mark legible, whereas partial inversion did not.
+The type, the gold eyebrow, the gold rule and the vertical divider all survive
+this panel, so the signature still reads correctly; only the mark fades.
+
+### The vertical divider
+
+A 1px cell between the logo and type columns, `bgcolor="#38457F"`, with
+`font-size:0;line-height:0` so no client injects a text line into it. Gutters
+are 18px on each side:
+
+```
+120 logo | 18 | 1px divider | 18 | 387 type   = 544
+```
+
+The type column narrowed from 406px to 387px to absorb the divider and the
+second gutter; the 600px outer width and 28px padding are unchanged.
+
+The cell carries `height="170"` *and* `height:170px`. In table layout a cell
+height is a **minimum**, not a fixed value, so this is deliberately belt-and-
+braces: the divider stretches to the row height wherever the row is taller than
+170px, and where a client renders the type column *shorter* than 170px the
+explicit height still holds the rule at full length instead of leaving a stub.
+Either way the line is continuous. Measured at 170.4px in Chrome — stretched to
+the row, not pinned to the attribute, which is the behaviour being relied on.
+
+**Outlook for Windows is unverified.** The Word engine computes line-height
+differently, so the type column's natural height there is not necessarily
+170px, and the harness runs in Blink — it cannot answer this. The construction
+is the standard faux-column approach and the minimum-height semantics are what
+protect it, but the only real test is sending a message to an Outlook/Windows
+account and looking at it. If the rule turns out to break there, delete the
+divider cell and both 18px gutters and restore the type column to 406px —
+degrading to no divider is clean, and that is the documented fallback.
 
 ## Why it is built this way
 
@@ -173,5 +208,5 @@ subset of inboxes if broken:
 
 | Tag | Commit | Design |
 |---|---|---|
-| `email-signature-v2` | `20395fc` | 600px navy block, cream reverse logo on a transparent PNG |
+| `email-signature-v2` | `20395fc` | 600px navy block, cream reverse logo, no divider |
 | `email-signature-v1` | `d3d90cd` | Light background, navy logo. Rollback point. |
