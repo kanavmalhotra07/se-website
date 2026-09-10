@@ -178,7 +178,12 @@ subset of inboxes if broken:
 - **Nested tables only.** Outlook for Windows uses the Word engine: no flexbox,
   grid, float, `position`, or `border-radius`.
 - **All CSS inline.** Gmail strips `<style>` blocks, classes and IDs on paste.
-- **No web fonts.** Arial/Helvetica everywhere.
+- **No web fonts.** `Arial, Helvetica, sans-serif` everywhere except the name,
+  which is `Georgia, 'Times New Roman', serif`. Both stacks are OS-installed on
+  Windows and macOS — no `@import`, no `<link>`, no fallback hack. The serif
+  name is deliberate: it echoes the serif SE monogram and separates the person
+  from the data. It also survives inversion better than the logo does, so it
+  anchors the block in panel 7 where the mark fades.
 - **No base64 images.** Gmail and Outlook strip them, hence the hosted URL.
 - **No MSO conditional comments.** Installation pastes *rendered* output, which
   strips HTML comments, so the design cannot depend on them.
