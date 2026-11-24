@@ -5,65 +5,76 @@ import Footer from '../../components/Footer.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 
 const applications = [
-  'Exhibition Entrances',
-  'Organic Brand Pavilions',
-  'Eco-themed Events',
-  'Natural Product Showcases',
-  'Hospitality Lounge Areas',
-  'Sustainability-themed Events',
-  'Boutique Exhibition Stalls',
-  'Heritage & Craft Displays',
+  'Outdoor Exhibition Aisles',
+  'Open-Air Display Grounds',
+  'Main Entrances & Forecourts',
+  'Hall Approaches & Walkways',
+  'Indoor Hall Aisles',
+  'Heavy-Machinery & Infrastructure Shows',
+  'Pavilion Surrounds',
+  'Registration & Arrival Zones',
+];
+
+const gallery = [
+  { src: 'bauma-main-entrance', alt: 'Main entrance arch of Bauma ConExpo India 2026 at India Expo Centre & Mart, with coir-type structured carpet laid across the forecourt', cls: 'sc-gal__item--wide' },
+  { src: 'bauma-outdoor-aisle', alt: 'Outdoor aisle at Bauma ConExpo India 2026 lined with exhibitor pavilions, laid in Sanchi coir-type structured carpet', cls: 'sc-gal__item--tall' },
+  { src: 'bauma-gateway',       alt: 'Zone A gateway in the Bauma ConExpo India 2026 outdoor area, structured carpet running through the arch', cls: '' },
+  { src: 'bauma-jcb',           alt: 'Outdoor machinery display at Bauma ConExpo India 2026 with structured carpet aisles', cls: '' },
+  { src: 'bauma-hall-16',       alt: 'Approach to Hall 16 at Bauma ConExpo India 2026, laid in coir-type structured carpet', cls: '' },
+  { src: 'bauma-outdoor-cranes', alt: 'Visitors walking a structured carpet aisle beneath crane displays in the Bauma ConExpo India 2026 outdoor area', cls: '' },
+  { src: 'bauma-entrance-opening', alt: 'Opening day at the Bauma ConExpo India 2026 main entrance — confetti across the coir-type structured carpet forecourt', cls: 'sc-gal__item--wide' },
+  { src: 'bauma-hall-7',       alt: 'Hall 7 frontage at Bauma ConExpo India 2026 with structured carpet forecourt', cls: 'sc-gal__item--wide' },
 ];
 
 const faqs = [
   {
-    q: 'What is coir carpet made from?',
-    a: 'Coir carpet is woven from natural coconut husk fibre — extracted from coconut shells, processed into yarn, and woven into flat or textured matting. It is a renewable, biodegradable natural material with a distinctive coarse texture that synthetic products cannot replicate. Coir has been used in Indian floor coverings for centuries and carries a heritage material quality distinct from modern exhibition carpet.',
+    q: 'What is coir-type structured carpet?',
+    a: 'Structured carpet is a firm, textured exhibition carpet built for heavy footfall. Our coir-type design is a structured carpet developed in-house by Sanchi Enterprises, with a woven, herringbone-style surface that gives the look and grip of natural coir matting. Structured carpets themselves are not new — this particular design is ours, and it was laid for the first time in India at Bauma ConExpo India 2026.',
   },
   {
-    q: 'Where is coir carpet used in exhibitions?',
-    a: 'Coir is most commonly specified for exhibition entrance areas and threshold zones, eco-brand pavilions, organic and natural product showcases, sustainability-themed events, and hospitality lounge areas where a natural material surface is part of the design brief. The material reads as tactile, grounded, and natural — appropriate for brands and events where those values are part of the presentation.',
+    q: 'Where was this design first used?',
+    a: 'Bauma ConExpo India 2026, held at India Expo Centre & Mart, Greater Noida, from 15 to 18 September 2026. Sanchi Enterprises was the Official Carpeting Service Provider and laid the coir-type structured carpet across the entire outdoor exhibition area and in several halls.',
   },
   {
-    q: 'Is coir carpet suitable for high-footfall exhibition halls?',
-    a: 'Coir is a durable natural fibre suitable for moderate footfall. For main exhibition hall aisles and very high-traffic areas, we recommend ribbed or non woven carpet. Coir is best suited to entrance zones, boutique pavilions, defined highlight areas, and spaces where the natural material character is part of the visual brief.',
+    q: 'Can it be laid outdoors?',
+    a: 'Yes. At Bauma ConExpo India 2026 the carpet covered the full outdoor area — open-air aisles, machinery display grounds, entrances, and hall approaches — as well as indoor hall aisles. Share your venue and layout and we will confirm suitability for your site.',
   },
   {
-    q: 'How do I order coir carpet for an event?',
-    a: 'Share your event brief, venue, floor plan dimensions, and event dates. We will confirm the available specification, supply quantity, and installation timeline. Contact us via the enquiry form or WhatsApp.',
+    q: 'How do I order coir-type structured carpet for an event?',
+    a: 'Share your event brief, venue, floor plan dimensions, and event dates. We will confirm availability, quantity, and the installation timeline. Contact us via the enquiry form or WhatsApp.',
   },
 ];
 ---
 
 <Layout
-  title="Coir Carpet — Natural Fibre Exhibition Flooring | Sanchi Enterprises"
-  description="Coir carpet — natural coconut fibre exhibition flooring for trade fair entrances, eco-themed pavilions, organic brand events, and sustainability-focused environments. Supplied and installed across India by Sanchi Enterprises."
-  ogImage="https://sanchienterprises.com/images/coir/coir-3608.webp"
+  title="Coir-Type Structured Carpet — Our Design, First Laid in India | Sanchi Enterprises"
+  description="Coir-type structured carpet — an in-house Sanchi Enterprises design, laid for the first time in India across the entire outdoor area and several halls of Bauma ConExpo India 2026. Supplied and installed across India."
+  ogImage="https://sanchienterprises.com/images/structured/bauma-outdoor-aisle-1280w.webp"
   ogImageWidth="1280"
   ogImageHeight="960"
   breadcrumbs={[
     { name: 'Products', item: 'https://sanchienterprises.com/products' },
-    { name: 'Coir Carpet', item: 'https://sanchienterprises.com/products/coir-carpet' },
+    { name: 'Coir-Type Structured Carpet', item: 'https://sanchienterprises.com/products/coir-carpet' },
   ]}
 >
   <Fragment slot="head">
-    <link rel="preload" as="image" href="/images/coir/coir-3608.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/structured/structured-hero-poster-1280w.webp" fetchpriority="high" />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
           "@id": "https://sanchienterprises.com/products/coir-carpet/#service",
-          "name": "Coir Carpet — Natural Fibre Exhibition Flooring",
-          "description": "Natural coir carpet woven from coconut husk fibre for exhibition entrances, eco-themed pavilions, organic brand events, and hospitality areas. Supplied and installed across India.",
-          "serviceType": "Natural Coir Carpet Supply and Installation",
+          "name": "Coir-Type Structured Carpet",
+          "description": "In-house coir-type structured carpet design by Sanchi Enterprises, first laid in India at Bauma ConExpo India 2026 across the full outdoor area and several halls. Supplied and installed across India.",
+          "serviceType": "Structured Exhibition Carpet Supply and Installation",
           "provider": { "@id": "https://sanchienterprises.com/#organization" },
           "url": "https://sanchienterprises.com/products/coir-carpet",
-          "image": "https://sanchienterprises.com/images/coir/coir-3608.webp",
+          "image": "https://sanchienterprises.com/images/structured/bauma-outdoor-aisle-1280w.webp",
           "areaServed": { "@type": "Country", "name": "India" },
           "additionalProperty": [
-            { "@type": "PropertyValue", "name": "Material", "value": "Natural coconut husk fibre (coir)" },
-            { "@type": "PropertyValue", "name": "Finish", "value": "Natural woven texture — brown / beige tones" },
+            { "@type": "PropertyValue", "name": "Design", "value": "In-house coir-type structured pattern" },
+            { "@type": "PropertyValue", "name": "First installation", "value": "Bauma ConExpo India 2026, India Expo Centre & Mart, Greater Noida" },
             { "@type": "PropertyValue", "name": "Coverage", "value": "Pan-India supply and installation" }
           ],
           "offers": {
@@ -95,7 +106,7 @@ const faqs = [
   <Navbar />
   <main>
 
-    <!-- ─── HERO — full-viewport, video-backed ───────────────────── -->
+    <!-- ─── HERO — full-viewport, Bauma outdoor footage ──────────── -->
     <section class="coir-hero" aria-labelledby="coir-heading">
       <div class="coir-hero__media" aria-hidden="true">
         <video
@@ -104,10 +115,10 @@ const faqs = [
           loop
           playsinline
           preload="none"
-          poster="/images/coir/coir-3608-640w.webp"
+          poster="/images/structured/structured-hero-poster-1280w.webp"
           class="coir-hero__video"
         >
-          <source src="/images/coir/coir-video.mp4" type="video/mp4" />
+          <source src="/images/structured/structured-hero.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="coir-hero__overlay" aria-hidden="true"></div>
@@ -120,13 +131,13 @@ const faqs = [
             </svg>
             All Products
           </a>
-          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate data-delay="1">Coir Carpet</span>
+          <span class="eyebrow eyebrow--inverse eyebrow--line" data-animate data-delay="1">Coir-Type Structured Carpet</span>
           <h1 class="coir-hero__title" id="coir-heading" data-animate data-delay="2">
-            Natural Coconut Fibre<br />Exhibition Flooring.
+            Our Design.<br />Laid First in India.
           </h1>
           <p class="coir-hero__sub" data-animate data-delay="3">
-            Natural coir exhibition flooring woven from coconut husk fibre — for
-            trade fair entrances, eco-themed pavilions, and organic brand environments across India.
+            A structured carpet developed in-house by Sanchi — debuted across the entire
+            outdoor area and several halls of Bauma ConExpo India 2026.
           </p>
         </div>
       </div>
@@ -138,58 +149,93 @@ const faqs = [
     <!-- ─── STATEMENT ────────────────────────────────────────────── -->
     <div class="coir-statement" aria-label="Product positioning">
       <div class="container">
-        <div class="coir-statement__inner" data-animate>
+        <div class="coir-statement__inner" data-animate="reveal-up">
           <p class="coir-statement__text">
-            Woven from heritage craft.<br />
-            <span class="coir-statement__em">A floor material that carries meaning in every fibre.</span>
+            Structured carpet isn't new.<br />
+            <span class="coir-statement__em">This design is — and it was ours first.</span>
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ─── EDITORIAL SPLIT — image left, about text right ──────── -->
+    <!-- ─── EDITORIAL SPLIT — texture left, about text right ─────── -->
     <div class="coir-split" aria-labelledby="coir-about-heading">
       <div class="coir-split__visual" data-animate="image">
         <img
-          src="/images/coir/coir-3609.webp"
-          alt="Natural coir carpet woven from coconut husk fibre — surface texture showing the characteristic coarse natural weave in brown-beige tones"
+          src="/images/structured/structured-texture-1280w.webp"
+          srcset="/images/structured/structured-texture-640w.webp 640w, /images/structured/structured-texture-1280w.webp 1280w"
+          sizes="(max-width: 860px) 100vw, 50vw"
+          alt="Close view of Sanchi coir-type structured carpet — herringbone-style woven texture in deep red"
           loading="lazy"
           decoding="async"
-          width="1200"
-          height="900"
+          width="1280"
+          height="960"
         />
       </div>
       <div class="coir-split__text">
         <div class="coir-split__text-inner" data-animate data-delay="1">
-          <span class="eyebrow eyebrow--line">About the Product</span>
+          <span class="eyebrow eyebrow--line">About the Design</span>
           <h2 class="coir-split__title" id="coir-about-heading">
-            A Material Quality<br />No Synthetic Can Match.
+            The Look of Coir.<br />Built for the Show Floor.
           </h2>
           <p class="coir-split__body">
-            Coir carpet is woven from natural coconut husk fibre — a renewable, biodegradable
-            natural fibre exhibition flooring material with a distinctive coarse texture that
-            carries the quality of heritage craft. In exhibition environments, coir is specified
-            for expo entrances and threshold mats, organic and natural brand pavilions,
-            sustainability-themed events, and wherever a floor material that reads as natural
-            and unprocessed is part of the design brief.
+            Our coir-type structured carpet carries the woven, herringbone character of natural
+            coir matting in a firm structured carpet made for exhibition footfall. The pattern
+            was developed in-house by Sanchi Enterprises — structured carpets are an established
+            category, but this design had never been laid in India before.
           </p>
           <p class="coir-split__body">
-            Sanchi supplies and installs coir carpet for trade fairs and exhibitions across
-            India — coordinated with the wider flooring scope where natural materials are
-            being combined with standard exhibition carpet at major venues including Pragati
-            Maidan (New Delhi), India Expo Centre (Greater Noida), and BIEC (Bengaluru).
-            Enquire for specification and availability for your event dates.
+            Its debut was at one of the country's largest trade shows: Bauma ConExpo India 2026,
+            where it covered every outdoor aisle, machinery ground, and hall approach, and ran
+            through several indoor halls. Enquire for availability for your event dates.
           </p>
         </div>
       </div>
     </div>
+
+    <!-- ─── CASE STUDY — Bauma ConExpo India 2026 ────────────────── -->
+    <section class="sc-case" aria-labelledby="sc-case-heading">
+      <div class="container">
+        <div class="sc-case__head">
+          <div data-animate>
+            <span class="eyebrow eyebrow--inverse eyebrow--line">Project · First Installation</span>
+            <h2 class="sc-case__title" id="sc-case-heading" data-animate="reveal-up">
+              Bauma ConExpo<br />India 2026.
+            </h2>
+          </div>
+          <dl class="sc-case__facts" data-animate data-delay="2">
+            <div class="sc-case__fact"><dt>Role</dt><dd>Official Carpeting Service Provider</dd></div>
+            <div class="sc-case__fact"><dt>Venue</dt><dd>India Expo Centre &amp; Mart, Greater Noida</dd></div>
+            <div class="sc-case__fact"><dt>Dates</dt><dd>15–18 September 2026</dd></div>
+            <div class="sc-case__fact"><dt>Scope</dt><dd>Entire outdoor area + several halls</dd></div>
+          </dl>
+        </div>
+
+        <div class="sc-gal">
+          {gallery.map((g, i) => (
+            <figure class={`sc-gal__item ${g.cls}`} data-animate="image" data-delay={String((i % 4) + 1)}>
+              <img
+                src={`/images/structured/${g.src}-1280w.webp`}
+                srcset={`/images/structured/${g.src}-640w.webp 640w, /images/structured/${g.src}-1280w.webp 1280w`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt={g.alt}
+                loading="lazy"
+                decoding="async"
+                width="1280"
+                height="960"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <!-- ─── APPLICATIONS ─────────────────────────────────────────── -->
     <div class="prod-section" aria-labelledby="coir-apps-heading">
       <div class="container">
         <div class="prod-section__header" data-animate>
           <span class="eyebrow eyebrow--line">Applications</span>
-          <h2 class="prod-section__title" id="coir-apps-heading">Where Coir Carpet Is Used</h2>
+          <h2 class="prod-section__title" id="coir-apps-heading">Where It Performs</h2>
         </div>
         <div class="prod-apps-grid" data-animate data-delay="1">
           {applications.map((app) => (
@@ -207,12 +253,16 @@ const faqs = [
       <div class="container">
         <div class="coir-specs__grid" data-animate>
           <div class="coir-specs__item">
-            <span class="coir-specs__label">Material</span>
-            <span class="coir-specs__value">Natural coconut husk fibre</span>
+            <span class="coir-specs__label">Design</span>
+            <span class="coir-specs__value">In-house coir-type structured pattern</span>
           </div>
           <div class="coir-specs__item">
-            <span class="coir-specs__label">Finish</span>
-            <span class="coir-specs__value">Woven — natural brown &amp; beige tones</span>
+            <span class="coir-specs__label">Debut</span>
+            <span class="coir-specs__value">Bauma ConExpo India 2026</span>
+          </div>
+          <div class="coir-specs__item">
+            <span class="coir-specs__label">Proven</span>
+            <span class="coir-specs__value">Outdoor aisles &amp; indoor halls</span>
           </div>
           <div class="coir-specs__item">
             <span class="coir-specs__label">Coverage</span>
@@ -268,7 +318,7 @@ const faqs = [
       <div class="container">
         <div class="prod-cta__inner">
           <div class="prod-cta__text" data-animate>
-            <div class="prod-cta__title">Enquire about Coir Carpet</div>
+            <div class="prod-cta__title">Enquire about Structured Carpet</div>
             <p class="prod-cta__sub">
               Share your event brief, venue, and floor plan.
               We'll confirm specification and availability within 24 hours.
@@ -489,6 +539,92 @@ const faqs = [
     color: rgba(247, 246, 243, 0.88);
   }
 
+
+  /* ─── Case study ───────────────────────────────────────────────── */
+  .sc-case {
+    background: var(--color-navy-dark);
+    padding: var(--sp-9) 0;
+    color: var(--color-text-inverse);
+  }
+  .sc-case__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-7);
+    align-items: end;
+    margin-bottom: var(--sp-7);
+  }
+  .sc-case__title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 68px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: var(--color-text-inverse);
+    margin-top: var(--sp-3);
+  }
+  .sc-case__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4) var(--sp-5);
+    margin: 0;
+  }
+  .sc-case__fact {
+    border-top: 1px solid rgba(184, 150, 58, 0.45);
+    padding-top: var(--sp-2);
+  }
+  .sc-case__fact dt {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 246, 243, 0.40);
+    margin-bottom: 6px;
+  }
+  .sc-case__fact dd {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: rgba(247, 246, 243, 0.90);
+    margin: 0;
+  }
+  .sc-gal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    grid-auto-flow: dense;
+    gap: 10px;
+  }
+  .sc-gal__item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .sc-gal__item--wide { grid-column: span 2; }
+  .sc-gal__item--tall { grid-row: span 2; }
+  .sc-gal__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.85s var(--ease-out), filter 0.5s var(--ease-out);
+    filter: saturate(0.92);
+  }
+  .sc-gal__item:hover img { transform: scale(1.045); filter: saturate(1.05); }
+
+  @media (max-width: 1024px) {
+    .sc-case__head { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .sc-gal { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  }
+  @media (max-width: 600px) {
+    .sc-case__facts { grid-template-columns: 1fr; }
+    .sc-gal { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    .sc-gal__item--wide { grid-column: auto; }
+    .sc-gal__item--tall { grid-row: auto; }
+  }
+
   /* ─── FAQ ───────────────────────────────────────────────────────── */
 
   /* ─── Related ───────────────────────────────────────────────────── */
@@ -550,5 +686,6 @@ const faqs = [
   @media (prefers-reduced-motion: reduce) {
     .coir-hero__scroll-line { animation: none; }
     .coir-split:hover .coir-split__visual img { transform: none; }
+    .sc-gal__item:hover img { transform: none; }
   }
 </style>
