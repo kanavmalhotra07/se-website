@@ -16,7 +16,7 @@ const applications = [
 ];
 
 const gallery = [
-  { src: 'bauma-main-entrance', alt: 'Main entrance arch of Bauma ConExpo India 2026 at India Expo Centre & Mart, with coir-type structured carpet laid across the forecourt', cls: 'sc-gal__item--wide' },
+  { src: 'bauma-outdoor-avenue', alt: 'Long outdoor aisle at Bauma ConExpo India 2026 between Terex and Finlay displays, laid end to end in Sanchi coir-type structured carpet', cls: 'sc-gal__item--wide', pos: 'center 80%' },
   { src: 'bauma-outdoor-aisle', alt: 'Outdoor aisle at Bauma ConExpo India 2026 lined with exhibitor pavilions, laid in Sanchi coir-type structured carpet', cls: 'sc-gal__item--tall' },
   { src: 'bauma-gateway',       alt: 'Zone A gateway in the Bauma ConExpo India 2026 outdoor area, structured carpet running through the arch', cls: '' },
   { src: 'bauma-jcb',           alt: 'Outdoor machinery display at Bauma ConExpo India 2026 with structured carpet aisles', cls: '' },
@@ -219,6 +219,7 @@ const faqs = [
                 srcset={`/images/structured/${g.src}-640w.webp 640w, /images/structured/${g.src}-1280w.webp 1280w`}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt={g.alt}
+                style={g.pos ? `object-position: ${g.pos}` : undefined}
                 loading="lazy"
                 decoding="async"
                 width="1280"
